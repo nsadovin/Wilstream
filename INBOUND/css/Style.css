@@ -1,0 +1,48 @@
+﻿body {
+}
+
+
+.header {
+    width: 100%;
+}
+
+#logo {
+    width: 30%;
+}
+
+
+#welcome {
+    text-align:left;
+    padding-left: 30px;
+    font-size: 20px;
+    font-family: Arial;
+}
+
+#buttons {
+    text-align:right;
+    vertical-align: top;
+}
+
+    #buttons input {
+        width: 200px;
+        height: 30px;
+    }
+
+.error {
+ color: red;
+
+}
+
+.table-contacts {
+    width: 400px;
+}
+
+.table-contacts td{
+    border-bottom: 1px solid Grey;
+} 
+
+
+.ajax__tab_xp .ajax__tab_header 
+{
+	height: auto!important; 
+}

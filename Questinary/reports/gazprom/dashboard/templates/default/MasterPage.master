@@ -1,0 +1,121 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="templates_default_MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/style.css?v=2" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./templates/default/js/ckeditor/ckeditor.js"></script>
+    <script src="./templates/default/js/ckeditor/adapters/jquery.js"></script>
+    <script src="./templates/default/js/jquery.jmp3.js"></script>
+	<script type="text/javascript" src="./templates/default/js/jquery.simpleplayer.min.js"></script>
+	<link rel="stylesheet" href="./js/simpleplayer.css" type="text/css">
+    <script>
+		function set_play(){ 
+			 var settings = {
+				progressbarWidth: '200px',
+				progressbarHeight: '5px',
+				progressbarColor: '#22ccff',
+				progressbarBGColor: '#eeeeee',
+				defaultVolume: 0.8
+			};
+			$(".player").player(settings);
+		return;
+			$(".mp3").jmp3({
+				showfilename: "false",
+				backcolor: "000000",
+				forecolor: "00ff00",
+				width: 150,
+				showdownload: "true"
+			}); 
+			};
+        $(document).ready(function () {
+            $('textarea.editor').ckeditor();
+			// default options
+			//set_play();
+        });
+    </script>
+      
+      <script src="Scripts/moment-with-locales.min.js"></script> 
+    <script src="Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" /> 
+<style>
+.test {font-size: 12px; width: 100%;}
+.test td {padding: 4px;}
+.dates {width:150px;}
+
+.tables td {padding: 2px;}
+.tables th {padding: 2px!important;}
+.dates {width:150px;}
+    </style>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.dpicker').datetimepicker({ locale: 'ru', format: 'L' });
+            $('.dtpicker').datetimepicker({ locale: 'ru',   }); 
+        });
+</script>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+    <div id="head">
+            <div id="logo">
+                 
+            </div>
+              
+            <asp:menu ID="Menu1" Visible="False" runat="server" Orientation="Horizontal" StaticSubMenuIndent="16px" CssClass="crm-main-menu" DynamicEnableDefaultPopOutImage="False" StaticEnableDefaultPopOutImage="False" OnMenuItemDataBound="Menu1_MenuItemDataBound">
+                <DynamicSelectedStyle BackColor="White" />
+    <Items>
+         
+        
+            <asp:MenuItem NavigateUrl="~/Scenarios.aspx" Text="Сценарии" Value="Сценарии">
+                <asp:MenuItem NavigateUrl="~/Scenario.aspx" Text="Добавить сценарий" Value="Добавить сценарий"></asp:MenuItem>  
+            </asp:MenuItem>
+
+              
+            
+            <asp:MenuItem NavigateUrl="~/FAQSections.aspx" Text="FAQ" Value="FAQ"></asp:MenuItem>  
+            <asp:MenuItem NavigateUrl="~/Megareport.aspx" Text="Отчеты" Value="Отчеты"> 
+                <asp:MenuItem NavigateUrl="~/ReportTasks.aspx" Text="Отчет oktell, симпозиум: отправка на почту" Value="Отчет oktell, симпозиум: отправка на почту"></asp:MenuItem>  
+            </asp:MenuItem> 
+            <asp:MenuItem NavigateUrl="~/Projects.aspx" Text="Проекты" Value="Проекты"></asp:MenuItem> 
+            <asp:MenuItem NavigateUrl="~/FormValuesManager.aspx" Text="Рег. формы. Настройка" Value="Рег. формы. Настройка"></asp:MenuItem> 
+       
+        </Items>
+                 
+                    
+                <StaticMenuItemStyle Height="14px" HorizontalPadding="8px" VerticalPadding="8px" />
+                 
+                    
+                <StaticMenuStyle BackColor="#DCF5F1" />
+                <StaticSelectedStyle CssClass="staticMenuItemTemplateSelected" BackColor="White" BorderColor="White" Height="14px" HorizontalPadding="8px" VerticalPadding="8px" />
+              
+                    
+                <StaticItemTemplate>
+                    <%# Eval("Text") %>
+                </StaticItemTemplate>
+              
+                    
+        </asp:menu>
+        <div class="loginlogout"> 
+            </div>
+        </div>
+
+        
+    <div style="padding: 0 40px 40px 40px; ">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

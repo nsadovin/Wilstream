@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF1FDE66-7465-4937-B84D-F4F245F6EFC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spoofi.AmoCrmIntegration</RootNamespace>
+    <AssemblyName>Spoofi.AmoCrmIntegration</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AmoCrmConfig.cs" />
+    <Compile Include="AmoCrmEntity\CrmAccountInfo.cs" />
+    <Compile Include="AmoCrmEntity\CrmCompany.cs" />
+    <Compile Include="AmoCrmEntity\CrmTask.cs" />
+    <Compile Include="AmoCrmEntity\CrmContact.cs" />
+    <Compile Include="AmoCrmEntity\CrmCustomField.cs" />
+    <Compile Include="AmoCrmEntity\CrmLead.cs" />
+    <Compile Include="AmoCrmEntity\CrmLeadStatus.cs" />
+    <Compile Include="AmoCrmEntity\CrmPipeline.cs" />
+    <Compile Include="AmoCrmEntity\CrmTag.cs" />
+    <Compile Include="AmoCrmEntity\CrmUser.cs" />
+    <Compile Include="Dtos\Request\AddOrUpdateTaskRequest.cs" />
+    <Compile Include="Dtos\Request\AddOrUpdateContactRequest.cs" />
+    <Compile Include="Dtos\Request\AddOrUpdateLeadRequest.cs" />
+    <Compile Include="Dtos\Response\AccountInfoCustomFields.cs" />
+    <Compile Include="Dtos\Response\AddOrUpdateTaskResponse.cs" />
+    <Compile Include="Dtos\Response\AddOrUpdateContactResponse.cs" />
+    <Compile Include="Dtos\Response\AddOrUpdateLeadResponse.cs" />
+    <Compile Include="Dtos\Response\AmoCrmResponseBase.cs" />
+    <Compile Include="Dtos\Response\CrmGetAccountInfoResponse.cs" />
+    <Compile Include="Dtos\Response\CrmGetContactResponse.cs" />
+    <Compile Include="Dtos\Response\CrmGetPipeLineResponse.cs" />
+    <Compile Include="Dtos\Response\CrmGetLeadResponse.cs" />
+    <Compile Include="Dtos\Response\CrmResponseBase.cs" />
+    <Compile Include="Dtos\Response\NoteType.cs" />
+    <Compile Include="Dtos\Response\TaskType.cs" />
+    <Compile Include="Interface\IAmoCrmEntity.cs" />
+    <Compile Include="Interface\IAmoCrmRequest.cs" />
+    <Compile Include="Interface\IAmoCrmResponse.cs" />
+    <Compile Include="Interface\IAmoCrmResponseChild.cs" />
+    <Compile Include="Interface\IAmoCrmService.cs" />
+    <Compile Include="Methods\AmoMethod.cs" />
+    <Compile Include="Misc\AmoCrmErrors.cs" />
+    <Compile Include="Misc\AmoCrmException.cs" />
+    <Compile Include="Misc\Extensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AmoCrmService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

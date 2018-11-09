@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch="http://naumen.ru/soap/server" xmlns:tns="http://naumen.ru/soap/server" targetNamespace="http://naumen.ru/soap/server" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:smp="http://naumen.ru/soap/server" xmlns:tns="http://naumen.ru/soap/server" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://naumen.ru/soap/server" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="AddFileRequest" type="smp:addFileRequest" />
+      <xs:element name="CreateRequest" type="smp:createRequest" />
+      <xs:element name="CreateExclRequest" type="smp:createExclRequest" />
+      <xs:element name="DeleteRequest" type="smp:deleteRequest" />
+      <xs:element name="EditRequest" type="smp:editRequest" />
+      <xs:element name="EditExclRequest" type="smp:editExclRequest" />
+      <xs:element name="FindRequest" type="smp:findRequest" />
+      <xs:element name="GetFileRequest" type="smp:getFileRequest" />
+      <xs:element name="GetRequest" type="smp:getRequest" />
+      <xs:complexType name="deleteRequest">
+        <xs:sequence>
+          <xs:element form="qualified" name="accessKey" type="xs:string" />
+          <xs:element form="qualified" name="uuid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getRequest">
+        <xs:sequence>
+          <xs:element form="qualified" name="accessKey" type="xs:string" />
+          <xs:element form="qualified" name="uuid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addFileRequest">
+        <xs:sequence>
+          <xs:element form="qualified" name="accessKey" type="xs:string" />
+          <xs:element form="qualified" name="content" type="xs:string" />
+          <xs:element form="qualified" name="mimeType" type="xs:string" />
+          <xs:element form="qualified" name="sourceUUID" type="xs:string" />
+          <xs:element form="qualified" name="title" type="xs:string" />
+          <xs:element minOccurs="0" form="qualified" name="attrCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="editRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension base="smp:hasAttributesRequest">
+            <xs:sequence>
+              <xs:element minOccurs="0" form="qualified" name="uuid" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="editExclRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension base="smp:hasAttributesRequest">
+            <xs:sequence>
+              <xs:element minOccurs="0" form="qualified" name="uuid" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="hasAttributesRequest" abstract="true">
+        <xs:sequence>
+          <xs:element form="qualified" name="accessKey" type="xs:string" />
+          <xs:element minOccurs="0" form="qualified" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" form="qualified" name="entry" type="smp:entry" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="entry">
+        <xs:sequence>
+          <xs:element form="qualified" name="key" type="xs:string" />
+          <xs:element minOccurs="0" form="qualified" name="value" type="smp:anyType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="anyType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element form="qualified" name="string" type="xs:string" />
+            <xs:element form="qualified" name="aggregate" type="smp:aggregateValue" />
+            <xs:element form="qualified" name="dateTimeInterval" type="smp:dateTimeInterval" />
+            <xs:element form="qualified" name="hyperlink" type="smp:hyperlink" />
+            <xs:element form="qualified" name="objects" type="smp:objectsStr" />
+            <xs:element form="qualified" name="long" type="xs:long" />
+            <xs:element form="qualified" name="period" type="smp:period" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="aggregateValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ou" type="xs:string" />
+          <xs:element minOccurs="0" name="team" type="xs:string" />
+          <xs:element minOccurs="0" name="employee" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dateTimeInterval">
+        <xs:sequence />
+        <xs:attribute name="length" type="xs:long" />
+        <xs:attribute name="interval" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="hyperlink">
+        <xs:sequence />
+        <xs:attribute name="text" type="xs:string" />
+        <xs:attribute name="url" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="objectsStr">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" form="qualified" name="objectsStr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="period">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="periodStart" type="xs:string" />
+          <xs:element minOccurs="0" name="periodEnd" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension base="smp:hasAttributesRequest">
+            <xs:sequence>
+              <xs:element form="qualified" name="fqn" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="createExclRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension base="smp:hasAttributesRequest">
+            <xs:sequence>
+              <xs:element form="qualified" name="uuid" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="findRequest">
+        <xs:complexContent mixed="false">
+          <xs:extension base="smp:hasAttributesRequest">
+            <xs:sequence>
+              <xs:element form="qualified" name="fqn" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getFileRequest">
+        <xs:sequence>
+          <xs:element form="qualified" name="accessKey" type="xs:string" />
+          <xs:element form="qualified" name="uuid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="EditExclRequest">
+    <wsdl:part name="EditExclRequest" element="tns:EditExclRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddFileRequest">
+    <wsdl:part name="AddFileRequest" element="tns:AddFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="FindRequest">
+    <wsdl:part name="FindRequest" element="tns:FindRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRequest">
+    <wsdl:part name="DeleteRequest" element="tns:DeleteRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateExclRequest">
+    <wsdl:part name="CreateExclRequest" element="tns:CreateExclRequest" />
+  </wsdl:message>
+  <wsdl:message name="EditRequest">
+    <wsdl:part name="EditRequest" element="tns:EditRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetFileRequest">
+    <wsdl:part name="GetFileRequest" element="tns:GetFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateRequest">
+    <wsdl:part name="CreateRequest" element="tns:CreateRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetRequest">
+    <wsdl:part name="GetRequest" element="tns:GetRequest" />
+  </wsdl:message>
+  <wsdl:portType name="Service">
+    <wsdl:operation name="EditExcl">
+      <wsdl:input name="EditExclRequest" message="tns:EditExclRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFile">
+      <wsdl:input name="AddFileRequest" message="tns:AddFileRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <wsdl:input name="FindRequest" message="tns:FindRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input name="DeleteRequest" message="tns:DeleteRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateExcl">
+      <wsdl:input name="CreateExclRequest" message="tns:CreateExclRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="Edit">
+      <wsdl:input name="EditRequest" message="tns:EditRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:input name="GetFileRequest" message="tns:GetFileRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input name="CreateRequest" message="tns:CreateRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input name="GetRequest" message="tns:GetRequest" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap11" type="tns:Service">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EditExcl">
+      <soap:operation soapAction="" />
+      <wsdl:input name="EditExclRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddFile">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AddFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <soap:operation soapAction="" />
+      <wsdl:input name="FindRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="" />
+      <wsdl:input name="DeleteRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CreateExcl">
+      <soap:operation soapAction="" />
+      <wsdl:input name="CreateExclRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Edit">
+      <soap:operation soapAction="" />
+      <wsdl:input name="EditRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="" />
+      <wsdl:input name="CreateRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceService">
+    <wsdl:port name="ServiceSoap11" binding="tns:ServiceSoap11">
+      <soap:address location="https://sd.tanuki.ru/sd/soap/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
