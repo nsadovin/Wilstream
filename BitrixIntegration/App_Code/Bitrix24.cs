@@ -47,7 +47,7 @@ public class Bitrix24
             password = "azsxdcfv890";
 
         }
-
+         
         Connect();
     }
     //Создаем закрытый метод для начального подключения к Битрикс24
