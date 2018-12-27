@@ -34,15 +34,18 @@ public class ViArtExportLead : IHttpHandler {
         var contact_fields = _service.GetAccountInfo().CustomFields.Contacts;
         var users = _service.GetAccountInfo().Users.ToList();
 
-        var phone = context.Request.QueryString["phone"] != null ? context.Request.QueryString["phone"].ToString() : "9197651287";
-        var dtcall = context.Request.QueryString["dtcall"] != null ? context.Request.QueryString["dtcall"].ToString() : "2018-10-31 21:25:00";
+        var namehouse = context.Request.QueryString["namehouse"] != null ? context.Request.QueryString["namehouse"].ToString() : "Нет данных";
+        var name = context.Request.QueryString["name"] != null ? context.Request.QueryString["name"].ToString() : "Нет данных";
+        var namecompany = context.Request.QueryString["namecompany"] != null ? context.Request.QueryString["namecompany"].ToString() : "Нет данных";
+        var phone = context.Request.QueryString["phone"] != null ? context.Request.QueryString["phone"].ToString() : "";
+        var dtcall = context.Request.QueryString["dtcall"] != null ? context.Request.QueryString["dtcall"].ToString() : "";
         var result = context.Request.QueryString["result"] != null ? context.Request.QueryString["result"].ToString() : "Успех";
         var l = _service.GetLead(Convert.ToInt64(10258157)); 
         var c =  _service.GetContact(23939153) ;
         var request = new AddOrUpdateLeadRequest();
         var lead = new AddOrUpdateCrmLead();
-        lead.Name = "Звонок в КЦ. Статус: " + result;
-        lead.DateCreate = DateTime.Parse(dtcall);
+        lead.Name = namehouse;
+       // lead.DateCreate = DateTime.Parse(dtcall);
         lead.StatusId = "21770533";
         request.Add = new List<AddOrUpdateCrmLead>();
         request.Add.Add(lead);
@@ -56,7 +59,8 @@ public class ViArtExportLead : IHttpHandler {
 
                 var _contact = new AddOrUpdateCrmContact();
                 _contact.LeadsId = rslt.FirstOrDefault().Id.ToString();
-                _contact.Name = phone;
+                _contact.Name = name;
+                _contact.CompanyName = namecompany;
                 _contact.CustomFields = new List<AddContactCustomField>() {
                     new AddContactCustomField() { 
                          Id = 459675, 

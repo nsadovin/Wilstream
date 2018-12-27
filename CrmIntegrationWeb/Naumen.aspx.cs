@@ -18,7 +18,7 @@ public partial class Naumen : System.Web.UI.Page
         {
             Path = "~/Scripts/jquery-3.0.0.min.js",
         });
-        n = new NaumenSD("40c34c8e-a42c-4ee4-9b0f-375187a0c9ae");
+        n = new NaumenSD("4a1090ac-c13f-42cd-9295-a8f0e992eeab");
 
         if (Request.QueryString["UUID"] != null && !IsPostBack)
         {
@@ -27,7 +27,7 @@ public partial class Naumen : System.Web.UI.Page
             if (error =="")
             {
                 TextBoxDescriptionRTF.Text = call.descriptionRTF.ToString();
-                TextBoxShortDescr.Text = call.shortDescr.ToString();
+                TextBoxShortDescr.Text = call.shortDescr.ToString().Replace("<br/>", System.Environment.NewLine);
                 if(DropDownListUrgency.Items.FindByValue(call.urgency.UUID.ToString())!=null)
                 DropDownListUrgency.SelectedValue = call.urgency.UUID.ToString();
                 LabelLead.Text = "Заявка: " + call.shortDescr.ToString()+". Номер: SD"+ call.number.ToString();
@@ -36,6 +36,10 @@ public partial class Naumen : System.Web.UI.Page
         }
     }
 
+    string ReplaceNewlines(string blockOfText, string replaceWith)
+    {
+        return blockOfText.Replace("\r\n", replaceWith).Replace("\n", replaceWith).Replace("\r", replaceWith);
+    }
 
     protected void ButtonSaveLead_Click(object sender, EventArgs e)
     {
@@ -45,9 +49,9 @@ public partial class Naumen : System.Web.UI.Page
         string error = "";
         string UUID = "";
         if (HiddenFieldLeadUUID.Value!="")
-            UUID = n.UpdateServiceCall(HiddenFieldLeadUUID.Value,TextBoxDescriptionRTF.Text, TextBoxShortDescr.Text, DropDownListUrgency.SelectedValue, ref error);
+            UUID = n.UpdateServiceCall(HiddenFieldLeadUUID.Value, ReplaceNewlines(TextBoxDescriptionRTF.Text, " "), TextBoxShortDescr.Text, DropDownListUrgency.SelectedValue, ref error);
         else
-            UUID = n.AddServiceCall(TextBoxDescriptionRTF.Text, TextBoxShortDescr.Text, DropDownListUrgency.SelectedValue, ref error);
+            UUID = n.AddServiceCall(ReplaceNewlines(TextBoxDescriptionRTF.Text, " "), TextBoxShortDescr.Text, DropDownListUrgency.SelectedValue, ref error);
         if (error == "")
             Response.Redirect("~/Naumen.aspx?UUID=" + UUID);
         else

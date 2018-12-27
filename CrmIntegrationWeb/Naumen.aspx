@@ -6,6 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title> 
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" /> 
     <script src="Scripts/popper.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
@@ -57,9 +58,22 @@
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
-                    <asp:Button ID="ButtonSaveLead" CausesValidation="true" CssClass="btn btn-primary" ValidationGroup="SaveAndUpdateLead" runat="server" OnClick="ButtonSaveLead_Click"  Text="Сохранить" />
+                    <asp:Button ID="ButtonSaveLead" CausesValidation="true"  CssClass="btn btn-primary saver" ValidationGroup="SaveAndUpdateLead" runat="server" OnClick="ButtonSaveLead_Click"  Text="Сохранить" />
         </div>
         </div>
+        <script>
+            $(document).ready(function () {
+
+                $('.saver').click(function () {
+                    if ($('.saver').data("stop") == "1") return false;
+                    else {
+                        $('.saver').data("stop", "1");
+                        return true;
+                    }
+                    setTimeout('$(".saver").data("stop", "");',2000);
+                });
+            });
+        </script>
     </form>
     </div>
 </body>
