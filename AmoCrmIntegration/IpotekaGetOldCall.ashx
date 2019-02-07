@@ -19,7 +19,7 @@ using System.Data;
 
 public class IpotekaGetOldCall : IHttpHandler {
 
-    private static readonly AmoCrmConfig Config = new AmoCrmConfig("ctx1", "tokmadzhan@ctx.su", "22de73d16ffa7c4d84bc3f4a3f1015b0", 10);
+    private static readonly AmoCrmConfig Config = new AmoCrmConfig("vsevisa", "mfc@vsevisa.ru", "64f759fa75b0cc2c981eeb596919ea6b", 10);
 
     private static int StatusNothandled = 21650955;//22373157;
     private static HttpContext _context  ;

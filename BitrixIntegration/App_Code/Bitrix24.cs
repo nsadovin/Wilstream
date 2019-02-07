@@ -50,6 +50,22 @@ public class Bitrix24
          
         Connect();
     }
+
+    public Bitrix24(HttpContext _httpContext, string ClientID, string ClientSecret, string Portal, string OAuthSite, string UserName, string Password)
+    {
+        httpContext = _httpContext;
+        BX_ClientID = ClientID;
+        BX_ClientSecret = ClientSecret;
+        BX_Portal = Portal;
+        BX_OAuthSite = OAuthSite;
+        username = UserName;
+        password = Password;
+
+        Connect();
+    }
+
+
+
     //Создаем закрытый метод для начального подключения к Битрикс24
     private void Connect()
     {
@@ -232,7 +248,8 @@ public class Bitrix24
     {
         get
         {
-            return new List<Userfield>()
+            if (BX_Portal == "https://medoradv.bitrix24.ru")
+                return new List<Userfield>()
             {
                  new Userfield() {
                         ID = 182,
@@ -275,10 +292,83 @@ public class Bitrix24
                            new UF_LIST(){ ID = 142, SORT = 6, VALUE = "207.mos-lift.ru" },
                            new UF_LIST(){ ID = 134, SORT = 7, VALUE = "203.mosidea.ru" },
                            new UF_LIST(){ ID = 144, SORT = 8, VALUE = "- Заявка не с сайта - " },
-                           new UF_LIST(){ ID = 622, SORT = 9, VALUE = "заявки сайт airmg.net" } 
+                           new UF_LIST(){ ID = 622, SORT = 9, VALUE = "заявки сайт airmg.net" }
                        }
                  }
             };
+            else
+            {
+                var dataListUsers = new
+                {
+
+                    sort = "ID"
+                };
+
+                var userfieldJson = SendCommand("crm.lead.userfield.get", "ID=190", "", "GET");
+                var userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+
+                var Userfields = new List<Bitrix24.Userfield>() {
+                    new Bitrix24.Userfield() {
+                        ID = userfield.ID,
+                       ENTITY_ID = userfield.ENTITY_ID ,
+                       NAME = userfield.EDIT_FORM_LABEL.ru,
+                       FIELD_NAME = userfield.FIELD_NAME,
+                       USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration ,
+                       LIST = new List<Bitrix24.UF_LIST>()
+                 },
+                };
+
+                        foreach (var keyvalue in userfield.LIST)
+                        {
+                            var listic = keyvalue.ToString();
+                            var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+                            Userfields[0].LIST.Add(li);
+                        }
+
+                  userfieldJson = SendCommand("crm.lead.userfield.get", "ID=192", "", "GET");
+                  userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+
+                  Userfields.Add( 
+                    new Bitrix24.Userfield() {
+                        ID = userfield.ID,
+                       ENTITY_ID = userfield.ENTITY_ID ,
+                       NAME = userfield.EDIT_FORM_LABEL.ru,
+                       FIELD_NAME = userfield.FIELD_NAME,
+                       USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration ,
+                       LIST = new List<Bitrix24.UF_LIST>()
+                 
+                });
+
+                foreach (var keyvalue in userfield.LIST)
+                {
+                    var listic = keyvalue.ToString();
+                    var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+                    Userfields[1].LIST.Add(li);
+                }
+                userfieldJson = SendCommand("crm.lead.userfield.get", "ID=194", "", "GET");
+                userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+
+                Userfields.Add(
+                  new Bitrix24.Userfield()
+                  {
+                      ID = userfield.ID,
+                      ENTITY_ID = userfield.ENTITY_ID,
+                      NAME = userfield.EDIT_FORM_LABEL.ru,
+                      FIELD_NAME = userfield.FIELD_NAME,
+                      USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration,
+                      LIST = new List<Bitrix24.UF_LIST>()
+
+                  });
+
+                foreach (var keyvalue in userfield.LIST)
+                {
+                    var listic = keyvalue.ToString();
+                    var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+                    Userfields[2].LIST.Add(li);
+                }
+
+                return Userfields;
+            }    ;
         }
     }
 
@@ -288,7 +378,8 @@ public class Bitrix24
     {
         public int ID;
         public int SORT;
-        public string VALUE; 
+        public string VALUE;
+        public string DEF;
     }
     public class Userfield
     {
