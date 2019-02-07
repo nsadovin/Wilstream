@@ -165,6 +165,30 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Questinary", "Questinary\",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guru", "GuruTaxi\Guru.csproj", "{BF5186AF-BCBD-4B99-8503-315608640808}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{9E8449B3-9A6C-462D-93D6-8FC3C7E652BF}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Forms", "Forms\", "{95F93A34-860A-4EE9-A1BA-978DE926F497}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_58995"
+		Debug.AspNetCompiler.PhysicalPath = "Forms\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58995\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_58995"
+		Release.AspNetCompiler.PhysicalPath = "Forms\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58995\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "58995"
+		SlnRelativePath = "Forms\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -211,12 +235,17 @@ Global
 		{BF5186AF-BCBD-4B99-8503-315608640808}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF5186AF-BCBD-4B99-8503-315608640808}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF5186AF-BCBD-4B99-8503-315608640808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F93A34-860A-4EE9-A1BA-978DE926F497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F93A34-860A-4EE9-A1BA-978DE926F497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F93A34-860A-4EE9-A1BA-978DE926F497}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F93A34-860A-4EE9-A1BA-978DE926F497}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BF1FDE66-7465-4937-B84D-F4F245F6EFC6} = {E4E44699-8E60-4652-AA42-2886FB29A186}
+		{95F93A34-860A-4EE9-A1BA-978DE926F497} = {9E8449B3-9A6C-462D-93D6-8FC3C7E652BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F45207D-0A1D-491E-A11B-0B9DE2C48632}
