@@ -18,7 +18,7 @@ public partial class biocad : System.Web.UI.Page
         HtmlTextWriter tw = new HtmlTextWriter(sw);
 
         form1.RenderControl(tw);
-        send("vesdehod@mail.ru", sw.ToString(), "Анкета", true);
+        send("vesdehod@mail.ru", sw.ToString(), "Анкета БИОКАД", true);
         Response.Write("Отправлено");
         Response.End();
     }
@@ -42,7 +42,9 @@ public partial class biocad : System.Web.UI.Page
         m.Subject = subject;
 
 
-        m.Bcc.Add("vesdehod@yandex.ru");
+        m.Bcc.Add("vesdehod@yandex.ru"); 
+        m.Bcc.Add("vesdehod@mail.ru");
+        m.Bcc.Add("denisenko@wilstream.ru");
 
         string EMAIL_BCOPY = "vesdehod@mail.ru";
         if (EMAIL_BCOPY != "") m.Bcc.Add(EMAIL_BCOPY);
