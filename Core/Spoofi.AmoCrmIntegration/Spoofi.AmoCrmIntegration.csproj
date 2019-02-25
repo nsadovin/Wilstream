@@ -50,6 +50,7 @@
     <Compile Include="AmoCrmConfig.cs" />
     <Compile Include="AmoCrmEntity\CrmAccountInfo.cs" />
     <Compile Include="AmoCrmEntity\CrmCompany.cs" />
+    <Compile Include="AmoCrmEntity\CrmNote.cs" />
     <Compile Include="AmoCrmEntity\CrmTask.cs" />
     <Compile Include="AmoCrmEntity\CrmContact.cs" />
     <Compile Include="AmoCrmEntity\CrmCustomField.cs" />
@@ -58,15 +59,18 @@
     <Compile Include="AmoCrmEntity\CrmPipeline.cs" />
     <Compile Include="AmoCrmEntity\CrmTag.cs" />
     <Compile Include="AmoCrmEntity\CrmUser.cs" />
+    <Compile Include="Dtos\Request\AddOrUpdateNoteRequest.cs" />
     <Compile Include="Dtos\Request\AddOrUpdateTaskRequest.cs" />
     <Compile Include="Dtos\Request\AddOrUpdateContactRequest.cs" />
     <Compile Include="Dtos\Request\AddOrUpdateLeadRequest.cs" />
     <Compile Include="Dtos\Response\AccountInfoCustomFields.cs" />
+    <Compile Include="Dtos\Response\AddOrUpdateNoteResponse.cs" />
     <Compile Include="Dtos\Response\AddOrUpdateTaskResponse.cs" />
     <Compile Include="Dtos\Response\AddOrUpdateContactResponse.cs" />
     <Compile Include="Dtos\Response\AddOrUpdateLeadResponse.cs" />
     <Compile Include="Dtos\Response\AmoCrmResponseBase.cs" />
     <Compile Include="Dtos\Response\CrmGetAccountInfoResponse.cs" />
+    <Compile Include="Dtos\Response\CrmGetNoteResponse.cs" />
     <Compile Include="Dtos\Response\CrmGetContactResponse.cs" />
     <Compile Include="Dtos\Response\CrmGetPipeLineResponse.cs" />
     <Compile Include="Dtos\Response\CrmGetLeadResponse.cs" />

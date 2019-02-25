@@ -66,6 +66,13 @@ namespace Spoofi.AmoCrmIntegration
         }
 
 
+        private string NotesListUrl
+        {
+                get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/notes/list?type=lead", Subdomain); }
+          //  get { return string.Format("https://{0}.amocrm.ru/api/v2/notes?type=lead", Subdomain); }
+        }
+
+
         private string PipeLinesUrl
         {
             //  get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/leads/list?", Subdomain); }
@@ -88,6 +95,11 @@ namespace Spoofi.AmoCrmIntegration
         {
            // get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/tasks/set", Subdomain); }
             get { return string.Format("https://{0}.amocrm.ru/api/v2/tasks/", Subdomain); }
+        }
+        public string SetNoteUrl
+        {
+            // get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/notes/set", Subdomain); }
+            get { return string.Format("https://{0}.amocrm.ru/api/v2/notes/", Subdomain); }
         }
 
         public string DealUrl
@@ -113,11 +125,13 @@ namespace Spoofi.AmoCrmIntegration
             {
                 {typeof (CrmGetAccountInfoResponse), AccountCurrentUrl},
                 {typeof (CrmGetContactResponse), ContactsListUrl},
+                {typeof (CrmGetNoteResponse), NotesListUrl},
                 {typeof (CrmGetLeadResponse), LeadsListUrl},
                 {typeof (CrmGetPipeLineResponse), PipeLinesUrl}, 
                 {typeof (AddOrUpdateLeadResponse), SetLeadUrl},
                 {typeof (AddOrUpdateContactResponse), SetContactUrl},
-                {typeof (AddOrUpdateTaskResponse), SetTaskUrl}
+                {typeof (AddOrUpdateTaskResponse), SetTaskUrl},
+                {typeof (AddOrUpdateNoteResponse), SetNoteUrl}
             };
             typeDictionary.TryGetValue(typeof (T), out result);
             return result;

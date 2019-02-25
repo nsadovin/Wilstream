@@ -145,6 +145,21 @@ namespace Spoofi.AmoCrmIntegration.Service
             return contacts;
         }
 
+        public IEnumerable<CrmNote> GetNotes(long elementId)
+        {
+            var notes = new List<CrmNote>();
+            for (var offset = 0; ; offset += _crmConfig.LimitRows ?? 500)
+            {
+                _crmConfig.LimitOffset = offset;
+                var parameterResponsibleUserId = new Parameter { Name = "element_id", Value = elementId, Type = ParameterType.QueryString };
+                var contactsList = AmoMethod.Get<CrmGetNoteResponse>(_crmConfig, parameterResponsibleUserId);
+                if (contactsList == null)
+                    break;
+                notes.AddRange(contactsList.Response.Notes);
+            }
+            return notes;
+        }
+
         public CrmContact GetContact(long contactId)
         {
             var parameterId = new Parameter {Name = "id", Value = contactId, Type = ParameterType.QueryString};
@@ -173,5 +188,13 @@ namespace Spoofi.AmoCrmIntegration.Service
             var response = AmoMethod.Post<AddOrUpdateTaskResponse>(request, _crmConfig);
             return response.Response.Tasks;
         }
+
+        public List<AddedOrUpdatedNote> AddOrUpdateNote(AddOrUpdateNoteRequest addOrUpdateNoteRequest)
+        {
+            var request = addOrUpdateNoteRequest;
+            var response = AmoMethod.Post<AddOrUpdateNoteResponse>(request, _crmConfig);
+            return response.Response.Tasks;
+        }
+
     }
 }

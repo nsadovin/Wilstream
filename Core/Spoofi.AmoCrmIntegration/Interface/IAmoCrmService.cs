@@ -64,6 +64,12 @@ namespace Spoofi.AmoCrmIntegration.Interface
         IEnumerable<CrmContact> GetContacts(long responsibleUserId);
 
         /// <summary>
+        ///     Получить все примечания из CRM по id элемента
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<CrmNote> GetNotes(long elementId);
+
+        /// <summary>
         ///     Получить контакт по id
         /// </summary>
         /// <param name="contactId">id контакта</param>
@@ -86,6 +92,13 @@ namespace Spoofi.AmoCrmIntegration.Interface
         /// <param name="addOrUpdateTasks">Объект с обновляемыми/добавляемыми задачами</param>
         /// <returns></returns>
         List<AddedOrUpdatedTask> AddOrUpdateTask(AddOrUpdateTaskRequest addOrUpdateTaskRequest);
+
+        /// <summary>
+        ///     Добавление или обновление примечания
+        /// </summary>
+        /// <param name="addOrUpdateNotes">Объект с обновляемыми/добавляемыми примечание</param>
+        /// <returns></returns>
+        List<AddedOrUpdatedNote> AddOrUpdateNote(AddOrUpdateNoteRequest addOrUpdateNoteRequest);
 
         /// <summary>
         ///     Добавление или обновление лида
