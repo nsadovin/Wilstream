@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28016.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BitrixIntegration(1)", "BitrixIntegration\", "{B054F54C-29E6-4CF5-86D1-606B7A090725}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BitrixIntegration", "BitrixIntegration\", "{B054F54C-29E6-4CF5-86D1-606B7A090725}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51315"
@@ -213,6 +213,29 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Интерлизинг", "�
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Прибор Банк", "Прибор Банк\", "{DAB6609A-477B-49D2-8480-D4756CE43311}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{bf1fde66-7465-4937-b84d-f4f245f6efc6}|Spoofi.AmoCrmIntegration.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49098"
+		Debug.AspNetCompiler.PhysicalPath = "Прибор Банк\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49098\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49098"
+		Release.AspNetCompiler.PhysicalPath = "Прибор Банк\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49098\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49098"
+		SlnRelativePath = "Прибор Банк\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -267,6 +290,10 @@ Global
 		{0763704F-D3BA-4257-A881-696AAED343A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0763704F-D3BA-4257-A881-696AAED343A1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{0763704F-D3BA-4257-A881-696AAED343A1}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{DAB6609A-477B-49D2-8480-D4756CE43311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB6609A-477B-49D2-8480-D4756CE43311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB6609A-477B-49D2-8480-D4756CE43311}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB6609A-477B-49D2-8480-D4756CE43311}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -275,6 +302,7 @@ Global
 		{BF1FDE66-7465-4937-B84D-F4F245F6EFC6} = {E4E44699-8E60-4652-AA42-2886FB29A186}
 		{95F93A34-860A-4EE9-A1BA-978DE926F497} = {9E8449B3-9A6C-462D-93D6-8FC3C7E652BF}
 		{0763704F-D3BA-4257-A881-696AAED343A1} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
+		{DAB6609A-477B-49D2-8480-D4756CE43311} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F45207D-0A1D-491E-A11B-0B9DE2C48632}

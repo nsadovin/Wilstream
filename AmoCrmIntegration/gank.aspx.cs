@@ -115,7 +115,7 @@ public partial class gank : System.Web.UI.Page
             var lead = _service.GetLead(Convert.ToInt64(IdLead));
 
             //lead = _service.GetLead(lead.Id);
-
+            PanelMainContact.Visible = true;
 
             if (lead != null)
             {
@@ -238,7 +238,9 @@ public partial class gank : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            HiddenFieldIdChain.Value = Request.QueryString["IdChain"] != null ? Request.QueryString["IdChain"].ToString() : "";
 
+            TextBoxMainCampaignName.Text = Request.QueryString["Column_3"] != null ? Request.QueryString["Column_3"].ToString() : "";
         };
 
     }
@@ -492,6 +494,24 @@ public partial class gank : System.Web.UI.Page
             var newLead = _service.AddOrUpdateLead(request);
             if (newLead.Count > 0)
             {
+                if (HiddenFieldIdChain.Value != null)
+                {
+                    var requestNote = new AddOrUpdateNoteRequest(); 
+                    requestNote.Update = new List<AddOrUpdateCrmNote>();
+                    requestNote.Add = new List<AddOrUpdateCrmNote>();
+                    {
+                        var _note = new AddOrUpdateCrmNote();
+                        _note.ElementId = newLead.FirstOrDefault().Id;
+                        _note.ElementType = 2;
+                        _note.Text = "CallId:"+ HiddenFieldIdChain.Value;
+                        _note.ResponsibleUserId = Convert.ToInt64(3160069);
+                        _note.NoteType = 4;
+                        requestNote.Add.Add(_note);
+                    }
+
+
+                    _service.AddOrUpdateNote(requestNote);
+                }
                 var IdContact = CreateContacts(newLead.FirstOrDefault().Id);
                 Response.Redirect("~/gank.aspx?IdLead=" + newLead.FirstOrDefault().Id);
             }
@@ -758,7 +778,7 @@ public partial class gank : System.Web.UI.Page
             _note.ElementId = crmLead.Id;
             _note.ElementType = 2;
             _note.Text = TextBoxTextNote.Text;
-            _note.ResponsibleUserId = Convert.ToInt64(DropDownListResponsibleUserId.SelectedValue);
+            _note.ResponsibleUserId = Convert.ToInt64(3160069);
             _note.NoteType = 4; 
             request.Add.Add(_note);
         }

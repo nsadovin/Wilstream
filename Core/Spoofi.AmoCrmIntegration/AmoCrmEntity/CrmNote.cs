@@ -15,7 +15,7 @@ namespace Spoofi.AmoCrmIntegration.AmoCrmEntity
         public string Text { get; set; }
 
         [JsonProperty("element_id")]
-        public string ElementId { get; set; }
+        public long ElementId { get; set; }
 
         [JsonProperty("last_modified")]
         public long LastModifiedTimestamp { get; set; }
@@ -47,7 +47,7 @@ namespace Spoofi.AmoCrmIntegration.AmoCrmEntity
         
 
         [JsonProperty("note_type")]
-        public string NoteType { get; set; }
+        public int NoteType { get; set; }
 
          
     }

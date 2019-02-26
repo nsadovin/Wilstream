@@ -15,6 +15,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        
+            <asp:HiddenField ID="HiddenFieldIdChain" runat="server" />
     <div class="container-fluid">
         <div class="row" style="padding: 10px;"> 
                 <asp:Label ID="LabelMsg" Visible="false" style="width: 100%;" runat="server" Text=""></asp:Label>
@@ -71,7 +73,7 @@
         </asp:Panel>
         </div>
         <div class="col"> 
-        <asp:Panel ID="PanelMainContact"    runat="server">
+        <asp:Panel ID="PanelMainContact"  Visible="false"   runat="server">
             <h1>Контакт</h1> 
             <asp:HiddenField ID="HiddenFieldMainContactId" runat="server" />
             <asp:Panel ID="PanelContacts"   runat="server">
@@ -91,8 +93,8 @@
                  </asp:Table>  
              </asp:Panel>
              <br/>
-                <asp:Button ID="ButtonUpdateMainContact"  CssClass="btn btn-primary" OnClick="ButtonUpdateMainContact_Click" runat="server" Text="Сохранить изменения" />
-                <asp:Button ID="ButtonAddContact"   CssClass="btn btn-outline-primary" OnClick="ButtonAddContact_Click" runat="server" Text="Добавить +" />
+                <asp:Button ID="ButtonUpdateMainContact" Visible="false"  CssClass="btn btn-primary" OnClick="ButtonUpdateMainContact_Click" runat="server" Text="Сохранить изменения" />
+                <asp:Button ID="ButtonAddContact" Visible="false"  CssClass="btn btn-outline-primary" OnClick="ButtonAddContact_Click" runat="server" Text="Добавить +" />
             
         </asp:Panel>
 

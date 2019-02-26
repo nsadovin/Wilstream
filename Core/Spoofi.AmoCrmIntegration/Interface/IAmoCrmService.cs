@@ -69,6 +69,13 @@ namespace Spoofi.AmoCrmIntegration.Interface
         /// <returns></returns>
         IEnumerable<CrmNote> GetNotes(long elementId);
 
+
+        /// <summary>
+        ///     Получить все примечания из CRM по содержимому
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<CrmNote> GetNotes(string query);
+
         /// <summary>
         ///     Получить контакт по id
         /// </summary>

@@ -160,6 +160,21 @@ namespace Spoofi.AmoCrmIntegration.Service
             return notes;
         }
 
+        public IEnumerable<CrmNote> GetNotes(string query)
+        {
+            var notes = new List<CrmNote>();
+            for (var offset = 0; ; offset += _crmConfig.LimitRows ?? 500)
+            {
+                _crmConfig.LimitOffset = offset;
+                var parameterResponsibleUserId = new Parameter { Name = "query", Value = query, Type = ParameterType.QueryString };
+                var contactsList = AmoMethod.Get<CrmGetNoteResponse>(_crmConfig, parameterResponsibleUserId);
+                if (contactsList == null)
+                    break;
+                notes.AddRange(contactsList.Response.Notes);
+            }
+            return notes;
+        }
+
         public CrmContact GetContact(long contactId)
         {
             var parameterId = new Parameter {Name = "id", Value = contactId, Type = ParameterType.QueryString};
