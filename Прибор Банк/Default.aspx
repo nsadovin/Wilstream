@@ -23,7 +23,6 @@
         <asp:HiddenField ID="HF_Fio" runat="server" />
         <asp:HiddenField ID="HF_Out_ID" runat="server" />
         <asp:HiddenField ID="HF_cid" runat="server" />
-        <asp:HiddenField ID="HiddenFieldOut_ID" runat="server" />
          
         <asp:HiddenField ID="HF_Abonent_ID" runat="server" /> 
         <asp:HiddenField ID="HiddenFieldColumn_12" runat="server" /> 
@@ -68,7 +67,7 @@
                                 Меня зовут «<asp:Label ID="Label1"     runat="server" Text=""></asp:Label>», НПО «Прибор ганк». 
                                 Наша компания с 1990 года производит газоанализаторы для контроля загазованности атмосферы и воздуха рабочей зоны.<br/>
                                 Скажите, на данный момент у Вас есть какие-то проекты по контролю ПДК рабочей зоны или атмосферы, где можно было бы предложить наше решение задачи?
-
+                                <asp:HiddenField ID="HiddenFieldA1" runat="server" />
                                 <br/> 
                                 <asp:Button CommandName="Panel29" CommandArgument="есть" ToolTip="1" onclick="QAC_Button" Text="есть" CssClass="green unibutton  big2" Width="300"  ID="Button42_2_5"  runat="server" /><br/> 
                                  <asp:Button CommandName="Panel28" CommandArgument="нет" ToolTip="1" onclick="QAC_Button" Text="нет" CssClass="green unibutton  big2" Width="300"  ID="Button2"  runat="server" /><br/> 
@@ -80,6 +79,7 @@
                             <asp:Panel ID="Panel28" runat="server" Visible="false">
                                 А в ближайшем будущем появятся? Может, у Вас планируется закупка газоанализаторов, взамен тех, что вышли из строя?
                                 <br/> 
+                                <asp:HiddenField ID="HiddenFieldA2" runat="server" />
                                 <asp:Button CommandName="Panel29" CommandArgument="да" ToolTip="2" onclick="QAC_Button" Text="да" CssClass="green unibutton  big2" Width="600"  ID="Button57"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel29" CommandArgument="нет" ToolTip="2" onclick="QAC_Button" Text="нет" CssClass="green unibutton  big2" Width="600"  ID="Button58"  runat="server" /><br/> 
                                 <br />
@@ -91,8 +91,9 @@
                             
                             <asp:Panel ID="Panel29" runat="server" Visible="false">
                                 Результат презентации:
+                                <asp:HiddenField ID="HiddenFieldA3" runat="server" />
                                 <br/> 
-                                <asp:Button CommandName="Panel1" CommandArgument="звонок специалиста"  ToolTip="3" onclick="QAC_Button_Result" Text="звонок специалистаю" CssClass="green unibutton  big2" Width="600"  ID="Button59"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel1" CommandArgument="звонок специалиста"  ToolTip="3" onclick="QAC_Button_Result" Text="звонок специалиста" CssClass="green unibutton  big2" Width="600"  ID="Button59"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel54" CommandArgument="отправить письмо" ToolTip="3" onclick="QAC_Button_Result" Text="отправить письмо" CssClass="green unibutton  big2" Width="600"  ID="Button3"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel7" CommandArgument="отказ" ToolTip="3" onclick="QAC_Button" Text="отказ" CssClass="green unibutton  big2" Width="600"  ID="Button60"  runat="server" /><br/> 
                                 <br />
@@ -157,7 +158,7 @@
                                 <br/> 
                                 <br/> 
                                  <asp:Button ID="Button1" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button4" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A4_3"  CommandName="Panel54" CommandArgument="301"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button4" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A4_3"  CommandName="Panel54" CommandArgument="301"  onclick="QAC_TextBox_A4_3" />
                             </asp:Panel> 
                             
                            
@@ -198,7 +199,7 @@
                                      </tr>
                                      <tr>
                                          <td>Комментарии</td>
-                                         <td><asp:TextBox ID="TextBoxComment" TextMode="MultiLine" Height="500"  runat="server"></asp:TextBox></td>
+                                         <td><asp:TextBox ID="TextBoxComment" TextMode="MultiLine" Width="500" Height="100"  runat="server"></asp:TextBox></td>
                                      </tr>
 
                                  </table>
@@ -207,6 +208,14 @@
                               
 
                              
+        <asp:HiddenField ID="HiddenFieldOut_ID" runat="server" />
+        <asp:HiddenField ID="HiddenFieldIdLead" runat="server" />
+        <asp:HiddenField ID="HiddenFieldIdNoteA1" runat="server" />
+        <asp:HiddenField ID="HiddenFieldIdNoteA2" runat="server" />
+        <asp:HiddenField ID="HiddenFieldIdNoteA3" runat="server" />
+        <asp:HiddenField ID="HiddenFieldIdNoteA4_3" runat="server" />
+        <asp:HiddenField ID="HiddenFieldIdNoteAComment" runat="server" />
+
                              
 
                          </ContentTemplate>
@@ -267,7 +276,7 @@
                 </asp:TabPanel>
 
 
-            <asp:TabPanel runat="server" HeaderText="CRM" ID="TabPanel3">
+            <asp:TabPanel runat="server" HeaderText="CRM" Visible="false" ID="TabPanel3">
                 <ContentTemplate>
                     <iframe width="100%" height="600" src="http://wil-krim.ws.local/site/Questionary/projects/AmoCrmIntegration/Gank/gank.aspx?IdChain=<%=GetIdChain() %>&Column_3=<%=GetColumn3() %>"></iframe>
                 </ContentTemplate>

@@ -99,6 +99,9 @@ public partial class _Default : System.Web.UI.Page
             Column_7 = Request.QueryString["Column_7"] != null ? Request.QueryString["Column_7"].ToString() : "";
             Column_9 = Request.QueryString["Column_9"] != null ? Request.QueryString["Column_9"].ToString() : "";
             Column_3 = Request.QueryString["Column_3"] != null ? Request.QueryString["Column_3"].ToString() : "";
+            TextBoxNameCampaign.Text = Column_3;
+            TextBoxFIOLPR.Text = HttpUtility.UrlDecode(Request.QueryString["an"], Encoding.GetEncoding("windows-1251"));
+            TextBoxPhoneLPR.Text = Request.QueryString["Column_8"] != null ? Request.QueryString["Column_8"].ToString() : "";
             HiddenFieldColumn_3.Value = Column_3;
             HiddenFieldColumn_11.Value = Column_11;
             HiddenFieldColumn_12.Value = Column_12;
@@ -840,6 +843,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void QAC_Button_Result(object sender, EventArgs e)
     {
+        
         var request = new AddOrUpdateLeadRequest();
         var lead = new AddOrUpdateCrmLead();
         lead.Name = TextBoxNameCampaign.Text;
@@ -848,52 +852,99 @@ public partial class _Default : System.Web.UI.Page
         lead.Tags = "колл-центр";
         var pipelines = _service.GetPipelines();
 
-        lead.StatusId = pipelines.OrderBy(r => r.Name).FirstOrDefault().id.ToString();
-        lead.PipelineId = "24732799"; 
-        request.Add = new List<AddOrUpdateCrmLead>();
-        request.Add.Add(lead);
+        lead.StatusId = "24732799";// pipelines.OrderBy(r => r.Name).FirstOrDefault().id.ToString();
+        lead.PipelineId = "1570399";
+        if (HiddenFieldIdLead.Value != "")
+        {
+            lead.Id = HiddenFieldIdLead.Value;
+            request.Update = new List<AddOrUpdateCrmLead>();
+            request.Update.Add(lead);
+        }
+        else
+        {
+            request.Add = new List<AddOrUpdateCrmLead>();
+            request.Add.Add(lead);
+        }
         var newLead = _service.AddOrUpdateLead(request);
         if (newLead.Count > 0)
         {
             if (HF_Out_ID.Value != null)
             {
-                var requestNote = new AddOrUpdateNoteRequest();
-                requestNote.Update = new List<AddOrUpdateCrmNote>();
-                requestNote.Add = new List<AddOrUpdateCrmNote>();
-                {
-                    var _note = new AddOrUpdateCrmNote();
-                    _note.ElementId = newLead.FirstOrDefault().Id;
-                    _note.ElementType = 2;
-                    _note.Text = "CallId:" + HF_Out_ID.Value;
-                    _note.ResponsibleUserId = Convert.ToInt64(3160069);
-                    _note.NoteType = 4;
-                    requestNote.Add.Add(_note);
-                }
+                if (HiddenFieldIdLead.Value == "")
+                    addNote(newLead.FirstOrDefault().Id, "CallId:" + HF_Out_ID.Value,"");
+                HiddenFieldIdNoteA1.Value = addNote(newLead.FirstOrDefault().Id, "Наличие проектов: " + HiddenFieldA1.Value, HiddenFieldIdNoteA1.Value).ToString();
+                if(HiddenFieldA2.Value!="")
+                    HiddenFieldIdNoteA2.Value = addNote(newLead.FirstOrDefault().Id, "Планы по проектам: " + HiddenFieldA2.Value, HiddenFieldIdNoteA2.Value).ToString();
+                if ((sender as Button).Text != "")
+                    HiddenFieldIdNoteA3.Value = addNote(newLead.FirstOrDefault().Id, "Результат: " + (sender as Button).Text, HiddenFieldIdNoteA3.Value).ToString();
+                if (TextBoxA4_3.Text != "")
+                    HiddenFieldIdNoteA4_3.Value = addNote(newLead.FirstOrDefault().Id, "Дата и время звонка специалиста: " + TextBoxA4_3.Text, HiddenFieldIdNoteA4_3.Value).ToString();
 
 
-                _service.AddOrUpdateNote(requestNote);
+
+
+                HiddenFieldIdNoteAComment.Value = addNote(newLead.FirstOrDefault().Id, "Комментарий: " + TextBoxComment.Text, HiddenFieldIdNoteAComment.Value).ToString();
             }
             var IdContact = CreateContacts(newLead.FirstOrDefault());
-            
+            HiddenFieldIdLead.Value = newLead.FirstOrDefault().Id.ToString();
         }
         QAC_Button(sender, e);
     }
-     
+
+    private long addNote(long LeadId, string Text, string IdNote)
+    {
+        var laed = _service.GetLead(LeadId);
+        var requestNote = new AddOrUpdateNoteRequest();
+        requestNote.Update = new List<AddOrUpdateCrmNote>();
+        requestNote.Add = new List<AddOrUpdateCrmNote>();
+
+        {
+            var _note = new AddOrUpdateCrmNote();
+            _note.ElementId = laed.Id;
+            _note.ElementType = 2;
+            _note.Text = Text;
+            _note.ResponsibleUserId = Convert.ToInt64(3160069);
+            _note.NoteType = 4;
+            if (IdNote != "")
+            {
+                _note.Id =  Convert.ToInt64(IdNote);
+                requestNote.Update.Add(_note);
+            }
+            else
+                requestNote.Add.Add(_note);
+        }
+        var newNotes = _service.AddOrUpdateNote(requestNote);
+        return newNotes.FirstOrDefault().Id;
+    }
 
     private Int64 CreateContacts(AddedOrUpdatedLead crmLead)
     {
-
+        var laed =  _service.GetLead(crmLead.Id);
         var request = new AddOrUpdateContactRequest(); 
         request.Update = new List<AddOrUpdateCrmContact>();
         request.Add = new List<AddOrUpdateCrmContact>();
+
         {
             var _contact = new AddOrUpdateCrmContact(); 
             _contact.Name = TextBoxFIOLPR.Text;
             _contact.LeadsId = crmLead.Id.ToString();
             _contact.CompanyName = TextBoxNameCampaign.Text;
-             
-            _contact.CustomFields = GetCustomFieldsValues<AddContactCustomField>(TypeField.Lead, "MainContact");
-            request.Add.Add(_contact); 
+            var CustomFields = new List<AddContactCustomField>();
+            CustomFields.Add(new AddContactCustomField() { Id = 232955, Values = new List<Object> { new AddCustomFieldValues() { Value = TextBoxDolgnostLPR.Text } } });
+            
+            CustomFields.Add(new AddContactCustomField() { Id = 232957, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxPhoneLPR.Text, Enum = "WORK" } } });//352111
+
+            //232957
+            _contact.CustomFields = CustomFields;
+            if (laed.MainContactId > 0)
+            {
+                _contact.Id = laed.MainContactId;
+                request.Update.Add(_contact);
+            }
+            else
+            {
+                request.Add.Add(_contact);
+            }
         }
 
         var countContact = 0; 
@@ -906,5 +957,12 @@ public partial class _Default : System.Web.UI.Page
         }
 
         return 0;
+    }
+
+    protected void QAC_TextBox_A4_3(object sender, EventArgs e)
+    {
+        if (TextBoxA4_3.Text != "")
+            HiddenFieldIdNoteA4_3.Value = addNote(Convert.ToInt64(HiddenFieldIdLead.Value), "Дата и время звонка специалиста: " + TextBoxA4_3.Text, HiddenFieldIdNoteA4_3.Value).ToString();
+        QAC_TextBox(sender, e);
     }
 }
