@@ -7,15 +7,21 @@ using System.Xml.Serialization;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Text;
+using log4net;
+using log4net.Config;
 
 namespace WebAPI.Models
 {
     public class OktellOperators
     {
 
+        private static ILog log = LogManager.GetLogger("LOGGER");
 
         public static IEnumerable<Operator> GetReadyOperators()
         {
+            
+            
             var rslt = new List<Operator>();
             List<Guid> users_id = new List<Guid>();
             users_id.Add(Guid.Parse("F947931E-CDDF-4BA4-BD0B-6E9171BA5824")); 
@@ -23,10 +29,13 @@ namespace WebAPI.Models
             foreach (var user_id in users_id)
             {
                 var xml = request(user_id);
+                OktellOperators.log.Debug(xml);
                 var obj = Parse(xml);
-                rslt.Add(new Operator() { OperatorId = user_id, OperatorStatus = obj.Data.OktellPropertySimple.FirstOrDefault(r => r.key == "state").name });
+                rslt.Add(new Operator() { OperatorId = user_id, OperatorStatus = obj.Data.PropertySet.PropertySimple.FirstOrDefault(r => r.key == "state").name });
+                //rslt.Add(new Operator() { OperatorId = Guid.Empty, OperatorStatus = xml });
 
             }
+
             return rslt;
         }
 
@@ -53,34 +62,38 @@ namespace WebAPI.Models
     </property_set>
   </data>
 </oktellxmlmapper>";*/
-            string line = ""; 
-            CookieContainer myContainer = new CookieContainer();
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://192.168.3.3:4055/tst_getuserstate?iduser=" + user_id);
-            request.Credentials = new NetworkCredential("sadovin", "azsxdcfv890");
-            request.CookieContainer = myContainer;
-            request.PreAuthenticate = true;
+            string rslt = "";  
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://192.168.3.3:4055/tst_getuserstate?iduser=" + user_id); 
+           // HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://sadovin.ru/?iduser=" + user_id); 
+            string username = "sadovin";
+            string password = "azsxdcfv890"; 
+            string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(username + ":" + password)); 
+            request.Headers.Add("Authorization", "Basic " + svcCredentials);
+              
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             using (Stream stream = response.GetResponseStream())
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
-
+                    string line = "";
                     while ((line = reader.ReadLine()) != null)
                     {
-                        line += line;
+                        rslt += line!=null?line:"";
                     }
                 }
             }
             response.Close();
-            return line;
+            return rslt;
         }
 
         public static KeyValuePair<bool, Guid> setOperatorDialog(Guid user_id)
         {
             var xml = requestScript(user_id);
-                var obj = Parse(xml);  
-            if(obj.Data.OktellPropertySimple.FirstOrDefault(r => r.key == "returnvalue").name!="")
-                return new KeyValuePair<bool, Guid>(true, Guid.Parse(obj.Data.OktellPropertySimple.FirstOrDefault(r => r.key == "returnvalue").name));
+            OktellOperators.log.Debug(xml);
+            var obj = Parse(xml);
+            OktellOperators.log.Debug(obj.Data.PropertySet.PropertyCData.ToString());
+            if (obj.Data.PropertySet.PropertyCData.ToString() != "-1")
+                return new KeyValuePair<bool, Guid>(true, Guid.Parse(obj.Data.PropertySet.PropertyCData.ToString().Replace("![CDATA[", "").Replace("]]", "")));
             else 
                 return new KeyValuePair<bool, Guid>(false, Guid.Empty);
         }
@@ -88,7 +101,15 @@ namespace WebAPI.Models
 
         private static string requestScript(Guid user_id)
         {
+            
             /*return @"<?xml version=""1.0"" encoding=""utf-16""?>
+ <oktellxmlmapper version=""80710"">  
+ <data name=""result"" count=""1"">    
+ <property_set name=""execsvcscript"">      
+ <property_simple key=""started"" value=""1"" name=""success"" />      
+ <property_simple key=""startresult"" value=""0"" name=""success"" />      
+ <property_cdata key=""returnvalue""><![CDATA[f947931e-cddf-4ba4-bd0b-6e9171ba5824]]></property_cdata>    </property_set>  </data></oktellxmlmapper>";
+ return @"<?xml version=""1.0"" encoding=""utf-16""?>
 <oktellxmlmapper version=""80710"">
   <data name=""result"" count=""1"">
     <property_set name=""execsvcscript"">
@@ -97,27 +118,37 @@ namespace WebAPI.Models
       <property_simple key=""returnvalue"" name=""f947931e-cddf-4ba4-bd0b-6e9171ba5824"" />
     </property_set>
   </data>
-</oktellxmlmapper>";*/
-            string line = "";
-            CookieContainer myContainer = new CookieContainer();
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://192.168.3.3:4055/execsvcscript?name=chat2desk_set_operator_to_task&async=1&startparam1=" + user_id);
-            request.Credentials = new NetworkCredential("sadovin", "azsxdcfv890");
-            request.CookieContainer = myContainer;
-            request.PreAuthenticate = true;
+</oktellxmlmapper>";
+
+ <?xml version="1.0" encoding="utf-16"?>
+ <oktellxmlmapper version="80710">  
+ <data name="result" count="1">    
+ <property_set name="execsvcscript">      
+ <property_simple key="started" value="1" name="success" />      
+ <property_simple key="startresult" value="0" name="success" />      
+ <property_cdata key="returnvalue"><![CDATA[f947931e-cddf-4ba4-bd0b-6e9171ba5824]]></property_cdata>    </property_set>  </data></oktellxmlmapper>
+             */
+            string rslt = ""; 
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://192.168.3.3:4055/execsvcscript?name=chat2desk_set_operator_to_task&async=0&startparam1=" + user_id);
+            string username = "sadovin";
+            string password = "azsxdcfv890";
+            string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(username + ":" + password));
+            request.Headers.Add("Authorization", "Basic " + svcCredentials);
+
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             using (Stream stream = response.GetResponseStream())
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
-
+                    string line = "";
                     while ((line = reader.ReadLine()) != null)
                     {
-                        line += line;
+                        rslt += line;
                     }
                 }
             }
             response.Close();
-            return line;
+            return rslt;
         }
 
     }
@@ -135,12 +166,31 @@ namespace WebAPI.Models
     [Serializable]
     public class OktellData
     {
-        [XmlArray("property_set")]
-        [XmlArrayItem("property_simple", typeof(OktellPropertySimple))]
-        public OktellPropertySimple[] OktellPropertySimple { get; set; }
+        [XmlElement("property_set")]
+        public OktellPropertySet PropertySet { get; set; } 
+    }
+
+
+    [Serializable]
+    public class OktellPropertySet
+    {
+        
+        [XmlElement("property_simple", typeof(OktellPropertySimple))]
+        public OktellPropertySimple[] PropertySimple { get; set; } 
+
+        [XmlElement("property_cdata", typeof(string))]
+        public string PropertyCData { get; set; }
 
 
     }
+
+    [Serializable]
+    public class OktellPropertyCData
+    {
+        [XmlAttribute]
+        public string key { get; set; }
+    }
+
 
     [Serializable]
     public class OktellPropertySimple
