@@ -17,30 +17,32 @@
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         
        
-                    <div class="container">
+                    <div class="container-fluid">
                       <div class="row">
                           <div class="col-md-auto"> 
                                 <h1>Статистика за текущий день</h1>
+                                От <asp:DropDownList ID="DropDownListStartDate" runat="server" AutoPostBack="true"></asp:DropDownList>
+                                <br/>
+                                <br/>
                           </div>
                       </div>
             
-                      <div class="row">
-                        <div class="col-md-auto">  
+                      <div class="row justify-content-md-center">
+                        <div class="col-md-6">  
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
-                            <asp:GridView ID="GridViewStat" runat="server" AutoGenerateColumns="False" CssClass="table table-sm" DataSourceID="SqlDataSourceStatOnlineDay">
-                                <Columns>
-                                    <asp:BoundField DataField="Показатель" HeaderText="Показатель" ReadOnly="True" SortExpression="Показатель" />
-                                    <asp:BoundField DataField="19:15" HeaderText="19:15" ReadOnly="True" SortExpression="19:15" />
-                                </Columns>
-                            </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSourceStatOnlineDay" runat="server" ConnectionString="<%$ ConnectionStrings:oktell_ccwsConnectionString %>" SelectCommand="ivi_stat_online_day" SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="False"></asp:SqlDataSource>
+                            <asp:GridView ID="GridViewStat" runat="server" AutoGenerateColumns="True" CssClass="table table-sm" DataSourceID="SqlDataSourceStatOnlineDay"></asp:GridView>
+                            <asp:SqlDataSource ID="SqlDataSourceStatOnlineDay" runat="server" ConnectionString="<%$ ConnectionStrings:oktell_ccwsConnectionString %>" SelectCommand="ivi_stat_online_day" SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="False">
+                                <SelectParameters>
+                                    <asp:ControlParameter  Name="start_last_time" ControlID="DropDownListStartDate" PropertyName="SelectedValue" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                          <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick"></asp:Timer>
                                 </ContentTemplate> 
                         </asp:UpdatePanel>
 
                         </div>
-                        <div class="col">
+                        <div class="col-md-6">
                           <div id="chart_div_queue" style="border: solid 1px #dfdfdf;"></div>
                           <br/>
                           <div id="chart_div_abondoned" style="border: solid 1px #dfdfdf;"></div>
@@ -56,7 +58,31 @@
       google.charts.load('current', {'packages':['corechart']});
 
       // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawChartAll);
+         google.charts.setOnLoadCallback(drawChartAll);
+
+         function drawChartAll() {
+             var arr = [
+                 ['Время', 'Вызовов ', { role: 'style' }, { role: 'annotation' }]
+             ];
+             arr.push(["первая линия", $(".table-sm tr:eq(1)").find("td:eq(1)").text() * 1, '#76A7FA', $(".table-sm tr:eq(1)").find("td:eq(1)").text()  + ''])
+             arr.push(["вторая линия", $(".table-sm tr:eq(2)").find("td:eq(1)").text() * 1, '#76A7FA', $(".table-sm tr:eq(1)").find("td:eq(1)").text()  + ''])
+
+          
+             ajaxDrawChart('Очередь', 'chart_div_queue', arr);
+
+             var arr = [
+                 ['Время', 'Вызовов ', { role: 'style' }, { role: 'annotation' }]
+             ];
+            $("table.table-sm tr:eq(3) td").each(function (index) {
+                if (index >0) {
+                    arr.push([$(".table-sm tr:eq(0) th:eq(" + index + ")").text(), $(this).text() * 1, '#76A7FA', $(this).text() + '']);
+                    arr.push([$(".table-sm tr:eq(0) th:eq(" + index + ")").text(), $("table.table-sm tr:eq(4) td:eq(" + index + ")").text() * 1, '#b87333', $("table.table-sm tr:eq(4) th:eq(" + index + ")").text() + '']);
+                    
+                }
+             });
+ 
+             ajaxDrawChart('Пропущенные', 'chart_div_abondoned', arr);
+         }
 
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and

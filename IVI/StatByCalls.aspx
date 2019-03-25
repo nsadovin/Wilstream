@@ -80,6 +80,7 @@
                     <asp:ListItem Value="30">30 минут</asp:ListItem>
                     <asp:ListItem Value="60">60 минут</asp:ListItem>
                     <asp:ListItem Value="1">День</asp:ListItem>
+                    <asp:ListItem Value="7">Неделя</asp:ListItem>
                     <asp:ListItem Value="12">Месяц</asp:ListItem>
                 </asp:DropDownList> 
 
@@ -95,7 +96,7 @@
 
     <br/>
 
-    <asp:GridView ID="GridView1" runat="server" CssClass="table table-sm  table-striped table-bordered" AllowPaging="True" 
+    <asp:GridView ID="GridView1" runat="server" CssClass="table table-sm  table-striped table-bordered"  
     AllowSorting="True" 
             DataSourceID="SqlDataSource1" PageSize="20">
         <HeaderStyle CssClass="thead-light"
@@ -125,9 +126,84 @@
 </asp:SqlDataSource>
         
      </div>
+                        
      </div>
-
+                <div class="row">
+                          <div class="col-md"> 
+                            <div id="chart_div_answer_transfer" style="border: solid 1px #dfdfdf;"></div>
+                            <br/>
+                            <div id="chart_div_avg_queue" style="border: solid 1px #dfdfdf;"></div>
+                          </div>
+                      </div>
     </div>
     </form>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChartAll);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+        function drawChartAll() {
+
+            // Create the data table.
+
+        var arr = [
+         ['Element', 'Доля отвеченных % ', { role: 'style' }, { role: 'annotation' }] 
+            ]
+
+            $("table.table-striped tr").each(function (index) {
+                if ($(this).find("th").length == 0) {
+                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(3)").text()*1, '#76A7FA',$(this).find("td:eq(3)").text()+'%'])
+                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(5)").text()*1, '#b87333',$(this).find("td:eq(5)").text()+'%'])
+                }
+            });
+
+      //      alert(arr);
+
+        var data = google.visualization.arrayToDataTable(arr);
+
+        // Set chart options
+        var options = {'title':'Доля отвеченных и переадресованных','legend': 'none',
+                       'width':'100%',
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_answer_transfer'));
+            chart.draw(data, options);
+
+
+
+            var arr = [
+         ['Element', 'Среднее время ожидания и макисмальное время ожидания', { role: 'style' }, { role: 'annotation' }] 
+            ]
+
+            $("table.table-striped tr").each(function (index) {
+                if ($(this).find("th").length == 0) {
+                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA',$(this).find("td:eq(10)").text()+''])
+//                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA',$(this).find("td:eq(10)").text()+''])
+                 //   arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(11)").text(), '#b87333',$(this).find("td:eq(11)").text()+''])
+                }
+            });
+
+      //      alert(arr);
+
+        var data = google.visualization.arrayToDataTable(arr);
+
+        // Set chart options
+        var options = {'title':'Время ожидания','legend': 'none',
+                       'width':'100%',
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_avg_queue'));
+        chart.draw(data, options);
+ 
+      } 
+    </script>
 </body>
 </html>

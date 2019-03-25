@@ -266,6 +266,54 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ИП Уракчеев", "ИП Уракчеев\", "{E98FD0B8-FF1D-4843-BF97-C253F4637D9C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54280"
+		Debug.AspNetCompiler.PhysicalPath = "ИП Уракчеев\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54280\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54280"
+		Release.AspNetCompiler.PhysicalPath = "ИП Уракчеев\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54280\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54280"
+		SlnRelativePath = "ИП Уракчеев\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{67B6417B-0612-4A0F-BA20-6921F1592971}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "API", "API\", "{35FE1C24-6B6E-4900-BF43-289AB715959E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54024"
+		Debug.AspNetCompiler.PhysicalPath = "API\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54024\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54024"
+		Release.AspNetCompiler.PhysicalPath = "API\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54024\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54024"
+		SlnRelativePath = "API\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{44F3E6C5-9377-410B-BE54-7FDEC5EE4134}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -328,6 +376,18 @@ Global
 		{388E5131-780A-44F2-899A-93EDFA4B4B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{388E5131-780A-44F2-899A-93EDFA4B4B28}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{388E5131-780A-44F2-899A-93EDFA4B4B28}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E98FD0B8-FF1D-4843-BF97-C253F4637D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98FD0B8-FF1D-4843-BF97-C253F4637D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E98FD0B8-FF1D-4843-BF97-C253F4637D9C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98FD0B8-FF1D-4843-BF97-C253F4637D9C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{35FE1C24-6B6E-4900-BF43-289AB715959E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FE1C24-6B6E-4900-BF43-289AB715959E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FE1C24-6B6E-4900-BF43-289AB715959E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FE1C24-6B6E-4900-BF43-289AB715959E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{44F3E6C5-9377-410B-BE54-7FDEC5EE4134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F3E6C5-9377-410B-BE54-7FDEC5EE4134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F3E6C5-9377-410B-BE54-7FDEC5EE4134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F3E6C5-9377-410B-BE54-7FDEC5EE4134}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -338,6 +398,9 @@ Global
 		{0763704F-D3BA-4257-A881-696AAED343A1} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
 		{DAB6609A-477B-49D2-8480-D4756CE43311} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
 		{388E5131-780A-44F2-899A-93EDFA4B4B28} = {18AF8F32-4C4F-41B7-8E6D-92F40A208625}
+		{E98FD0B8-FF1D-4843-BF97-C253F4637D9C} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
+		{35FE1C24-6B6E-4900-BF43-289AB715959E} = {67B6417B-0612-4A0F-BA20-6921F1592971}
+		{44F3E6C5-9377-410B-BE54-7FDEC5EE4134} = {67B6417B-0612-4A0F-BA20-6921F1592971}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F45207D-0A1D-491E-A11B-0B9DE2C48632}

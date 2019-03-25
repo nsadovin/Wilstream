@@ -11,7 +11,20 @@ public partial class StatOnlineDay : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        var chartQueueData = GetChartData("queue");
+        if (!IsPostBack)
+        {
+            var cur_date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            while (cur_date < DateTime.Now.AddMinutes(-15))
+            {
+                DropDownListStartDate.Items.Insert(0, new ListItem(cur_date.ToString("HH:mm"), cur_date.ToString("yyyy-MM-dd HH:mm")));
+                cur_date = cur_date.AddMinutes(15);
+            };
+
+            DropDownListStartDate.Items[0].Selected = true;
+
+
+        }
+    /*    var chartQueueData = GetChartData("queue");
         var script = "";
         var json =  "[ [\"Время\", \"Вызовов\", { role: \"style\" } ],";
         foreach (var item in chartQueueData)
@@ -30,7 +43,7 @@ public partial class StatOnlineDay : System.Web.UI.Page
         json += "]";
         script += " ajaxDrawChart('Пропущенные', 'chart_div_abondoned', " + json + ");";
         Page.ClientScript.RegisterClientScriptBlock(this.GetType(),
-            "charts", "<script>function drawChartAll(){ "+ script + " };   </script>");
+            "charts", "<script>function drawChartAll(){ "+ script + " };   </script>");*/
     }
 
 
