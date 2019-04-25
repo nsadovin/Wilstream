@@ -133,6 +133,8 @@
                             <div id="chart_div_answer_transfer" style="border: solid 1px #dfdfdf;"></div>
                             <br/>
                             <div id="chart_div_avg_queue" style="border: solid 1px #dfdfdf;"></div>
+                            <br/>
+                            <div id="chart_div_talk" style="border: solid 1px #dfdfdf;"></div>
                           </div>
                       </div>
     </div>
@@ -177,31 +179,79 @@
             chart.draw(data, options);
 
 
+ 
 
-            var arr = [
-         ['Element', 'Среднее время ожидания и макисмальное время ожидания', { role: 'style' }, { role: 'annotation' }] 
-            ]
 
-            $("table.table-striped tr").each(function (index) {
-                if ($(this).find("th").length == 0) {
-                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA',$(this).find("td:eq(10)").text()+''])
-//                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA',$(this).find("td:eq(10)").text()+''])
-                 //   arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(11)").text(), '#b87333',$(this).find("td:eq(11)").text()+''])
-                }
-            });
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Dt');
+        data.addColumn('timeofday', 'Время ожидания'); 
+        data.addColumn({ type: 'string', role: 'style' });
+        data.addColumn({ 'type': 'string', 'role': 'tooltip', 'p': { 'html': true} });
+        data.addColumn({ type: 'string', role: 'annotation' });
 
-      //      alert(arr);
-
-        var data = google.visualization.arrayToDataTable(arr);
-
-        // Set chart options
-        var options = {'title':'Время ожидания','legend': 'none',
-                       'width':'100%',
-                       'height':300};
-
-        // Instantiate and draw our chart, passing in some options.
+        var arr = [];
+        $("table.table-striped tr").each(function(index) {
+            if ($(this).find("th").length == 0) {
+                //  arr.push([$(this).find("td:eq(0)").text(), new Date('1970-01-01T0' + $(this).find("td:eq(10)").text() + '')]);
+                var tt = $(this).find("td:eq(10)").text().split(":");
+                arr.push([$(this).find("td:eq(0)").text(), [tt[0] * 1, tt[1] * 1, tt[2] * 1], '#76A7FA', $(this).find("td:eq(10)").text() + '', 'Avg '+$(this).find("td:eq(10)").text()]);
+                var tt = $(this).find("td:eq(11)").text().split(":");
+                arr.push([$(this).find("td:eq(0)").text(), [tt[0] * 1, tt[1] * 1, tt[2] * 1], '#b87333', $(this).find("td:eq(11)").text() + '', 'Max '+$(this).find("td:eq(11)").text() + '']);
+                //alert('1970-01-01T' + $(this).find("td:eq(10)").text() + 'Z');
+                //    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA', $(this).find("td:eq(10)").text() + ''])
+                //    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(11)").text(), '#b87333', $(this).find("td:eq(11)").text() + ''])
+            }
+        });
+   //     alert(arr);
+        data.addRows(arr);
+        
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_avg_queue'));
-        chart.draw(data, options);
+        chart.draw(data, {title:'Время ожидания',legend: 'none',
+            height: 400,
+            width: '100%',
+            vAxis: {
+                format: 'HH:mm:ss',
+                minValue: new Date('1970-01-01T00:00:00'),
+                0: { baseline: 0 }, viewWindowMode: 'explicit'
+            }
+        });
+
+
+
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Dt');
+        data.addColumn('timeofday', 'Время разговора');
+        data.addColumn({ type: 'string', role: 'style' });
+        data.addColumn({ 'type': 'string', 'role': 'tooltip', 'p': { 'html': true} });
+        data.addColumn({ type: 'string', role: 'annotation' });
+
+        var arr = [];
+        $("table.table-striped tr").each(function(index) {
+            if ($(this).find("th").length == 0) {
+                //  arr.push([$(this).find("td:eq(0)").text(), new Date('1970-01-01T0' + $(this).find("td:eq(10)").text() + '')]);
+                var tt = $(this).find("td:eq(14)").text().split(":");
+                arr.push([$(this).find("td:eq(0)").text(), [tt[0] * 1, tt[1] * 1, tt[2] * 1], '#76A7FA', $(this).find("td:eq(14)").text() + '', 'Avg ' + $(this).find("td:eq(14)").text()]);
+                var tt = $(this).find("td:eq(15)").text().split(":");
+                arr.push([$(this).find("td:eq(0)").text(), [tt[0] * 1, tt[1] * 1, tt[2] * 1], '#b87333', $(this).find("td:eq(15)").text() + '', 'Max ' + $(this).find("td:eq(15)").text()]);
+                //alert('1970-01-01T' + $(this).find("td:eq(10)").text() + 'Z');
+                //    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA', $(this).find("td:eq(10)").text() + ''])
+                //    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(11)").text(), '#b87333', $(this).find("td:eq(11)").text() + ''])
+            }
+        });
+        //     alert(arr);
+        data.addRows(arr);
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_talk'));
+       chart.draw(data, { title: 'Время разговора', legend: 'none',
+            height: 400,
+            width: '100%',
+            vAxis: {
+                format: 'HH:mm:ss',
+                minValue: new Date('1970-01-01T00:00:00'),
+                0: { baseline: 0 }, viewWindowMode: 'explicit'
+            }
+        }); 
  
       } 
     </script>
