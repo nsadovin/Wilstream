@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net.Config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -10,6 +11,7 @@ namespace WebAPI
         public static void Register(HttpConfiguration config)
         {
             // Конфигурация и службы веб-API
+            XmlConfigurator.Configure();
 
             // Маршруты веб-API
             config.MapHttpAttributeRoutes();

@@ -71,20 +71,22 @@
                                 <br/> 
                                 <asp:Button CommandName="Panel29" CommandArgument="есть" ToolTip="1" onclick="QAC_Button" Text="есть" CssClass="green unibutton  big2" Width="300"  ID="Button42_2_5"  runat="server" /><br/> 
                                  <asp:Button CommandName="Panel28" CommandArgument="нет" ToolTip="1" onclick="QAC_Button" Text="нет" CssClass="green unibutton  big2" Width="300"  ID="Button2"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel54" CommandArgument="отказ от ответа / нет данных" ToolTip="1" onclick="QAC_Button" Text="отказ от ответа / нет данных" CssClass="red unibutton  big2" Width="300"  ID="Button3_2_5"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel29" CommandArgument="отказ от ответа / нет данных" ToolTip="1" onclick="QAC_Button" Text="отказ от ответа / нет данных" CssClass="red unibutton  big2" Width="300"  ID="Button3_2_5"  runat="server" /><br/> 
                                  
                             </asp:Panel>
                             
                             
                             <asp:Panel ID="Panel28" runat="server" Visible="false">
                                 А в ближайшем будущем появятся? Может, у Вас планируется закупка газоанализаторов, взамен тех, что вышли из строя?
+                                 <asp:TextBox ID="TextBoxA2" Width="400" runat="server"></asp:TextBox> 
+                                <br/>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="A2"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA2" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                              
                                 <br/> 
-                                <asp:HiddenField ID="HiddenFieldA2" runat="server" />
-                                <asp:Button CommandName="Panel29" CommandArgument="да" ToolTip="2" onclick="QAC_Button" Text="да" CssClass="green unibutton  big2" Width="600"  ID="Button57"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel29" CommandArgument="нет" ToolTip="2" onclick="QAC_Button" Text="нет" CssClass="green unibutton  big2" Width="600"  ID="Button58"  runat="server" /><br/> 
-                                <br />
-                                <asp:Button ID="Button6" runat="server" Text="Назад" CssClass="blue unibutton" 
-                                    onclick="standartPrev"  />
+                                <br/> 
+                                 <asp:Button ID="Button8" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button9" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A2"  CommandName="Panel29" CommandArgument="2"  onclick="QAC_TextBox" />
+
 
                             </asp:Panel> 
                             
@@ -192,6 +194,10 @@
                                      <tr>
                                          <td>Должность ЛПР</td>
                                          <td><asp:TextBox ID="TextBoxDolgnostLPR" runat="server"></asp:TextBox></td>
+                                     </tr>
+                                     <tr>
+                                         <td>Email ЛПР</td>
+                                         <td><asp:TextBox ID="TextBoxEmailLPR" runat="server"></asp:TextBox></td>
                                      </tr>
                                      <tr>
                                          <td>Телефон ЛПР</td>

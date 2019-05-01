@@ -249,6 +249,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void standartNext(object sender, EventArgs e)
     {
+        saveForm();
         string CommandName = ((Button)sender).CommandName;
         ((Button)sender).Parent.Visible = false;
         ((Button)sender).Parent.Parent.FindControl(CommandName).Visible = true;
@@ -837,13 +838,13 @@ public partial class _Default : System.Web.UI.Page
     }
 
     protected void QAC_A5(object sender, EventArgs e)
-    { 
+    {
+        
         standartNext(sender, e);
     }
 
     protected void QAC_Button_Result(object sender, EventArgs e)
-    {
-        
+    { 
         var request = new AddOrUpdateLeadRequest();
         var lead = new AddOrUpdateCrmLead();
         lead.Name = TextBoxNameCampaign.Text;
@@ -872,6 +873,23 @@ public partial class _Default : System.Web.UI.Page
             {
                 if (HiddenFieldIdLead.Value == "")
                     addNote(newLead.FirstOrDefault().Id, "CallId:" + HF_Out_ID.Value,"");
+
+                var answers = "";
+                answers += "Наличие проектов: " + HiddenFieldA1.Value + Environment.NewLine;
+                if (TextBoxA2.Text != "")
+                    answers += "Планы по проектам: " + TextBoxA2.Text + Environment.NewLine;
+                if ((sender as Button).Text != "")
+                    answers += "Результат: " + (sender as Button).Text + Environment.NewLine;
+
+                if (TextBoxA4_3.Text != "")
+                    answers += "Дата и время звонка специалиста: " + TextBoxA4_3.Text + Environment.NewLine;
+
+
+                answers += "Комментарий: " + TextBoxComment.Text + Environment.NewLine;
+
+                HiddenFieldIdNoteA1.Value = addNote(newLead.FirstOrDefault().Id, answers, HiddenFieldIdNoteA1.Value).ToString();
+
+                /*
                 HiddenFieldIdNoteA1.Value = addNote(newLead.FirstOrDefault().Id, "Наличие проектов: " + HiddenFieldA1.Value, HiddenFieldIdNoteA1.Value).ToString();
                 if(HiddenFieldA2.Value!="")
                     HiddenFieldIdNoteA2.Value = addNote(newLead.FirstOrDefault().Id, "Планы по проектам: " + HiddenFieldA2.Value, HiddenFieldIdNoteA2.Value).ToString();
@@ -881,9 +899,8 @@ public partial class _Default : System.Web.UI.Page
                     HiddenFieldIdNoteA4_3.Value = addNote(newLead.FirstOrDefault().Id, "Дата и время звонка специалиста: " + TextBoxA4_3.Text, HiddenFieldIdNoteA4_3.Value).ToString();
 
 
-
-
                 HiddenFieldIdNoteAComment.Value = addNote(newLead.FirstOrDefault().Id, "Комментарий: " + TextBoxComment.Text, HiddenFieldIdNoteAComment.Value).ToString();
+                */
             }
             var IdContact = CreateContacts(newLead.FirstOrDefault());
             HiddenFieldIdLead.Value = newLead.FirstOrDefault().Id.ToString();
@@ -933,7 +950,8 @@ public partial class _Default : System.Web.UI.Page
             CustomFields.Add(new AddContactCustomField() { Id = 232955, Values = new List<Object> { new AddCustomFieldValues() { Value = TextBoxDolgnostLPR.Text } } });
             
             CustomFields.Add(new AddContactCustomField() { Id = 232957, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxPhoneLPR.Text, Enum = "WORK" } } });//352111
-
+            CustomFields.Add(new AddContactCustomField() { Id = 232959, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxEmailLPR.Text, Enum = "WORK" } } });//352111
+            
             //232957
             _contact.CustomFields = CustomFields;
             if (laed.MainContactId > 0)
@@ -961,8 +979,32 @@ public partial class _Default : System.Web.UI.Page
 
     protected void QAC_TextBox_A4_3(object sender, EventArgs e)
     {
+        var answers = "";
+        answers += "Наличие проектов: " + HiddenFieldA1.Value + Environment.NewLine;
+        if (TextBoxA2.Text != "")
+            answers += "Планы по проектам: " + TextBoxA2.Text + Environment.NewLine;
+        if (HiddenFieldA3.Value != "")
+            answers += "Результат: " + HiddenFieldA3.Value + Environment.NewLine;        
+
         if (TextBoxA4_3.Text != "")
-            HiddenFieldIdNoteA4_3.Value = addNote(Convert.ToInt64(HiddenFieldIdLead.Value), "Дата и время звонка специалиста: " + TextBoxA4_3.Text, HiddenFieldIdNoteA4_3.Value).ToString();
+            answers += "Дата и время звонка специалиста: " + TextBoxA4_3.Text + Environment.NewLine;
+        // HiddenFieldIdNoteA4_3.Value = addNote(Convert.ToInt64(HiddenFieldIdLead.Value), "Дата и время звонка специалиста: " + TextBoxA4_3.Text, HiddenFieldIdNoteA4_3.Value).ToString();
+
+        answers += "Комментарий: " + TextBoxComment.Text + Environment.NewLine;
+
+        HiddenFieldIdNoteA1.Value = addNote(Convert.ToInt64(HiddenFieldIdLead.Value), answers, HiddenFieldIdNoteA1.Value).ToString();
+         
         QAC_TextBox(sender, e);
+    }
+
+
+    protected void saveForm()
+    {
+        saveData(101, TextBoxNameCampaign.Text);
+        saveData(102, TextBoxFIOLPR.Text);
+        saveData(103, TextBoxDolgnostLPR.Text);
+        saveData(104, TextBoxEmailLPR.Text);
+        saveData(105, TextBoxPhoneLPR.Text);
+        saveData(106, TextBoxComment.Text);
     }
 }
