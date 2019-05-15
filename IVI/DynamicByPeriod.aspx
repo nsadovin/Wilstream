@@ -68,9 +68,9 @@
             <td colspan="2">
             
                <!-- Линия:-->
-                <asp:DropDownList ID="DropDownListLine"  Visible="false" AutoPostBack="true"  runat="server">
+                <asp:DropDownList ID="DropDownListLine"    AutoPostBack="true"  runat="server">
                     <asp:ListItem Value="0">Все линии</asp:ListItem>
-                    <asp:ListItem Selected="True" Value="1">Первая</asp:ListItem>
+                    <asp:ListItem Value="1">Первая</asp:ListItem>
                     <asp:ListItem Value="2">Вторая</asp:ListItem> 
                 </asp:DropDownList> 
                 
@@ -87,7 +87,6 @@
         </tr>
     </table>
 
-
     <br />
 
     <br/>
@@ -99,6 +98,8 @@
                             <div id="chart_div_answer_transfer" style="border: solid 1px #dfdfdf;"></div>
                             <br/>
                             <div id="chart_div_avg_queue" style="border: solid 1px #dfdfdf;"></div>
+                            <br/>
+                            <div id="chart_div_avg_talk" style="border: solid 1px #dfdfdf;"></div>
                           </div>
                       </div>
 
@@ -135,19 +136,20 @@
 </asp:SqlDataSource>
         
      </div>
-                
-    <br />
+              
 
-    <asp:Button ID="Button1" onclick="Button2_Click" runat="server" Font-Names="Arial" 
-         Text="Экспорт в Excel" CssClass="blue unibutton" />        
+    <br />
+        
      </div>
               
     </div>
+    <asp:Button ID="Button1" onclick="Button2_Click" runat="server" Font-Names="Arial" 
+         Text="Экспорт в Excel" CssClass="blue unibutton" />  
     </form>
     <script type="text/javascript">
 
       // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
+        google.charts.load('current', { 'packages': ['corechart', 'line'] });
 
       // Set a callback to run when the Google Visualization API is loaded.
       google.charts.setOnLoadCallback(drawChartAll);
@@ -160,13 +162,13 @@
             // Create the data table.
 
         var arr = [
-         ['Element', 'Доля отвеченных % ', { role: 'style' }, { role: 'annotation' }] 
+         ['Время', 'Доля отвеченных % ','Доля пропущенных % ', { role: 'style' }, { role: 'annotation' }] 
             ]
 
             $("table.table-striped tr").each(function (index) {
-                if ($(this).find("th").length == 0) {
-                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(3)").text()*1, '#76A7FA',$(this).find("td:eq(3)").text()+'%'])
-                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(5)").text()*1, '#b87333',$(this).find("td:eq(5)").text()+'%'])
+            if ($(this).find("th").length == 0 && $(this).find("td:eq(0)").text() != 'Итого') {
+                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(3)").text()*1, $(this).find("td:eq(8)").text()*1,  '#76A7FA',$(this).find("td:eq(3)").text()+'%'])
+                  //  arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(5)").text()*1, '#b87333',$(this).find("td:eq(5)").text()+'%'])
                 }
             });
 
@@ -175,41 +177,116 @@
         var data = google.visualization.arrayToDataTable(arr);
 
         // Set chart options
-        var options = {'title':'Доля отвеченных и переадресованных','legend': 'none',
+        var options = {
+       'chart': {
+        'title': 'Доля пропущенных и отвеченных',
+        //    'subtitle': 'in millions of dollars (USD)'
+        },
+        //'title':'Первая линия','legend': 'none',
                        'width':'100%',
                        'height':300};
 
         // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_answer_transfer'));
-            chart.draw(data, options);
+                       var chart = new google.charts.Line(document.getElementById('chart_div_answer_transfer'));
+            chart.draw(data, google.charts.Line.convertOptions(options));
 
 
+        //---------------
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Dt');
+        data.addColumn('datetime', 'Среднее время ожидания'); 
+        data.addColumn('datetime', 'Максимальное время ожидания'); 
+    //    data.addColumn({ type: 'string', role: 'style' });
+     //   data.addColumn({ 'type': 'string', 'role': 'tooltip', 'p': { 'html': true} });
+        data.addColumn({ type: 'string', role: 'annotation' });
 
-            var arr = [
-         ['Element', 'Среднее время ожидания и макисмальное время ожидания', { role: 'style' }, { role: 'annotation' }] 
-            ]
+        var arr = [];
+        $("table.table-striped tr").each(function(index) {
+            if ($(this).find("th").length == 0 && $(this).find("td:eq(0)").text() != 'Итого') {
+                //  arr.push([$(this).find("td:eq(0)").text(), new Date('1970-01-01T0' + $(this).find("td:eq(10)").text() + '')]);
+                var tt = $(this).find("td:eq(10)").text().split(":");
+                var tt2 = $(this).find("td:eq(11)").text().split(":");
+                arr.push([$(this).find("td:eq(0)").text(), new Date(0,0,0,tt[0] * 1, tt[1] * 1, tt[2] * 1,0), new Date(0,0,0,tt2[0] * 1, tt2[1] * 1, tt2[2] * 1,0)
+                //,  '#76A7FA', 
+                    ,$(this).find("td:eq(10)").text() + ''
+                ]);
+                //
+                //arr.push([$(this).find("td:eq(0)").text(),  [tt[0] * 1, tt[1] * 1, tt[2] * 1], '#b87333', $(this).find("td:eq(11)").text() + '']);
+                //alert('1970-01-01T' + $(this).find("td:eq(10)").text() + 'Z');
+                //    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA', $(this).find("td:eq(10)").text() + ''])
+                //    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(11)").text(), '#b87333', $(this).find("td:eq(11)").text() + ''])
+            }
+        });
+   //     alert(arr);
+        data.addRows(arr);
+        
+        var chart = new google.charts.Line(document.getElementById('chart_div_avg_queue'));
+        chart.draw(data, google.charts.Line.convertOptions({title:'Время ожидания',legend: 'none',
+            height: 400,
+            width: '100%',
+            vAxis: {
+                format: 'HH:mm:ss',
+                minValue: new Date('1970-01-01T00:00:00'),
+                0: { baseline: 0 }, viewWindowMode: 'explicit'
+            }
+        }));
 
-            $("table.table-striped tr").each(function (index) {
-                if ($(this).find("th").length == 0) {
-                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA',$(this).find("td:eq(10)").text()+''])
-//                    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA',$(this).find("td:eq(10)").text()+''])
-                 //   arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(11)").text(), '#b87333',$(this).find("td:eq(11)").text()+''])
-                }
-            });
-
-      //      alert(arr);
-
-        var data = google.visualization.arrayToDataTable(arr);
-
-        // Set chart options
-        var options = {'title':'Время ожидания','legend': 'none',
-                       'width':'100%',
-                       'height':300};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_avg_queue'));
-        chart.draw(data, options);
  
+
+        //---------------
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Dt');
+        data.addColumn('datetime', 'Среднее время разговора');  
+        data.addColumn('datetime', 'Максимальное время разговора'); 
+       // data.addColumn({ type: 'string', role: 'style' });
+ //       data.addColumn({ 'type': 'string', 'role': 'tooltip', 'p': { 'html': true} });
+       // data.addColumn({ type: 'string', role: 'annotation' });
+
+        var arr = [];
+        $("table.table-striped tr").each(function(index) {
+            if ($(this).find("th").length == 0 && $(this).find("td:eq(0)").text() != 'Итого') {
+                //  arr.push([$(this).find("td:eq(0)").text(), new Date('1970-01-01T0' + $(this).find("td:eq(10)").text() + '')]);
+                var tt = $(this).find("td:eq(14)").text().split(":");
+                var tt2 = $(this).find("td:eq(15)").text().split(":");
+                arr.push([$(this).find("td:eq(0)").text(), new Date(0,0,0,tt[0] * 1, tt[1] * 1, tt[2] * 1,0),   new Date(0,0,0,tt2[0] * 1, tt2[1] * 1, tt2[2] * 1,0)
+                //,  '#76A7FA'
+                //, $(this).find("td:eq(14)").text() + ''
+                ]);
+                //arr.push([$(this).find("td:eq(0)").text(), [0, 2, 10], [0,10, 30],  '#76A7FA', $(this).find("td:eq(14)").text() + '']);
+                //
+                //arr.push([$(this).find("td:eq(0)").text(),  [tt[0] * 1, tt[1] * 1, tt[2] * 1], '#b87333', $(this).find("td:eq(11)").text() + '']);
+                //alert('1970-01-01T' + $(this).find("td:eq(10)").text() + 'Z');
+                //    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(10)").text(), '#76A7FA', $(this).find("td:eq(10)").text() + ''])
+                //    arr.push([$(this).find("td:eq(0)").text(), $(this).find("td:eq(11)").text(), '#b87333', $(this).find("td:eq(11)").text() + ''])
+            }
+        });
+   //     alert(arr);
+        data.addRows(arr);
+        
+        // Create a formatter.
+// This example uses object literal notation to define the options.
+var formatter = new google.visualization.DateFormat({timeZone: -3});
+var formatter2 = new google.visualization.DateFormat({timeZone: -3});
+
+// Reformat our data.
+//formatter.format(data, 1);
+//formatter2.format(data, 2);
+        
+        var chart = new google.charts.Line(document.getElementById('chart_div_avg_talk'));
+        chart.draw(data, google.charts.Line.convertOptions({title:'Время разговора',legend: 'none',timeZone: 3,
+            height: 400,
+            width: '100%',
+            vAxis: {
+                format: 'HH:mm:ss',timeZone: 3,
+             //    minValue: new Date('1970-01-01T00:00:00'),
+                0: { baseline: 0 }, viewWindowMode: 'explicit'
+            }
+        }));
+
+
+
+
+
       } 
     </script>
 </body>

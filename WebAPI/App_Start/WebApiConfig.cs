@@ -15,12 +15,14 @@ namespace WebAPI
 
             // Маршруты веб-API
             config.MapHttpAttributeRoutes();
+            config.MessageHandlers.Add(new TokenValidationHandler());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+             
 
             // отключаем возможность вывода данных в формате xml
             config.Formatters.Remove(config.Formatters.XmlFormatter);

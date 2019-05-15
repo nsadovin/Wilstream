@@ -64,8 +64,8 @@
              var arr = [
                  ['Время', 'Вызовов ', { role: 'style' }, { role: 'annotation' }]
              ];
-             arr.push(["первая линия", $(".table-sm tr:eq(1)").find("td:eq(1)").text() * 1, '#76A7FA', $(".table-sm tr:eq(1)").find("td:eq(1)").text()  + ''])
-             arr.push(["вторая линия", $(".table-sm tr:eq(2)").find("td:eq(1)").text() * 1, '#76A7FA', $(".table-sm tr:eq(1)").find("td:eq(1)").text()  + ''])
+             arr.push(["первая линия", $(".table-sm tr:eq(1)").find("td:eq(1)").text() * 1, '#76A7FA', 'Вызовов: '+$(".table-sm tr:eq(1)").find("td:eq(1)").text()*1  + ''])
+             arr.push(["вторая линия", $(".table-sm tr:eq(2)").find("td:eq(1)").text() * 1, '#76A7FA', 'Вызовов: '+$(".table-sm tr:eq(1)").find("td:eq(1)").text()*1  + ''])
 
           
              ajaxDrawChart('Очередь', 'chart_div_queue', arr);
@@ -75,8 +75,8 @@
              ];
             $("table.table-sm tr:eq(3) td").each(function (index) {
                 if (index >0) {
-                    arr.push([$(".table-sm tr:eq(0) th:eq(" + index + ")").text(), $(this).text() * 1, '#76A7FA', $(this).text() + '']);
-                    arr.push([$(".table-sm tr:eq(0) th:eq(" + index + ")").text(), $("table.table-sm tr:eq(4) td:eq(" + index + ")").text() * 1, '#b87333', $("table.table-sm tr:eq(4) th:eq(" + index + ")").text() + '']);
+                    arr.push([$(".table-sm tr:eq(0) th:eq(" + index + ")").text(), $(this).text() * 1, '#76A7FA', 'Вызовов: '+$(this).text()*1 + '']);
+                    arr.push([$(".table-sm tr:eq(0) th:eq(" + index + ")").text(), $("table.table-sm tr:eq(4) td:eq(" + index + ")").text() * 1, '#b87333', 'Вызовов: '+$("table.table-sm tr:eq(4) th:eq(" + index + ")").text() *1 + '']);
                     
                 }
              });
