@@ -12,6 +12,8 @@ namespace WebAPI.Controllers
 {
     public class LoginController : ApiController
     {
+
+        WsDbContext db = new WsDbContext();
         [HttpPost]
         public IHttpActionResult Authenticate([FromBody] LoginRequest login)
         {
@@ -25,7 +27,9 @@ namespace WebAPI.Controllers
             bool isUsernamePasswordValid = false;
 
             if (login != null)
-                isUsernamePasswordValid = loginrequest.Password == "admin" ? true : false;
+            {
+                isUsernamePasswordValid = IsExistsUser(loginrequest.Username, loginrequest.Password);
+            }
             // if credentials are valid
             if (isUsernamePasswordValid)
             {
@@ -40,6 +44,10 @@ namespace WebAPI.Controllers
                 response = ResponseMessage(loginResponse.responseMsg);
                 return response;
             }
+        }
+
+        private bool IsExistsUser(string Login, string Password) {
+            return db.ApiUsers.FirstOrDefault(r => r.Login == Login && r.Password == Password) != null;
         }
 
         private string createToken(string username)
