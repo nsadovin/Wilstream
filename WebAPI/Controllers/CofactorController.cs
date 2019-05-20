@@ -10,7 +10,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class CofactorController : ApiController
     {
 
