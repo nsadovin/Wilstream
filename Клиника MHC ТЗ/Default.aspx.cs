@@ -474,6 +474,7 @@ public partial class _Default : System.Web.UI.Page
     {
         TextBox TextBoxQ = null;
         CheckBoxList CheckBoxListQ = null;
+        
         foreach (Control c in ((Panel)((Button)sender).Parent).Controls)
         {
 
@@ -501,20 +502,30 @@ public partial class _Default : System.Web.UI.Page
             }
         }
 
+        if (!string.IsNullOrEmpty(((Panel)((sender as Button).Parent)).ToolTip))
+        {
+            HiddenFieldResultAnketa.Value += ((Panel)((sender as Button).Parent)).ToolTip + ": " + ((Button)sender).CommandArgument + Environment.NewLine;
+        }
+
         saveData(Convert.ToInt32(((Button)sender).ToolTip), ((Button)sender).CommandArgument);
         standartNext(sender, e);
     }
     
     protected void QAC_TextBox(object sender, EventArgs e)
     {
+        var text = "";
         foreach (Control c in ((Panel)((Button)sender).Parent).Controls)
         {
             if (c is TextBox)
             {
+                text = ((TextBox)c).Text;
                 saveData(Convert.ToInt32(((Button)sender).CommandArgument), ((TextBox)c).Text);
             }
         }
-
+        if (!string.IsNullOrEmpty(((Panel)((sender as Button).Parent)).ToolTip))
+        {
+            HiddenFieldResultAnketa.Value += ((Panel)((sender as Button).Parent)).ToolTip + ": " + text + Environment.NewLine;
+        }
         standartNext(sender, e);
     }
 
@@ -787,20 +798,47 @@ public partial class _Default : System.Web.UI.Page
 
     protected void QAC_A5(object sender, EventArgs e)
     {
-        bool isFirst = true;
-        int i = 1;
-        foreach(TableRow tr in TableA1.Rows)
-        {
-            if (isFirst)
-            {
-                isFirst = false;
-                continue;
-            }
-            var num = tr.Cells[0].Text;
-            saveData(500+i,(tr.Cells[1].Controls[0] as CheckBox).Checked? num : "");
-            saveData(600+i,(tr.Cells[2].Controls[0] as TextBox).Text);
-            saveData(700 + i, (tr.Cells[1].Controls[0] as CheckBox).Checked?((tr.Cells[3].Controls[0] as CheckBox).Checked?"Да":"Нет") : "");
-        }
-        standartNext(sender, e);
+         
     }
+
+    protected void QAC_TextBox_Final(object sender, EventArgs e)
+    {
+        QAC_TextBox(sender, e);
+        SendEmail();
+    }
+    private void SendEmail() {
+        send("info@mhcenter.ru", HiddenFieldResultAnketa.Value, "Анкета Клиника MHC ТЗ", false);
+    }
+
+    public void send(string emails, string body, string subject, bool IsBodyHtml = false)
+    {
+
+
+        string from = "pls@wilstream.ru";
+
+        System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(from, emails);
+        m.IsBodyHtml = IsBodyHtml;
+        m.BodyEncoding = System.Text.Encoding.GetEncoding("utf-8");
+
+        m.Subject = subject;
+
+
+        m.Bcc.Add("vesdehod@yandex.ru");
+        m.Bcc.Add("vesdehod@mail.ru");
+        m.Bcc.Add("denisenko@wilstream.ru");
+
+        string EMAIL_BCOPY = "vesdehod@mail.ru";
+        if (EMAIL_BCOPY != "") m.Bcc.Add(EMAIL_BCOPY);
+
+        m.Body = body;
+
+        System.Net.Mail.SmtpClient sc = new System.Net.Mail.SmtpClient("mail.wilstream.ru");
+
+        sc.Credentials = new System.Net.NetworkCredential("pls@wilstream.ru", "15986");
+        sc.EnableSsl = false;
+
+        sc.Send(m);
+
+    }
+
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  EnableSessionState="True"  AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#"  EnableSessionState="True" ValidateRequest="false"  AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
 <!DOCTYPE html>
@@ -60,8 +60,9 @@
                              <asp:Label ID="LBMSG" runat="server" Visible="False" Text="Label" CssClass="warning"></asp:Label>
                              
                              
+                                <asp:HiddenField ID="HiddenFieldResultAnketa" runat="server" /> 
                              
-                            <asp:Panel ID="Panel1_3" runat="server">
+                            <asp:Panel ID="Panel1_3" runat="server" ToolTip="Вопрос 1 Для кого Вы ищете специалиста?">
                                 Вопрос 1 Для кого Вы ищете специалиста?
                                 
                                 <br/> 
@@ -72,7 +73,7 @@
                             </asp:Panel>
                             
                             
-                            <asp:Panel ID="Panel28" runat="server" Visible="false">
+                            <asp:Panel ID="Panel28" runat="server" Visible="false" ToolTip="Вопрос 2а. Нужна ли врачебная консультация (диагностика или лекарственная терапия)?">
                                 Вопрос 2а. Нужна ли врачебная консультация (диагностика или лекарственная терапия)?
                                 <br/> 
                                 <asp:Button CommandName="Panel29" CommandArgument="Да" ToolTip="2" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button57"  runat="server" /><br/> 
@@ -81,11 +82,11 @@
                             </asp:Panel> 
                             
                             
-                            <asp:Panel ID="Panel29" runat="server" Visible="false">
+                            <asp:Panel ID="Panel29" runat="server" Visible="false" ToolTip="Вопрос 3а. Основная проблема - нарушения памяти/нужна консультация ухаживающему по поводу нарушений памяти у близкого?">
                                 Вопрос 3а. Основная проблема - нарушения памяти/нужна консультация ухаживающему по поводу нарушений памяти у близкого?
                                 <br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Геренто психиатр" ToolTip="3" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button59"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Взрослый психиатр" ToolTip="3" onclick="QAC_Button" Text="Нет" CssClass="red unibutton  big2" Width="600"  ID="Button60"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Геренто психиатр" ToolTip="3" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button59"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Взрослый психиатр" ToolTip="3" onclick="QAC_Button" Text="Нет" CssClass="red unibutton  big2" Width="600"  ID="Button60"  runat="server" /><br/> 
                                 
                             </asp:Panel> 
 
@@ -93,7 +94,7 @@
 
 
 
-                              <asp:Panel ID="Panel2_4" runat="server"  Visible="false" CssClass="1">
+                              <asp:Panel ID="Panel2_4" runat="server"  Visible="false" CssClass="1" ToolTip="Вопрос 3б: Были ли когда-либо суицидальные мысли/самоповреждения/попытки суицида?">
                                  Вопрос 3б: Были ли когда-либо суицидальные мысли/самоповреждения/попытки суицида?
                                   <br/> 
                                  <asp:Button CommandName="Panel24" CommandArgument="Были попытки суицида." ToolTip="4" onclick="QAC_Button" Text="Были попытки суицида."    CssClass="green unibutton  big2" Width="400"  ID="Button138_2_5_n"  runat="server" /><br/> 
@@ -125,20 +126,20 @@
 
 
                             
-                            <asp:Panel ID="Panel55" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel55" runat="server"  Visible="false" ToolTip="Вопрос 4а: Когда были эти мысли?"> 
                                 Вопрос 4а: Когда были эти мысли?
                                 <br/>
                                 <asp:Button CommandName="Panel8" CommandArgument="Несколько месяцев назад или раньше, сейчас нет." ToolTip="5" onclick="QAC_Button" Text="Несколько месяцев назад или раньше, сейчас нет." CssClass="green unibutton  big2" Width="600"  ID="ButtonA4_3_1"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Умеренный риск суицида у взрослых" ToolTip="5" onclick="QAC_Button" Text="Сейчас" CssClass="green unibutton  big2" Width="600"  ID="ButtonA4_3_2"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Умеренный риск суицида у взрослых" ToolTip="5" onclick="QAC_Button" Text="Сейчас" CssClass="green unibutton  big2" Width="600"  ID="ButtonA4_3_2"  runat="server" /><br/> 
                                  <br/>
                                 <asp:Button ID="Button17" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel4" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel4" runat="server"  Visible="false" ToolTip="Вопрос 2б: Ваш вопрос связан с сексуальностью?"> 
                                 Вопрос 2б: Ваш вопрос связан с сексуальностью?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Сексуальные проблемы пар" ToolTip="6" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button8"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Терапия пар" ToolTip="6" onclick="QAC_Button" Text="Нет/не знаю" CssClass="green unibutton  big2" Width="600"  ID="Button9"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Сексуальные проблемы пар" ToolTip="6" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button8"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Терапия пар" ToolTip="6" onclick="QAC_Button" Text="Нет/не знаю" CssClass="green unibutton  big2" Width="600"  ID="Button9"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button54" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -146,10 +147,10 @@
 
                              
                              
-                            <asp:Panel ID="Panel1" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel1" runat="server"  Visible="false" ToolTip="Вопрос 2в: Нужна ли врачебная консультация (диагностика или лекарственная терапия)?"> 
                                 Вопрос 2в: Нужна ли врачебная консультация (диагностика или лекарственная терапия)?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Детский психиатр" ToolTip="7" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button1"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Детский психиатр" ToolTip="7" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button1"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel2" CommandArgument="Нет/не знаю" ToolTip="7" onclick="QAC_Button" Text="Нет/не знаю" CssClass="green unibutton  big2" Width="600"  ID="Button4"  runat="server" /><br/> 
                                
                                 <br/>
@@ -157,7 +158,7 @@
                             </asp:Panel>
                               
                              
-                            <asp:Panel ID="Panel2" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel2" runat="server"  Visible="false" ToolTip="Вопрос 3в: Были ли когда-либо суицидальные мысли/самоповреждения/попытки суицида?"> 
                                 Вопрос 3в: Были ли когда-либо суицидальные мысли/самоповреждения/попытки суицида?
                                 <br/>
                                 <asp:Button CommandName="Panel22" CommandArgument="Да" ToolTip="8" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button6"  runat="server" /><br/> 
@@ -167,21 +168,21 @@
                                 <asp:Button ID="Button11" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                              
-                            <asp:Panel ID="Panel5" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel5" runat="server"  Visible="false" ToolTip="Вопрос 4б: Есть ли проблемы в учебе или нарушения речи"> 
                                 Вопрос 4б: Есть ли проблемы в учебе или нарушения речи
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Логопед" ToolTip="9" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button12"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Логопед" ToolTip="9" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button12"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel6" CommandArgument="Нет" ToolTip="9" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button13"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button14" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel6" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel6" runat="server"  Visible="false" ToolTip="Вопрос 5 Сколько лет ребенку?"> 
                                 Вопрос 5 Сколько лет ребенку?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Подростковый психолог" ToolTip="10" onclick="QAC_Button" Text="12-15" CssClass="green unibutton  big2" Width="600"  ID="Button15"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Детский психоло" ToolTip="10" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button16"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Подростковый психолог" ToolTip="10" onclick="QAC_Button" Text="12-15" CssClass="green unibutton  big2" Width="600"  ID="Button15"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Детский психоло" ToolTip="10" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button16"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button18" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -190,7 +191,7 @@
 
                             <!--Таблица «Взрослые без суицидального риска»-->
                              
-                            <asp:Panel ID="Panel8" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel8" runat="server"  Visible="false" ToolTip="Вопрос 1: Есть ли проблемы с контролем приема пищи (страх поправиться, ограничение еды, переедание)"> 
                                 Вопрос 1: Есть ли проблемы с контролем приема пищи (страх поправиться, ограничение еды, переедание)
                                 <br/>
                                 <asp:Button CommandName="Panel9" CommandArgument="Да" ToolTip="11" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button21"  runat="server" /><br/> 
@@ -200,11 +201,11 @@
                                 <asp:Button ID="Button23" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel> 
 
-                            <asp:Panel ID="Panel9" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel9" runat="server"  Visible="false" ToolTip="Вопрос 2: Снижается ли Ваш вес за последнее время?"> 
                                 Вопрос 2: Снижается ли Ваш вес за последнее время?
                                 <br/>
                                 <asp:Button CommandName="Panel10" CommandArgument="Да" ToolTip="12" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button24"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Расстройства пищевого поведения" ToolTip="12" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button25"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Расстройства пищевого поведения" ToolTip="12" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button25"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button26" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -218,7 +219,7 @@
                             </asp:Panel>
 
                              
-                            <asp:Panel ID="Panel11" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel11" runat="server"  Visible="false" ToolTip="Вопрос 3 Бывало ли так, что Вы слышите голоса, когда никого нет рядом, или другие их не слышат? Или видите что-то, чего другие не видят? Бывало ли у Вас убеждение, что другие пытаются Вас контролировать или управляют вашими мыслями? Или другие похожие необычные убеждения?"> 
                                 Вопрос 3 Бывало ли так, что Вы слышите голоса, когда никого нет рядом, или другие их не слышат? Или видите что-то, чего другие не видят? Бывало ли у Вас убеждение, что другие пытаются Вас контролировать или управляют вашими мыслями? Или другие похожие необычные убеждения?
                                 <br/>
                                 <asp:Button CommandName="Panel12" CommandArgument="Да" ToolTip="13" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button27"  runat="server" /><br/> 
@@ -229,28 +230,28 @@
                             </asp:Panel>
                              
                              
-                            <asp:Panel ID="Panel12" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel12" runat="server"  Visible="false" ToolTip="Вопрос 4 Наблюдаетесь ли Вы у психиатра?"> 
                                 Вопрос 4 Наблюдаетесь ли Вы у психиатра?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Психоз" ToolTip="14" onclick="QAC_Button" Text="Да, но нужна психотерапия" CssClass="green unibutton  big2" Width="600"  ID="Button32"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Взрослый психиатр" ToolTip="14" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button33"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Психоз" ToolTip="14" onclick="QAC_Button" Text="Да, но нужна психотерапия" CssClass="green unibutton  big2" Width="600"  ID="Button32"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Взрослый психиатр" ToolTip="14" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button33"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button34" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                              
                              
-                            <asp:Panel ID="Panel14" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel14" runat="server"  Visible="false" ToolTip="Вопрос 5 Есть ли у Вас проблемы, связанные с употреблением алкоголя или других психоактивных веществ?"> 
                                 Вопрос 5 Есть ли у Вас проблемы, связанные с употреблением алкоголя или других психоактивных веществ?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Зависимости" ToolTip="15" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button36"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Зависимости" ToolTip="15" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button36"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel15" CommandArgument="Нет" ToolTip="15" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button37"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button38" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                              
-                            <asp:Panel ID="Panel15" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel15" runat="server"  Visible="false" ToolTip="Вопрос 6 Были ли длительные периоды, когда Вы ощущали себя очень воодушевленно, Вас переполняла энергия и нереальный оптимизм?"> 
                                 Вопрос 6 Были ли длительные периоды, когда Вы ощущали себя очень воодушевленно, Вас переполняла энергия и нереальный оптимизм?
                                 <br/>
                                 <asp:Button CommandName="Panel16" CommandArgument="Да" ToolTip="16" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button39"  runat="server" /><br/> 
@@ -260,20 +261,20 @@
                                 <asp:Button ID="Button41" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel16" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel16" runat="server"  Visible="false" ToolTip="Вопрос 7 Наблюдаетесь ли Вы у психиатра?"> 
                                 Вопрос 7 Наблюдаетесь ли Вы у психиатра?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Психотерапия БАР" ToolTip="17" onclick="QAC_Button" Text="Да, но нужна психотерапия" CssClass="green unibutton  big2" Width="600"  ID="Button42"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Взрослый психиатр" ToolTip="17" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button43"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Психотерапия БАР" ToolTip="17" onclick="QAC_Button" Text="Да, но нужна психотерапия" CssClass="green unibutton  big2" Width="600"  ID="Button42"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Взрослый психиатр" ToolTip="17" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button43"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button44" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                              
-                            <asp:Panel ID="Panel17" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel17" runat="server"  Visible="false" ToolTip="Вопрос 8 Беспокоят ли Вас воспоминания об очень стрессовом событии в вашей жизни? Например, когда Вы были жертвой или свидетелем насилия, тяжелой болезни, несчастного случая, ДТП, стихийного бедствия?"> 
                                 Вопрос 8 Беспокоят ли Вас воспоминания об очень стрессовом событии в вашей жизни? Например, когда Вы были жертвой или свидетелем насилия, тяжелой болезни, несчастного случая, ДТП, стихийного бедствия?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Травмы" ToolTip="18" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button45"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Травмы" ToolTip="18" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button45"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel18" CommandArgument="Нет" ToolTip="18" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button46"  runat="server" /><br/> 
                                
                                 <br/>
@@ -281,41 +282,41 @@
                             </asp:Panel>
                              
                              
-                            <asp:Panel ID="Panel18" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel18" runat="server"  Visible="false" ToolTip="Вопрос 9: Беспокоит ли Вас, что у Вас может развиться тяжелая болезнь? Есть ли у Вас жалобы на телесные симптомы, которым не находят медицинского объяснения?"> 
                                 Вопрос 9: Беспокоит ли Вас, что у Вас может развиться тяжелая болезнь? Есть ли у Вас жалобы на телесные симптомы, которым не находят медицинского объяснения?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Психосоматика" ToolTip="19" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button48"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Психосоматика" ToolTip="19" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button48"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel19" CommandArgument="Нет" ToolTip="19" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button49"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button50" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                              
-                            <asp:Panel ID="Panel19" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel19" runat="server"  Visible="false" ToolTip="Вопрос 10: Есть ли у Вас проблемы с контролем гнева? Жалуются ли Ваши близкие на то, что Вы применяете к ним физическое насилие?"> 
                                 Вопрос 10: Есть ли у Вас проблемы с контролем гнева? Жалуются ли Ваши близкие на то, что Вы применяете к ним физическое насилие?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Насилие" ToolTip="20" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button51"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Насилие" ToolTip="20" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button51"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel20" CommandArgument="Нет" ToolTip="20" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button52"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button53" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                              
-                            <asp:Panel ID="Panel20" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel20" runat="server"  Visible="false" ToolTip="Вопрос 11 Ваш основной запрос к специалисту связан с нарушениями сна?"> 
                                 Вопрос 11 Ваш основной запрос к специалисту связан с нарушениями сна?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Сомнология" ToolTip="21" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button55"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Сомнология" ToolTip="21" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button55"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel21" CommandArgument="Нет" ToolTip="21" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button61"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button62" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                              
-                            <asp:Panel ID="Panel21" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel21" runat="server"  Visible="false" ToolTip="Вопрос 12 Ваш запрос к специалисту связан с сексуальностью?"> 
                                 Вопрос 12 Ваш запрос к специалисту связан с сексуальностью?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Сексология" ToolTip="22" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button63"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Психотерапия" ToolTip="22" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button64"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Сексология" ToolTip="22" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button63"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Психотерапия" ToolTip="22" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button64"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button65" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -326,10 +327,10 @@
 
                             <!--Таблица Таблица Суицидальный риск у детей--> 
                              
-                            <asp:Panel ID="Panel22" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel22" runat="server"  Visible="false" ToolTip="Вопрос 1 Сколько лет ребенку?"> 
                                 Вопрос 1 Сколько лет ребенку?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Высокий риск суицида у детей" ToolTip="23" onclick="QAC_Button" Text="Меньше 12" CssClass="green unibutton  big2" Width="600"  ID="Button66"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Высокий риск суицида у детей" ToolTip="23" onclick="QAC_Button" Text="Меньше 12" CssClass="green unibutton  big2" Width="600"  ID="Button66"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel23" CommandArgument="12-15" ToolTip="23" onclick="QAC_Button" Text="12-15" CssClass="green unibutton  big2" Width="600"  ID="Button67"  runat="server" /><br/> 
                                
                                 <br/>
@@ -337,11 +338,11 @@
                             </asp:Panel>
                              
                              
-                            <asp:Panel ID="Panel23" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel23" runat="server"  Visible="false" ToolTip="Вопрос 2 Когда была попытка суицида?"> 
                                 Вопрос 2 Когда была попытка суицида?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Высокий риск суицида у детей" ToolTip="24" onclick="QAC_Button" Text="Менее года назад" CssClass="green unibutton  big2" Width="600"  ID="Button69"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Умеренный риск суицида у детей" ToolTip="24" onclick="QAC_Button" Text="Более года назад" CssClass="green unibutton  big2" Width="600"  ID="Button70"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Высокий риск суицида у детей" ToolTip="24" onclick="QAC_Button" Text="Менее года назад" CssClass="green unibutton  big2" Width="600"  ID="Button69"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Умеренный риск суицида у детей" ToolTip="24" onclick="QAC_Button" Text="Более года назад" CssClass="green unibutton  big2" Width="600"  ID="Button70"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button71" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -352,23 +353,23 @@
                             <!--Таблица Суицидальный риск у взрослых-->
                              
                              
-                            <asp:Panel ID="Panel24" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel24" runat="server"  Visible="false" ToolTip="Вопрос 1 Сколько было попыток суицида?"> 
                                 Вопрос 1 Сколько было попыток суицида?
                                 <br/>
                                 <asp:Button CommandName="Panel25" CommandArgument="1-2" ToolTip="25" onclick="QAC_Button" Text="1-2" CssClass="green unibutton  big2" Width="600"  ID="Button72"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Высокий риск суицида у взрослых" ToolTip="25" onclick="QAC_Button" Text="Более 2" CssClass="green unibutton  big2" Width="600"  ID="Button73"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Высокий риск суицида у взрослых" ToolTip="25" onclick="QAC_Button" Text="Более 2" CssClass="green unibutton  big2" Width="600"  ID="Button73"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button74" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                              
                              
-                            <asp:Panel ID="Panel25" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel25" runat="server"  Visible="false" ToolTip="Вопрос 2 Когда была последняя попытка?"> 
                                 Вопрос 2 Когда была последняя попытка?
                                 <br/>
-                                <asp:Button CommandName="Panel7" CommandArgument="Высокий риск суицида у взрослых" ToolTip="26" onclick="QAC_Button" Text="Меньше года назад" CssClass="green unibutton  big2" Width="600"  ID="Button75"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Средний риск суицида у взрослых" ToolTip="26" onclick="QAC_Button" Text="1-5 лет назад" CssClass="green unibutton  big2" Width="600"  ID="Button80"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Умеренный риск суицида у детей" ToolTip="26" onclick="QAC_Button" Text="Больше 5 лет назад" CssClass="green unibutton  big2" Width="600"  ID="Button76"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Высокий риск суицида у взрослых" ToolTip="26" onclick="QAC_Button" Text="Меньше года назад" CssClass="green unibutton  big2" Width="600"  ID="Button75"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Средний риск суицида у взрослых" ToolTip="26" onclick="QAC_Button" Text="1-5 лет назад" CssClass="green unibutton  big2" Width="600"  ID="Button80"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Умеренный риск суицида у детей" ToolTip="26" onclick="QAC_Button" Text="Больше 5 лет назад" CssClass="green unibutton  big2" Width="600"  ID="Button76"  runat="server" /><br/> 
                                
                                 <br/>
                                 <asp:Button ID="Button77" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -380,7 +381,7 @@
                              
                              
 
-                            <asp:Panel ID="Panel7" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel7" runat="server"  Visible="false" ToolTip="ФИО"> 
                                 фамилию ещё Вашу скажите, пожалуйста!
                                 <br/> 
                                  <asp:TextBox ID="TextBoxA4_2" Width="400" runat="server"></asp:TextBox> 
@@ -395,18 +396,18 @@
                        
                              
 
-                            <asp:Panel ID="Panel26" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel26" runat="server"  Visible="false" ToolTip="Номер телефона"> 
                                 Теперь назовите, пожалуйста, номер телефона, по которому с Вами удобно было бы связаться?  
                                 <div class="comment">(если записывает не клиент, то его телефон тоже),</div>
                                 <br/> 
                                  <asp:TextBox ID="TextBoxA28" Width="400" runat="server"></asp:TextBox> 
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="A28"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxv" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="A28"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA28" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
                                 <br/> 
                                 <br/> 
                                  <asp:Button ID="Button78" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button79" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A28"  CommandName="Panel33" CommandArgument="28"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button79" runat="server" Text="Далее (Отправка почты)" CssClass="blue unibutton" ValidationGroup="A28"  CommandName="Panel33" CommandArgument="28"  onclick="QAC_TextBox_Final" />
                             </asp:Panel> 
                        
 
