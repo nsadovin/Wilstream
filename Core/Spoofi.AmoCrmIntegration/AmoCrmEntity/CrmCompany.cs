@@ -45,12 +45,34 @@
         public string CustomersId { get; set; }
 
 
-        [JsonProperty("contacts_id")]
-        public List<Int64> ContactsId { get; set; }
+        [JsonProperty("contacts")]
+        public CrmCompanyContacts Contacts { get; set; }
 
         [JsonProperty("custom_fields")]
         public List<CrmCustomField> CustomFields { get; set; }
 
 
+    }
+
+    public class CrmCompanyContacts
+    {
+        [JsonProperty("id")]
+        public List<long> Ids { get; set; }
+        [JsonProperty("_links")]
+        public CrmCompanyLinks Links { get; set; }
+    }
+
+    public class CrmCompanyLinks
+    {
+        [JsonProperty("self")]
+        public CrmCompanySelf Self { get; set; } 
+    }
+
+    public class CrmCompanySelf
+    {
+        [JsonProperty("href")]
+        public string Href { get; set; }
+        [JsonProperty("method")]
+        public string Method { get; set; }
     }
 }

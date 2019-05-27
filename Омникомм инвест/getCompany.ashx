@@ -37,14 +37,14 @@ public class getCompany : IHttpHandler {
 
         var companiesFilter = companies.Where(r => r.CustomFields.Exists(r1 =>
 
-        //(
-        //r1.Name == "Статус контрагента" && r1.Values.Exists(r2 =>
-        // r2.Value == "Не заполнено"
-        // || r2.Value == "Конечный клиент"
-        // || r2.Value == "Партнер-Интегратор" 
-        //)
-        //)
-        //    ||
+        (
+        r1.Name == "Статус контрагента" && r1.Values.Exists(r2 =>
+         r2.Value == "Не заполнено"
+         || r2.Value == "Конечный клиент"
+         || r2.Value == "Партнер-Интегратор"
+        )
+        )
+            ||
             (
                 r1.Name == "Группа SAP" && r1.Values.Exists(r2 =>
              r2.Value == "Не заполнено"
@@ -58,22 +58,28 @@ public class getCompany : IHttpHandler {
 
 
 
-        return;
 
-        var leads = _service.GetLeads(StatusNothandled).OrderByDescending(r => r.DateCreate).Where(r=> r.DateCreate < DateTime.Now.AddMinutes(-10));
-
-        foreach (var lead in leads)
+        foreach (var crmCompany in  companiesFilter)
         {
-            var contact =  _service.GetContact(lead.MainContactId);
-            if(contact!=null && contact.CustomFields.Count(r=>r.Code=="PHONE")>0)
-                AddToDataBase(contact.CustomFields.FirstOrDefault(r=>r.Code=="PHONE").Values.FirstOrDefault().Value, lead.Id);
+            var contacts = "";
+            if(crmCompany.Contacts==null) continue;
+            foreach (var contactId in crmCompany.Contacts.Ids)
+            {
+                var contact = _service.GetContact(contactId);
+              //  if (contact != null && contact.CustomFields.Count(r => r.Code == "PHONE") > 0)
+             //   {
+              //      contacts += (contacts!=""?",":"")+contact.CustomFields.FirstOrDefault(r => r.Code == "PHONE").Values.FirstOrDefault().Value;
+             //   }
+            }
+            AddToDataBase(crmCompany, contacts);
+            break;
         }
 
         context.Response.ContentType = "text/plain";
         context.Response.Write("Good");
     }
 
-    private void AddToDataBase(string Phone, long IdLead) {
+    private void AddToDataBase(CrmCompany crmCompany,string Phones) {
         try
         {
             System.Data.SqlClient.SqlConnection conn = null;
@@ -83,7 +89,13 @@ public class getCompany : IHttpHandler {
 
             SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
 
-            var SqlStr = "IF not exists(select * from [dbo].[WS_Veganza] with(nolock) where IdLead = "+IdLead.ToString()+") INSERT INTO  [dbo].[WS_Ipoteka_not_handled]   (Phone, IdLead) Values ( '8'+right('" + Phone + "',10), "+IdLead.ToString()+")  ";
+            var SqlStr = "IF not exists(select * from [dbo].[WS_OmnicommInvest] with(nolock) where CompanyId = "+crmCompany.Id.ToString()+")"+
+                    " INSERT INTO  [dbo].[WS_OmnicommInvest]   (DTAdded, Phones, CompanyId, Name, [Статус контрагента],[Группа SAP]) Values (getDate(), '"
+                    + Phones + "', "
+                    +crmCompany.Id.ToString()+", '"
+                    +crmCompany.Name.ToString()+"',  '"
+                    +crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Статус контрагента").Values.FirstOrDefault().Value+"',  '"
+                    +crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Группа SAP").Values.FirstOrDefault().Value+"')  ";
 
 
             SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);
