@@ -9,16 +9,18 @@ using Spoofi.AmoCrmIntegration.Interface;
 using Spoofi.AmoCrmIntegration.Dtos.Response;
 using Spoofi.AmoCrmIntegration.Dtos.Request;
 using Spoofi.AmoCrmIntegration.AmoCrmEntity;
+using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 using System.Data.SqlClient;
 using System.Data;
 
 public class getCompany : IHttpHandler {
 
-    private static readonly AmoCrmConfig Config = new AmoCrmConfig("omnicrm", "dealer@omnicomm.ru", "cefdc2f47c19370cf472b7b79933eedda1e03aa1", 10);
+    private static readonly AmoCrmConfig Config = new AmoCrmConfig("omnicrm", "dealer@omnicomm.ru", "cefdc2f47c19370cf472b7b79933eedda1e03aa1", 500);
 
     private static int StatusNothandled = 23440957;//22373157;
     private static HttpContext _context  ;
@@ -33,6 +35,8 @@ public class getCompany : IHttpHandler {
         var users = _service.GetAccountInfo().Users.ToList();
 
 
+        // var company_ = _service.GetCompany(31118823);
+        //    return;
         var companies = _service.GetCompanies();
 
         var companiesFilter = companies.Where(r => r.CustomFields.Exists(r1 =>
@@ -58,26 +62,67 @@ public class getCompany : IHttpHandler {
 
 
 
-
+        var importCnt = 0;
         foreach (var crmCompany in  companiesFilter)
         {
-            var contacts = "";
-            if(crmCompany.Contacts==null) continue;
-            foreach (var contactId in crmCompany.Contacts.Ids)
+            try
             {
-                var contact = _service.GetContact(contactId);
-              //  if (contact != null && contact.CustomFields.Count(r => r.Code == "PHONE") > 0)
-             //   {
-              //      contacts += (contacts!=""?",":"")+contact.CustomFields.FirstOrDefault(r => r.Code == "PHONE").Values.FirstOrDefault().Value;
-             //   }
+
+                var contacts = new List<string>();
+                if (crmCompany.Contacts.Ids != null)
+                    foreach (var contactId in crmCompany.Contacts.Ids)
+                    {
+
+                        var contact = _service.GetContact(contactId);
+                        if (contact.CustomFields != null && contact.CustomFields.Count(r => r.Code == "PHONE") > 0)
+                        {
+                            var phone = GetDigital(contact.CustomFields.FirstOrDefault(r => r.Code == "PHONE").Values.FirstOrDefault().Value.ToString());
+                            if (phone.Length > 9)
+                            {
+                                phone = "8" + phone.Substring(phone.Length - 10, 10);
+                                if (!contacts.Contains(phone))
+                                    contacts.Add(GetDigital(phone));
+                            }
+
+                        }
+                    }
+
+                if (crmCompany.CustomFields != null && crmCompany.CustomFields.Count(r => r.Code == "PHONE") > 0)
+                {
+                    var phone = GetDigital(crmCompany.CustomFields.FirstOrDefault(r => r.Code == "PHONE").Values.FirstOrDefault().Value);
+                    if (phone.Length > 9)
+                    {
+                        phone = "8" + phone.Substring(phone.Length - 10, 10);
+                        if (!contacts.Contains(phone))
+                            contacts.Add(GetDigital(phone));
+                    }
+                }
+
+                if (contacts.Count == 0) continue;
+                importCnt++;
+                AddToDataBase(crmCompany, String.Join(",", contacts));
+                //          break;
             }
-            AddToDataBase(crmCompany, contacts);
-            break;
+            catch (Exception ex)
+            {
+            }
         }
 
         context.Response.ContentType = "text/plain";
         context.Response.Write("Good");
     }
+
+    string GetDigital(string subjectString) {
+        string resultString = null;
+        try {
+            Regex regexObj = new Regex(@"[^\d]");
+            resultString = regexObj.Replace(subjectString, "");
+        } catch (ArgumentException ex) {
+            // Syntax error in the regular expression
+        }
+        return resultString;
+    }
+
 
     private void AddToDataBase(CrmCompany crmCompany,string Phones) {
         try

@@ -103,6 +103,14 @@ namespace Spoofi.AmoCrmIntegration.Service
         }
 
 
+
+        public CrmCompany GetCompany(long companyId)
+        {
+            var parameterId = new Parameter { Name = "id", Value = companyId, Type = ParameterType.QueryString };
+            var company = AmoMethod.Get<CrmGetCompanyResponse>(_crmConfig, parameterId);
+            return company.Response.Companies.FirstOrDefault();
+        }
+
         public IEnumerable<CrmCompany> GetCompanies()
         {
             var companies = new List<CrmCompany>();
@@ -112,12 +120,18 @@ namespace Spoofi.AmoCrmIntegration.Service
                 var companiesList = AmoMethod.Get<CrmGetCompanyResponse>(_crmConfig);
                 if (companiesList == null)
                     break;
+                if (companiesList.Response.Error == "Неверный логин или пароль")
+                {
+                    Thread.Sleep(5000);
+                    companiesList = AmoMethod.Get<CrmGetCompanyResponse>(_crmConfig);
+                    if (companiesList == null)
+                        break;
+                }
                 companies.AddRange(companiesList.Response.Companies);
-                if(offset>0&&offset % 1000==0)
+                if(offset>0&&offset % 500==0)
                     Thread.Sleep(1000);
 
-                if (offset > 300)
-                    break;
+                //if (offset > 300)   break;
             }
             return companies;
         }

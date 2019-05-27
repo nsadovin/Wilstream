@@ -60,7 +60,7 @@ namespace Spoofi.AmoCrmIntegration
         }
         private string CompaniesListUrl
         {
-            get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/companies/list?", Subdomain); }
+            get { return string.Format("https://{0}.amocrm.ru/api/v2/companies?", Subdomain); }
         }
 
         private string LeadsListUrl

@@ -60,8 +60,9 @@
                              <asp:Label ID="LBMSG" runat="server" Visible="False" Text="Label" CssClass="warning"></asp:Label>
                              
                              
+                                <asp:HiddenField ID="HiddenFieldResultAnketa" runat="server"  /> 
                              
-                            <asp:Panel ID="Panel1_3" runat="server">
+                            <asp:Panel ID="Panel1_3" runat="server" ToolTip="Это компания (из базы)?" >
                                 Добрый день! <span class="comment"> (если не представились):</span> Это «<asp:Label ID="LabelCompany" runat="server" Text="компания (из базы)"></asp:Label>»?
                                 <br/> 
                                 <asp:Button CommandName="Panel4" CommandArgument="Да" ToolTip="1" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button42_2_5"  runat="server" /><br/> 
@@ -70,7 +71,7 @@
                             </asp:Panel>
                             
                             
-                            <asp:Panel ID="Panel28" runat="server" Visible="false">
+                            <asp:Panel ID="Panel28" runat="server" Visible="false" ToolTip="Вы используете комплексное решение для мониторинга транспорта для собственного автопарка?">
                                 Меня зовут «<asp:Label ID="LabelOperatorName" runat="server" Text="компания (из базы)"></asp:Label>», <b>компания «Омникомм»</b> - производитель решений для мониторинга транспорта. Скажите, Вы используете комплексное решение для мониторинга транспорта для собственного автопарка?
                                 <br/> 
                                 <asp:Button CommandName="Panel23" CommandArgument="Да" ToolTip="2" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button6"  runat="server" /><br/> 
@@ -83,7 +84,7 @@
                             </asp:Panel> 
                             
                             
-                            <asp:Panel ID="Panel2" runat="server" Visible="false">
+                            <asp:Panel ID="Panel2" runat="server" Visible="false" ToolTip="Вы являетесь интегратором? Устанавливаете системы мониторинга транспорта для Ваших клиентов?">
                                 Вы являетесь интегратором? Устанавливаете системы мониторинга транспорта для Ваших клиентов?
                                 <br/> 
                                 <asp:Button CommandName="Panel41" CommandArgument="Да" ToolTip="3" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button10"  runat="server" /><br/> 
@@ -97,7 +98,7 @@
 
                              
                             
-                            <asp:Panel ID="Panel4" runat="server" Visible="false">
+                            <asp:Panel ID="Panel4" runat="server" Visible="false"  ToolTip="Вы используете комплексное решение для мониторинга транспорта для собственного автопарка или являетесь интегратором?">>
                                 Меня зовут «<asp:Label ID="LabelOperatorName2" runat="server" Text="Label"></asp:Label>», компания «Омникомм» - производитель решений для мониторинга транспорта. Ваша компания является нашим партнером
                                 <span class="comment">– небольшая пауза –</span> звоню, чтобы актуализировать контактную информацию. Скажите, Вы используете комплексное решение для мониторинга транспорта для собственного автопарка или являетесь интегратором? 
                                 Т.е. устанавливаете данное решение для клиентов?
@@ -113,7 +114,7 @@
                                 
                             </asp:Panel> 
 
-                             <asp:Panel ID="Panel21" runat="server" Visible="false">
+                             <asp:Panel ID="Panel21" runat="server" Visible="false" >
                                 Отлично! Соедините, пожалуйста, с сотрудником, отвечающим за работу автопарка.
                                 <br/>
                                 <asp:Button ID="Button65" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -128,7 +129,7 @@
                             </asp:Panel> 
 
                              
-                            <asp:Panel ID="Panel5" runat="server" Visible="false">
+                            <asp:Panel ID="Panel5" runat="server" Visible="false" ToolTip="Скажите, у Вашей компании есть собственный автопарк?">
                                 Скажите, у Вашей компании есть собственный автопарк?
                                 <br/> 
                                 <asp:Button CommandName="Panel23" CommandArgument="Есть" ToolTip="5" onclick="QAC_Button" Text="Есть" CssClass="green unibutton  big2" Width="300"  ID="Button14"  runat="server" /><br/> 
@@ -140,7 +141,7 @@
 
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel6" runat="server" Visible="false">
+                            <asp:Panel ID="Panel6" runat="server" Visible="false"  ToolTip="А чем занимается Ваша компания?">
                                 – А чем занимается Ваша компания?
                                 <br/> 
                                 <asp:Button CommandName="Panel41" CommandArgument="Интегратор" ToolTip="6" onclick="QAC_Button" Text="Интегратор" CssClass="green unibutton  big2" Width="300"  ID="Button24"  runat="server" /><br/> 
@@ -153,7 +154,7 @@
                             </asp:Panel> 
 
                              <!--  Реакция секретаря-->
-                            <asp:Panel ID="Panel8" runat="server" Visible="false">
+                            <asp:Panel ID="Panel8" runat="server" Visible="false" ToolTip="Реакция секретаря">
                                 Реакция секретаря
                                 <br/> 
                                 <asp:Button CommandName="Panel9" CommandArgument="соединение" ToolTip="7" onclick="QAC_Button" Text="соединение" CssClass="green unibutton  big2" Width="500"  ID="Button27"  runat="server" /><br/> 
@@ -175,7 +176,7 @@
                             </asp:Panel> 
 
                              
-                            <asp:Panel ID="Panel9" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel9" runat="server"  Visible="false" ToolTip="Как его зовут? Какую должность он(а) занимает? "> 
                                 Как его зовут?  
                                 <asp:TextBox ID="TextBoxA701" Width="400" runat="server"></asp:TextBox>  <span class="comment"> – зафиксировать –</span>
                                 <br/>
@@ -190,11 +191,11 @@
                                 <br/> 
                                 <br/> 
                                  <asp:Button ID="Button28" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button42" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A701"  CommandName="Panel54" CommandArgument="303"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button42" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A701"  CommandName="Panel54" CommandArgument="303"  onclick="QAC_TextBox_A303" />
                             </asp:Panel> 
 
                              
-                            <asp:Panel ID="Panel10" runat="server" Visible="false"> 
+                            <asp:Panel ID="Panel10" runat="server" Visible="false" > 
                                 Когда я могу перезвонить? Кого мне спросить? 
                                 <div class="comment">зафиксировать дату и время звонка перезвона</div>  
                                 <br />
@@ -278,7 +279,7 @@
 
                              <!--  Основной сценарий (конечный клиент)-->
                              
-                            <asp:Panel ID="Panel23" runat="server" Visible="false">
+                            <asp:Panel ID="Panel23" runat="server" Visible="false" ToolTip="Вы же используете комплексное решение для мониторинга транспорта? ">
                                 «<asp:Label ID="Label1" runat="server" CssClass="fio" Text="ФИО клиент"></asp:Label>», добрый день!
                                 <div class="comment">– пауза – </div>
                                 Меня зовут «<asp:Label ID="Label2" runat="server" CssClass="operator" Text="Имя оператора"></asp:Label>», компания «Омникомм» - производитель решений для мониторинга транспорта. 
@@ -296,7 +297,7 @@
                             </asp:Panel> 
 
                              
-                            <asp:Panel ID="Panel24" runat="server" Visible="false">
+                            <asp:Panel ID="Panel24" runat="server" Visible="false" ToolTip="Вы компания-интегратор, занимаетесь установкой решения?">
                                 Вы компания-интегратор, занимаетесь установкой решения?
                                 <br/> 
                                 <asp:Button CommandName="Panel41" CommandArgument="Да" ToolTip="9" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button71"  runat="server" /><br/> 
@@ -308,7 +309,7 @@
                             </asp:Panel> 
 
                              
-                            <asp:Panel ID="Panel25" runat="server" Visible="false">
+                            <asp:Panel ID="Panel25" runat="server" Visible="false" ToolTip=" могли бы ответить на несколько вопросов? Это займет не более 2х минут.">
                                «<asp:Label ID="Label3" runat="server" CssClass="fio" Text="ФИО клиент"></asp:Label>», могли бы ответить на несколько вопросов? Это займет не более 2х минут.
                                 <br/> 
                                 <asp:Button CommandName="Panel34" CommandArgument="согласие" ToolTip="10" onclick="QAC_Button" Text="согласие" CssClass="green unibutton  big2" Width="500"  ID="Button75"  runat="server" /><br/> 
@@ -322,7 +323,7 @@
                                 
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel30" runat="server" Visible="false">
+                            <asp:Panel ID="Panel30" runat="server" Visible="false" ToolTip="Мы хотим уточнить ваши контакты чтобы информировать о наших спец.предложениях и выгодных условиях покупки оборудования.">
                                Мы хотим уточнить ваши контакты чтобы информировать о наших спец.предложениях и выгодных условиях покупки оборудования.
                                 <br/> 
                                 <asp:Button CommandName="Panel34" CommandArgument="согласие" ToolTip="10" onclick="QAC_Button" Text="согласие" CssClass="green unibutton  big2" Width="300"  ID="Button82"  runat="server" /><br/> 
@@ -333,7 +334,7 @@
                                 
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel31" runat="server" Visible="false">
+                            <asp:Panel ID="Panel31" runat="server" Visible="false" ToolTip="Мы не станем забрасывать Вас спамом. Только письма по делу с выгодными предложениями именно для Вас. ">
                                 Мы не станем забрасывать Вас спамом. Только письма по делу с выгодными предложениями именно для Вас. 
                                 <br/> 
                                 <asp:Button CommandName="Panel34" CommandArgument="согласие" ToolTip="10" onclick="QAC_Button" Text="согласие" CssClass="green unibutton  big2" Width="300"  ID="Button83"  runat="server" /><br/> 
@@ -354,7 +355,7 @@
 
                             <!-- Анкета Основной сценарий (конечный клиент) -->
 
-                            <asp:Panel ID="Panel34" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel34" runat="server"  Visible="false" ToolTip="Вопрос1: Вы могли бы подсказать вид деятельности вашей компании? "> 
                                 Вопрос1: Вы могли бы подсказать вид деятельности вашей компании? 
                                 <div class="comment">зафиксировать</div>
                                 <br/> 
@@ -368,7 +369,7 @@
                                 <asp:Button ID="Button89" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A1_1"  CommandName="Panel35" CommandArgument="1001"  onclick="QAC_TextBox" />
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel35" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel35" runat="server"  Visible="false" ToolTip="Вопрос2: Уточните, пожалуйста, адрес Вашей электронной почты"> 
                                 Вопрос2: Уточните, пожалуйста, адрес Вашей электронной почты, чтобы мы могли отправлять Вам интересные спец.предложения на решения, которые подходят для Вашего вида деятельности 
                                 <div class="comment">зафиксировать</div>
                                 <br/> 
@@ -383,7 +384,7 @@
                             </asp:Panel> 
                              
                              
-                            <asp:Panel ID="Panel36" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel36" runat="server"  Visible="false" ToolTip="Вопрос3: По какому телефону с Вами лучше держать связь?"> 
                                 Вопрос3: По какому телефону с Вами лучше держать связь? 
                                 <div class="comment">зафиксировать</div>
                                 <br/> 
@@ -398,7 +399,7 @@
                             </asp:Panel> 
                              
                              
-                            <asp:Panel ID="Panel37" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel37" runat="server"  Visible="false" ToolTip="Вопрос4: Для формирования индивидуальных предложений уточните, пожалуйста количество Ваших транспортных средств? "> 
                                 Вопрос4: Для формирования индивидуальных предложений уточните, пожалуйста количество Ваших транспортных средств? 
                                 <div class="comment">зафиксировать</div>
                                 <br/> 
@@ -413,7 +414,7 @@
                             </asp:Panel> 
 
                              
-                            <asp:Panel ID="Panel38" runat="server" Visible="false">
+                            <asp:Panel ID="Panel38" runat="server" Visible="false" ToolTip="Вопрос5: Наш менеджер готов в ближайшее время связаться с Вами, чтобы рассказать о наших решениях. Когда Вам будет удобно принять звонок?">
                                 Вопрос5: Наш менеджер готов в ближайшее время связаться с Вами, чтобы рассказать о наших решениях. Когда Вам будет удобно принять звонок?
                                 <br/> 
                                 <asp:Button CommandName="Panel39" CommandArgument="согласие" ToolTip="1005" onclick="QAC_Button" Text="согласие" CssClass="green unibutton  big2" Width="300"  ID="Button97"  runat="server" /><br/> 
@@ -447,7 +448,7 @@
 
 
                              <!-- Основной сценарий (интегратор) -->
-                              <asp:Panel ID="Panel41" runat="server" Visible="false"> 
+                              <asp:Panel ID="Panel41" runat="server" Visible="false" ToolTip="Вы же компания-интегратор, занимаетесь установкой комплексного решения для мониторинга транспорта?"> 
                                 «<asp:Label ID="Label8" runat="server" CssClass="fio" Text="ФИО клиент"></asp:Label>», добрый день! 
                                  <div class="comment">– пауза – </div>
                                   Меня зовут «<asp:Label ID="Label9" runat="server" CssClass="operator" Text="Имя оператора"></asp:Label>», компания «Омникомм» - производитель решений для мониторинга транспорта. На данный момент мы обновляем контактную информацию по наши партнерам, чтобы адресно направлять предложения о скидках и новых продуктах. Вы же компания-интегратор, 
@@ -462,7 +463,7 @@
                             </asp:Panel> 
 
                              
-                            <asp:Panel ID="Panel42" runat="server" Visible="false">
+                            <asp:Panel ID="Panel42" runat="server" Visible="false" ToolTip="У Вас есть собственный автопарк?">
                                 – У Вас есть собственный автопарк?
                                 <br/> 
                                 <asp:Button CommandName="Panel23" CommandArgument="Да" ToolTip="11" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button105"  runat="server" /><br/> 
@@ -473,7 +474,7 @@
                                 
                             </asp:Panel> 
 
-                              <asp:Panel ID="Panel43" runat="server" Visible="false">
+                              <asp:Panel ID="Panel43" runat="server" Visible="false" ToolTip="могли бы ответить на несколько вопросов? Это займет не более 3х минут.">
                                «<asp:Label ID="Label6" runat="server" CssClass="fio" Text="ФИО клиент"></asp:Label>», могли бы ответить на несколько вопросов? Это займет не более 3х минут.
                                 <br/> 
                                 <asp:Button CommandName="Panel47" CommandArgument="согласие" ToolTip="10" onclick="QAC_Button" Text="согласие" CssClass="green unibutton  big2" Width="500"  ID="Button108"  runat="server" /><br/> 
@@ -488,7 +489,7 @@
                             </asp:Panel> 
 
 
-                              <asp:Panel ID="Panel44" runat="server" Visible="false">
+                              <asp:Panel ID="Panel44" runat="server" Visible="false" ToolTip="Мы хотим уточнить ваши контакты чтобы информировать о наших спецпредложениях и выгодных условиях покупки оборудования.">
                                 Мы хотим уточнить ваши контакты чтобы информировать о наших спецпредложениях и выгодных условиях покупки оборудования.
                                 <br/> 
                                 <asp:Button CommandName="Panel47" CommandArgument="согласие" ToolTip="10" onclick="QAC_Button" Text="согласие" CssClass="green unibutton  big2" Width="300"  ID="Button114"  runat="server" /><br/> 
@@ -499,7 +500,7 @@
                                 
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel45" runat="server" Visible="false">
+                            <asp:Panel ID="Panel45" runat="server" Visible="false" ToolTip="Мы не станем забрасывать Вас спамом. Только письма по делу с выгодными предложениями именно для Вас, которые выгодны лично Вам.">
                                 Мы не станем забрасывать Вас спамом. Только письма по делу с выгодными предложениями именно для Вас, которые выгодны лично Вам.
                                 <br/> 
                                 <asp:Button CommandName="Panel47" CommandArgument="согласие" ToolTip="10" onclick="QAC_Button" Text="согласие" CssClass="green unibutton  big2" Width="300"  ID="Button117"  runat="server" /><br/> 
@@ -520,7 +521,7 @@
 
                              <!-- Анкета Основной сценарий (интегратор) -->
 
-                            <asp:Panel ID="Panel47" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel47" runat="server"  Visible="false" ToolTip="Вопрос1: Уточните, пожалуйста, адрес Вашей электронной почты"> 
                                 Вопрос1: Уточните, пожалуйста, адрес Вашей электронной почты, чтобы мы могли отправлять Вам интересные спец.предложения на решения и новые продукты - 
                                 <div class="comment">зафиксировать</div>
                                 <br/> 
@@ -534,7 +535,7 @@
                                 <asp:Button ID="Button123" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A2_1"  CommandName="Panel48" CommandArgument="2001"  onclick="QAC_TextBox" />
                             </asp:Panel> 
                              
-                            <asp:Panel ID="Panel48" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel48" runat="server"  Visible="false" ToolTip="Вопрос2: По какому телефону с Вами лучше держать связь? "> 
                                 Вопрос2: По какому телефону с Вами лучше держать связь? 
                                 <div class="comment">зафиксировать</div>
                                 <br/> 
@@ -549,7 +550,7 @@
                             </asp:Panel> 
                              
                              
-                            <asp:Panel ID="Panel49" runat="server"  Visible="false"> 
+                            <asp:Panel ID="Panel49" runat="server"  Visible="false" ToolTip="Вопрос3: Уточните, пожалуйста, численность Вашей компании?"> 
                                 Вопрос3: Уточните, пожалуйста, численность Вашей компании? 
                                 <div class="comment">зафиксировать</div>
                                 <br/> 
@@ -565,7 +566,7 @@
 
                              
                              
-                            <asp:Panel ID="Panel50" runat="server" Visible="false">
+                            <asp:Panel ID="Panel50" runat="server" Visible="false" ToolTip="Вопрос4: Наш менеджер готов в ближайшее время связаться с Вами, чтобы рассказать о наших решениях. Когда Вам будет удобно принять звонок?">
                                 Вопрос4: Наш менеджер готов в ближайшее время связаться с Вами, чтобы рассказать о наших решениях. Когда Вам будет удобно принять звонок?
                                 <br/> 
                                 <asp:Button CommandName="Panel51" CommandArgument="согласие" ToolTip="2004" onclick="QAC_Button" Text="согласие" CssClass="green unibutton  big2" Width="300"  ID="Button128"  runat="server" /><br/> 
@@ -597,7 +598,7 @@
 
                              <!-- End: Основной сценарий (интегратор)-->
 
-                            <asp:Panel ID="Panel29" runat="server" Visible="false">
+                            <asp:Panel ID="Panel29" runat="server" Visible="false" ToolTip="Результат презентации">
                                 Результат презентации:
                                 <asp:HiddenField ID="HiddenFieldA3" runat="server" />
                                 <br/> 

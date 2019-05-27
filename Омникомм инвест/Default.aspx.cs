@@ -555,18 +555,31 @@ public partial class _Default : System.Web.UI.Page
             }
         }
 
+
+        if (!string.IsNullOrEmpty(((Panel)((sender as Button).Parent)).ToolTip))
+        {
+            HiddenFieldResultAnketa.Value += ((Panel)((sender as Button).Parent)).ToolTip + ": " + ((Button)sender).CommandArgument + Environment.NewLine;
+        }
+
         saveData(Convert.ToInt32(((Button)sender).ToolTip), ((Button)sender).CommandArgument);
         standartNext(sender, e);
     }
     
     protected void QAC_TextBox(object sender, EventArgs e)
-    {
+    { 
+        var text = "";
         foreach (Control c in ((Panel)((Button)sender).Parent).Controls)
         {
             if (c is TextBox)
             {
+                text = ((TextBox)c).Text;
                 saveData(Convert.ToInt32(((Button)sender).CommandArgument), ((TextBox)c).Text);
             }
+        }
+
+        if (!string.IsNullOrEmpty(((Panel)((sender as Button).Parent)).ToolTip))
+        {
+            HiddenFieldResultAnketa.Value += ((Panel)((sender as Button).Parent)).ToolTip + ": " + text + Environment.NewLine;
         }
 
         standartNext(sender, e);
@@ -1008,5 +1021,13 @@ public partial class _Default : System.Web.UI.Page
         saveData(104, TextBoxEmailLPR.Text);
         saveData(105, TextBoxPhoneLPR.Text);
         saveData(106, TextBoxComment.Text);
+    }
+
+    protected void QAC_TextBox_A303(object sender, EventArgs e)
+    {
+        HiddenFieldResultAnketa.Value += "Как его зовут?  : " + TextBoxA701.Text + Environment.NewLine;
+        HiddenFieldResultAnketa.Value += "Какую должность он(а) занимает?  : " + TextBoxA702.Text + Environment.NewLine;
+
+        standartNext(sender, e);
     }
 }

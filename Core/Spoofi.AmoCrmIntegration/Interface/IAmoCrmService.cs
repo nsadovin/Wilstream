@@ -21,6 +21,11 @@ namespace Spoofi.AmoCrmIntegration.Interface
 
 
         /// <summary>
+        ///     Получить компании по Id
+        /// </summary>
+        /// <returns></returns>
+        CrmCompany GetCompany(long CompanyId);
+        /// <summary>
         ///     Получить все компании из CRM  
         /// </summary>
         /// <returns></returns>
