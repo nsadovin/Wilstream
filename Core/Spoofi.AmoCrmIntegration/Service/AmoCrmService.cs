@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using Spoofi.AmoCrmIntegration.AmoCrmEntity;
 using Spoofi.AmoCrmIntegration.Dtos.Request;
@@ -99,6 +100,43 @@ namespace Spoofi.AmoCrmIntegration.Service
             var parameterId = new Parameter { Name = "id", Value = leadId, Type = ParameterType.QueryString };
             var contact = AmoMethod.Get<CrmGetLeadResponse>(_crmConfig, parameterId);
             return contact.Response.Leads.FirstOrDefault();
+        }
+
+
+        public IEnumerable<CrmCompany> GetCompanies()
+        {
+            var companies = new List<CrmCompany>();
+            for (var offset = 0; ; offset += _crmConfig.LimitRows ?? 500)
+            {
+                _crmConfig.LimitOffset = offset;
+                var companiesList = AmoMethod.Get<CrmGetCompanyResponse>(_crmConfig);
+                if (companiesList == null)
+                    break;
+                companies.AddRange(companiesList.Response.Companies);
+                if(offset>0&&offset % 1000==0)
+                    Thread.Sleep(1000);
+
+                if (offset > 300)
+                    break;
+            }
+            return companies;
+        }
+
+        public IEnumerable<CrmCompany> GetCompanies(string query)
+        {
+            var companies = new List<CrmCompany>();
+            for (var offset = 0; ; offset += _crmConfig.LimitRows ?? 500)
+            {
+                _crmConfig.LimitOffset = offset;
+                var parameterQuery = new Parameter { Name = "query", Value = query, Type = ParameterType.QueryString };
+                var companiesList = AmoMethod.Get<CrmGetCompanyResponse>(_crmConfig, parameterQuery);
+                if (companiesList == null)
+                    break;
+                companies.AddRange(companiesList.Response.Companies);
+                if (offset > 0 && offset % 1000 == 0)
+                    Thread.Sleep(1000);
+            }
+            return companies;
         }
 
         public IEnumerable<CrmContact> GetContacts()

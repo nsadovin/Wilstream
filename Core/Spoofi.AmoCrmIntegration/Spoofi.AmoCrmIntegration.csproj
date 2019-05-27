@@ -64,12 +64,14 @@
     <Compile Include="Dtos\Request\AddOrUpdateContactRequest.cs" />
     <Compile Include="Dtos\Request\AddOrUpdateLeadRequest.cs" />
     <Compile Include="Dtos\Response\AccountInfoCustomFields.cs" />
+    <Compile Include="Dtos\Response\AddOrUpdateCompanyResponse.cs" />
     <Compile Include="Dtos\Response\AddOrUpdateNoteResponse.cs" />
     <Compile Include="Dtos\Response\AddOrUpdateTaskResponse.cs" />
     <Compile Include="Dtos\Response\AddOrUpdateContactResponse.cs" />
     <Compile Include="Dtos\Response\AddOrUpdateLeadResponse.cs" />
     <Compile Include="Dtos\Response\AmoCrmResponseBase.cs" />
     <Compile Include="Dtos\Response\CrmGetAccountInfoResponse.cs" />
+    <Compile Include="Dtos\Response\CrmGetCompanyResponse.cs" />
     <Compile Include="Dtos\Response\CrmGetNoteResponse.cs" />
     <Compile Include="Dtos\Response\CrmGetContactResponse.cs" />
     <Compile Include="Dtos\Response\CrmGetPipeLineResponse.cs" />

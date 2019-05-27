@@ -92,7 +92,8 @@ namespace WebAPI.Models
 
     public class CofactorSlideStat
     {
-        public string slide_id { get; set; }  
+        public string slide_id { get; set; }
+        public int duration { get; set; }
         public IEnumerable<IDictionary<String, Object>> userdata { get; set; }
 
     }
