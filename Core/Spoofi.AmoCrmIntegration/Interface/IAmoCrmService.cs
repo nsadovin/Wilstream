@@ -19,11 +19,26 @@ namespace Spoofi.AmoCrmIntegration.Interface
         /// <returns></returns>
         IEnumerable<CrmUser> GetCrmUsers();
 
+
+        /// <summary>
+        ///     Получить все компании из CRM  
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<CrmCompany> GetCompanies();
+        /// <summary>
+        ///     Получить все компании из CRM по запросу
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<CrmCompany> GetCompanies(string query);
+
+
         /// <summary>
         ///     Получить все контакты из CRM
         /// </summary>
         /// <returns></returns>
         IEnumerable<CrmContact> GetContacts();
+
+
 
         /// <summary>
         ///     Получить все контакты из CRM по запросу
@@ -36,6 +51,7 @@ namespace Spoofi.AmoCrmIntegration.Interface
         /// </summary>
         /// <returns></returns>
         IEnumerable<CrmLead> GetLeads();
+        
         /// <summary>
         ///     Получить все воронки из CRM  
         /// </summary>

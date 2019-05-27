@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28016.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BitrixIntegration", "BitrixIntegration\", "{B054F54C-29E6-4CF5-86D1-606B7A090725}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BitrixIntegration(1)", "BitrixIntegration\", "{B054F54C-29E6-4CF5-86D1-606B7A090725}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51315"
@@ -317,6 +317,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Омникомм инвест", "Омникомм инвест\", "{E81A1DF9-C3B2-417D-808B-A039A26DCEBE}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{bf1fde66-7465-4937-b84d-f4f245f6efc6}|Spoofi.AmoCrmIntegration.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_59346"
 		Debug.AspNetCompiler.PhysicalPath = "Омникомм инвест\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59346\"
@@ -339,6 +340,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Клиника MHC ТЗ", "Клиника MHC ТЗ\", "{1AE84096-D631-4DD1-9A5E-05FC1070C7BA}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{bf1fde66-7465-4937-b84d-f4f245f6efc6}|Spoofi.AmoCrmIntegration.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_1698"
 		Debug.AspNetCompiler.PhysicalPath = "Клиника MHC ТЗ\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1698\"
