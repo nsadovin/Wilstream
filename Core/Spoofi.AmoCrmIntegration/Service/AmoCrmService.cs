@@ -212,6 +212,8 @@ namespace Spoofi.AmoCrmIntegration.Service
             return notes;
         }
 
+         
+
         public IEnumerable<CrmNote> GetNotes(string query)
         {
             var notes = new List<CrmNote>();

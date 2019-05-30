@@ -22,7 +22,7 @@ using Spoofi.AmoCrmIntegration.Dtos.Response;
 public partial class _Default : System.Web.UI.Page
 {
 
-    private static readonly AmoCrmConfig Config = new AmoCrmConfig("gank", "dmkolosov@mail.ru", "8bed274348dbe7a2740546af3acd18e723eac262", 10);
+    private static readonly AmoCrmConfig Config = new AmoCrmConfig("omnicrm", "dealer@omnicomm.ru", "cefdc2f47c19370cf472b7b79933eedda1e03aa1", 500);
 
     private readonly IAmoCrmService _service = new AmoCrmService(Config);
 
@@ -80,11 +80,12 @@ public partial class _Default : System.Web.UI.Page
             string fio_client;			
             HiddenFieldOut_ID.Value = Request.QueryString["Out_ID"];
             string debug = Request.QueryString["debug"];
-            HF_Fio.Value = Request.QueryString["an"];
+            HF_Fio.Value = LabelCompany.Text= Request.QueryString["an"];
             HF_Out_ID.Value = Request.QueryString["aid"];
             HF_cid.Value = Request.QueryString["Campaign_ID"];
             HF_Abonent_ID.Value = Request.QueryString["Abonent_ID"];
             LabelOperatorName.Text = LabelOperatorName2.Text = Request.QueryString["OperatorName"];
+            HiddenFieldIdCompany.Value = Request.QueryString["CompanyId"];
 
             IterateControls(Page, LabelOperatorName.Text, "operator");
             is_mobile = Request.QueryString["is_mobile"]!=null&& Request.QueryString["is_mobile"].ToString() == "1";
@@ -101,7 +102,7 @@ public partial class _Default : System.Web.UI.Page
             Column_7 = Request.QueryString["Column_7"] != null ? Request.QueryString["Column_7"].ToString() : "";
             Column_9 = Request.QueryString["Column_9"] != null ? Request.QueryString["Column_9"].ToString() : "";
             Column_3 = Request.QueryString["Column_3"] != null ? Request.QueryString["Column_3"].ToString() : "";
-            TextBoxNameCampaign.Text = LabelCompany.Text = Column_3;
+            TextBoxNameCampaign.Text = Column_3;
             TextBoxFIOLPR.Text = HttpUtility.UrlDecode(Request.QueryString["an"], Encoding.GetEncoding("windows-1251"));
             TextBoxPhoneLPR.Text = Request.QueryString["Column_8"] != null ? Request.QueryString["Column_8"].ToString() : "";
             HiddenFieldColumn_3.Value = Column_3;
@@ -925,17 +926,17 @@ public partial class _Default : System.Web.UI.Page
 
     private long addNote(long LeadId, string Text, string IdNote)
     {
-        var laed = _service.GetLead(LeadId);
+        var company = _service.GetCompany(LeadId);
         var requestNote = new AddOrUpdateNoteRequest();
         requestNote.Update = new List<AddOrUpdateCrmNote>();
         requestNote.Add = new List<AddOrUpdateCrmNote>();
 
         {
             var _note = new AddOrUpdateCrmNote();
-            _note.ElementId = laed.Id;
-            _note.ElementType = 2;
+            _note.ElementId = company.Id;
+            _note.ElementType = 3;
             _note.Text = Text;
-            _note.ResponsibleUserId = Convert.ToInt64(3160069);
+            _note.ResponsibleUserId = Convert.ToInt64(company.ResponsibleUserId);
             _note.NoteType = 4;
             if (IdNote != "")
             {
@@ -1029,5 +1030,16 @@ public partial class _Default : System.Web.UI.Page
         HiddenFieldResultAnketa.Value += "Какую должность он(а) занимает?  : " + TextBoxA702.Text + Environment.NewLine;
 
         standartNext(sender, e);
+    }
+
+    protected void QAC_Button_End(object sender, EventArgs e)
+    {
+        QAC_Button(sender, e);
+        if (HiddenFieldIdCompany.Value != "")
+            addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "CallId:" + HF_Out_ID.Value, "");
+
+        if (HiddenFieldIdCompany.Value != "")
+            addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "Результат опроса:" + Environment.NewLine + Environment.NewLine+HiddenFieldResultAnketa.Value, "");
+
     }
 }

@@ -72,7 +72,8 @@ namespace Spoofi.AmoCrmIntegration
 
         private string NotesListUrl
         {
-                get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/notes/list?type=lead&note_type=4", Subdomain); }
+                get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/notes/list?type=company&note_type=4", Subdomain); }
+           //     get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/notes/list?type=lead&note_type=4", Subdomain); }
           //  get { return string.Format("https://{0}.amocrm.ru/api/v2/notes?type=lead", Subdomain); }
         }
 

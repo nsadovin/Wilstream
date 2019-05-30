@@ -66,7 +66,7 @@
                                 Вопрос 1 Для кого Вы ищете специалиста?
                                 
                                 <br/> 
-                                <asp:Button CommandName="Panel28" CommandArgument="Да" ToolTip="1" onclick="QAC_Button" Text="Для себя или взрослого близкого" CssClass="green unibutton  big2" Width="300"  ID="Button42_2_5"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel28" CommandArgument="Для себя или взрослого близкого" ToolTip="1" onclick="QAC_Button" Text="Для себя или взрослого близкого" CssClass="green unibutton  big2" Width="300"  ID="Button42_2_5"  runat="server" /><br/> 
                                  <asp:Button CommandName="Panel4" CommandArgument="Для себя и своего партнер" ToolTip="1" onclick="QAC_Button" Text="Для себя и своего партнер" CssClass="green unibutton  big2" Width="300"  ID="Button2"  runat="server" /><br/> 
                                  <asp:Button CommandName="Panel1" CommandArgument="Для ребенка младше 16 лет" ToolTip="1" onclick="QAC_Button" Text="Для ребенка младше 16 лет" CssClass="green unibutton  big2" Width="300"  ID="Button3_2_5"  runat="server" /><br/> 
                                  
@@ -85,7 +85,7 @@
                             <asp:Panel ID="Panel29" runat="server" Visible="false" ToolTip="Вопрос 3а. Основная проблема - нарушения памяти/нужна консультация ухаживающему по поводу нарушений памяти у близкого?">
                                 Вопрос 3а. Основная проблема - нарушения памяти/нужна консультация ухаживающему по поводу нарушений памяти у близкого?
                                 <br/> 
-                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Геренто психиатр" ToolTip="3" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button59"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel7" CommandArgument="Тэг Геронто психиатр" ToolTip="3" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button59"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel7" CommandArgument="Тэг Взрослый психиатр" ToolTip="3" onclick="QAC_Button" Text="Нет" CssClass="red unibutton  big2" Width="600"  ID="Button60"  runat="server" /><br/> 
                                 
                             </asp:Panel> 
@@ -381,7 +381,22 @@
                              
                              
 
-                            <asp:Panel ID="Panel7" runat="server"  Visible="false" ToolTip="ФИО"> 
+                            <asp:Panel ID="Panel7" runat="server"  Visible="false" ToolTip="Желаемые дни и время приема"> 
+                                Желаемые дни и время приема
+                                <br/> 
+                                 <asp:TextBox ID="TextBoxA4_3" Width="400" runat="server"></asp:TextBox> 
+                                <br/>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="A4_3"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA4_3" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                              
+                                <br/> 
+                                <br/> 
+                                 <asp:Button ID="Button82" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button83" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A4_3"  CommandName="Panel30" CommandArgument="29"  onclick="QAC_TextBox" />
+                            </asp:Panel> 
+                       
+                             
+
+                            <asp:Panel ID="Panel30" runat="server"  Visible="false" ToolTip="ФИО"> 
                                 фамилию ещё Вашу скажите, пожалуйста!
                                 <br/> 
                                  <asp:TextBox ID="TextBoxA4_2" Width="400" runat="server"></asp:TextBox> 
