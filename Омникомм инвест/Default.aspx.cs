@@ -1042,4 +1042,14 @@ public partial class _Default : System.Web.UI.Page
             addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "Результат опроса:" + Environment.NewLine + Environment.NewLine+HiddenFieldResultAnketa.Value, "");
 
     }
+    protected void QAC_TextBox_End(object sender, EventArgs e)
+    {
+        QAC_TextBox(sender, e);
+        if (HiddenFieldIdCompany.Value != "")
+            addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "CallId:" + HF_Out_ID.Value, "");
+
+        if (HiddenFieldIdCompany.Value != "")
+            addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "Результат опроса:" + Environment.NewLine + Environment.NewLine + HiddenFieldResultAnketa.Value, "");
+
+    }
 }
