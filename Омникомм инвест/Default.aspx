@@ -89,11 +89,11 @@
                             
                             
                             <asp:Panel ID="Panel28" runat="server" Visible="false" ToolTip="Вы используете комплексное решение для мониторинга транспорта для собственного автопарка?">
-                                Меня зовут «<asp:Label ID="LabelOperatorName" runat="server" Text="компания (из базы)"></asp:Label>», звоню от компании «Омникомм» - производителя решений для мониторинга транспорта. Скажите, Вы используете комплексное решение для мониторинга транспорта для собственного автопарка?
+                               3.  Меня зовут «<asp:Label ID="LabelOperatorName" runat="server" Text="компания (из базы)"></asp:Label>», звоню от компании «Омникомм» - производителя решений для мониторинга транспорта. Скажите, Вы используете комплексное решение для мониторинга транспорта для собственного автопарка?
                                 <br/> 
-                                <asp:Button CommandName="Panel23" CommandArgument="Да" ToolTip="2" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button6"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel4" CommandArgument="Да" ToolTip="2" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button6"  runat="server" /><br/> 
                                  <asp:Button CommandName="Panel2" CommandArgument="Нет" ToolTip="2" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="300"  ID="Button135"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel2" CommandArgument="Затрудняется ответить " ToolTip="2" onclick="QAC_Button" Text="Затрудняется ответить " CssClass="green unibutton  big2" Width="300"  ID="Button9"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel5" CommandArgument="Затрудняется ответить " ToolTip="2" onclick="QAC_Button" Text="Затрудняется ответить " CssClass="green unibutton  big2" Width="300"  ID="Button9"  runat="server" /><br/> 
                                
                                 <br/> 
                                  <asp:Button ID="Button8" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -105,8 +105,8 @@
                             <asp:Panel ID="Panel2" runat="server" Visible="false" ToolTip="4.	Вы занимаетесь установкой оборудования и систем для мониторинга транспорта?">
                                 4.	Вы занимаетесь установкой оборудования и систем для мониторинга транспорта?
                                 <br/> 
-                                <asp:Button CommandName="Panel5" CommandArgument="Да" ToolTip="3" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button10"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel5" CommandArgument="Нет" ToolTip="3" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="300"  ID="Button11"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="Да" ToolTip="3" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button10"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel33" CommandArgument="Нет" ToolTip="3" onclick="QAC_Button_End" Text="Нет" CssClass="green unibutton  big2" Width="300"  ID="Button11"  runat="server" /><br/> 
                                
                                 <br/> 
                                  <asp:Button ID="Button12" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -117,7 +117,7 @@
                             <asp:Panel ID="Panel5" runat="server" Visible="false" ToolTip="5.	Скажите, у Вашей компании есть собственный автопарк?">
                                 5.	Скажите, у Вашей компании есть собственный автопарк?
                                 <br/> 
-                                <asp:Button CommandName="Panel6" CommandArgument="Есть" ToolTip="5" onclick="QAC_Button" Text="Есть" CssClass="green unibutton  big2" Width="300"  ID="Button14"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel4" CommandArgument="Есть" ToolTip="5" onclick="QAC_Button" Text="Есть" CssClass="green unibutton  big2" Width="300"  ID="Button14"  runat="server" /><br/> 
                                  <asp:Button CommandName="Panel6" CommandArgument="Нет" ToolTip="5" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="300"  ID="Button22"  runat="server" /><br/> 
                                
                                 <br/> 
@@ -129,7 +129,7 @@
                             <asp:Panel ID="Panel6" runat="server" Visible="false"  ToolTip="6.	А чем занимается Ваша компания?">
                                 6.	А чем занимается Ваша компания?
                                 <br/> 
-                                <asp:Button CommandName="Panel4" CommandArgument="Интегратор" ToolTip="6" onclick="QAC_Button" Text="a.	интегратор: установкой систем мониторинга / установкой датчика уровня топлива / терминалов / тахографов / оператор систем мониторинга транспорта ГЛОНАСС / GPS" CssClass="green unibutton  big2" Width="300"  ID="Button24"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="Интегратор" ToolTip="6" onclick="QAC_Button" Text="a.	интегратор: установкой систем мониторинга / установкой датчика уровня топлива / терминалов / тахографов / оператор систем мониторинга транспорта ГЛОНАСС / GPS" CssClass="green unibutton  big2" Width="300"  ID="Button24"  runat="server" /><br/> 
                                  <asp:Button CommandName="Panel8" CommandArgument="Другое" ToolTip="6" onclick="QAC_Button" Text="Другое" CssClass="green unibutton  big2" Width="300"  ID="Button25"  runat="server" /><br/> 
                                
                                 <br/> 
@@ -153,7 +153,7 @@
                                  <asp:Button ID="Button18" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                                 <asp:Button ID="Button33_" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="Q3"  CommandName="Panel33" CommandArgument="-4"  onclick="QAC_TextBox_End" />
                             </asp:Panel> 
-                             
+                            <!--на Блок1 [конечный клиент]-->
                             <asp:Panel ID="Panel4" runat="server" Visible="false"  ToolTip="7.	Выход на ЛПР">
                                 7.	Выход на ЛПР
                                 <br/> 
@@ -163,6 +163,18 @@
                                
                                 <br/> 
                                  <asp:Button ID="Button16" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  /> 
+                            </asp:Panel> 
+                             
+                            <!--на Блок2 [интегратор]-->
+                            <asp:Panel ID="Panel10" runat="server" Visible="false"  ToolTip="7.	Выход на ЛПР">
+                                7.	Выход на ЛПР
+                                <br/> 
+                                <asp:Button CommandName="Panel23" CommandArgument="да" ToolTip="-3" onclick="QAC_Button" Text="да " CssClass="green unibutton  big2" Width="300"  ID="Button28"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel9" CommandArgument="дали новый номер" ToolTip="6" onclick="QAC_Button" Text="дали новый номер" CssClass="green unibutton  big2" Width="300"  ID="Button30"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel33" CommandArgument="нет" ToolTip="6" onclick="QAC_Button_End" Text="нет" CssClass="green unibutton  big2" Width="300"  ID="Button31"  runat="server" /><br/> 
+                               
+                                <br/> 
+                                 <asp:Button ID="Button32" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  /> 
                             </asp:Panel> 
 
                              
@@ -183,12 +195,11 @@
 
                              <!--  Основной сценарий (конечный клиент)-->
                              
-                            <asp:Panel ID="Panel23" runat="server" Visible="false" ToolTip="Вы же используете комплексное решение для мониторинга транспорта? ">
-                                «<asp:Label ID="Label1" runat="server" CssClass="fio" Text="ФИО клиент"></asp:Label>», добрый день!
+                            <asp:Panel ID="Panel23" runat="server" Visible="false" ToolTip="1. У Вас есть свой автопарк?">
+                                1. «<asp:Label ID="Label1" runat="server" CssClass="fio" Text="ФИО клиент"></asp:Label>», добрый день!
                                 <div class="comment">– пауза – </div>
-                                Меня зовут «<asp:Label ID="Label2" runat="server" CssClass="operator" Text="Имя оператора"></asp:Label>», компания «Омникомм» - производитель решений для мониторинга транспорта. 
-                                На данный момент мы обновляем контактную информацию по наши клиентам, чтобы адресно направлять предложения о скидках и новых продуктах.
-                                Вы же используете комплексное решение для мониторинга транспорта? 
+                                Меня зовут «<asp:Label ID="Label2" runat="server" CssClass="operator" Text="Имя оператора"></asp:Label>»,звоню от <b>компании «Омникомм»</b>
+                                - производителя решений для мониторинга транспорта. На данный момент мы обновляем контактную информацию о наших клиентах, чтобы адресно направлять предложения о скидках и новых продуктах. Вы же используете комплексное решение для мониторинга транспорта?
                                 <div class="comment">– без паузы– </div> 
                                 У Вас есть свой автопарк?
                                 <br/> 
@@ -201,8 +212,8 @@
                             </asp:Panel> 
 
                              
-                            <asp:Panel ID="Panel24" runat="server" Visible="false" ToolTip="Вы компания-интегратор, занимаетесь установкой решения?">
-                                Вы компания-интегратор, занимаетесь установкой решения?
+                            <asp:Panel ID="Panel24" runat="server" Visible="false" ToolTip="2. Вы занимаетесь установкой оборудования и систем для мониторинга транспорта?">
+                                2. Вы занимаетесь установкой оборудования и систем для мониторинга транспорта?
                                 <br/> 
                                 <asp:Button CommandName="Panel41" CommandArgument="Да" ToolTip="9" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="300"  ID="Button71"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel33" CommandArgument="Нет" ToolTip="9" onclick="QAC_Button_End" Text="Нет" CssClass="green unibutton  big2" Width="300"  ID="Button72"  runat="server" /><br/> 
