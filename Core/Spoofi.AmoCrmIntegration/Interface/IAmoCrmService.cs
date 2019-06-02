@@ -134,5 +134,12 @@ namespace Spoofi.AmoCrmIntegration.Interface
         /// <param name="addOrUpdateLeads">Объект с обновляемыми/добавляемыми лидами</param>
         /// <returns></returns>
         List<AddedOrUpdatedLead> AddOrUpdateLead(AddOrUpdateLeadRequest addOrUpdateLeads);
+
+        /// <summary>
+        ///     Добавление или обновление кампании
+        /// </summary>
+        /// <param name="addOrUpdateCompanies">Объект с обновляемыми/добавляемыми кампаиями</param>
+        /// <returns></returns>
+        List<AddedOrUpdatedCompany> AddOrUpdateCompany(AddOrUpdateCompanyRequest addOrUpdateCompanyRequest);
     }
 }

@@ -13,7 +13,7 @@ namespace Spoofi.AmoCrmIntegration.Dtos.Response
     public class CrmAddOrUpdateCompanyResponseChild : IAmoCrmResponseChild
     {
         [JsonProperty("items")]
-        public List<AddedOrUpdatedCompany> Contacts { get; set; }
+        public List<AddedOrUpdatedCompany> Companies { get; set; }
 
         [JsonProperty("error")]
         public dynamic Error { get; set; }

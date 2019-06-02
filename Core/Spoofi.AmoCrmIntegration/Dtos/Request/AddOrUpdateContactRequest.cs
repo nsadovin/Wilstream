@@ -106,6 +106,13 @@ namespace Spoofi.AmoCrmIntegration.Dtos.Request
         [JsonProperty("company_name", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string CompanyName { get; set; }
 
+
+        /// <summary>
+        ///     Имя компании контакта
+        /// </summary>
+        [JsonProperty("company_id", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public long CompanyId { get; set; }
+
         /// <summary>
         ///     Название тегов через запятую
         /// </summary>

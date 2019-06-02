@@ -7,6 +7,8 @@ namespace Spoofi.AmoCrmIntegration.Dtos.Response
     {
         [JsonProperty("contacts")]
         public List<CustomFieldDto> Contacts { get; set; }
+        [JsonProperty("companies")]
+        public List<CustomFieldDto> Companies { get; set; }
 
         [JsonProperty("leads")]
         public List<CustomFieldDto> Leads { get; set; }

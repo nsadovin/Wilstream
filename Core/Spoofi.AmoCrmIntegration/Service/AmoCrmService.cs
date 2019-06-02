@@ -236,6 +236,14 @@ namespace Spoofi.AmoCrmIntegration.Service
             return contact.Response.Contacts.FirstOrDefault();
         }
 
+
+        public List<AddedOrUpdatedCompany> AddOrUpdateCompany(AddOrUpdateCompanyRequest addOrUpdateCompanyRequest)
+        {
+            var request = addOrUpdateCompanyRequest;
+            var response = AmoMethod.Post<AddOrUpdateCompanyResponse>(request, _crmConfig);
+            return response.Response.Companies;
+        }
+
         public List<AddedOrUpdatedContact> AddOrUpdateContact(AddOrUpdateContactRequest addOrUpdateContactRequest)
         {
             var request = addOrUpdateContactRequest;

@@ -18,6 +18,7 @@ using Spoofi.AmoCrmIntegration.Service;
 using Spoofi.AmoCrmIntegration.Dtos.Request;
 using Newtonsoft.Json;
 using Spoofi.AmoCrmIntegration.Dtos.Response;
+using Spoofi.AmoCrmIntegration.AmoCrmEntity;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -73,6 +74,15 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        if (IsPostBack)
+        {
+
+
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg1", "     $(function () {        $('.datetimepicker1').datetimepicker({    locale: 'ru'  });    });", true);
+
+        }
+
         if (!IsPostBack)
         {
             bool is_mobile = true;
@@ -84,7 +94,7 @@ public partial class _Default : System.Web.UI.Page
             HF_Out_ID.Value = Request.QueryString["aid"];
             HF_cid.Value = Request.QueryString["Campaign_ID"];
             HF_Abonent_ID.Value = Request.QueryString["Abonent_ID"];
-            LabelOperatorName.Text = LabelOperatorName2.Text = Request.QueryString["OperatorName"];
+            LabelOperatorName.Text =   Request.QueryString["OperatorName"];
             HiddenFieldIdCompany.Value = Request.QueryString["CompanyId"];
 
             IterateControls(Page, LabelOperatorName.Text, "operator");
@@ -102,9 +112,9 @@ public partial class _Default : System.Web.UI.Page
             Column_7 = Request.QueryString["Column_7"] != null ? Request.QueryString["Column_7"].ToString() : "";
             Column_9 = Request.QueryString["Column_9"] != null ? Request.QueryString["Column_9"].ToString() : "";
             Column_3 = Request.QueryString["Column_3"] != null ? Request.QueryString["Column_3"].ToString() : "";
-            TextBoxNameCampaign.Text = Column_3;
+            //TextBoxNameCampaign.Text = Column_3;
             TextBoxFIOLPR.Text = HttpUtility.UrlDecode(Request.QueryString["an"], Encoding.GetEncoding("windows-1251"));
-            TextBoxPhoneLPR.Text = Request.QueryString["Column_8"] != null ? Request.QueryString["Column_8"].ToString() : "";
+           // TextBoxPhoneLPR.Text = Request.QueryString["Column_8"] != null ? Request.QueryString["Column_8"].ToString() : "";
             HiddenFieldColumn_3.Value = Column_3;
             HiddenFieldColumn_11.Value = Column_11;
             HiddenFieldColumn_12.Value = Column_12;
@@ -392,8 +402,16 @@ public partial class _Default : System.Web.UI.Page
             if (c is DropDownList)
             {
                 saveData(Convert.ToInt32(((Button)sender).CommandArgument), ((DropDownList)c).SelectedValue);
+
+
+                if (!string.IsNullOrEmpty(((Panel)((sender as Button).Parent)).ToolTip))
+                {
+                    HiddenFieldResultAnketa.Value += ((Panel)((sender as Button).Parent)).ToolTip + ": " + ((DropDownList)c).SelectedItem.Text + Environment.NewLine;
+                }
             }
         }
+
+
 
         standartNext(sender, e);
     }
@@ -863,7 +881,7 @@ public partial class _Default : System.Web.UI.Page
     { 
         var request = new AddOrUpdateLeadRequest();
         var lead = new AddOrUpdateCrmLead();
-        lead.Name = TextBoxNameCampaign.Text;
+       // lead.Name = TextBoxNameCampaign.Text;
         lead.ResponsibleUserId = Convert.ToInt64(3160069);
         lead.DateCreate = DateTime.Now;
         lead.Tags = "колл-центр";
@@ -961,12 +979,12 @@ public partial class _Default : System.Web.UI.Page
             var _contact = new AddOrUpdateCrmContact(); 
             _contact.Name = TextBoxFIOLPR.Text;
             _contact.LeadsId = crmLead.Id.ToString();
-            _contact.CompanyName = TextBoxNameCampaign.Text;
+       //     _contact.CompanyName = TextBoxNameCampaign.Text;
             var CustomFields = new List<AddContactCustomField>();
             CustomFields.Add(new AddContactCustomField() { Id = 232955, Values = new List<Object> { new AddCustomFieldValues() { Value = TextBoxDolgnostLPR.Text } } });
             
-            CustomFields.Add(new AddContactCustomField() { Id = 232957, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxPhoneLPR.Text, Enum = "WORK" } } });//352111
-            CustomFields.Add(new AddContactCustomField() { Id = 232959, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxEmailLPR.Text, Enum = "WORK" } } });//352111
+            //CustomFields.Add(new AddContactCustomField() { Id = 232957, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxPhoneLPR.Text, Enum = "WORK" } } });//352111
+         //   CustomFields.Add(new AddContactCustomField() { Id = 232959, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxEmailLPR.Text, Enum = "WORK" } } });//352111
             
             //232957
             _contact.CustomFields = CustomFields;
@@ -1016,18 +1034,18 @@ public partial class _Default : System.Web.UI.Page
 
     protected void saveForm()
     {
-        saveData(101, TextBoxNameCampaign.Text);
+       // saveData(101, TextBoxNameCampaign.Text);
         saveData(102, TextBoxFIOLPR.Text);
         saveData(103, TextBoxDolgnostLPR.Text);
-        saveData(104, TextBoxEmailLPR.Text);
-        saveData(105, TextBoxPhoneLPR.Text);
+      //  saveData(104, TextBoxEmailLPR.Text);
+    //    saveData(105, TextBoxPhoneLPR.Text);
         saveData(106, TextBoxComment.Text);
     }
 
     protected void QAC_TextBox_A303(object sender, EventArgs e)
     {
-        HiddenFieldResultAnketa.Value += "Как его зовут?  : " + TextBoxA701.Text + Environment.NewLine;
-        HiddenFieldResultAnketa.Value += "Какую должность он(а) занимает?  : " + TextBoxA702.Text + Environment.NewLine;
+      //  HiddenFieldResultAnketa.Value += "Как его зовут?  : " + TextBoxA701.Text + Environment.NewLine;
+     //   HiddenFieldResultAnketa.Value += "Какую должность он(а) занимает?  : " + TextBoxA702.Text + Environment.NewLine;
 
         standartNext(sender, e);
     }
@@ -1035,21 +1053,209 @@ public partial class _Default : System.Web.UI.Page
     protected void QAC_Button_End(object sender, EventArgs e)
     {
         QAC_Button(sender, e);
-        if (HiddenFieldIdCompany.Value != "")
-            addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "CallId:" + HF_Out_ID.Value, "");
-
-        if (HiddenFieldIdCompany.Value != "")
-            addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "Результат опроса:" + Environment.NewLine + Environment.NewLine+HiddenFieldResultAnketa.Value, "");
+        ToCrm();
 
     }
+    
+
     protected void QAC_TextBox_End(object sender, EventArgs e)
     {
         QAC_TextBox(sender, e);
+        ToCrm();
+    }
+    private void ToCrm()
+    {
         if (HiddenFieldIdCompany.Value != "")
             addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "CallId:" + HF_Out_ID.Value, "");
 
         if (HiddenFieldIdCompany.Value != "")
-            addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), "Результат опроса:" + Environment.NewLine + Environment.NewLine + HiddenFieldResultAnketa.Value, "");
+            addNote(Convert.ToInt64(HiddenFieldIdCompany.Value), 
+                "Результат опроса:" + Environment.NewLine + Environment.NewLine 
+                + HiddenFieldResultAnketa.Value + Environment.NewLine
+                + "Комментарии:" + TextBoxComment.Text
+                , "");
 
+        var company = _service.GetCompany(Convert.ToInt64(HiddenFieldIdCompany.Value));
+         
+        var request = new AddOrUpdateCompanyRequest();
+        var updateCompany = new AddOrUpdateCrmCompany();
+        updateCompany.Contacts = company.Contacts;
+         
+        if (!company.Tags.Exists(r => r.Name == "Call center"))
+        {
+            company.Tags.Add(new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmTag() {Name = "Call center" });
+        }
+        updateCompany.Tags = String.Join(",", company.Tags.Select(r=>r.Name).ToArray());
+        updateCompany.CustomFields = company.CustomFields;
+        updateCompany.Id = company.Id;
+        request.Add = new List<AddOrUpdateCrmCompany>();
+        request.Update = new List<AddOrUpdateCrmCompany>();
+        request.Update.Add(updateCompany);
+        _service.AddOrUpdateCompany(request);
+        CreateContacts();
+        if (TextBoxA1_7.Text != "")
+            CreateTask();
+    }
+
+    private void CreateTask() {
+        var request = new AddOrUpdateTaskRequest(); 
+        request.Update = new List<AddOrUpdateCrmTask>();
+        request.Add = new List<AddOrUpdateCrmTask>();
+        {
+            var _task = new AddOrUpdateCrmTask();
+            _task.ElementId = Convert.ToInt64(HiddenFieldIdCompany.Value);
+            _task.ElementType = 3;
+            _task.Text = "Звонок специалиста в "+ TextBoxA1_7.Text;
+            _task.IsCompleted = false; 
+            _task.TaskType = 1;
+            if (TextBoxA1_7.Text != "")
+            {
+                DateTime CompleteTillAt;
+                if (DateTime.TryParse(TextBoxA1_7.Text, out CompleteTillAt))
+                    _task.CompleteTillAt = CompleteTillAt;
+            }
+            request.Add.Add(_task);
+        } 
+        _service.AddOrUpdateTask(request);
+    }
+
+
+    private Int64 CreateContacts()
+    {
+        var company = _service.GetCompany(Convert.ToInt64(HiddenFieldIdCompany.Value));
+
+        var request = new AddOrUpdateContactRequest();
+        request.Update = new List<AddOrUpdateCrmContact>();
+        request.Add = new List<AddOrUpdateCrmContact>(); 
+        {
+            var _contact = new AddOrUpdateCrmContact();
+            _contact.Name = TextBoxFIOLPR.Text; 
+           
+            var CustomFields = new List<AddContactCustomField>();
+            CustomFields.Add(new AddContactCustomField() { Id = 267173, Values = new List<Object> { new AddCustomFieldValues() { Value = TextBoxDolgnostLPR.Text } } });
+
+            CustomFields.Add(new AddContactCustomField() { Id = 267175, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxA1_3.Text, Enum = "WORK" } } });//352111
+            CustomFields.Add(new AddContactCustomField() { Id = 267177, Values = new List<Object> { new AddCustomFieldValuesEnum() { Value = TextBoxA1_2.Text, Enum = "WORK" } } });//352111
+
+            //232957
+            _contact.CustomFields = CustomFields;
+            _contact.CompanyId = company.Id;
+
+
+            request.Add.Add(_contact);
+           
+        }
+         
+        var rslt = _service.AddOrUpdateContact(request);
+
+        if (rslt.FirstOrDefault() != null)
+        {
+            //HiddenFieldMainContactId.Value = rslt.FirstOrDefault().Id.ToString();
+            var contact_id = rslt.FirstOrDefault().Id;
+            
+            return contact_id;
+        }
+
+        return 0;
+    }
+
+
+
+    protected void QAC_Button_ChangeStatusToPartnerIntegrator(object sender, EventArgs e)
+    {
+        changeStatus("1271549", "Партнер-Интегратор");
+        QAC_Button(sender, e);
+    }
+
+
+    protected void QAC_Button_ChangeStatusToEndClient(object sender, EventArgs e)
+    {
+        changeStatus("1271547", "Конечный клиент");
+        QAC_Button(sender, e);
+    }
+
+    private void changeStatus(string id, string newStatus) {
+        var company = _service.GetCompany(Convert.ToInt64(HiddenFieldIdCompany.Value));
+        if (company.CustomFields.Exists(r1 =>
+         (
+         r1.Name == "Статус контрагента"
+         )))
+        {
+            var fieldStatus = company.CustomFields.FirstOrDefault(r1 =>
+              (
+              r1.Name == "Статус контрагента"
+              ));
+            var val = fieldStatus.Values.FirstOrDefault();
+            val.Value = newStatus;
+            val.Enum = id;
+        }
+        else
+        {
+            company.CustomFields.Add(new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomField() { Name = "Статус контрагента", Values = new List<Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue>() { new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue() { Value = newStatus, Enum = id } } });
+        };
+        var request = new AddOrUpdateCompanyRequest();
+        var updateCompany = new AddOrUpdateCrmCompany();
+        updateCompany.Contacts = company.Contacts; 
+        updateCompany.CustomFields = company.CustomFields; 
+        updateCompany.Id = company.Id;
+        request.Add = new List<AddOrUpdateCrmCompany>();
+        request.Update = new List<AddOrUpdateCrmCompany>();
+        request.Update.Add(updateCompany);
+        _service.AddOrUpdateCompany(request);
+    }
+
+
+    protected void DropDownListA1_4_Init(object sender, EventArgs e)
+    {
+        try
+        {
+            var region_field = _service.GetAccountInfo().CustomFields.Companies.FirstOrDefault(r => r.Id == 595525);
+            if (region_field != null)
+            {
+                var enums = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(region_field.Enums.ToString());
+                foreach (var option in enums)
+                {
+                    DropDownListA1_4.Items.Add(new ListItem() { Value = option.Key.ToString(), Text = option.Value });
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+       
+    }
+
+    protected void QAC_DropDownList_A1_4(object sender, EventArgs e)
+    {
+        var company = _service.GetCompany(Convert.ToInt64(HiddenFieldIdCompany.Value));
+        if (company.CustomFields.Exists(r1 =>
+         (
+         r1.Name == "Регион"
+         )))
+        {
+            var fieldStatus = company.CustomFields.FirstOrDefault(r1 =>
+              (
+              r1.Name == "Регион"
+              ));
+            var val = fieldStatus.Values.FirstOrDefault();
+            if (val == null)
+                val = new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue();
+            val.Value = DropDownListA1_4.SelectedItem.Text;
+            val.Enum = DropDownListA1_4.SelectedItem.Value;
+        }
+        else
+        {
+            company.CustomFields.Add(new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomField() { Id = 595525,  Name = "Регион", Values = new List<Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue>() { new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue() { Value = DropDownListA1_4.SelectedItem.Text, Enum = DropDownListA1_4.SelectedItem.Value } } });
+        };
+        var request = new AddOrUpdateCompanyRequest();
+        var updateCompany = new AddOrUpdateCrmCompany(); 
+        updateCompany.CustomFields = company.CustomFields;
+        updateCompany.Id = company.Id;
+        request.Add = new List<AddOrUpdateCrmCompany>();
+        request.Update = new List<AddOrUpdateCrmCompany>();
+        request.Update.Add(updateCompany);
+        _service.AddOrUpdateCompany(request);
+
+        QAC_DropDownList(sender, e);
     }
 }

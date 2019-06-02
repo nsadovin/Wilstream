@@ -59,6 +59,7 @@
     <Compile Include="AmoCrmEntity\CrmPipeline.cs" />
     <Compile Include="AmoCrmEntity\CrmTag.cs" />
     <Compile Include="AmoCrmEntity\CrmUser.cs" />
+    <Compile Include="Dtos\Request\AddOrUpdateCompanyRequest.cs" />
     <Compile Include="Dtos\Request\AddOrUpdateNoteRequest.cs" />
     <Compile Include="Dtos\Request\AddOrUpdateTaskRequest.cs" />
     <Compile Include="Dtos\Request\AddOrUpdateContactRequest.cs" />
