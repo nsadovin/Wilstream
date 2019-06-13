@@ -65,6 +65,7 @@ public class getCompany : IHttpHandler {
         var importCnt = 0;
         foreach (var crmCompany in  companiesFilter)
         {
+            var NameLPR = "";
             try
             {
 
@@ -85,6 +86,10 @@ public class getCompany : IHttpHandler {
                             }
 
                         }
+                        if (!String.IsNullOrEmpty(contact.Name))
+                        {
+                                NameLPR = contact.Name;
+                        }
                     }
 
                 if (crmCompany.CustomFields != null && crmCompany.CustomFields.Count(r => r.Code == "PHONE") > 0)
@@ -100,7 +105,7 @@ public class getCompany : IHttpHandler {
 
                 if (contacts.Count == 0) continue;
                 importCnt++;
-                AddToDataBase(crmCompany, String.Join(",", contacts));
+                AddToDataBase(crmCompany, String.Join(",", contacts), NameLPR);
                 //          break;
             }
             catch (Exception ex)
@@ -124,7 +129,7 @@ public class getCompany : IHttpHandler {
     }
 
 
-    private void AddToDataBase(CrmCompany crmCompany,string Phones) {
+    private void AddToDataBase(CrmCompany crmCompany,string Phones, string NameLPR) {
         try
         {
             System.Data.SqlClient.SqlConnection conn = null;
@@ -135,12 +140,12 @@ public class getCompany : IHttpHandler {
             SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
 
             var SqlStr = "IF not exists(select * from [dbo].[WS_OmnicommInvest] with(nolock) where CompanyId = "+crmCompany.Id.ToString()+")"+
-                    " INSERT INTO  [dbo].[WS_OmnicommInvest]   (DTAdded, Phones, CompanyId, Name, [Статус контрагента],[Группа SAP]) Values (getDate(), '"
+                    " INSERT INTO  [dbo].[WS_OmnicommInvest]   (DTAdded, Phones, CompanyId, Name, [Статус контрагента],[Группа SAP],[ФИО ЛПР]) Values (getDate(), '"
                     + Phones + "', "
                     +crmCompany.Id.ToString()+", '"
                     +crmCompany.Name.ToString()+"',  '"
                     +crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Статус контрагента").Values.FirstOrDefault().Value+"',  '"
-                    +crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Группа SAP").Values.FirstOrDefault().Value+"')  ";
+                    +crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Группа SAP").Values.FirstOrDefault().Value+"','"+NameLPR+"')  ";
 
 
             SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);

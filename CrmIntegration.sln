@@ -360,6 +360,27 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Клиника MHC ТЗ", "
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PizzaHat", "PizzaHat\", "{1D6769F5-F0CE-485C-91C9-FD330536B6A9}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55601"
+		Debug.AspNetCompiler.PhysicalPath = "PizzaHat\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55601\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55601"
+		Release.AspNetCompiler.PhysicalPath = "PizzaHat\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55601\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55601"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -442,6 +463,10 @@ Global
 		{1AE84096-D631-4DD1-9A5E-05FC1070C7BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AE84096-D631-4DD1-9A5E-05FC1070C7BA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{1AE84096-D631-4DD1-9A5E-05FC1070C7BA}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1D6769F5-F0CE-485C-91C9-FD330536B6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6769F5-F0CE-485C-91C9-FD330536B6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6769F5-F0CE-485C-91C9-FD330536B6A9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6769F5-F0CE-485C-91C9-FD330536B6A9}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -457,6 +482,7 @@ Global
 		{44F3E6C5-9377-410B-BE54-7FDEC5EE4134} = {67B6417B-0612-4A0F-BA20-6921F1592971}
 		{E81A1DF9-C3B2-417D-808B-A039A26DCEBE} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
 		{1AE84096-D631-4DD1-9A5E-05FC1070C7BA} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
+		{1D6769F5-F0CE-485C-91C9-FD330536B6A9} = {18AF8F32-4C4F-41B7-8E6D-92F40A208625}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F45207D-0A1D-491E-A11B-0B9DE2C48632}
