@@ -313,8 +313,8 @@
                                 <asp:Button ID="Button96" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A1_4"  CommandName="Panel11" CommandArgument="1004"  onclick="QAC_DropDownList_A1_4" />
                             </asp:Panel>  
                              
-                            <asp:Panel ID="Panel11" runat="server"  Visible="false" ToolTip="8.	Для формирования индивидуальных предложений уточните, пожалуйста количество Ваших транспортных средств?"> 
-                                8.	Для формирования индивидуальных предложений уточните, пожалуйста количество Ваших транспортных средств?
+                            <asp:Panel ID="Panel11" runat="server"  Visible="false" ToolTip="Для формирования индивидуальных предложений уточните, пожалуйста количество транспортных средств на обслуживании?"> 
+                                8.	Для формирования индивидуальных предложений уточните, пожалуйста количество транспортных средств на обслуживании?
                                 <div class="comment">зафиксировать</div>
                                 <br/> 
                                 <asp:TextBox ID="TextBoxA1_5" Width="400" runat="server"></asp:TextBox> 
