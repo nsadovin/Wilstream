@@ -1079,7 +1079,7 @@ public partial class _Default : System.Web.UI.Page
          
         var request = new AddOrUpdateCompanyRequest();
         var updateCompany = new AddOrUpdateCrmCompany();
-        updateCompany.Contacts = company.Contacts;
+        //updateCompany.Contacts = company.Contacts;
          
         if (!company.Tags.Exists(r => r.Name == "Call center"))
         {
@@ -1088,11 +1088,12 @@ public partial class _Default : System.Web.UI.Page
         updateCompany.Tags = String.Join(",", company.Tags.Select(r=>r.Name).ToArray());
         updateCompany.CustomFields = company.CustomFields;
         updateCompany.Id = company.Id;
+        updateCompany.Name = company.Name;
         request.Add = new List<AddOrUpdateCrmCompany>();
         request.Update = new List<AddOrUpdateCrmCompany>();
         request.Update.Add(updateCompany);
         _service.AddOrUpdateCompany(request);
-        CreateContacts();
+       // CreateContacts();
         if (TextBoxA1_7.Text != "")
             CreateTask();
     }
@@ -1198,6 +1199,7 @@ public partial class _Default : System.Web.UI.Page
         updateCompany.Contacts = company.Contacts; 
         updateCompany.CustomFields = company.CustomFields; 
         updateCompany.Id = company.Id;
+        updateCompany.Name = company.Name;
         request.Add = new List<AddOrUpdateCrmCompany>();
         request.Update = new List<AddOrUpdateCrmCompany>();
         request.Update.Add(updateCompany);
@@ -1251,6 +1253,7 @@ public partial class _Default : System.Web.UI.Page
         var updateCompany = new AddOrUpdateCrmCompany(); 
         updateCompany.CustomFields = company.CustomFields;
         updateCompany.Id = company.Id;
+        updateCompany.Name = company.Name; 
         request.Add = new List<AddOrUpdateCrmCompany>();
         request.Update = new List<AddOrUpdateCrmCompany>();
         request.Update.Add(updateCompany);

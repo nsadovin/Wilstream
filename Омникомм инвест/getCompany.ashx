@@ -35,8 +35,8 @@ public class getCompany : IHttpHandler {
         var users = _service.GetAccountInfo().Users.ToList();
 
 
-        // var company_ = _service.GetCompany(31118823);
-        //    return;
+       //  var company_ = _service.GetCompany(31121267);
+    //      return;
         var companies = _service.GetCompanies();
 
         var companiesFilter = companies.Where(r => r.CustomFields.Exists(r1 =>
@@ -58,13 +58,19 @@ public class getCompany : IHttpHandler {
             )
 
 
-        ));
+        ) || r.CustomFields.Count(r1=>r1.Name == "Статус контрагента"||r1.Name == "Группа SAP")==0);
 
-
+           
 
         var importCnt = 0;
+         companiesFilter = companiesFilter.Where(r => r.ResponsibleUserId == 1360129).ToList();
         foreach (var crmCompany in  companiesFilter)
         {
+            if (crmCompany.Id == 31121267)
+            {
+                var t1 = 1;
+            };
+            if (crmCompany.ResponsibleUserId != 1360129) continue;
             var NameLPR = "";
             try
             {
@@ -88,7 +94,7 @@ public class getCompany : IHttpHandler {
                         }
                         if (!String.IsNullOrEmpty(contact.Name))
                         {
-                                NameLPR = contact.Name;
+                            NameLPR = contact.Name;
                         }
                     }
 
@@ -114,7 +120,7 @@ public class getCompany : IHttpHandler {
         }
 
         context.Response.ContentType = "text/plain";
-        context.Response.Write("Good");
+        context.Response.Write("Good" +importCnt.ToString());
     }
 
     string GetDigital(string subjectString) {
@@ -144,8 +150,8 @@ public class getCompany : IHttpHandler {
                     + Phones + "', "
                     +crmCompany.Id.ToString()+", '"
                     +crmCompany.Name.ToString()+"',  '"
-                    +crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Статус контрагента").Values.FirstOrDefault().Value+"',  '"
-                    +crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Группа SAP").Values.FirstOrDefault().Value+"','"+NameLPR+"')  ";
+                    +(crmCompany.CustomFields.Count(r=>r.Name=="Статус контрагента")>0? crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Статус контрагента").Values.FirstOrDefault().Value:"")+"',  '"
+                    +(crmCompany.CustomFields.Count(r=>r.Name=="Группа SAP")>0? crmCompany.CustomFields.FirstOrDefault(r=>r.Name=="Группа SAP").Values.FirstOrDefault().Value:"")+"','"+NameLPR+"')  ";
 
 
             SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);

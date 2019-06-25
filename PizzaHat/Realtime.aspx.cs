@@ -17,11 +17,40 @@ public partial class Realtime : System.Web.UI.Page
 
     public List<Operator> Operators;
     public List<QueueCall> Queue;
+    public List<CallInfoOperator> CallInfoByOperator = new List<CallInfoOperator>();
+    public List<MissedCall> MissedCalls;
+
+    public string TaskId = "3D8F4EF3-CD56-4E91-A283-1C21FF49245D";// "3C863B40-17F2-4209-B430-F84E2E7F3E4A";// "3D8F4EF3-CD56-4E91-A283-1C21FF49245D";
 
     protected void Page_Load(object sender, EventArgs e)
     {
         Operators = GetReadyOperators();
-        Queue = GetQueue(Guid.Parse("3D8F4EF3-CD56-4E91-A283-1C21FF49245D"));
+
+        foreach (var op in Operators) {
+            if (op.OperatorStatus == "usFullbusy")
+            {
+                var xml = requestScript(op.OperatorId);
+                var obj = Parse(xml);
+                if (obj.Data.PropertySet.PropertyCData.ToString() != "-1") {
+                    var stat = obj.Data.PropertySet.PropertyCData.ToString().Replace("![CDATA[", "").Replace("]]", "");
+                    var stat_arr= stat.Split('|').ToList();
+                    var cio = new CallInfoOperator()
+                    {
+                        OperatorId = op.OperatorId,
+                        AON = stat_arr[0],
+                        StatusLine =  Convert.ToInt32(stat_arr[1]),
+                        TimeStatus = Convert.ToSingle(stat_arr[2]),
+                        taskid =  !String.IsNullOrEmpty(stat_arr[3])? Guid.Parse(stat_arr[3]): Guid.Empty,
+                        auserid = !String.IsNullOrEmpty(stat_arr[4]) ? Guid.Parse(stat_arr[4]) : Guid.Empty,
+                        boutnumber = stat_arr[5],
+                        timestart = !String.IsNullOrEmpty(stat_arr[5]) ? Convert.ToDateTime(stat_arr[6]): DateTime.MinValue,
+                    };
+                    CallInfoByOperator.Add(cio);
+                }
+            }
+        }
+        MissedCalls = GetMissedCalls();
+        Queue = GetQueue(Guid.Parse(TaskId));
     }
 
     protected void Timer1_Tick(object sender, EventArgs e)
@@ -45,7 +74,7 @@ public partial class Realtime : System.Web.UI.Page
             myOdbcCommand.Connection = myOdbcConnection;
             myOdbcCommand.CommandType = CommandType.Text;
             if (line == 1)
-                myOdbcCommand.CommandText = "SELECT  t2.Id, t2.Name FROM [oktell_settings].[dbo].[A_TaskManager_Operators] t1 WITH(NOLOCK), oktell_cc_temp.dbo.A_Cube_CC_Cat_OperatorInfo t2 with(nolock) 	WHERE t1.OperatorId = t2.Id and TaskId = '3D8F4EF3-CD56-4E91-A283-1C21FF49245D'";
+                myOdbcCommand.CommandText = "SELECT  t2.Id, t2.Name FROM [oktell_settings].[dbo].[A_TaskManager_Operators] t1 WITH(NOLOCK), oktell_cc_temp.dbo.A_Cube_CC_Cat_OperatorInfo t2 with(nolock) 	WHERE t1.OperatorId = t2.Id and TaskId = '"+ TaskId + "'";
             if (line == 2)
                 myOdbcCommand.CommandText = "SELECT  t2.Id, t2.Name FROM [OKTELL_DB1.WILSTREAM.RU].[oktell_settings].[dbo].[A_TaskManager_Operators] t1 WITH(NOLOCK), [OKTELL_DB1.WILSTREAM.RU].oktell_cc_temp.dbo.A_Cube_CC_Cat_OperatorInfo t2 with(nolock) 	WHERE t1.OperatorId = t2.Id and TaskId = 'CDDB70E2-4CB8-4664-A966-442A83FA7D94'";
             myOdbcCommand.Connection.Open();
@@ -66,6 +95,46 @@ public partial class Realtime : System.Web.UI.Page
     }
 
 
+    private List<MissedCall> GetMissedCalls()
+    {
+        var rslt = new List<MissedCall>();
+        try
+        {
+            System.Data.SqlClient.SqlConnection conn = null;
+
+            System.Configuration.ConnectionStringSettings settings =
+            System.Configuration.ConfigurationManager.ConnectionStrings["oktell_ccwsConnectionString"];
+
+            SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
+
+            SqlCommand myOdbcCommand = new SqlCommand();
+            myOdbcCommand.Connection = myOdbcConnection;
+            myOdbcCommand.CommandType = CommandType.Text; 
+                myOdbcCommand.CommandText = "SELECT TOP 1000 [AbonentNumber], [DateTimeStart],[LenQueue]  , [CallResult]  FROM [oktell_cc_temp].[dbo].[A_Cube_CC_EffortConnections] with(nolock) where [DateTimeStart] > DATEADD(mi,-90,getDate()) and [IdTask] = '" + TaskId + "'  and [CallResult]  not in (5,8) ";
+
+            myOdbcCommand.Connection.Open();
+            SqlDataReader myOdbcReader = myOdbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            while (myOdbcReader.Read())
+            {
+                rslt.Add(new MissedCall() {
+                     AbonentNumber = myOdbcReader.GetString(0),
+                       DateTimeStart = myOdbcReader.GetDateTime(1),
+                    CallResult = myOdbcReader.GetInt32(3),
+                     LenQueue = myOdbcReader.GetFloat(2),
+                });
+            }
+
+            myOdbcReader.Close();
+            myOdbcConnection.Close();
+            return rslt;
+        }
+        catch (Exception ex)
+        {
+            return new List<MissedCall>();
+        }
+    }
+
+
     public List<QueueCall> GetQueue(Guid rule_id)
     {
         var rslt = new List<QueueCall>(); 
@@ -74,12 +143,16 @@ public partial class Realtime : System.Web.UI.Page
         foreach (var item in obj)
         {
             if (item.ruleid != rule_id) continue;
-            var call = new QueueCall() {
-                callerid = item.callerid,
-                lenqueue = item.lenqueue,
-                calledid = item.calledid 
-            };
-            rslt.Add(call);
+            foreach (var qu in item.queue)
+            {
+                var call = new QueueCall()
+                {
+                    callerid = qu.callerid,
+                    lenqueue = qu.lenqueue != null ? qu.lenqueue : 0,
+                    calledid = qu.calledid
+                };
+                rslt.Add(call);
+            }
         }
 
      
@@ -265,7 +338,60 @@ public partial class Realtime : System.Web.UI.Page
         return rslt;
     }
 
-    [Serializable]
+    private static string requestScript(Guid user_id)
+    {
+
+        /*return @"<?xml version=""1.0"" encoding=""utf-16""?>
+<oktellxmlmapper version=""80710"">  
+<data name=""result"" count=""1"">    
+<property_set name=""execsvcscript"">      
+<property_simple key=""started"" value=""1"" name=""success"" />      
+<property_simple key=""startresult"" value=""0"" name=""success"" />      
+<property_cdata key=""returnvalue""><![CDATA[f947931e-cddf-4ba4-bd0b-6e9171ba5824]]></property_cdata>    </property_set>  </data></oktellxmlmapper>";
+return @"<?xml version=""1.0"" encoding=""utf-16""?>
+<oktellxmlmapper version=""80710"">
+<data name=""result"" count=""1"">
+<property_set name=""execsvcscript"">
+  <property_simple key=""started"" value=""1"" name=""success"" />
+  <property_simple key=""startresult"" value=""0"" name=""success"" />
+  <property_simple key=""returnvalue"" name=""f947931e-cddf-4ba4-bd0b-6e9171ba5824"" />
+</property_set>
+</data>
+</oktellxmlmapper>";
+
+<?xml version="1.0" encoding="utf-16"?>
+<oktellxmlmapper version="80710">  
+<data name="result" count="1">    
+<property_set name="execsvcscript">      
+<property_simple key="started" value="1" name="success" />      
+<property_simple key="startresult" value="0" name="success" />      
+<property_cdata key="returnvalue"><![CDATA[f947931e-cddf-4ba4-bd0b-6e9171ba5824]]></property_cdata>    </property_set>  </data></oktellxmlmapper>
+         */
+        string rslt = "";
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://192.168.3.3:4055/execsvcscript?name=GetCallByOperator&async=0&startparam1=" + user_id);
+        string username = "sadovin";
+        string password = "azsxdcfv890";
+        string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(username + ":" + password));
+        request.Headers.Add("Authorization", "Basic " + svcCredentials);
+
+        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        using (Stream stream = response.GetResponseStream())
+        {
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                string line = "";
+                while ((line = reader.ReadLine()) != null)
+                {
+                    rslt += line;
+                }
+            }
+        }
+        response.Close();
+        return rslt;
+    }
+     
+
+[Serializable]
     public class oktellxmlmapper
     {
         [XmlElement("data")]
@@ -318,5 +444,29 @@ public partial class Realtime : System.Web.UI.Page
         public Guid OperatorId { get; set; }
         public String Name { get; set; }
         public String OperatorStatus { get; set; }
+    }
+
+
+    public class CallInfoOperator
+    {
+        public Guid OperatorId { get; set; }
+        public String AON { get; set; }
+        public Int32 StatusLine { get; set; }
+        public float TimeStatus { get; set; }
+        public Guid taskid { get; set; }
+        public Guid auserid { get; set; }
+        public String boutnumber { get; set; }
+        public DateTime timestart { get; set; }
+         
+    }
+
+     
+    public class MissedCall
+    {
+        public string AbonentNumber { get; set; }
+        public DateTime DateTimeStart { get; set; }
+        public float LenQueue { get; set; }
+        public Int32 CallResult { get; set; } 
+
     }
 }
