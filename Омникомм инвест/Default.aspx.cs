@@ -1217,6 +1217,28 @@ public partial class _Default : System.Web.UI.Page
         {
             company.CustomFields.Add(new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomField() { Name = "Статус контрагента", Values = new List<Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue>() { new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue() { Value = newStatus, Enum = id } } });
         };
+        if (newStatus == "Партнер-Интегратор")
+        {
+            if (company.CustomFields.Exists(r1 =>
+                (
+                r1.Name == "Отрасль компании"
+                )))
+                    {
+                        var fieldStatus = company.CustomFields.FirstOrDefault(r1 =>
+                          (
+                          r1.Name == "Отрасль компании"
+                          ));
+                        var val = fieldStatus.Values.FirstOrDefault();
+                        if (val == null)
+                            val = new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue();
+                        val.Value = "Сервисная компания (Интегратор)";
+                        val.Enum = "1278851";
+                    }
+                    else
+                    {
+                        company.CustomFields.Add(new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomField() { Id = 600183, Name = "Отрасль компании", Values = new List<Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue>() { new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue() { Value = "Сервисная компания (Интегратор)", Enum = "1278851" } } });
+                    };
+        }
         var request = new AddOrUpdateCompanyRequest();
         var updateCompany = new AddOrUpdateCrmCompany();
         updateCompany.Contacts = company.Contacts; 
@@ -1250,6 +1272,28 @@ public partial class _Default : System.Web.UI.Page
        
     }
 
+
+    protected void DropDownListV1_Init(object sender, EventArgs e)
+    {
+        try
+        {
+            var region_field = _service.GetAccountInfo().CustomFields.Companies.FirstOrDefault(r => r.Id == 600183);
+            if (region_field != null)
+            {
+                var enums = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(region_field.Enums.ToString());
+                foreach (var option in enums)
+                {
+                    DropDownListV1.Items.Add(new ListItem() { Value = option.Key.ToString(), Text = option.Value });
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+
+    }
+
+
     protected void QAC_DropDownList_A1_4(object sender, EventArgs e)
     {
         var company = _service.GetCompany(Convert.ToInt64(HiddenFieldIdCompany.Value));
@@ -1277,6 +1321,41 @@ public partial class _Default : System.Web.UI.Page
         updateCompany.CustomFields = company.CustomFields;
         updateCompany.Id = company.Id;
         updateCompany.Name = company.Name; 
+        request.Add = new List<AddOrUpdateCrmCompany>();
+        request.Update = new List<AddOrUpdateCrmCompany>();
+        request.Update.Add(updateCompany);
+        _service.AddOrUpdateCompany(request);
+
+        QAC_DropDownList(sender, e);
+    }
+
+    protected void QAC_DropDownList_V1(object sender, EventArgs e)
+    {
+        var company = _service.GetCompany(Convert.ToInt64(HiddenFieldIdCompany.Value));
+        if (company.CustomFields.Exists(r1 =>
+         (
+         r1.Name == "Отрасль компании"
+         )))
+        {
+            var fieldStatus = company.CustomFields.FirstOrDefault(r1 =>
+              (
+              r1.Name == "Отрасль компании"
+              ));
+            var val = fieldStatus.Values.FirstOrDefault();
+            if (val == null)
+                val = new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue();
+            val.Value = DropDownListV1.SelectedItem.Text;
+            val.Enum = DropDownListV1.SelectedItem.Value;
+        }
+        else
+        {
+            company.CustomFields.Add(new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomField() { Id = 600183, Name = "Отрасль компании", Values = new List<Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue>() { new Spoofi.AmoCrmIntegration.AmoCrmEntity.CrmCustomFieldValue() { Value = DropDownListV1.SelectedItem.Text, Enum = DropDownListV1.SelectedItem.Value } } });
+        };
+        var request = new AddOrUpdateCompanyRequest();
+        var updateCompany = new AddOrUpdateCrmCompany();
+        updateCompany.CustomFields = company.CustomFields;
+        updateCompany.Id = company.Id;
+        updateCompany.Name = company.Name;
         request.Add = new List<AddOrUpdateCrmCompany>();
         request.Update = new List<AddOrUpdateCrmCompany>();
         request.Update.Add(updateCompany);
