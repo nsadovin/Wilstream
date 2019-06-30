@@ -1089,13 +1089,36 @@ public partial class _Default : System.Web.UI.Page
         updateCompany.CustomFields = company.CustomFields;
         updateCompany.Id = company.Id;
         updateCompany.Name = company.Name;
+        //численность
+        var count_mashine =  TextBoxA1_5.Text;//600123
+        var count_people =  TextBoxA1_6.Text;//600125
+                                             // var count_people =  TextBoxA1_6.Text;//600183
+
+        if (updateCompany.CustomFields.Exists(r1 => r1.Id == 600123))
+        {
+            updateCompany.CustomFields.FirstOrDefault(r1 => r1.Id == 600123).Values.FirstOrDefault().Value = count_mashine;
+        }
+        else
+        {
+            updateCompany.CustomFields.Add(new CrmCustomField() { Id= 600123, Name = "Количество техники", Values = new List<CrmCustomFieldValue>() { new CrmCustomFieldValue() { Value = count_mashine } } });
+        }
+
+        if (updateCompany.CustomFields.Exists(r1 => r1.Id == 600125))
+        {
+            updateCompany.CustomFields.FirstOrDefault(r1 => r1.Id == 600125).Values.FirstOrDefault().Value = count_people;
+        }
+        else
+        {
+            updateCompany.CustomFields.Add(new CrmCustomField() { Id = 600125, Name = "Численность компании (чел.)", Values = new List<CrmCustomFieldValue>() { new CrmCustomFieldValue() { Value = count_people } } });
+        }
+
         request.Add = new List<AddOrUpdateCrmCompany>();
         request.Update = new List<AddOrUpdateCrmCompany>();
         request.Update.Add(updateCompany);
         _service.AddOrUpdateCompany(request);
        // CreateContacts();
-        if (TextBoxA1_7.Text != "")
-            CreateTask();
+      //    if (TextBoxA1_7.Text != "")
+        ///    CreateTask();
     }
 
     private void CreateTask() {
