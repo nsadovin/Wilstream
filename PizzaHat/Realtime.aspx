@@ -49,10 +49,10 @@
                     <td colspan="5"></td>
                 </tr>
                 <tr>
-                    <td style="width: 60px; text-align:center; background-color: red;"><%=Queue.Count()+Operators.Count(r=>r.OperatorStatus=="usFullbusy") %></td>
+                    <td style="width: 60px; text-align:center; background-color: red;"><%=Queue.Count()+CallInfoByOperator.Count(r=>r.taskid == Guid.Parse(TaskId)&&r.auserid != r.OperatorId) %></td>
                     <td>Общее количество звонков</td>
                     <td> </td>
-                    <td style="width: 60px; text-align:center; background-color: green;"><%=Operators.Count(r=>r.OperatorStatus=="usFullbusy") %></td>
+                    <td style="width: 60px; text-align:center; background-color: green;"><%=CallInfoByOperator.Count(r=>r.taskid == Guid.Parse(TaskId)&&r.auserid != r.OperatorId) %></td>
                     <td>Количество звонков в разговоре с оператором</td>
                 </tr>
                 <tr>
