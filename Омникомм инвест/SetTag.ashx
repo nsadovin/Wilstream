@@ -18,7 +18,7 @@ using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using System.Data;
 
-public class UpdateCaompanyName : IHttpHandler {
+public class SetTag : IHttpHandler {
 
     private static readonly AmoCrmConfig Config = new AmoCrmConfig("omnicrm", "dealer@omnicomm.ru", "cefdc2f47c19370cf472b7b79933eedda1e03aa1", 500);
 
