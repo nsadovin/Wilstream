@@ -245,15 +245,15 @@
                             <asp:Panel ID="Panel34" runat="server"  Visible="false" ToolTip="Вопрос1: Вы могли бы подсказать вид деятельности вашей компании? "> 
                                 Вопрос1: Вы могли бы подсказать вид деятельности вашей компании? 
                                 <div class="comment">зафиксировать</div>
-                                <br/> 
-                                <asp:TextBox ID="TextBoxA1_1" Width="400" runat="server"></asp:TextBox> 
+                                <br/>  
+                                <asp:DropDownList ID="DropDownListV1" OnInit="DropDownListV1_Init" runat="server"></asp:DropDownList>
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ValidationGroup="A1_1"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA1_1" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ValidationGroup="A1_1"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="DropDownListV1" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
                                 <br/> 
                                 <br/> 
                                  <asp:Button ID="Button88" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button89" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A1_1"  CommandName="Panel35" CommandArgument="1001"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button89" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A1_1"  CommandName="Panel35" CommandArgument="1001"  onclick="QAC_DropDownList_V1" />
                             </asp:Panel> 
                               
                              
