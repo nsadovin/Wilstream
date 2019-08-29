@@ -28,7 +28,7 @@
             </div>
 
         <div class="row">
-        <div class="col">
+        <div class="col" style="display:none;">
         <asp:Panel ID="PanelInfoLead"  Visible="false" runat="server">
             <asp:HiddenField ID="HiddenFieldLeadJson" runat="server" />
             <h1>Лид (<asp:Label ID="LabelLeadId" runat="server" Text=""></asp:Label>)</h1> 
@@ -92,7 +92,7 @@
                  </asp:Table>  
              </asp:Panel>
              <br/>
-                <asp:Button ID="ButtonUpdateMainContact" Visible="false" CssClass="btn btn-primary" OnClick="ButtonUpdateMainContact_Click" runat="server" Text="Сохранить изменения" />
+                <asp:Button ID="ButtonUpdateMainContact"  CssClass="btn btn-primary" OnClick="ButtonUpdateMainContact_Click" runat="server" Text="Сохранить изменения" />
                 <asp:Button ID="ButtonAddContact" Visible="false" CssClass="btn btn-outline-primary" OnClick="ButtonAddContact_Click" runat="server" Text="Добавить +" />
             
         </asp:Panel>

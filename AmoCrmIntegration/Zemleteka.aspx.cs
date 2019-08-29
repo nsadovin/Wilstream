@@ -28,7 +28,7 @@ public partial class Zemleteka : System.Web.UI.Page
     };
     private List<Int64> ContactFields = new List<Int64>()
     {
-        //   38953, 38955, 38951
+        651141,497233, 497235
     };
     private Dictionary<Int64, String> PipelinesStatus = new Dictionary<Int64, String>()
     {
@@ -53,31 +53,32 @@ public partial class Zemleteka : System.Web.UI.Page
         var contact_fields = _service.GetAccountInfo().CustomFields.Contacts;
         var users = _service.GetAccountInfo().Users.ToList();
 
-        var IdLead = Request.QueryString["IdLead"] != null ? Request.QueryString["IdLead"].ToString() : "";
+        var IdContact = Request.QueryString["IdContact"] != null ? Request.QueryString["IdContact"].ToString() : "";
 
-        var phone = Request.QueryString["phone"] != null ? Request.QueryString["phone"].ToString() : "89197651287";
+        var phone = Request.QueryString["phone"] != null ? Request.QueryString["phone"].ToString() : "";
         if (phone == "")
             phone = Request.QueryString["anumber"] != null ? Request.QueryString["anumber"].ToString() : "";
 
         if (phone.Length > 10)
             phone = phone.Substring(phone.Length - 10, 10);
 
-        if (phone == "" && IdLead == "")
+        if (phone == "" && IdContact == "")
         {
 
             Response.Write("Не определен номер телефона");
             Response.End();
         }
 
-        if (phone != "" && IdLead == "")
+        if (phone != "" && IdContact == "")
         {
-            var lead_search =
-           _service.GetLeads(phone).OrderByDescending(r => r.DateCreate).FirstOrDefault();
-            if (lead_search != null)
-                IdLead = lead_search.Id.ToString();
+            var contact_search =
+           _service.GetContacts(phone).OrderByDescending(r => r.DateCreate).FirstOrDefault();
+            if (contact_search != null)
+                IdContact = contact_search.Id.ToString();
         }
+         
 
-        
+
 
 
         foreach (var option in users.OrderBy(r => r.Name))
@@ -115,19 +116,12 @@ public partial class Zemleteka : System.Web.UI.Page
             }*/
         }
 
-        if (IdLead == "")
+        if (IdContact == "")
         {
             PanelPipeLine.Visible = true;
             LabelLeadId.Text = "Новая";
-            PanelInfoLead.Visible = true;
-            //DropDownListResponsibleUsers.Items.Add(new ListItem() { Value = "", Text = "-----" });
-
-            PanelPipeLine.Visible = false;
-
-            foreach (var LeadField in lead_fields.Where(r => LeadFields.Count == 0 || LeadFields.Contains(r.Id)).ToList())
-            {
-                TableLead.Rows.Add(CreateRowForCustomField(TypeField.Lead, "Lead", new List<CrmCustomField>(), LeadField));
-            };
+            PanelInfoLead.Visible = false; 
+            PanelPipeLine.Visible = false; 
 
             PanelMainContact.Visible = true;
             foreach (var ContactField in contact_fields.Where(r => ContactFields.Count == 0 || ContactFields.Contains(r.Id)).ToList())
@@ -138,33 +132,14 @@ public partial class Zemleteka : System.Web.UI.Page
         }
         else
         {
-            var lead = _service.GetLead(Convert.ToInt64(IdLead));
+            var contact = _service.GetContact(Convert.ToInt64(IdContact));
 
             //lead = _service.GetLead(lead.Id);
 
 
-            if (lead != null)
+            if (contact != null)
             {
-                HiddenFieldLeadJson.Value = JsonConvert.SerializeObject(lead);
-
-                // PanelPipeLine.Visible = true;
-                LabelLeadId.Text = lead.Id.ToString();
-                TextBoxTags.Text = String.Join(",", lead.Tags.Select(r => r.Name).ToArray());
-
-                var contact = lead.MainContactId != null && lead.MainContactId > 0 ? _service.GetContact(lead.MainContactId) : null;
-
-                if (lead.Pipeline != null)
-                {
-                    DropDownListPipeline.SelectedValue = lead.Pipeline.id.ToString();
-
-                    DropDownListStatuses.Items.Clear();
-                    foreach (var option in pipelines.FirstOrDefault(r => r.id.ToString() == DropDownListPipeline.SelectedValue).CrmLeadStatus.OrderBy(r => r.Value.Name))
-                    {
-                        DropDownListStatuses.Items.Add(new ListItem() { Value = option.Value.Id.ToString(), Text = option.Value.Name.ToString() });
-                    };
-                    DropDownListStatuses.SelectedValue = lead.StatusId.ToString();
-                }
-
+                  
                 if (contact != null)
                 {
                     PanelMainContact.Visible = true;
@@ -174,45 +149,7 @@ public partial class Zemleteka : System.Web.UI.Page
                     {
                         TableMainContact.Rows.Add(CreateRowForCustomField(TypeField.Lead, "MainContact", contact.CustomFields, ContactField));
                     }
-                }
-                var countContact = 0;
-                if (lead.Contacts != null && lead.Contacts.Ids != null)
-                    foreach (var contact_id in lead.Contacts.Ids)
-                    {
-                        if (contact_id != lead.MainContactId)
-                        {
-                            countContact++;
-                            var _contact = _service.GetContact(contact_id);
-                            CreateTableContact(countContact, contact_id, _contact.Name, _contact.CompanyName, _contact.CustomFields);
-                            if (Session.Contents["TableContact"] != null)
-                            {
-                                var tables = (Session.Contents["TableContact"] as Dictionary<string, Table>);
-                                if (tables.ContainsKey("TableContact" + countContact))
-                                    tables.Remove("TableContact" + countContact);
-                                Session.Contents["TableContact"] = tables;
-                            }
-                        }
-                    }
-
-                if (Session.Contents["TableContact"] != null)
-                    foreach (var item in (Session.Contents["TableContact"] as Dictionary<string, Table>))
-                    {
-                        PanelContacts.Controls.Add(item.Value);
-                    }
-
-                PanelInfoLead.Visible = true;
-                TextBoxLeadName.Text = lead.Name;
-                TextBoxDateCreate.Text = lead.DateCreate.ToString();
-                //DropDownListResponsibleUsers.Items.Add(new ListItem() { Value = "", Text = "-----" });
-
-                if (DropDownListResponsibleUsers.Items.FindByValue(lead.ResponsibleUserId.ToString()) != null)
-                    DropDownListResponsibleUsers.SelectedValue = lead.ResponsibleUserId.ToString();
-
-                foreach (var LeadField in lead_fields.Where(r => LeadFields.Count == 0 || LeadFields.Contains(r.Id)).ToList())
-                {
-                    TableLead.Rows.Add(CreateRowForCustomField(TypeField.Lead, "Lead", lead.CustomFields, LeadField));
-                };
-
+                }  
             }
         }
     }
@@ -609,14 +546,14 @@ public partial class Zemleteka : System.Web.UI.Page
         request.Add = new List<AddOrUpdateCrmContact>();
         {
             var _contact = new AddOrUpdateCrmContact();
-            if (crmLead != null && crmLead.MainContactId > 0)
-                _contact.Id = crmLead.MainContactId;
+            if (HiddenFieldMainContactId.Value != "" )
+                _contact.Id = Convert.ToInt64(HiddenFieldMainContactId.Value);
             _contact.Name = TextBoxMainContactName.Text;
             if (LeadId > 0)
                 _contact.LeadsId = LeadId.ToString();
             _contact.CompanyName = TextBoxMainCampaignName.Text;
             _contact.CustomFields = GetCustomFieldsValues<AddContactCustomField>(TypeField.Lead, "MainContact");
-            if (crmLead != null && crmLead.MainContactId > 0)
+            if (HiddenFieldMainContactId.Value != "")
                 request.Update.Add(_contact);
             else
             {
