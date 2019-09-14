@@ -85,7 +85,7 @@
                         <asp:TableCell>ФИО:</asp:TableCell>
                         <asp:TableCell><asp:TextBox ID="TextBoxMainContactName" Width="400" CssClass="form-control" runat="server"></asp:TextBox></asp:TableCell>
                     </asp:TableRow>
-                    <asp:TableRow>
+                    <asp:TableRow Visible="false">
                         <asp:TableCell>Кампания:</asp:TableCell>
                         <asp:TableCell><asp:TextBox ID="TextBoxMainCampaignName" Width="400" CssClass="form-control" runat="server"></asp:TextBox></asp:TableCell>
                     </asp:TableRow>
@@ -94,6 +94,26 @@
              <br/>
                 <asp:Button ID="ButtonUpdateMainContact"  CssClass="btn btn-primary" OnClick="ButtonUpdateMainContact_Click" runat="server" Text="Сохранить изменения" />
                 <asp:Button ID="ButtonAddContact" Visible="false" CssClass="btn btn-outline-primary" OnClick="ButtonAddContact_Click" runat="server" Text="Добавить +" />
+            
+        </asp:Panel>
+            
+        </div>
+        <div class="col"> 
+            
+        <asp:Panel ID="PanelNotes" Visible="false"   runat="server">
+            <h1>Примечание</h1> 
+            <asp:Table ID="TableNotes" CssClass="table-borderless" runat="server">
+                    <asp:TableHeaderRow>
+                        <asp:TableHeaderCell>Поле</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Значение</asp:TableHeaderCell>
+                    </asp:TableHeaderRow> 
+                    <asp:TableRow>
+                        <asp:TableCell>Текст:</asp:TableCell>
+                        <asp:TableCell><asp:TextBox ID="TextBoxNote" TextMode="MultiLine" Width="400" CssClass="form-control" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+            <br />
+                  <asp:Button ID="Button1" CssClass="btn btn-outline-primary" OnClick="ButtonAddNote_Click" runat="server" Text="Добавить примечание" />
             
         </asp:Panel>
             
@@ -157,7 +177,8 @@
             
             </asp:Panel>
         </asp:Panel>
-        </div>
+      
+            </div>
            </div> 
         <div class="row"  style="padding: 10px;">
             <div class="col"> 

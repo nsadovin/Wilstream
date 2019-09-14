@@ -42,21 +42,21 @@ public class UpdateCaompanyName : IHttpHandler {
             try
             {
                 var company_ = _service.GetCompany(row.Key);
-                if (String.IsNullOrEmpty(company_.Name))
-                {
+                
                     context.Response.Write("CompanyId: " + row.Key.ToString() + " CompanyName: " + row.Value.ToString() + "<br/>");
                     var request = new AddOrUpdateCompanyRequest();
                     var updateCompany = new AddOrUpdateCrmCompany();
                     updateCompany.Contacts = company_.Contacts;
                     updateCompany.CustomFields = company_.CustomFields;
-                    updateCompany.Id = company_.Id;
-                    updateCompany.Name = row.Value;
+                    updateCompany.Id = company_.Id; 
+                    updateCompany.Tags = "Call center";
+                    updateCompany.Name = company_.Name;
                     request.Add = new List<AddOrUpdateCrmCompany>();
                     request.Update = new List<AddOrUpdateCrmCompany>();
                     request.Update.Add(updateCompany);
                     _service.AddOrUpdateCompany(request);
                     importCnt++;
-                }
+                  
             }
             catch (Exception ex) { 
                 context.Response.Write(ex.Message);
@@ -90,7 +90,7 @@ public class UpdateCaompanyName : IHttpHandler {
 
             SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
 
-            var SqlStr = "select CompanyId, Name from [dbo].[WS_OmnicommInvest] with(nolock) where Id < 600";
+            var SqlStr = "select CompanyId, Name from [dbo].[WS_OmnicommInvest] with(nolock)  where [Текущий статус] is null";
 
 
             SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);

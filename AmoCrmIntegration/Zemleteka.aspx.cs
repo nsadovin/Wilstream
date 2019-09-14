@@ -28,7 +28,7 @@ public partial class Zemleteka : System.Web.UI.Page
     };
     private List<Int64> ContactFields = new List<Int64>()
     {
-        651141,497233, 497235
+          651141,497233, 497235, 662531
     };
     private Dictionary<Int64, String> PipelinesStatus = new Dictionary<Int64, String>()
     {
@@ -74,10 +74,13 @@ public partial class Zemleteka : System.Web.UI.Page
             var contact_search =
            _service.GetContacts(phone).OrderByDescending(r => r.DateCreate).FirstOrDefault();
             if (contact_search != null)
+            {
                 IdContact = contact_search.Id.ToString();
+                HiddenFieldMainContactId.Value = IdContact;
+                PanelTasks.Visible = true;
+                PanelNotes.Visible = true;
+            }
         }
-         
-
 
 
 
@@ -665,8 +668,8 @@ public partial class Zemleteka : System.Web.UI.Page
         request.Add = new List<AddOrUpdateCrmTask>();
         {
             var _task = new AddOrUpdateCrmTask();
-            _task.ElementId = crmLead.Id;
-            _task.ElementType = 2;
+            _task.ElementId = Convert.ToInt64(HiddenFieldMainContactId.Value);
+            _task.ElementType = 1;
             _task.Text = TextBoxText.Text;
             _task.IsCompleted = CheckBoxIsCompleted.Checked;
             _task.ResponsibleUserId = Convert.ToInt64(DropDownListResponsibleUserId.SelectedValue);
@@ -696,5 +699,32 @@ public partial class Zemleteka : System.Web.UI.Page
         {
             DropDownListStatuses.Items.Add(new ListItem() { Value = option.Value.Id.ToString(), Text = option.Value.Name.ToString() });
         };
+    }
+
+    protected void ButtonAddNote_Click(object sender, EventArgs e)
+    {
+        var requestNote = new AddOrUpdateNoteRequest();
+        requestNote.Update = new List<AddOrUpdateCrmNote>();
+        requestNote.Add = new List<AddOrUpdateCrmNote>();
+        {
+            var _note = new AddOrUpdateCrmNote();
+            _note.ElementId = Convert.ToInt64(HiddenFieldMainContactId.Value);
+            _note.ElementType = 1;
+            _note.Text = TextBoxNote.Text;
+         //   _note.ResponsibleUserId = note.ResponsibleUserId;
+            _note.NoteType = 4;
+            requestNote.Add.Add(_note);
+        }
+
+
+        _service.AddOrUpdateNote(requestNote);
+
+
+        TextBoxNote.Text = ""; 
+
+
+        LabelMsg.Visible = true;
+        LabelMsg.CssClass = "alert alert-success";
+        LabelMsg.Text = "Примечание добавлено";
     }
 }
