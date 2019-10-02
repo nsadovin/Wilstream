@@ -676,7 +676,7 @@
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="A10"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA10" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
                                 <br/> 
-                                 <asp:Button CommandName="Panel9" CommandArgument="998" ToolTip="102" onclick="QAC_Button_A10" Text="Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button155"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel9" CommandArgument="998" ToolTip="102" onclick="QAC_Button" Text="Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button155"  runat="server" /><br/> 
                                  <asp:Button CommandName="Panel10" CommandArgument="999" ToolTip="102" onclick="QAC_Button_A10" Text="Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button46"  runat="server" /><br/> 
                                
                                 <br/> 

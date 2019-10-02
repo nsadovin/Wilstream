@@ -995,7 +995,7 @@ public partial class _Default : System.Web.UI.Page
     {
         (sender as Button).CommandName = 
             (
-            (HiddenFieldA1.Value != "998" && ((sender as Button).CommandArgument == "1"|| (sender as Button).CommandArgument == "2"))
+            (HiddenFieldA1.Value != "998" && ((sender as Button).CommandArgument == "1"|| (sender as Button).CommandArgument == "2" || (sender as Button).CommandArgument == "3" || (sender as Button).CommandArgument == "4"))
             ||
             (HiddenFieldA1.Value == "998" && ((sender as Button).CommandArgument == "3"|| (sender as Button).CommandArgument == "4"))            
             )
