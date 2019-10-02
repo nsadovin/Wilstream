@@ -62,25 +62,96 @@
                              
                              
                             <asp:Panel ID="Panel1" runat="server">
-                                Здравствуйте!<br/> 
-                                Меня зовут  <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>. (Название Исполнителя) проводит опрос организаций об использовании программ и сервисов с правовой информацией.
-                                <br/>Пожалуйста, соедините меня с бухгалтерией, желательно главным бухгалтером.
-                                <div class="comment">!!! Если в компании нет бухгалтера (аутсорсинг, удаленное обслуживание, централизованная бухгалтерия и т.п.), попросить переключить на юриста. 
-                                (ЕСЛИ БУХГАЛТЕР В КОМПАНИИ ЕСТЬ, НО НЕ МОЖЕТ ОТВЕТИТЬ, ДОГОВОРИТЬСЯ О ПОВТОРНОМ ЗВОНКЕ. ЮРИСТА ИЛИ ДР. СПЕЦИАЛИСТА В ДАННОМ СЛУЧАЕ НЕ ОПРАШИВАТЬ)
-                                !!! Если в компании нет ни бухгалтера, ни юриста, то:
-                                - если опрашивается индивидуальный предприниматель, адвокатское или нотариальное образование, попросить переключить на сотрудника, занимающего другую должность, использующего в своей работе правовую информацию.
-
-                                ПРИ ПЕРЕКЛЮЧЕНИИ ЗАЧИТАЙТЕ ВСТУПЛЕНИЕ:
-                                </div>
-                                Здравствуйте!
-                                <br/>Меня зовут <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>. (Название Исполнителя) проводит опрос об использовании в организациях программ и сервисов с правовой информацией.
-                                <div class="comment">
-                                ЕСЛИ РЕСПОНДЕНТ УТВЕРЖДАЕТ, ЧТО ОН БУХГАЛТЕР ИЛИ ЮРИСТ ИЛИ ДРУГОЙ СПЕЦИАЛИСТ, ИСПОЛЬЗУЮЩИЙ В РАБОТЕ ПРАВОВУЮ ИНФОРМАЦИЮ, ВСТУПЛЕНИЕ ПОВТОРНО НЕ ЗАЧИТЫВАТЬ, СРАЗУ ЗАДАТЬ ВОПРОС 1:
-                                </div> 
-                                <br/> 
-                                <asp:Button CommandName="Panel1_3"    onclick="standartNext" Text="Далее" CssClass="green unibutton big2" Width="300"  ID="Button2"  runat="server" /><br/> 
-                                 
+                                0.0. Добрый день! Это «<asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>»?<br/> 
+                                <asp:Button CommandName="Panel40" CommandArgument="1" ToolTip="-5" onclick="QAC_Button"     Text="Да" CssClass="green unibutton  big2" Width="200"  ID="Button65"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel41"  CommandArgument="2" ToolTip="-5" onclick="QAC_Button"     Text="Нет" CssClass="green unibutton  big2" Width="200"  ID="Button128"  runat="server" /><br/> 
+                           
+                                
                             </asp:Panel>
+
+                               <asp:Panel ID="Panel41" runat="server"  Visible="false"> 
+                                 <div class="comment">уточнить новое название  </div>
+                                <br/> 
+                                 <asp:TextBox ID="TextBoxF1" Width="400" runat="server"></asp:TextBox> 
+                                <br/>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ValidationGroup="F1"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxF1" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                              
+                                <br/> 
+                                <br/> 
+                                 <asp:Button ID="Button129" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button130" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="F1"  CommandName="Panel40" CommandArgument="-51"  onclick="QAC_TextBox" />
+                            </asp:Panel> 
+
+                                
+                            <asp:Panel ID="Panel40" runat="server" Visible="false">
+                                 
+                                Меня зовут  <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>. ВилСтрим проводит опрос организаций об использовании программ и сервисов с правовой информацией.
+                                <br/> 
+                                <asp:Button ID="Button134" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button2" runat="server" Text="Далее" CssClass="blue unibutton"    CommandName="Panel42"   onclick="standartNext" />
+                     
+                            </asp:Panel>
+
+                             
+                             
+                            <asp:Panel ID="Panel42" runat="server" Visible="false">
+                                0.1. Пожалуйста, соедините меня с бухгалтерией, желательно главным бухгалтером. 
+                                <br/> 
+                                <asp:Button CommandName="Panel45" CommandArgument="1" ToolTip="-4" onclick="QAC_Button"     Text="респондент является бухгалтером" CssClass="green unibutton  big2" Width="800"  ID="Button135"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel46" CommandArgument="2" ToolTip="-4" onclick="QAC_Button"     Text="переключили на бухгалтера" CssClass="green unibutton  big2" Width="800"  ID="Button136"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel43" CommandArgument="3" ToolTip="-4" onclick="QAC_Button"     Text="в компании нет бухгалтера (аутсорсинг, удаленное обслуживание, централизованная бухгалтерия и т.п.)" CssClass="green unibutton  big2" Width="800"  ID="Button138"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel32" CommandArgument="4" ToolTip="-4" onclick="QAC_Button"     Text="бухгалтер в компании есть, но не может в данный момент ответить" CssClass="green unibutton  big2" Width="800"  ID="Button139"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel3"  CommandArgument="5" ToolTip="-4" onclick="QAC_Button"     Text="ОТКАЗ" CssClass="red unibutton  big2" Width="800"  ID="Button132"  runat="server" /><br/> 
+                                <br/> 
+                                 <asp:Button ID="Button137" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:HiddenField ID="HiddenField0_1" runat="server" />
+                            </asp:Panel>
+                             
+                            <asp:Panel ID="Panel43" runat="server" Visible="false">
+                                0.2. Тогда соедините меня, пожалуйста, с юристом
+                                <br/> 
+                                <asp:Button CommandName="Panel45" CommandArgument="1" ToolTip="-3" onclick="QAC_Button"     Text="респондент является юристом" CssClass="green unibutton  big2" Width="800"  ID="Button140"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel46" CommandArgument="2" ToolTip="-3" onclick="QAC_Button"     Text="переключили на юриста" CssClass="green unibutton  big2" Width="800"  ID="Button141"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel44" CommandArgument="3" ToolTip="-3" onclick="QAC_Button"     Text="в компании нет юриста (аутсорсинг, удаленное обслуживание, централизованная бухгалтерия и т.п.)" CssClass="green unibutton  big2" Width="800"  ID="Button142"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel32" CommandArgument="4" ToolTip="-3" onclick="QAC_Button"     Text="юриста в компании есть, но не может в данный момент ответить" CssClass="green unibutton  big2" Width="800"  ID="Button143"  runat="server" /><br/> 
+                                <br/> 
+                                 <asp:Button ID="Button145" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:HiddenField ID="HiddenField0_2" runat="server" />
+                            </asp:Panel>
+                             
+                            <asp:Panel ID="Panel44" runat="server" Visible="false">
+                                0.3 Соедините меня, пожалуйста, с другим специалистом, использующим в своей работе правовую информацию
+                                <br/> 
+                                <asp:Button CommandName="Panel45" CommandArgument="1" ToolTip="-2" onclick="QAC_Button"     Text="респондент является др. специалистом" CssClass="green unibutton  big2" Width="800"  ID="Button144"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel46" CommandArgument="2" ToolTip="-2" onclick="QAC_Button"     Text="переключили на др. специалиста" CssClass="green unibutton  big2" Width="800"  ID="Button146"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel3" CommandArgument="3" ToolTip="-2" onclick="QAC_Button"     Text="в компании нет ни одного специалиста, использующего в работе правовую информацию " CssClass="green unibutton  big2" Width="800"  ID="Button147"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel32" CommandArgument="4" ToolTip="-2" onclick="QAC_Button"     Text="др. специалист в компании есть, но не может в данный момент ответить" CssClass="green unibutton  big2" Width="800"  ID="Button148"  runat="server" /><br/> 
+                                <br/> 
+                                 <asp:Button ID="Button149" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:HiddenField ID="HiddenField0_3" runat="server" />
+                            </asp:Panel>
+
+                             
+                            <asp:Panel ID="Panel46" runat="server" Visible="false">
+                                 
+                                Меня зовут  <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>. ВилСтрим проводит опрос организаций об использовании программ и сервисов с правовой информацией.
+                                <br/> 
+                                <asp:Button ID="Button152" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button153" runat="server" Text="Далее" CssClass="blue unibutton"    CommandName="Panel45"   onclick="standartNext" />
+                     
+                            </asp:Panel>
+                             
+                            <asp:Panel ID="Panel45" runat="server" Visible="false">
+                                0.4. Мы хотели бы задать Вам несколько вопросов, наш разговор займет не более 10 минут.
+                                <br/> 
+                                <asp:Button CommandName="Panel1_3" CommandArgument="1" ToolTip="-1" onclick="QAC_Button"     Text="согласие" CssClass="green unibutton  big2" Width="500"  ID="Button150"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel32" CommandArgument="2" ToolTip="-1" onclick="QAC_Button"     Text="отказ" CssClass="green unibutton  big2" Width="500"  ID="Button151"  runat="server" /><br/> 
+                                <br/> 
+                                 <asp:Button ID="Button154" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:HiddenField ID="HiddenField0_4" runat="server" />
+                            </asp:Panel>
+
+                             
                              
                             <asp:Panel ID="Panel1_3" runat="server" Visible="false">
 
@@ -89,14 +160,14 @@
                                     ИНТЕРВЬЮЕР! Точная должность бухгалтера/юриста здесь не нужна, отметьте - относится ли опрашиваемый к бухгалтерии или юристам, либо укажите должность, если переключили на другого сотрудника - (только для ИП, адвокатских или нотариальных контор!)
                                 </div>
                                 <br/> 
-                                <asp:Button CommandName="Panel28" CommandArgument="1" ToolTip="1" onclick="QAC_Button"     Text="1.	Бухгалтер (главный бухгалтер, зам. главного бухгалтера, руководитель какого-либо участка бухгалтерии, старший бухгалтер, бухгалтер)" CssClass="green unibutton  big2" Width="1100"  ID="Button42_2_5"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel28"  CommandArgument="2" ToolTip="1" onclick="QAC_Button"     Text="2.	Юрист (руководитель юридического подразделения, юрист, юрисконсульт, адвокат)" CssClass="red unibutton  big2" Width="1100"  ID="Button3"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel2"  CommandArgument="998" ToolTip="1" onclick="QAC_Button"   Text="998. Другой " CssClass="red unibutton  big2" Width="1100"  ID="Button3_2_5"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel28" CommandArgument="1" ToolTip="1" onclick="QAC_Button_A1"     Text="1.	Бухгалтер (главный бухгалтер, зам. главного бухгалтера, руководитель какого-либо участка бухгалтерии, старший бухгалтер, бухгалтер)" CssClass="green unibutton  big2" Width="1100"  ID="Button42_2_5"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel28"  CommandArgument="2" ToolTip="1" onclick="QAC_Button_A1"     Text="2.	Юрист (руководитель юридического подразделения, юрист, юрисконсульт, адвокат)" CssClass="green unibutton  big2" Width="1100"  ID="Button3"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel2"  CommandArgument="998" ToolTip="1" onclick="QAC_Button_A1"   Text="998. Другой " CssClass="green unibutton  big2" Width="1100"  ID="Button3_2_5"  runat="server" /><br/> 
                                <br/> 
                                  <asp:Button ID="Button121" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                             
+                                
                             </asp:Panel>
-                            
+                            <asp:HiddenField ID="HiddenFieldA1" runat="server" />
 
                             <asp:Panel ID="Panel2" runat="server"  Visible="false"> 
                                  <div class="comment">(записать, на кого именно переключили) </div>
@@ -112,27 +183,19 @@
                             </asp:Panel> 
                             
                             
-                            <asp:Panel ID="Panel28" runat="server" Visible="false">
-                                <div class="comment">ПРИ ВЫХОДЕ НА НУЖНОГО РЕСПОНДЕНТА ЗАЧИТАЙТЕ:</div>
-                                Мы хотели бы задать Вам несколько вопросов, наш разговор займет не более 10 минут.
-
-                                <div class="comment">ЕСЛИ РЕСПОНДЕНТ СОГЛАШАЕТСЯ ПРИНЯТЬ УЧАСТИЕ В ИССЛЕДОВАНИИ, ПЕРЕХОДИТЕ К ВОПРОСАМ:</div>
+                            <asp:Panel ID="Panel28" runat="server" Visible="false"> 
 
                                 2.	Ваша организация является … (ЗАЧИТАТЬ СПИСОК)?
-                                <asp:CheckBoxList ID="CheckBoxListA2"  runat="server"  AutoPostBack="true" OnSelectedIndexChanged="QAC_CheckBoxList_OnSelectedIndexChanged">
-                                        <asp:ListItem Value="1">1. самостоятельным юридическим лицом, ведущим коммерческую деятельность (ООО, АО, ПАО, Унитарное предприятие (МУП, ГУП), Производственный кооператив, Полное товарищество и т.д.) </asp:ListItem> 
-                                        <asp:ListItem Value="2">2. филиалом, обособленным подразделением, представительством юридического лица, ведущего коммерческую деятельность </asp:ListItem> 
-                                        <asp:ListItem Value="3">3. индивидуальным предпринимателем без образования Юр. Лица (ИП)</asp:ListItem> 
-                                        <asp:ListItem Value="4">4. адвокатским и/или нотариальным образованием</asp:ListItem>  
-                                 </asp:CheckBoxList> 
-                                  <br/> 
-                                 
+                                  
                                    <br/>  
-                                 <asp:Button CommandName="Panel3" CommandArgument="5" ToolTip="2" onclick="QAC_Button" Text="5. ничем из перечисленного " CssClass="red unibutton  big2" Width="500"  ID="Button24"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel29" CommandArgument="1" ToolTip="2" onclick="QAC_Button_A2" Text="1. самостоятельным юридическим лицом, ведущим коммерческую деятельность (ООО, АО, ПАО, Унитарное предприятие (МУП, ГУП), Производственный кооператив, Полное товарищество и т.д.)" CssClass="green unibutton  small" Width="1100" style="text-align:left;" ID="Button123"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel29" CommandArgument="2" ToolTip="2" onclick="QAC_Button_A2" Text="2. филиалом, обособленным подразделением, представительством юридического лица, ведущего коммерческую деятельность" CssClass="green unibutton  small" Width="1100"  style="text-align:left;" ID="Button124"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel29" CommandArgument="3" ToolTip="2" onclick="QAC_Button_A2" Text="3. индивидуальным предпринимателем без образования Юр. Лица (ИП)" CssClass="green unibutton  small" Width="1100"  ID="Button125" style="text-align:left;"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel29" CommandArgument="4" ToolTip="2" onclick="QAC_Button_A2" Text="4. адвокатским и/или нотариальным образованием" CssClass="green unibutton  small" Width="1100"  style="text-align:left;" ID="Button122"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel3"  CommandArgument="5" ToolTip="2" onclick="QAC_Button_A2" Text="5. ничем из перечисленного " CssClass="red unibutton  small" Width="1100"  ID="Button24"  style="text-align:left;" runat="server" /><br/> 
                   
                                     <br/> 
-                                <asp:Button ID="Button27" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button68" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A2" CommandName="Panel29" CommandArgument="2" onclick="QAC_CheckBoxList" />
+                                <asp:Button ID="Button27" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  /> 
                                 <div class="comment">Справочно: интервью завершается в случае, если называются:
                                 <br/>•	органы власти и управления,
                                 <br/>•	органы МВД, ФСБ, налоговой инспекции,
@@ -143,6 +206,8 @@
                                     </div>
                             </asp:Panel> 
                             
+                             
+                            <asp:HiddenField ID="HiddenFieldShowAll" runat="server" />
                             
                             <asp:Panel ID="Panel29" runat="server" Visible="false">
                                 3. Скажите, пожалуйста, какие из следующих программ и сервисов с правовой информацией доступны для использования в Вашей компании (в целом, не только Вам или Вашему подразделению)?
@@ -190,7 +255,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>               
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_1" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_1" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                           
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -200,7 +266,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>      
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_2" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_2" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                             
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -210,7 +277,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>              
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_3" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_3" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                     
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -220,7 +288,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>            
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_4" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_4" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                       
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -230,7 +299,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>         
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_5" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_5" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                          
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -240,7 +310,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>             
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_6" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_6" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                      
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -250,7 +321,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>      
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_7" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_7" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                             
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -260,7 +332,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>     
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_8" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_8" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                              
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -270,7 +343,8 @@
                                                  <asp:ListItem Value="1">платно</asp:ListItem>
                                                  <asp:ListItem Value="2">бесплатно</asp:ListItem>
                                                  <asp:ListItem Value="999">затрудняюсь ответить о платности</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>  
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorA4_9" Enabled="false" runat="server" ValidationGroup="A4" ControlToValidate="RadioButtonListA4_9" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                 
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                         </asp:Table>
@@ -354,8 +428,8 @@
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                         </asp:Table>
-                                      <br/> 
-                                <asp:Button ID="Button16" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                      <br/>   
+                                 <asp:Button ID="Button16" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                                 <asp:Button ID="Button18" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A5" CommandName="Panel55" CommandArgument="5" onclick="QAC_A5" />
                             
                                
@@ -403,7 +477,7 @@
                                 <asp:Button CommandName="Panel4" CommandArgument="6" ToolTip="6" onclick="QAC_Button" Text="6. 1С: ИТС" CssClass="green unibutton  big2" Width="600"  ID="ButtonA4_3_7"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel4" CommandArgument="7" ToolTip="6" onclick="QAC_Button" Text="7. Справочно-правовой веб-сервис Норматив (от СКБ Контур)" CssClass="green unibutton  big2" Width="600"  ID="ButtonA4_3_8"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel4" CommandArgument="9" ToolTip="6" onclick="QAC_Button" Text="9. Справочно-правовая система Бюро (от компании «Мое дело»)" CssClass="green unibutton  big2" Width="600"  ID="ButtonA4_3_9"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel5" CommandArgument="998" ToolTip="6" onclick="QAC_Button" Text="998. Другое (не из списка) " CssClass="green unibutton  big2" Width="600"  ID="Button6"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel5" CommandArgument="998" ToolTip="6" onclick="QAC_Button" Text="998. Другое (не из списка)" CssClass="green unibutton  big2" Width="600"  ID="Button6"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel4" CommandArgument="999" ToolTip="6" onclick="QAC_Button" Text="999. Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button10"  runat="server" /><br/> 
                 
                                 <br/>
@@ -463,7 +537,8 @@
                                                  <asp:ListItem Value="1">Да, пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="2">Нет, не пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>                
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ValidationGroup="A8" ControlToValidate="RadioButtonListA8_1" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                               
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -473,7 +548,8 @@
                                                  <asp:ListItem Value="1">Да, пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="2">Нет, не пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>   
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator15"    runat="server" ValidationGroup="A8" ControlToValidate="RadioButtonListA8_2" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                                    
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -483,7 +559,8 @@
                                                  <asp:ListItem Value="1">Да, пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="2">Нет, не пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>  
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator16"   runat="server" ValidationGroup="A8" ControlToValidate="RadioButtonListA8_3" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                                     
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -493,7 +570,8 @@
                                                  <asp:ListItem Value="1">Да, пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="2">Нет, не пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>               
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator17"   runat="server" ValidationGroup="A8" ControlToValidate="RadioButtonListA8_4" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                        
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -503,7 +581,8 @@
                                                  <asp:ListItem Value="1">Да, пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="2">Нет, не пользовалась</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>                      
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator19"   runat="server" ValidationGroup="A8" ControlToValidate="RadioButtonListA8_5" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                 
                                         </asp:TableCell> 
                                     </asp:TableRow> 
                                         </asp:Table>
@@ -528,7 +607,8 @@
                                                  <asp:ListItem Value="1">Карта (абонемент) на обслуживание</asp:ListItem>
                                                  <asp:ListItem Value="2">Разовое</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить / отказ</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>      
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ValidationGroup="A9" ControlToValidate="RadioButtonListA9_1" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                                      
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -538,7 +618,8 @@
                                                  <asp:ListItem Value="1">Карта (абонемент) на обслуживание</asp:ListItem>
                                                  <asp:ListItem Value="2">Разовое</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить / отказ</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>         
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ValidationGroup="A9" ControlToValidate="RadioButtonListA9_2" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                                                                     
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -548,7 +629,8 @@
                                                  <asp:ListItem Value="1">Карта (абонемент) на обслуживание</asp:ListItem>
                                                  <asp:ListItem Value="2">Разовое</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить / отказ</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>       
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" ValidationGroup="A9" ControlToValidate="RadioButtonListA9_3" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                                                                       
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -558,7 +640,8 @@
                                                  <asp:ListItem Value="1">Карта (абонемент) на обслуживание</asp:ListItem>
                                                  <asp:ListItem Value="2">Разовое</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить / отказ</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>  
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" ValidationGroup="A9" ControlToValidate="RadioButtonListA9_4" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                                                                            
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -568,7 +651,8 @@
                                                  <asp:ListItem Value="1">Карта (абонемент) на обслуживание</asp:ListItem>
                                                  <asp:ListItem Value="2">Разовое</asp:ListItem>
                                                  <asp:ListItem Value="3">Затрудняюсь ответить / отказ</asp:ListItem>
-                                             </asp:RadioButtonList>                                        
+                                             </asp:RadioButtonList>    
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" ValidationGroup="A9" ControlToValidate="RadioButtonListA9_5" ErrorMessage="Укажите вариант ответа" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>                                                                                                                                          
                                         </asp:TableCell> 
                                     </asp:TableRow> 
                                         </asp:Table>
@@ -592,29 +676,32 @@
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="A10"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA10" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
                                 <br/> 
-                                 <asp:Button CommandName="Panel10" CommandArgument="999" ToolTip="102" onclick="QAC_Button" Text="Затрудняюсь ответить/ Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button46"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel9" CommandArgument="998" ToolTip="102" onclick="QAC_Button_A10" Text="Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button155"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel10" CommandArgument="999" ToolTip="102" onclick="QAC_Button_A10" Text="Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button46"  runat="server" /><br/> 
                                
                                 <br/> 
                                  <asp:Button ID="Button32" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button33" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A10"  CommandName="Panel9" CommandArgument="10"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button33" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A10"  CommandName="Panel9" CommandArgument="10"  onclick="QAC_TextBox_A10" />
                             </asp:Panel>
 
                              
                              
                             <asp:Panel ID="Panel9" runat="server"  Visible="false">  
                                 <div class="comment"> 
+                                    ОТМЕТИТЬ СООТВЕТСТВУЮЩИЙ ИНТЕРВАЛ. ПРИ НЕОБХОДИМОСТИ ЗАЧИТАТЬ РЕСПОНДЕНТУ
                                 </div>
                                 <br/>
-                                <asp:Button CommandName="Panel10" CommandArgument="1" ToolTip="101" onclick="QAC_Button" Text="От 1 до 5" CssClass="green unibutton  big2" Width="600"  ID="Button36"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="2" ToolTip="101" onclick="QAC_Button" Text="От 6 до 10" CssClass="green unibutton  big2" Width="600"  ID="Button37"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="3" ToolTip="101" onclick="QAC_Button" Text="От 11 до 15" CssClass="green unibutton  big2" Width="600"  ID="Button38"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="4" ToolTip="101" onclick="QAC_Button" Text="От 15 до 20" CssClass="green unibutton  big2" Width="600"  ID="Button39"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="5" ToolTip="101" onclick="QAC_Button" Text="От 21 до 50" CssClass="green unibutton  big2" Width="600"  ID="Button40"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="6" ToolTip="101" onclick="QAC_Button" Text="От 51 до 100" CssClass="green unibutton  big2" Width="600"  ID="Button41"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="7" ToolTip="101" onclick="QAC_Button" Text="От 101 до 250" CssClass="green unibutton  big2" Width="600"  ID="Button43"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="8" ToolTip="101" onclick="QAC_Button" Text="От 251 до 500" CssClass="green unibutton  big2" Width="600"  ID="Button44"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="9" ToolTip="101" onclick="QAC_Button" Text="От 501 до 1000" CssClass="green unibutton  big2" Width="600"  ID="Button45"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel10" CommandArgument="10" ToolTip="101" onclick="QAC_Button" Text="1001 и более" CssClass="green unibutton  big2" Width="600"  ID="Button34"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="1" ToolTip="101" onclick="QAC_Button_A10" Text="От 1 до 5" CssClass="green unibutton  big2" Width="600"  ID="Button36"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="2" ToolTip="101" onclick="QAC_Button_A10" Text="От 6 до 10" CssClass="green unibutton  big2" Width="600"  ID="Button37"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="3" ToolTip="101" onclick="QAC_Button_A10" Text="От 11 до 15" CssClass="green unibutton  big2" Width="600"  ID="Button38"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="4" ToolTip="101" onclick="QAC_Button_A10" Text="От 15 до 20" CssClass="green unibutton  big2" Width="600"  ID="Button39"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="5" ToolTip="101" onclick="QAC_Button_A10" Text="От 21 до 50" CssClass="green unibutton  big2" Width="600"  ID="Button40"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="6" ToolTip="101" onclick="QAC_Button_A10" Text="От 51 до 100" CssClass="green unibutton  big2" Width="600"  ID="Button41"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="7" ToolTip="101" onclick="QAC_Button_A10" Text="От 101 до 250" CssClass="green unibutton  big2" Width="600"  ID="Button43"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="8" ToolTip="101" onclick="QAC_Button_A10" Text="От 251 до 500" CssClass="green unibutton  big2" Width="600"  ID="Button44"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="9" ToolTip="101" onclick="QAC_Button_A10" Text="От 501 до 1000" CssClass="green unibutton  big2" Width="600"  ID="Button45"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="10" ToolTip="101" onclick="QAC_Button_A10" Text="1001 и более" CssClass="green unibutton  big2" Width="600"  ID="Button158"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel10" CommandArgument="998" ToolTip="101" onclick="QAC_Button_A10" Text="затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button34"  runat="server" /><br/> 
                                  
                                 <br/>
                                 <asp:Button ID="Button42" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -622,10 +709,18 @@
                               
                              
                              
-                            <asp:Panel ID="Panel10" runat="server"  Visible="false"> 
-                                11. <span class="comment">ЕСЛИ ОПРАШИВАЕТСЯ БУХГАЛТЕР:</span> Сколько штатных бухгалтеров работают в Вашей компании (включая Вас)? (Если организация имеет сложную структуру, то ответьте только про структурную единицу (головной офис, филиал и т.п.), непосредственно в которой Вы работаете).
-                                <span class="comment">ЕСЛИ ОПРАШИВАЕТСЯ ЮРИСТ или другой специалист:</span> Есть ли в Вашей компании штатный бухгалтер или бухгалтерия? Если есть, то сколько бухгалтеров работают в Вашей компании? (Если организация имеет сложную структуру, то ответьте только про структурную единицу (головной офис, филиал и т.п.), непосредственно в которой Вы работаете). 
-
+                            <asp:Panel ID="Panel10" runat="server"  OnPreRender="Panel10_PreRender"   Visible="false"> 
+                                11. 
+                                 <asp:Panel ID="Panel36" runat="server" > 
+                                        Есть ли в Вашей компании штатный бухгалтер или бухгалтерия? Если есть, то сколько бухгалтеров работают в Вашей компании? (Если организация имеет сложную структуру, то ответьте только про структурную единицу (головной офис, филиал и т.п.), непосредственно в которой Вы работаете).
+                                    </asp:Panel>
+                                 <asp:Panel ID="Panel30" runat="server" > 
+                                Сколько штатных бухгалтеров работают в Вашей компании (включая Вас)? (Если организация имеет сложную структуру, то ответьте только про структурную единицу (головной офис, филиал и т.п.), непосредственно в которой Вы работаете).
+                                    </asp:Panel>
+                                
+                                 <asp:Panel ID="Panel31" runat="server" > 
+                                  Есть ли в Вашей компании штатный бухгалтер или бухгалтерия? Если есть, то сколько бухгалтеров работают в Вашей компании? (Если организация имеет сложную структуру, то ответьте только про структурную единицу (головной офис, филиал и т.п.), непосредственно в которой Вы работаете). 
+                                      </asp:Panel>
                                  <div class="comment">НЕ ЗАЧИТЫВАТЬ. СНАЧАЛА ЗАПИСАТЬ ТОЧНОЕ КОЛИЧЕСТВО БУХГАЛТЕРОВ, А ЗАТЕМ ОТМЕТИТЬ СООТВЕТСТВУЮЩИЙ ИНТЕРВАЛ. ОДИН ОТВЕТ</div>
                                 <br/> 
                                  <asp:TextBox ID="TextBoxA11" Width="400" runat="server"></asp:TextBox>   
@@ -633,32 +728,45 @@
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="A11"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA10" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
                                 <br/> 
-                                 <asp:Button CommandName="Panel14" CommandArgument="999" ToolTip="112" onclick="QAC_Button" Text="Затрудняюсь ответить/ Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button47"  runat="server" /><br/> 
-                               
+                                 <asp:Button CommandName="Panel11" CommandArgument="998" ToolTip="112" onclick="QAC_Button" Text="Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button156"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel14" CommandArgument="999" ToolTip="112" onclick="QAC_Button" Text="Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button47"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel14" CommandArgument="5" ToolTip="111" onclick="QAC_Button" Text="Нет штатных бухгалтеров" CssClass="green unibutton  big2" Width="600"  ID="Button55"  runat="server" /><br/> 
+                                
                                 <br/> 
                                  <asp:Button ID="Button48" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button49" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A11"  CommandName="Panel11" CommandArgument="11"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button49" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A11"  CommandName="Panel11" CommandArgument="11"  onclick="QAC_TextBox_A11" />
                             </asp:Panel>
 
 
                              
                              
                             <asp:Panel ID="Panel11" runat="server"  Visible="false">  
-                                <div class="comment"> 
+                                
+                                <div class="comment"> ОТМЕТИТЬ СООТВЕТСТВУЮЩИЙ ИНТЕРВАЛ. ПРИ НЕОБХОДИМОСТИ ЗАЧИТАТЬ РЕСПОНДЕНТУ
                                 </div>
                                 <br/>
-                                <asp:Button CommandName="Panel14" CommandArgument="1" ToolTip="111" onclick="QAC_Button" Text="Один штатный бухгалтер на половину ставки" CssClass="green unibutton  big2" Width="600"  ID="Button50"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel14" CommandArgument="2" ToolTip="111" onclick="QAC_Button" Text="Один штатный бухгалтер на полную ставку" CssClass="green unibutton  big2" Width="600"  ID="Button51"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel38" CommandArgument="1" ToolTip="114" onclick="QAC_Button" Text="Один штатный бухгалтер" CssClass="green unibutton  big2" Width="600"  ID="Button50"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel14" CommandArgument="3" ToolTip="111" onclick="QAC_Button" Text="2-3 штатных бухгалтера" CssClass="green unibutton  big2" Width="600"  ID="Button52"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel14" CommandArgument="4" ToolTip="111" onclick="QAC_Button" Text="Более 3-х штатных бухгалтеров" CssClass="green unibutton  big2" Width="600"  ID="Button53"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel14" CommandArgument="5" ToolTip="111" onclick="QAC_Button" Text="Нет штатных бухгалтеров" CssClass="green unibutton  big2" Width="600"  ID="Button55"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel12" CommandArgument="6" ToolTip="111" onclick="QAC_Button" Text="Другое" CssClass="green unibutton  big2" Width="600"  ID="Button57"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel12" CommandArgument="6" ToolTip="111" onclick="QAC_Button" Text="Другое" CssClass="green unibutton  big2" Width="600"  ID="Button159"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel14" CommandArgument="998" ToolTip="111" onclick="QAC_Button" Text="затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button57"  runat="server" /><br/> 
                                 
                                 <br/>
                                 <asp:Button ID="Button62" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                               
-                             
+                                
+                            <asp:Panel ID="Panel38" runat="server"  Visible="false"> 
+                                Полная или неполная ставка у данного специалиста
+                                <div class="comment"> ОТМЕТИТЬ СООТВЕТСТВУЮЩИЙ ИНТЕРВАЛ
+                                </div>
+                                <br/>
+                                <asp:Button CommandName="Panel14" CommandArgument="1" ToolTip="111" onclick="QAC_Button" Text="Один штатный бухгалтер на половину ставки" CssClass="green unibutton  big2" Width="600"  ID="Button68"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel14" CommandArgument="2" ToolTip="111" onclick="QAC_Button" Text="Один штатный бухгалтер на полную ставку" CssClass="green unibutton  big2" Width="600"  ID="Button126"  runat="server" /><br/> 
+                                 
+                                <br/>
+                                <asp:Button ID="Button131" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                            </asp:Panel>
                              
                              
                             <asp:Panel ID="Panel12" runat="server"  Visible="false">  
@@ -676,10 +784,16 @@
 
                              
                              
-                            <asp:Panel ID="Panel14" runat="server"  Visible="false"> 
-                                12. <span class="comment">ЕСЛИ ОПРАШИВАЕТСЯ БУХГАЛТЕР или другой специалист, кроме юриста: </span> Есть ли в Вашей компании штатный юрист или юридический отдел? Если есть, то сколько юристов работают в Вашей компании? (Имеется в виду только Ваш офис). 
-                                <span class="comment">ЕСЛИ ОПРАШИВАЕТСЯ ЮРИСТ: </span> Сколько штатных юристов работают в Вашей компании (включая Вас)? (Если организация имеет сложную структуру, то ответьте только про структурную единицу (головной офис, филиал и т.п.), непосредственно в которой Вы работаете).  
-
+                            <asp:Panel ID="Panel14" runat="server" OnPreRender="Panel14_PreRender"  Visible="false"> 
+                                12.  
+                                 <asp:Panel ID="Panel37" runat="server" >
+                                     Есть ли в Вашей компании штатный юрист или юридический отдел? Если есть, то сколько юристов работают в Вашей компании? (Имеется в виду только Ваш офис).
+                                     </asp:Panel>
+                                 <asp:Panel ID="Panel34" runat="server" >   Есть ли в Вашей компании штатный юрист или юридический отдел? Если есть, то сколько юристов работают в Вашей компании? (Имеется в виду только Ваш офис). 
+                                     </asp:Panel>
+                                 <asp:Panel ID="Panel35" runat="server" > 
+                                Сколько штатных юристов работают в Вашей компании (включая Вас)? (Если организация имеет сложную структуру, то ответьте только про структурную единицу (головной офис, филиал и т.п.), непосредственно в которой Вы работаете).  
+                                     </asp:Panel>
                                  <div class="comment">НЕ ЗАЧИТЫВАТЬ. СНАЧАЛА ЗАПИСАТЬ ТОЧНОЕ КОЛИЧЕСТВО ЮРИСТОВ, А ЗАТЕМ ОТМЕТИТЬ СООТВЕТСТВУЮЩИЙ ИНТЕРВАЛ. ОДИН ОТВЕТ</div>
                                 <br/> 
                                  <asp:TextBox ID="TextBoxA12" Width="400" runat="server"></asp:TextBox>   
@@ -687,30 +801,43 @@
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="A12"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA12" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
                                 <br/> 
-                                 <asp:Button CommandName="Panel17" CommandArgument="999" ToolTip="122" onclick="QAC_Button" Text="Затрудняюсь ответить/ Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button58"  runat="server" /><br/> 
-                               
+                                 <asp:Button CommandName="Panel15" CommandArgument="998" ToolTip="122" onclick="QAC_Button" Text="Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button157"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel17" CommandArgument="999" ToolTip="122" onclick="QAC_Button" Text="Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button58"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel17" CommandArgument="5" ToolTip="121" onclick="QAC_Button" Text="Нет штатных юристов" CssClass="green unibutton  big2" Width="600"  ID="Button69"  runat="server" /><br/> 
+                                
                                 <br/> 
                                  <asp:Button ID="Button61" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button63" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A12"  CommandName="Panel15" CommandArgument="12"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button63" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A12"  CommandName="Panel15" CommandArgument="12"  onclick="QAC_TextBox_A12" />
                             </asp:Panel>
 
                              
                               <asp:Panel ID="Panel15" runat="server"  Visible="false">  
-                                <div class="comment"> 
+                                <div class="comment">ОТМЕТИТЬ СООТВЕТСТВУЮЩИЙ ИНТЕРВАЛ. ПРИ НЕОБХОДИМОСТИ ЗАЧИТАТЬ РЕСПОНДЕНТУ
                                 </div>
                                 <br/>
-                                <asp:Button CommandName="Panel17" CommandArgument="1" ToolTip="121" onclick="QAC_Button" Text="Один штатный юрист на половину ставки" CssClass="green unibutton  big2" Width="600"  ID="Button64"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel17" CommandArgument="2" ToolTip="121" onclick="QAC_Button" Text="Один штатный юрист на полную ставку" CssClass="green unibutton  big2" Width="600"  ID="Button65"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel39" CommandArgument="1" ToolTip="124" onclick="QAC_Button" Text="Один штатный юрист" CssClass="green unibutton  big2" Width="600"  ID="Button64"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel17" CommandArgument="3" ToolTip="121" onclick="QAC_Button" Text="2-3 штатных юриста" CssClass="green unibutton  big2" Width="600"  ID="Button66"  runat="server" /><br/> 
                                 <asp:Button CommandName="Panel17" CommandArgument="4" ToolTip="121" onclick="QAC_Button" Text="Более 3-х штатных юристов" CssClass="green unibutton  big2" Width="600"  ID="Button67"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel17" CommandArgument="5" ToolTip="121" onclick="QAC_Button" Text="Нет штатных юристов" CssClass="green unibutton  big2" Width="600"  ID="Button69"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel16" CommandArgument="6" ToolTip="121" onclick="QAC_Button" Text="Другое" CssClass="green unibutton  big2" Width="600"  ID="Button70"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel16" CommandArgument="6" ToolTip="121" onclick="QAC_Button" Text="Другое" CssClass="green unibutton  big2" Width="600"  ID="Button160"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel17" CommandArgument="998" ToolTip="121" onclick="QAC_Button" Text="затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button70"  runat="server" /><br/> 
                                 
                                 <br/>
                                 <asp:Button ID="Button71" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
                               
                              
+                              <asp:Panel ID="Panel39" runat="server"  Visible="false">  
+                                  Полная или неполная ставка у данного специалиста
+                                <div class="comment"> ОТМЕТИТЬ СООТВЕТСТВУЮЩИЙ ИНТЕРВАЛ
+                                </div>
+                                <br/>
+                                <asp:Button CommandName="Panel17" CommandArgument="1" ToolTip="121" onclick="QAC_Button" Text="Один штатный юрист на половину ставки" CssClass="green unibutton  big2" Width="600"  ID="Button51"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel17" CommandArgument="2" ToolTip="121" onclick="QAC_Button" Text="Один штатный юрист на полную ставку" CssClass="green unibutton  big2" Width="600"  ID="Button127"  runat="server" /><br/> 
+                              
+                                <br/>
+                                <asp:Button ID="Button133" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                            </asp:Panel>
+                              
                              
                              
                             <asp:Panel ID="Panel16" runat="server"  Visible="false">  
@@ -783,7 +910,7 @@
                                
                                 <br/> 
                                  <asp:Button ID="Button100" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button101" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A14"  CommandName="Panel20" CommandArgument="14"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button101" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A14"  CommandName="Panel20" CommandArgument="14"  onclick="QAC_TextBox_A14" />
                             </asp:Panel>
 
                                   
@@ -808,8 +935,8 @@
                                     (ОТМЕТИТЬ НЕ СПРАШИВАЯ)
                                 </div>
                                 <br/>
-                                <asp:Button CommandName="Panel22" CommandArgument="1" ToolTip="15" onclick="QAC_Button" Text="М" CssClass="green unibutton  big2" Width="600"  ID="Button107"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel22" CommandArgument="2" ToolTip="15" onclick="QAC_Button" Text="Ж" CssClass="green unibutton  big2" Width="600"  ID="Button109"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel23" CommandArgument="1" ToolTip="15" onclick="QAC_Button" Text="М" CssClass="green unibutton  big2" Width="600"  ID="Button107"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel23" CommandArgument="2" ToolTip="15" onclick="QAC_Button" Text="Ж" CssClass="green unibutton  big2" Width="600"  ID="Button109"  runat="server" /><br/> 
                                    
                                 <br/>
                                 <asp:Button ID="Button113" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -825,7 +952,7 @@
                                
                                 <br/> 
                                  <asp:Button ID="Button111" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button112" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A16"  CommandName="Panel23" CommandArgument="16"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button112" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A16"  CommandName="Panel24" CommandArgument="16"  onclick="QAC_TextBox" />
                             </asp:Panel>
                              
 
@@ -889,6 +1016,9 @@
                              
 
                          </ContentTemplate>
+                        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID ="Button18"  EventName ="Click" /> 
+       </Triggers>
                              </asp:UpdatePanel>
                     <asp:UpdateProgress ID="UpdateProgress1" runat="server" 
                         AssociatedUpdatePanelID="UpdatePanel1">
@@ -941,6 +1071,8 @@
                     чтобы никто из наших гостей не проводил время в ожидании. В минуты максимального потока мы
                     направляем все наши ресурсы на то, чтобы ускорить процесс. Мы действительно работаем над этим, «<asp:Label ID="Label40_4"    CssClass="fio" runat="server" Text=""></asp:Label>»!
                     <br/><br/> 
+                    
+                    
                     
                     </ContentTemplate>
                 </asp:TabPanel>

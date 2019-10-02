@@ -31,7 +31,7 @@ public partial class _Default : System.Web.UI.Page
         {
             bool is_mobile = true;
             string loginid;
-            string fio_client;			
+            string fio_client;
             HiddenFieldOut_ID.Value = Request.QueryString["Out_ID"];
             string debug = Request.QueryString["debug"];
             HF_Fio.Value = Request.QueryString["an"];
@@ -39,9 +39,9 @@ public partial class _Default : System.Web.UI.Page
             HF_cid.Value = Request.QueryString["Campaign_ID"];
             HF_Abonent_ID.Value = Request.QueryString["Abonent_ID"];
             Label1.Text = Label2.Text = Request.QueryString["OperatorName"];
-            is_mobile = Request.QueryString["is_mobile"]!=null&& Request.QueryString["is_mobile"].ToString() == "1";
+            is_mobile = Request.QueryString["is_mobile"] != null && Request.QueryString["is_mobile"].ToString() == "1";
 
-             
+
             if (Request.QueryString["Column_17"] != null)
                 Column_17 = HttpUtility.UrlDecode(Request.QueryString["Column_17"], Encoding.GetEncoding("windows-1251"));
 
@@ -52,6 +52,8 @@ public partial class _Default : System.Web.UI.Page
             Column_14 = Request.QueryString["Column_14"] != null ? Request.QueryString["Column_14"].ToString() : "";
             Column_7 = Request.QueryString["Column_7"] != null ? Request.QueryString["Column_7"].ToString() : "";
             Column_9 = Request.QueryString["Column_9"] != null ? Request.QueryString["Column_9"].ToString() : "";
+            TextBoxA17.Text = Request.QueryString["PhoneNumber"] != null ? Request.QueryString["PhoneNumber"].ToString() : "";
+            Label3.Text = Request.QueryString["Column_5"] != null ? Request.QueryString["Column_5"].ToString() : "";
             HiddenFieldColumn_11.Value = Column_11;
             HiddenFieldColumn_12.Value = Column_12;
             HiddenFieldColumn_13.Value = Column_13;
@@ -68,19 +70,19 @@ public partial class _Default : System.Web.UI.Page
             var Is2 = Column_9 == "" && Column_11 != "" && Column_13 == "";
             var Is3 = !Is1 && !Is2;
 
-             if (Is3)
+            if (Is3)
             {
-                
-             }
+
+            }
             else if (Is2)
             {
-                
-             }
+
+            }
             else
             {
-                 
-             }
-            
+
+            }
+
 
 
             //Panel1_2.Visible = Column_10 == "";
@@ -90,16 +92,17 @@ public partial class _Default : System.Web.UI.Page
             HiddenFieldColumn_15.Value = Column_15;
             //LabelCamp_1.Text = Column_15;
             //LabelCamp_2.Text = Column_15;
-           // PanelOtr_2.Visible = !(Column_15 != "");
-           // PanelOtr_1.Visible = (Column_15 != "");
-           // PanelOtr_2_2.Visible = !(Column_15 != "");
-           // PanelOtr_1_2.Visible = (Column_15 != "");
+            // PanelOtr_2.Visible = !(Column_15 != "");
+            // PanelOtr_1.Visible = (Column_15 != "");
+            // PanelOtr_2_2.Visible = !(Column_15 != "");
+            // PanelOtr_1_2.Visible = (Column_15 != "");
             //Button12_1.CommandName = Column_15 != "" ? "Panel5_camp" : "Panel4";
 
-          //  LabelCamp_Otr_1.Text = LabelCamp_Otr_2.Text = Column_15;
-            
-            HiddenField1.Value =  debug;
+            //  LabelCamp_Otr_1.Text = LabelCamp_Otr_2.Text = Column_15;
 
+            HiddenField1.Value = debug;
+
+            saveData(17, TextBoxA17.Text);
             if (debug == null)
             {
 
@@ -115,7 +118,7 @@ public partial class _Default : System.Web.UI.Page
             }
 
 
-             IterateControls(Page, fio_client, "fio");
+            IterateControls(Page, fio_client, "fio");
 
 
 
@@ -175,7 +178,7 @@ public partial class _Default : System.Web.UI.Page
             }
 
         }
-        
+
 
     }
 
@@ -204,16 +207,16 @@ public partial class _Default : System.Web.UI.Page
         Session.Contents[CommandName] = ((Panel)((Button)sender).Parent).ID;
         foreach (Control c in ((Panel)((Button)sender).Parent).Controls)
         {
-            
+
             if (c is Label)
             {
-                if (((Label)c).Attributes["type"]!=null&&((Label)c).Attributes["type"].ToString() == "cod")
+                if (((Label)c).Attributes["type"] != null && ((Label)c).Attributes["type"].ToString() == "cod")
                     ((Label)c).Text = ((Button)sender).CommandArgument;
             }
             if (c is HiddenField)
             {
 
-                ((HiddenField)c).Value = ((Button)sender).Text;
+                ((HiddenField)c).Value = ((Button)sender).CommandArgument;
             }
         }
     }
@@ -229,8 +232,8 @@ public partial class _Default : System.Web.UI.Page
             if (c is HiddenField)
                 ((HiddenField)c).Value = "";
         }
-      //  if (PrevPanel.CssClass != "")
-      //      deleteData(Convert.ToInt32(PrevPanel.CssClass));
+        //  if (PrevPanel.CssClass != "")
+        //      deleteData(Convert.ToInt32(PrevPanel.CssClass));
     }
 
     private void saveData(int id, string value)
@@ -504,7 +507,7 @@ public partial class _Default : System.Web.UI.Page
         saveData(Convert.ToInt32(((Button)sender).ToolTip), ((Button)sender).CommandArgument);
         standartNext(sender, e);
     }
-    
+
     protected void QAC_TextBox(object sender, EventArgs e)
     {
         foreach (Control c in ((Panel)((Button)sender).Parent).Controls)
@@ -519,7 +522,7 @@ public partial class _Default : System.Web.UI.Page
     }
 
 
-      
+
 
 
 
@@ -537,29 +540,29 @@ public partial class _Default : System.Web.UI.Page
 
     protected void standartNextA2(object sender, EventArgs e)
     {
-         
+
 
         standartNext(sender, e);
     }
-     
-     
-
-     
-
-     
-
-     
 
 
 
 
-     
 
-     
-     
-      
-     
-      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     private static void Shuffle<T>(T[] array)
@@ -594,8 +597,8 @@ public partial class _Default : System.Web.UI.Page
 
 
         Session.Contents["PanelsQ20"] = PanelsQ20;
-       // Response.Write(PanelsQ20[0]);
-       
+        // Response.Write(PanelsQ20[0]);
+
 
         ((Button)sender).CommandName = PanelsQ20[0];
         standartNext(sender, e);
@@ -635,20 +638,20 @@ public partial class _Default : System.Web.UI.Page
                     ((Button)sender).CommandName = LastNextPanel;
             }
         }
-       
+
 
         QAC_RadioButtonList(sender, e);
     }
 
-     
 
 
-     
 
 
-     
 
-         
+
+
+
+
     protected void CheckBoxOther_CheckedChanged(object sender, EventArgs e)
     {
         var CheckBoxOther = sender as CheckBox;
@@ -666,16 +669,16 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void QAC_CheckBoxList_A2(object sender, EventArgs e)
     {
-        
+
         QAC_CheckBoxList(sender, e);
-    } 
+    }
     protected void QAC_TextBox_A4_1(object sender, EventArgs e)
     {
-      /*  if (HiddenFieldColumn_17.Value == "ЛОЖЬ" && TextBoxA4_1.Text != "" && (TextBoxA4_1.Text == HiddenFieldColumn_13.Value || TextBoxA4_1.Text == HiddenFieldColumn_14.Value))
-            Button12.CommandName = HiddenFieldColumn_15.Value != "" ? "Panel5_camp" : "Panel4";
-        else
-            Button12.CommandName = HiddenFieldColumn_15.Value != "" ? "Panel5_camp" : "Panel4";*/
-        QAC_TextBox(sender,e);
+        /*  if (HiddenFieldColumn_17.Value == "ЛОЖЬ" && TextBoxA4_1.Text != "" && (TextBoxA4_1.Text == HiddenFieldColumn_13.Value || TextBoxA4_1.Text == HiddenFieldColumn_14.Value))
+              Button12.CommandName = HiddenFieldColumn_15.Value != "" ? "Panel5_camp" : "Panel4";
+          else
+              Button12.CommandName = HiddenFieldColumn_15.Value != "" ? "Panel5_camp" : "Panel4";*/
+        QAC_TextBox(sender, e);
     }
 
 
@@ -684,7 +687,7 @@ public partial class _Default : System.Web.UI.Page
     protected void QAC_Button_3(object sender, EventArgs e)
     {
 
-       // ButtonA8_2.CommandName = HiddenFieldColumn_15.Value != "" ? "Panel5_camp_2" : "Panel13";
+        // ButtonA8_2.CommandName = HiddenFieldColumn_15.Value != "" ? "Panel5_camp_2" : "Panel13";
         QAC_Button(sender, e);
     }
 
@@ -717,20 +720,20 @@ public partial class _Default : System.Web.UI.Page
         QAC_TextBox(sender, e);
     }
     */
-     
-     
+
+
 
 
     protected void actualFIO(string FIO, string Dolgnost)
     {
 
-        if (!(HiddenField1.Value != "1")) return  ;
+        if (!(HiddenField1.Value != "1")) return;
         SqlConnection conn = null;
 
         ConnectionStringSettings settings =
         ConfigurationManager.ConnectionStrings["CCAConnectionString"];
 
-         
+
 
         //return is_quote;
 
@@ -752,11 +755,11 @@ public partial class _Default : System.Web.UI.Page
                 , myOdbcConnection);
             myOdbcCommand.CommandType = CommandType.Text;
             myOdbcCommand.Connection.Open();
-            myOdbcCommand.ExecuteReader(CommandBehavior.CloseConnection); 
+            myOdbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
             myOdbcConnection.Close();
 
 
- 
+
         }
         catch (SqlException SqlEx)
         {
@@ -770,11 +773,11 @@ public partial class _Default : System.Web.UI.Page
             {
                 conn.Close();
             }
-        } 
+        }
     }
-     
-   
-     
+
+
+
 
 
 
@@ -784,12 +787,12 @@ public partial class _Default : System.Web.UI.Page
         (((sender as CheckBox).Parent.Parent as TableRow).Cells[2].Controls[0] as TextBox).Visible = IsChecked;
         (((sender as CheckBox).Parent.Parent as TableRow).Cells[3].Controls[0] as CheckBox).Visible = IsChecked;
     }
-     
+
 
     protected void QAC_CheckBoxList_A3(object sender, EventArgs e)
     {
         var isStop = true;
-        for (var i =0; i< CheckBoxListA3.Items.Count; i++)
+        for (var i = 0; i < CheckBoxListA3.Items.Count; i++)
         {
             ListItem li = CheckBoxListA3.Items[i];
             if (li.Selected && i < 9)
@@ -813,9 +816,8 @@ public partial class _Default : System.Web.UI.Page
         var cnt = 0;
         for (var i = 0; i < 9; i++)
         {
-            var r = TableA4.FindControl("RadioButtonListA4_"+(i+1).ToString()) as RadioButtonList;
+            var r = TableA4.FindControl("RadioButtonListA4_" + (i + 1).ToString()) as RadioButtonList;
             TableA5.Rows[i].Visible = r.SelectedValue == "1" || r.SelectedValue == "999";
-            (Panel55.FindControl("ButtonA4_3_"+(i+1)) as Button).Visible = r.SelectedValue == "1" || r.SelectedValue == "999";
             if (r.SelectedValue == "1" || r.SelectedValue == "999")
             {
                 cnt++;
@@ -825,7 +827,7 @@ public partial class _Default : System.Web.UI.Page
         {
             for (var i = 0; i < 9; i++)
             {
-                var r = TableA4.FindControl("RadioButtonListA4_" + (i+1).ToString()) as RadioButtonList; 
+                var r = TableA4.FindControl("RadioButtonListA4_" + (i + 1).ToString()) as RadioButtonList;
                 if (r.SelectedValue == "1" || r.SelectedValue == "999")
                 {
                     saveData(501 + i, "1");
@@ -834,7 +836,7 @@ public partial class _Default : System.Web.UI.Page
         }
 
         Button15.CommandName = "Panel26";
-        if(cnt==0) Button15.CommandName = "Panel3";
+        if (cnt == 0) Button15.CommandName = "Panel3";
         if (cnt == 1) Button15.CommandName = "Panel4";
 
 
@@ -846,7 +848,16 @@ public partial class _Default : System.Web.UI.Page
         for (var i = 0; i < 9; i++)
         {
             ListItem li = CheckBoxListA3.Items[i];
-            TableA4.Rows[i].Visible = li.Selected; 
+            if (HiddenFieldShowAll.Value == "1")
+            {
+                TableA4.Rows[i].Visible = true;
+                (TableA4.Rows[i].FindControl("RequiredFieldValidatorA4_" + (i + 1).ToString()) as RequiredFieldValidator).Enabled = true;
+            }
+            else
+            {
+                TableA4.Rows[i].Visible = li.Selected;
+                (TableA4.Rows[i].FindControl("RequiredFieldValidatorA4_" + (i + 1).ToString()) as RequiredFieldValidator).Enabled = li.Selected;
+            }
         }
     }
 
@@ -861,25 +872,43 @@ public partial class _Default : System.Web.UI.Page
 
     protected void QAC_A5(object sender, EventArgs e)
     {
-          
+        LBMSG.Visible = false;
+        var cnt = 0;
+
         for (var i = 0; i < 9; i++)
         {
-            var r = TableA4.FindControl("CheckBoxA5_" + (i+1).ToString()) as CheckBox; 
-            saveData(501 + i, r.Checked? "1":"");
-        } 
+            var r = TableA4.FindControl("CheckBoxA5_" + (i + 1).ToString()) as CheckBox;
+            saveData(501 + i, r.Checked ? "1" : "");
+            if (r.Checked)
+                cnt++;
+
+
+            (Panel55.FindControl("ButtonA4_3_" + (i + 1)) as Button).Visible = r.Checked;
+        }
+        Button6.Visible = CheckBoxListA3.Items[10].Selected;
+
+        if (cnt == 0)
+        {
+            LBMSG.Text = "Выберите хотя бы один ответ";
+            LBMSG.Visible = true;
+            return;
+        }
+
+        Button18.CommandName = cnt > 1 ? "Panel55" : "Panel4";
 
         standartNext(sender, e);
     }
 
     protected void QAC_A8(object sender, EventArgs e)
     {
-
+        var anyOne = false;
         for (var i = 0; i < TableA8.Rows.Count; i++)
         {
-            var r = TableA8.FindControl("RadioButtonListA8_" + (i+1).ToString()) as RadioButtonList;
+            var r = TableA8.FindControl("RadioButtonListA8_" + (i + 1).ToString()) as RadioButtonList;
+            if (r.SelectedValue == "1") anyOne = true;
             saveData(801 + i, r.SelectedValue);
         }
-
+        Button20.CommandName = anyOne ? "Panel7" : "Panel8";
         standartNext(sender, e);
     }
 
@@ -900,9 +929,215 @@ public partial class _Default : System.Web.UI.Page
 
         for (var i = 0; i < TableA8.Rows.Count; i++)
         {
-            var r = TableA8.FindControl("RadioButtonListA8_" + (i + 1).ToString()) as RadioButtonList; 
+            var r = TableA8.FindControl("RadioButtonListA8_" + (i + 1).ToString()) as RadioButtonList;
             TableA9.Rows[i].Visible = r.SelectedValue == "1";
         }
 
+    }
+
+    protected void Panel10_PreRender(object sender, EventArgs e)
+    {
+        Panel36.Visible = HiddenFieldA1.Value == "998";
+        Panel30.Visible = HiddenFieldA1.Value == "1";
+        Panel31.Visible = HiddenFieldA1.Value == "2";
+    }
+
+    protected void QAC_Button_A1(object sender, EventArgs e)
+    {
+        (sender as Button).CommandName = (
+            ((HiddenField0_1.Value == "1" || HiddenField0_1.Value == "2") && (sender as Button).CommandArgument == "1")
+            ||
+            ((HiddenField0_2.Value == "1" || HiddenField0_2.Value == "2") && (sender as Button).CommandArgument == "2")
+            ||
+            ((HiddenField0_3.Value == "1" || HiddenField0_3.Value == "2") && (sender as Button).CommandArgument == "998")
+            ) ? "Panel28" : "Panel3";
+
+        (sender as Button).CommandName = ((sender as Button).CommandArgument == "998") ? "Panel2" : (sender as Button).CommandName;
+
+        Button5.CommandName = (((HiddenField0_3.Value == "1" || HiddenField0_3.Value == "2") && (sender as Button).CommandArgument == "998")
+            ) ? "Panel28" : "Panel3";
+
+
+        HiddenFieldA1.Value = (sender as Button).CommandArgument; 
+        QAC_Button(sender, e);
+    }
+    protected void QAC_Button_A10(object sender, EventArgs e)
+    { 
+        if (HiddenFieldA1.Value == "1")
+        {
+            if((sender as Button).CommandArgument== "998" && (sender as Button).ToolTip!="101")
+            (sender as Button).CommandName = "Panel9";
+            else
+            (sender as Button).CommandName = "Panel10";
+        }
+        else if (HiddenFieldA1.Value == "2")
+        {
+            saveData(111,"5");
+            (sender as Button).CommandName = "Panel14";
+        }
+        else if (HiddenFieldA1.Value == "998")
+        {
+            saveData(111, "5");
+            saveData(121, "5");
+            (sender as Button).CommandName = "Panel17";
+        }
+        QAC_Button(sender, e);
+    }
+
+    protected void Panel14_PreRender(object sender, EventArgs e)
+    {
+        Panel37.Visible = HiddenFieldA1.Value == "998";
+        Panel34.Visible = HiddenFieldA1.Value == "1";
+        Panel35.Visible = HiddenFieldA1.Value == "2";
+    }
+
+    protected void QAC_Button_A2(object sender, EventArgs e)
+    {
+        (sender as Button).CommandName = 
+            (
+            (HiddenFieldA1.Value != "998" && ((sender as Button).CommandArgument == "1"|| (sender as Button).CommandArgument == "2"))
+            ||
+            (HiddenFieldA1.Value == "998" && ((sender as Button).CommandArgument == "3"|| (sender as Button).CommandArgument == "4"))            
+            )
+            ? "Panel29" : "Panel3";
+        HiddenFieldShowAll.Value = (sender as Button).CommandName == "Panel2_4"?"1":"0";
+        QAC_Button(sender, e);
+    }
+
+    protected void QAC_TextBox_A10(object sender, EventArgs e)
+    {
+        (sender as Button).CommandName = "Panel9";
+        var i = 0;
+        if (int.TryParse(TextBoxA10.Text, out i))
+        {
+            if (i <= 5)
+                saveData(101,"1");
+            else if (i <= 10)
+                saveData(101, "2");
+            else if (i <= 15)
+                saveData(101, "3");
+            else if (i <= 20)
+                saveData(101, "4");
+            else if (i <= 50)
+                saveData(101, "5");
+            else if (i <= 100)
+                saveData(101, "6");
+            else if (i <= 250)
+                saveData(101, "7");
+            else if (i <= 500)
+                saveData(101, "8");
+            else if (i <= 1000)
+                saveData(101, "9");
+            else  
+                saveData(101, "10");
+            (sender as Button).CommandName = "Panel10";
+        }
+
+        if ((sender as Button).CommandName == "Panel10")
+        {
+            if (HiddenFieldA1.Value == "1")
+            {
+                (sender as Button).CommandName = "Panel10";
+            }
+            else if (HiddenFieldA1.Value == "2")
+            {
+                saveData(111, "5");
+                (sender as Button).CommandName = "Panel14";
+            }
+            else if (HiddenFieldA1.Value == "998")
+            {
+                saveData(111, "5");
+                saveData(121, "5");
+                (sender as Button).CommandName = "Panel17";
+            }
+        }
+
+        QAC_TextBox(sender, e); 
+    }
+
+    protected void QAC_TextBox_A14(object sender, EventArgs e)
+    {
+        (sender as Button).CommandName = "Panel20";
+        var i = 0;
+        if (int.TryParse(TextBoxA14.Text, out i))
+        {
+            if (i < 25)
+                saveData(141, "1");
+            else if (i <= 30)
+                saveData(141, "2");
+            else if (i <= 34)
+                saveData(141, "3");
+            else if (i <= 45)
+                saveData(141, "4");
+            else  
+                saveData(141, "5"); 
+            (sender as Button).CommandName = "Panel21";
+        }
+        QAC_TextBox(sender, e);
+
+    }
+
+    protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        args.IsValid =
+            CheckBoxA5_1.Checked ||
+            CheckBoxA5_2.Checked ||
+            CheckBoxA5_3.Checked ||
+            CheckBoxA5_4.Checked ||
+            CheckBoxA5_5.Checked ||
+            CheckBoxA5_6.Checked ||
+            CheckBoxA5_7.Checked ||
+            CheckBoxA5_8.Checked ||
+            CheckBoxA5_9.Checked;
+    }
+
+    protected void QAC_TextBox_A11(object sender, EventArgs e)
+    {
+        (sender as Button).CommandName = "Panel11";
+        var i = 0;
+        if (int.TryParse(TextBoxA11.Text, out i))
+        {
+            if (i == 1)
+            {
+                (sender as Button).CommandName = "Panel38";
+            }
+            else if (i <= 3)
+            {
+                saveData(111, "3");
+                (sender as Button).CommandName = "Panel14";
+            }
+            else if (i > 3)
+            {
+                saveData(111, "4");
+                (sender as Button).CommandName = "Panel14";
+            }
+            
+        } 
+        QAC_TextBox(sender, e);
+    }
+
+    protected void QAC_TextBox_A12(object sender, EventArgs e)
+    {
+        (sender as Button).CommandName = "Panel15";
+        var i = 0;
+        if (int.TryParse(TextBoxA12.Text, out i))
+        {
+            if (i == 1)
+            {
+                (sender as Button).CommandName = "Panel39";
+            }
+            else if (i <= 3)
+            {
+                saveData(121, "3");
+                (sender as Button).CommandName = "Panel17";
+            }
+            else if (i > 3)
+            {
+                saveData(121, "4");
+                (sender as Button).CommandName = "Panel17";
+            }
+
+        }
+        QAC_TextBox(sender, e);
     }
 }
