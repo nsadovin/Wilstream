@@ -15,6 +15,7 @@ namespace WebAPI
 
         public DbSet<CofactorUser> CofactorUsers { get; set; }
         public DbSet<CofactorStat> CofactorStats { get; set; }
+        public DbSet<AlfaCapital> AlfaCapitals { get; set; }
         public DbSet<User> ApiUsers { get; set; }
     }
 }
