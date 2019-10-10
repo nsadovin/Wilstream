@@ -9,15 +9,17 @@ using System.Web;
 
 namespace WebAPI.Models
 {
-    [Table("A_TaskManager_LocalList_ae2d045c-f519-4abb-8809-d5374aa275e8_0")]
+    [Table("WS_AlfaCapital")]
     public class AlfaCapital
     {
         [Key]
         [Column("Id")]
-        public int Id { get; set; } 
+        public int Id { get; set; }
         [Column("ID клиента")]
+        [Display(Description = "IdClient!!!")]
         public String IdClient { get; set; }
         [Column("Телефон")]
+        [Display(Description = "Телефон",Name = "Телефон")]
         public String MOBILE { get; set; }
         [Column("ИО")]
         public String FIO { get; set; }
@@ -28,7 +30,7 @@ namespace WebAPI.Models
         [Column("канал(куда навигируем на докупку)")]
         public String Channel { get; set; }
         [Column("Доходность текущая")]
-        public String ProfitabilityCurrent { get; set; } 
+        public String ProfitabilityCurrent { get; set; }
         [Column("Новое предложени")]
         public String NewOffer { get; set; }
         [Column("Фонд предлагаемый")]
@@ -48,13 +50,50 @@ namespace WebAPI.Models
         [Column("Operator")]
         public String Operator { get; set; }
         [Column("count")]
-        public String countCall{ get; set; }
+        public String countCall { get; set; }
         [Column("LastStatus")]
         public String LastStatus { get; set; }
         [Column("TimeZona")]
         public String TimeZona { get; set; }
-    }
-             
+
+
+        [Column("Статус звонка (первого)")]
+        public String LastCallFirst { get; set; }
+        [Column("Количество дозвонов (клиент ответил на звонок)")]
+        public Int32 CountTalkCall { get; set; }
+        [Column("Статус звонка (последний дозвон)")]
+        public String LastCallLast { get; set; }
+        [Column("Время разговора (последний дозвон)")]
+        public Int32 TalkTimeLastCall { get; set; }
+
+        public override string ToString()
+        {
+            return " IdClient " + IdClient
+        + ", MOBILE " + MOBILE
+        + ", FIO " + FIO
+        + ", ProductCurrent " + ProductCurrent
+        + ", ProductDateOpen " + ProductDateOpen
+        + ", Channel " + Channel
+        + ", ProfitabilityCurrent " + ProfitabilityCurrent
+        + ", NewOffer " + NewOffer
+        + ", FondOffer " + FondOffer
+        + ", TimeHorizon " + TimeHorizon
+        + ", Task " + Task
+        + ", TypeReaction " + TypeReaction
+        + ", Comment " + Comment
+        + ", DateTime " + DateTime
+        + ", DateTransferContact " + DateTransferContact
+        + ", Operator " + Operator
+        + ", countCall " + countCall
+        + ", LastStatus " + LastStatus
+        + ", TimeZona " + TimeZona
+        + ", LastCallFirst " + LastCallFirst
+        + ", CountTalkCall " + CountTalkCall
+        + ", LastCallLast " + LastCallLast
+        + ", TalkTimeLastCall " + TalkTimeLastCall
+        + ", Channel " + Channel;
+        }
+    }  
 
     /*
     { 

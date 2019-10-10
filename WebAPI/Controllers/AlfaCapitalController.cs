@@ -12,36 +12,35 @@ namespace WebAPI.Controllers
     public class AlfaCapitalController : ApiController
     {
 
-        private static ILog log = LogManager.GetLogger("AlfaCapital");
+        private static ILog log = LogManager.GetLogger("LOGGER");
         WsDbContext db = new WsDbContext();
-        // GET: api/AlfaCapital
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        
 
         // GET: api/AlfaCapital/5
-        public string Get(int id)
+        public AlfaCapital Get(int id)
         {
-            return "value";
+            log.Debug("get call: " + id.ToString());
+            return db.AlfaCapitals.FirstOrDefault(r=>r.Id == id);
         }
 
         // POST: api/AlfaCapital
-        public int Post(AlfaCapital value)
+        public int Post(AlfaCapital call)
         {
-            db.AlfaCapitals.Add(value);
-            db.SaveChanges();
-            return value.Id;
+            log.Debug("Add new call: "+ call.ToString());
+            try
+            {
+                call.DateTransferContact = DateTime.Now.ToString();
+                db.AlfaCapitals.Add(call);
+                db.SaveChanges();
+                return call.Id;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                return 0;
+            }
         }
 
-        // PUT: api/AlfaCapital/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/AlfaCapital/5
-        public void Delete(int id)
-        {
-        }
+         
     }
 }

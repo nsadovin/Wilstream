@@ -304,10 +304,17 @@ public class Bitrix24
                     sort = "ID"
                 };
 
+                var Userfields = new List<Bitrix24.Userfield>();
+
+                var userfieldsJson = SendCommand("crm.lead.userfield.list", "", "", "GET");
+                var userfields = JsonConvert.DeserializeObject<dynamic>(userfieldsJson).result;
+
+                return Userfields;
+
                 var userfieldJson = SendCommand("crm.lead.userfield.get", "ID=190", "", "GET");
                 var userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
 
-                var Userfields = new List<Bitrix24.Userfield>() {
+                 Userfields = new List<Bitrix24.Userfield>() {
                     new Bitrix24.Userfield() {
                         ID = userfield.ID,
                        ENTITY_ID = userfield.ENTITY_ID ,
