@@ -9,52 +9,182 @@ using System.Web;
 
 namespace WebAPI.Models
 {
-    [Table("A_TaskManager_LocalList_ae2d045c-f519-4abb-8809-d5374aa275e8_0")]
+    [Table("WS_AlfaCapital")]
     public class AlfaCapital
     {
+        /// <summary>
+        /// Индификатор контакта (caseid)
+        /// </summary>
         [Key]
         [Column("Id")]
-        public int Id { get; set; } 
+        public int Id { get; set; }
+        /// <summary>
+        /// Это ID клиента
+        /// </summary> 
         [Column("ID клиента")]
+        [Display(Description = "IdClient!!!")]        
         public String IdClient { get; set; }
+
+        /// <summary>
+        /// Телефон
+        /// </summary> 
         [Column("Телефон")]
+        [Display(Description = "Телефон",Name = "Телефон")]
         public String MOBILE { get; set; }
+        /// <summary>
+        /// ФИО
+        /// </summary>
         [Column("ИО")]
         public String FIO { get; set; }
+        /// <summary>
+        /// Текущий продукт
+        /// </summary>
         [Column("Текущий продукт")]
         public String ProductCurrent { get; set; }
+        /// <summary>
+        /// Дата открытия продукта
+        /// </summary>
         [Column("Дата открытия продукта")]
         public String ProductDateOpen { get; set; }
+        /// <summary>
+        /// канал(куда навигируем на докупку)
+        /// </summary>
         [Column("канал(куда навигируем на докупку)")]
         public String Channel { get; set; }
+        /// <summary>
+        /// Доходность текущая
+        /// </summary>
         [Column("Доходность текущая")]
-        public String ProfitabilityCurrent { get; set; } 
+        public String ProfitabilityCurrent { get; set; }
+        /// <summary>
+        /// Новое предложени
+        /// </summary>
         [Column("Новое предложени")]
         public String NewOffer { get; set; }
+        /// <summary>
+        /// Фонд предлагаемый
+        /// </summary>
         [Column("Фонд предлагаемый")]
         public String FondOffer { get; set; }
+        /// <summary>
+        /// Горизонт временной
+        /// </summary>
         [Column("Горизонт временной")]
         public String TimeHorizon { get; set; }
+        /// <summary>
+        /// Задача(проект)
+        /// </summary>
         [Column("Задача")]
         public String Task { get; set; }
+        /// <summary>
+        /// Тип реакции
+        /// </summary>
         [Column("Тип реакции")]
         public String TypeReaction { get; set; }
+        /// <summary>
+        /// Комментарий
+        /// </summary>
         [Column("Комментарий")]
         public String Comment { get; set; }
+        /// <summary>
+        /// Дата/время
+        /// </summary>
         [Column("Дата/время")]
         public String DateTime { get; set; }
+        /// <summary>
+        /// Дата передачи контакта
+        /// </summary>
         [Column("Дата передачи контакта")]
         public String DateTransferContact { get; set; }
+        /// <summary>
+        /// Оператор
+        /// </summary>
         [Column("Operator")]
         public String Operator { get; set; }
+        /// <summary>
+        /// Количество попыток дозвона
+        /// </summary>
         [Column("count")]
-        public String countCall{ get; set; }
+        public String countCall { get; set; }
+        /// <summary>
+        /// Последний статус дозвона
+        /// </summary>
         [Column("LastStatus")]
         public String LastStatus { get; set; }
+        /// <summary>
+        /// Часовой пояс
+        /// </summary>
         [Column("TimeZona")]
         public String TimeZona { get; set; }
+
+        /// <summary>
+        /// Статус звонка (первого)
+        /// </summary>
+        [Column("Статус звонка (первого)")]
+        public String LastCallFirst { get; set; }
+        /// <summary>
+        /// Количество дозвонов (клиент ответил на звонок)
+        /// </summary>
+        [Column("Количество дозвонов (клиент ответил на звонок)")]
+        public Int32 CountTalkCall { get; set; }
+        /// <summary>
+        /// Статус звонка (последний дозвон)
+        /// </summary>
+        [Column("Статус звонка (последний дозвон)")]
+        public String LastCallLast { get; set; }
+        /// <summary>
+        /// Время разговора (последний дозвон)
+        /// </summary>
+        [Column("Время разговора (последний дозвон)")]
+        public Int32 TalkTimeLastCall { get; set; }
+        [Column("partner")]
+        public String Partner { get; set; }
+        [Column("stage")]
+        public String Stage { get; set; }
+        [Column("timestamp")]
+        public DateTime Timestamp { get; set; }
+        [Column("state")]
+        public String State { get; set; }
+        [Column("scheduledTime")]
+        public DateTime ScheduledTime { get; set; }
+        [Column("error")]
+        public bool Error { get; set; }
+    
+
+        public override string ToString()
+        {
+            return " IdClient " + IdClient
+        + ", MOBILE " + MOBILE
+        + ", FIO " + FIO
+        + ", ProductCurrent " + ProductCurrent
+        + ", ProductDateOpen " + ProductDateOpen
+        + ", Channel " + Channel
+        + ", ProfitabilityCurrent " + ProfitabilityCurrent
+        + ", NewOffer " + NewOffer
+        + ", FondOffer " + FondOffer
+        + ", TimeHorizon " + TimeHorizon
+        + ", Task " + Task
+        + ", TypeReaction " + TypeReaction
+        + ", Comment " + Comment
+        + ", DateTime " + DateTime
+        + ", DateTransferContact " + DateTransferContact
+        + ", Operator " + Operator
+        + ", countCall " + countCall
+        + ", LastStatus " + LastStatus
+        + ", TimeZona " + TimeZona
+        + ", LastCallFirst " + LastCallFirst
+        + ", CountTalkCall " + CountTalkCall
+        + ", LastCallLast " + LastCallLast
+        + ", TalkTimeLastCall " + TalkTimeLastCall
+        + ", Channel " + Channel
+            + ", Partner " + Partner
+            + ", Stage " + Stage
+            + ", Timestamp " + Timestamp
+            + ", State " + State
+            + ", ScheduledTime " + ScheduledTime
+            + ", Error " + Error;
+        }
     }
-             
 
     /*
     { 
@@ -91,6 +221,14 @@ CREATE TABLE[dbo].[A_TaskManager_LocalList_ae2d045c-f519-4abb-8809-d5374aa275e8_
 	[count] [nvarchar] (2000) NULL,
 	[LastStatus] [nvarchar] (2000) NULL,
 	[TimeZona] [nvarchar] (2000) NULL,
+
+        "partner": "AK_MK_2.0_Android",
+    "stage": "<tr><td>1. Ввод и идентификация данных</td><td>Выбрал продукт Альфа-Капитал Баланс.<br>Авторизация СМЭВ. Заполнил ФИО, телефон, email</td></tr>",
+    "timestamp": "08.10.2019 14:57:29",
+    "state": "adjourned",
+    "scheduledTime": "2019-10-08T15:19:51",
+    "error": false
+
 PRIMARY KEY CLUSTERED
 (
     [Id] ASC
