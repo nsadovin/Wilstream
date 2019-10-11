@@ -41,6 +41,38 @@ namespace WebAPI.Controllers
             }
         }
 
-         
+
+        // PUT api/values/5
+        public void Put(AlfaCapital call)
+        {
+            log.Debug("update call: " + call.ToString());
+            try
+            {
+                var _call = db.AlfaCapitals.FirstOrDefault(r=>r.Id == call.Id);
+
+                if (_call != null)
+                {
+                    _call.Partner = call.Partner;
+                    _call.Stage = call.Stage;
+                    _call.Timestamp = call.Timestamp;
+                    _call.State = call.State;
+                    _call.ScheduledTime = call.ScheduledTime;
+                    _call.Error = call.Error;
+                    _call.FIO = call.FIO;
+                    _call.Task = call.Task;
+                    _call.MOBILE = call.MOBILE;
+
+                    db.SaveChanges();
+                }
+                return;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                return;
+            }
+        }
+
+
     }
 }
