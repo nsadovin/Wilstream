@@ -58,6 +58,11 @@
                             <asp:TextBox ID="TextBoxLeadSECOND_NAME" CssClass="form-control" runat="server"></asp:TextBox></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
+                        <asp:TableCell>Город</asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="TextBoxLeadADDRESS_CITY" CssClass="form-control" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
                         <asp:TableCell>Статус</asp:TableCell>
                         <asp:TableCell> 
                             <asp:DropDownList ID="DropDownListLeadSTATUS_ID" CssClass="form-control" runat="server"></asp:DropDownList>
@@ -105,7 +110,7 @@
                 <asp:Button ID="ButtonSaveLead" CssClass="btn btn-primary" ValidationGroup="Lead" runat="server" OnClick="ButtonSaveLead_Click" Text="Создать лид" />
             </asp:Panel>
             </div>
-            <div class="col-sm">
+            <div class="col-sm" style="display: none;">
                 <h3>Товары</h3>
             <asp:Panel ID="PanelLeadProducts" runat="server">
 

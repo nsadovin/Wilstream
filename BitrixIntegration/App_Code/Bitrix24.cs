@@ -308,73 +308,94 @@ public class Bitrix24
 
                 var userfieldsJson = SendCommand("crm.lead.userfield.list", "", "", "GET");
                 var userfields = JsonConvert.DeserializeObject<dynamic>(userfieldsJson).result;
+                foreach (dynamic _userfield in userfields)
+                {
+                    var userfieldJson = SendCommand("crm.lead.userfield.get", "ID="+ _userfield.ID, "", "GET");
+                    var userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+                    Userfields.Add(new Bitrix24.Userfield()
+                    {
+                        ID = userfield.ID,
+                        ENTITY_ID = userfield.ENTITY_ID,
+                        NAME = userfield.EDIT_FORM_LABEL.ru,
+                        FIELD_NAME = userfield.FIELD_NAME,
+                        USER_TYPE_ID = userfield.USER_TYPE_ID ,
+                        LIST = new List<Bitrix24.UF_LIST>()
+                    });
+                    if(userfield.LIST!=null)
+                    foreach (var keyvalue in userfield.LIST)
+                    {
+                        var listic = keyvalue.ToString();
+                        var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+                        Userfields[Userfields.Count-1].LIST.Add(li);
+                    };
+                }
 
                 return Userfields;
 
-                var userfieldJson = SendCommand("crm.lead.userfield.get", "ID=190", "", "GET");
-                var userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+                //var userfieldJson = SendCommand("crm.lead.userfield.get", "ID=190", "", "GET");
+                //var userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
 
-                 Userfields = new List<Bitrix24.Userfield>() {
-                    new Bitrix24.Userfield() {
-                        ID = userfield.ID,
-                       ENTITY_ID = userfield.ENTITY_ID ,
-                       NAME = userfield.EDIT_FORM_LABEL.ru,
-                       FIELD_NAME = userfield.FIELD_NAME,
-                       USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration ,
-                       LIST = new List<Bitrix24.UF_LIST>()
-                 },
-                };
+                // Userfields = new List<Bitrix24.Userfield>() {
+                //    new Bitrix24.Userfield() {
+                //        ID = userfield.ID,
+                //       ENTITY_ID = userfield.ENTITY_ID ,
+                //       NAME = userfield.EDIT_FORM_LABEL.ru,
+                //       FIELD_NAME = userfield.FIELD_NAME,
+                //       USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration ,
+                //       LIST = new List<Bitrix24.UF_LIST>()
+                // },
+                //};
 
-                        foreach (var keyvalue in userfield.LIST)
-                        {
-                            var listic = keyvalue.ToString();
-                            var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
-                            Userfields[0].LIST.Add(li);
-                        }
+                //        foreach (var keyvalue in userfield.LIST)
+                //        {
+                //            var listic = keyvalue.ToString();
+                //            var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+                //            Userfields[0].LIST.Add(li);
+                //        }
 
-                  userfieldJson = SendCommand("crm.lead.userfield.get", "ID=192", "", "GET");
-                  userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+                //  userfieldJson = SendCommand("crm.lead.userfield.get", "ID=192", "", "GET");
+                //  userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
 
-                  Userfields.Add( 
-                    new Bitrix24.Userfield() {
-                        ID = userfield.ID,
-                       ENTITY_ID = userfield.ENTITY_ID ,
-                       NAME = userfield.EDIT_FORM_LABEL.ru,
-                       FIELD_NAME = userfield.FIELD_NAME,
-                       USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration ,
-                       LIST = new List<Bitrix24.UF_LIST>()
+                //  Userfields.Add( 
+                //    new Bitrix24.Userfield() {
+                //        ID = userfield.ID,
+                //       ENTITY_ID = userfield.ENTITY_ID ,
+                //       NAME = userfield.EDIT_FORM_LABEL.ru,
+                //       FIELD_NAME = userfield.FIELD_NAME,
+                //       USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration ,
+                //       LIST = new List<Bitrix24.UF_LIST>()
                  
-                });
+                //});
 
-                foreach (var keyvalue in userfield.LIST)
-                {
-                    var listic = keyvalue.ToString();
-                    var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
-                    Userfields[1].LIST.Add(li);
-                }
-                userfieldJson = SendCommand("crm.lead.userfield.get", "ID=194", "", "GET");
-                userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+                //foreach (var keyvalue in userfield.LIST)
+                //{
+                //    var listic = keyvalue.ToString();
+                //    var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+                //    Userfields[1].LIST.Add(li);
+                //}
+                //userfieldJson = SendCommand("crm.lead.userfield.get", "ID=194", "", "GET");
+                //userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
 
-                Userfields.Add(
-                  new Bitrix24.Userfield()
-                  {
-                      ID = userfield.ID,
-                      ENTITY_ID = userfield.ENTITY_ID,
-                      NAME = userfield.EDIT_FORM_LABEL.ru,
-                      FIELD_NAME = userfield.FIELD_NAME,
-                      USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration,
-                      LIST = new List<Bitrix24.UF_LIST>()
+                //Userfields.Add(
+                //  new Bitrix24.Userfield()
+                //  {
+                //      ID = userfield.ID,
+                //      ENTITY_ID = userfield.ENTITY_ID,
+                //      NAME = userfield.EDIT_FORM_LABEL.ru,
+                //      FIELD_NAME = userfield.FIELD_NAME,
+                //      USER_TYPE_ID = Bitrix24.USER_TYPE_ID.enumeration,
+                //      LIST = new List<Bitrix24.UF_LIST>()
 
-                  });
+                //  });
 
-                foreach (var keyvalue in userfield.LIST)
-                {
-                    var listic = keyvalue.ToString();
-                    var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
-                    Userfields[2].LIST.Add(li);
-                }
+                //foreach (var keyvalue in userfield.LIST)
+                //{
+                //    var listic = keyvalue.ToString();
+                //    var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+                //    Userfields[2].LIST.Add(li);
+                //}
 
-                return Userfields;
+                //return Userfields;
             }    ;
         }
     }
@@ -403,6 +424,8 @@ public class Bitrix24
     public enum USER_TYPE_ID
     {
         enumeration
+        ,file
+        ,@string
     }
 
     //Открытый метод для отправки REST-запросов в Битрикс24

@@ -55,8 +55,8 @@ public partial class Borond : System.Web.UI.Page
 
             sort = "LAST_NAME"
         };
-
-        var userSearchListJson = BX24.SendCommand("user.search", "FILTER[ACTIVE]=TRUE&FILTER[ID][0]=15938&FILTER[ID][1]=174&FILTER[ID][2]=8170&FILTER[ID][3]=22&FILTER[ID][4]=15934&FILTER[ID][5]=15908", JsonConvert.SerializeObject(dataListUsers), "POST");
+        //&FILTER[ID][0]=15938&FILTER[ID][1]=174&FILTER[ID][2]=8170&FILTER[ID][3]=22&FILTER[ID][4]=15934&FILTER[ID][5]=15908
+        var userSearchListJson = BX24.SendCommand("user.search", "FILTER[ACTIVE]=TRUE", JsonConvert.SerializeObject(dataListUsers), "POST");
         var UserSearchList = JsonConvert.DeserializeObject<dynamic>(userSearchListJson);
         var users = new List<KeyValuePair<string, string>>();
         foreach (var user in UserSearchList.result)
@@ -78,10 +78,20 @@ public partial class Borond : System.Web.UI.Page
                 foreach (var item in uf.LIST)
                     ddl.Items.Add(new ListItem() { Text = item.VALUE, Value = item.ID.ToString() });
                 tc2.Controls.Add(ddl);
+
+                tr.Cells.Add(tc1);
+                tr.Cells.Add(tc2);
+                TableLead.Rows.Add(tr);
             }
-            tr.Cells.Add(tc1);
-            tr.Cells.Add(tc2);
-            TableLead.Rows.Add(tr);
+            else  if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.@string)
+            {
+                var ddl = new TextBox() { ID = "TextBoxUserfield" + uf.ID, CssClass = "form-control" };                 
+                tc2.Controls.Add(ddl);
+
+                tr.Cells.Add(tc1);
+                tr.Cells.Add(tc2);
+                TableLead.Rows.Add(tr);
+            }
         }
         
 
@@ -93,6 +103,7 @@ public partial class Borond : System.Web.UI.Page
             TextBoxLeadTITLE.Text = LeadByJSON.result.TITLE;
             TextBoxLeadNAME.Text = LeadByJSON.result.NAME;
             TextBoxLeadSECOND_NAME.Text = LeadByJSON.result.SECOND_NAME;
+            TextBoxLeadADDRESS_CITY.Text = LeadByJSON.result.ADDRESS_CITY;
             TextBoxLeadLAST_NAME.Text = LeadByJSON.result.LAST_NAME;
             DropDownListLeadSTATUS_ID.SelectedValue = LeadByJSON.result.STATUS_ID;
             TextBoxLeadPHONE_1.Text = LeadByJSON.result.PHONE[0].VALUE;
@@ -113,7 +124,7 @@ public partial class Borond : System.Web.UI.Page
                             DropDownListUF.SelectedValue = item.Value.ToString();
                     }
 
-                }
+                } 
             }
 
 
@@ -266,6 +277,7 @@ public partial class Borond : System.Web.UI.Page
                   { "NAME" , TextBoxLeadNAME.Text },
                   { "COMMENTS" , TextBoxLeadCOMMENTS.Text },
                 {  "SECOND_NAME" , TextBoxLeadSECOND_NAME.Text },
+               {"ADDRESS_CITY", TextBoxLeadADDRESS_CITY.Text },
                 {  "LAST_NAME" , TextBoxLeadLAST_NAME.Text },
                 {  "STATUS_ID" , DropDownListLeadSTATUS_ID.SelectedValue },
                 {  "PHONE" , new object[] { new { VALUE = TextBoxLeadPHONE_1.Text,  VALUE_TYPE = DropDownListLeadPHONE_1.SelectedValue } } },
@@ -285,6 +297,7 @@ public partial class Borond : System.Web.UI.Page
                   { "NAME" , TextBoxLeadNAME.Text },
                   { "COMMENTS" , TextBoxLeadCOMMENTS.Text },
                 {  "SECOND_NAME" , TextBoxLeadSECOND_NAME.Text },
+                    { "ADDRESS_CITY", TextBoxLeadADDRESS_CITY.Text },
                 {  "LAST_NAME" , TextBoxLeadLAST_NAME.Text },
                 {  "STATUS_ID" , DropDownListLeadSTATUS_ID.SelectedValue },
                 {  "PHONE" , new object[] { new { VALUE = TextBoxLeadPHONE_1.Text,  VALUE_TYPE = DropDownListLeadPHONE_1.SelectedValue } } },
@@ -304,6 +317,14 @@ public partial class Borond : System.Web.UI.Page
                     {
                         data.fields.Add(uf.FIELD_NAME, ddl.SelectedValue);
                         //t.GetProperty(uf.FIELD_NAME).SetValue(data.fields, ddl.SelectedValue);
+                    }
+                }
+                else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.@string)
+                {
+                    var ddl = Page.FindControl("TextBoxUserfield" + uf.ID) as TextBox;
+                    if (ddl != null)
+                    {
+                        data.fields.Add(uf.FIELD_NAME, ddl.Text); 
                     }
                 }
             }
@@ -349,7 +370,7 @@ public partial class Borond : System.Web.UI.Page
 
             if (IdLeadOld == 0)
             {
-                Response.Redirect("~/Pushastore.aspx?IdLead=" + IdLead);
+                Response.Redirect("~/Borond.aspx?IdLead=" + IdLead);
                 Response.End();
             }
         }
