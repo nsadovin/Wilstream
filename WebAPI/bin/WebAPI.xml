@@ -601,5 +601,25 @@
             Время разговора (последний дозвон)
             </summary>
         </member>
+        <member name="P:WebAPI.Models.AlfaCapital.contractnum">
+            <summary>
+            Номер заявки
+            </summary>
+        </member>
+        <member name="P:WebAPI.Models.AlfaCapital.contractdate">
+            <summary>
+            Дата заявки
+            </summary>
+        </member>
+        <member name="P:WebAPI.Models.AlfaCapital.sitepaymenttype">
+            <summary>
+            Тип оплаты продукта(реквизиты, карта)
+            </summary>
+        </member>
+        <member name="P:WebAPI.Models.AlfaCapital.sitepaymentstate">
+            <summary>
+            Результат оплаты(успешно, ошибка)
+            </summary>
+        </member>
     </members>
 </doc>

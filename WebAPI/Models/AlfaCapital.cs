@@ -22,6 +22,7 @@ namespace WebAPI.Models
         /// Это ID клиента
         /// </summary> 
         [Column("ID клиента")]
+        [Required]
         [Display(Description = "IdClient!!!")]        
         public String IdClient { get; set; }
 
@@ -29,6 +30,7 @@ namespace WebAPI.Models
         /// Телефон
         /// </summary> 
         [Column("Телефон")]
+        [Required]
         [Display(Description = "Телефон",Name = "Телефон")]
         public String MOBILE { get; set; }
         /// <summary>
@@ -90,12 +92,12 @@ namespace WebAPI.Models
         /// Дата/время
         /// </summary>
         [Column("Дата/время")]
-        public String DateTime { get; set; }
+        public DateTime? DateTime { get; set; }
         /// <summary>
         /// Дата передачи контакта
         /// </summary>
         [Column("Дата передачи контакта")]
-        public String DateTransferContact { get; set; }
+        public DateTime DateTransferContact { get; set; }
         /// <summary>
         /// Оператор
         /// </summary>
@@ -142,14 +144,36 @@ namespace WebAPI.Models
         [Column("stage")]
         public String Stage { get; set; }
         [Column("timestamp")]
-        public DateTime Timestamp { get; set; }
+        [Required]
+        public DateTime? Timestamp { get; set; }
         [Column("state")]
         public String State { get; set; }
         [Column("scheduledTime")]
-        public DateTime ScheduledTime { get; set; }
+        [Required]
+        public DateTime? ScheduledTime { get; set; }
         [Column("error")]
-        public bool Error { get; set; }
-    
+        public bool Error { get; set; } 
+        /// <summary>
+        /// Номер заявки
+        /// </summary>
+        [Column("contractnum")]
+        public String contractnum { get; set; }
+        /// <summary>
+        /// Дата заявки
+        /// </summary>
+        [Column("contractdate")]
+        public DateTime? contractdate { get; set; }
+        /// <summary>
+        /// Тип оплаты продукта(реквизиты, карта)
+        /// </summary>
+        [Column("sitepaymenttype")]
+        public String sitepaymenttype { get; set; }
+        /// <summary>
+        /// Результат оплаты(успешно, ошибка)
+        /// </summary>
+        [Column("sitepaymentstate")]
+        public String sitepaymentstate { get; set; } 
+
 
         public override string ToString()
         {
