@@ -14,6 +14,9 @@ namespace WebAPI
     {
         protected void Application_Start()
         {
+            // Конфигурация и службы веб-API
+            XmlConfigurator.Configure();
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

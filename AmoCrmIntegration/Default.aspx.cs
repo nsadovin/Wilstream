@@ -64,7 +64,7 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ID = "LinkButtonPipeLine" + pipeline.Key.ToString(),
                         Text = pipeline.Value,
-                        CssClass = "btn btn-outline-info btn-lg",                        
+                        CssClass = "btn btn-outline-info btn-lg",
                         CommandArgument = pipeline.Key.ToString()
                     };
                     lb.Attributes["style"] = "margin-right: 10px;margin-bottom: 10px; height: 80px;";
@@ -122,6 +122,10 @@ public partial class _Default : System.Web.UI.Page
                 TableLead.Rows.Add(CreateRowForCustomField(TypeField.Lead, "Lead", lead.CustomFields, LeadField));
             };
 
+        }
+        else {
+            Response.Write("Лид с номером "+ phone + " не найден");
+            Response.End();
         }
     }
 
