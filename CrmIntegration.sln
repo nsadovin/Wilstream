@@ -422,6 +422,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Манаева Г.С._2019_
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "52273"
+		SlnRelativePath = "Манаева Г.С._2019_2\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
