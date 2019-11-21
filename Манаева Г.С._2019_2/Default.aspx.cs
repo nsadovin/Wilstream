@@ -862,10 +862,10 @@ public partial class _Default : System.Web.UI.Page
 
     protected void QAC_A7(object sender, EventArgs e)
     {
-        for (var i = 0; i < TableA7.Rows.Count; i++)
+        for (var i = 0; i < TableA7.Rows.Count-1; i++)
         { 
             var r2 = TableA7.FindControl("TextBoxA7_" + (i + 1).ToString()) as TextBox;
-
+            if(r2!=null)
             saveData(700 + i, r2.Text);
         }
         saveData(799, TextBoxA7_8_dr.Text);
@@ -912,12 +912,14 @@ public partial class _Default : System.Web.UI.Page
     {
 
         var tb = ((sender as RadioButtonList).Parent.FindControl("TextBoxA14_" + (sender as RadioButtonList).ID.Replace("RadioButtonListA14_", ""))) as TextBox;
-        tb.Visible = (sender as RadioButtonList).SelectedValue == "1";
+        tb.Visible = (sender as RadioButtonList).SelectedValue == "1" || (sender as RadioButtonList).SelectedValue == "2";
+        (tb.Parent as TableCell).Controls[1].Visible = (sender as RadioButtonList).SelectedValue == "1";
+        (tb.Parent as TableCell).Controls[2].Visible = (sender as RadioButtonList).SelectedValue == "2";
     }
 
     protected void QAC_A14(object sender, EventArgs e)
     {
-        for (var i = 0; i < TableA14.Rows.Count; i++)
+        for (var i = 0; i < TableA14.Rows.Count-1; i++)
         {
             var r = CheckBoxListA1.Items[i];
             var r2 = TableA14.FindControl("RadioButtonListA14_" + (i + 1).ToString()) as RadioButtonList;
@@ -935,6 +937,7 @@ public partial class _Default : System.Web.UI.Page
 
         var tb = ((sender as RadioButtonList).Parent.FindControl("TextBoxA15_" + (sender as RadioButtonList).ID.Replace("RadioButtonListA15_", ""))) as TextBox;
         tb.Visible = (sender as RadioButtonList).SelectedValue == "1";
+        (tb.Parent as TableCell).Controls[1].Visible = (sender as RadioButtonList).SelectedValue == "1";
     }
 
     protected void QAC_A15(object sender, EventArgs e)
@@ -960,6 +963,7 @@ public partial class _Default : System.Web.UI.Page
 
         var tb = ((sender as RadioButtonList).Parent.FindControl("TextBoxA16_" + (sender as RadioButtonList).ID.Replace("RadioButtonListA16_", ""))) as TextBox;
         tb.Visible = (sender as RadioButtonList).SelectedValue == "1";
+        (tb.Parent as TableCell).Controls[1].Visible = (sender as RadioButtonList).SelectedValue == "1";
     }
 
     protected void QAC_A16(object sender, EventArgs e)
@@ -1056,6 +1060,7 @@ public partial class _Default : System.Web.UI.Page
 
         var tb = ((sender as RadioButtonList).Parent.FindControl("TextBoxA21_" + (sender as RadioButtonList).ID.Replace("RadioButtonListA21_", ""))) as TextBox;
         tb.Visible = (sender as RadioButtonList).SelectedValue == "1";
+        (tb.Parent as TableCell).Controls[1].Visible = (sender as RadioButtonList).SelectedValue == "1";
     }
 
 

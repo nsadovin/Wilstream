@@ -112,7 +112,8 @@
                                         <asp:ListItem Value="11">духи и туалетная вода</asp:ListItem> 
                                  </asp:CheckBoxList> 
                                   <br/> 
-                                 
+                                 <asp:Button CommandName="Panel3"  CommandArgument="99" ToolTip="1" onclick="QAC_Button"     Text="Ничего из перечисленного" CssClass="green unibutton  big2" Width="300"  ID="Button16"  runat="server" /><br/> 
+                                
                                     <br/> 
                                 <asp:Button ID="Button65" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                                 <asp:Button ID="Button121" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A1" CommandName="Panel28" CommandArgument="1" onclick="QAC_CheckBoxList" />
@@ -136,6 +137,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -148,6 +151,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -160,6 +165,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -172,6 +179,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -184,6 +193,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -196,6 +207,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -208,6 +221,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -220,6 +235,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -232,6 +249,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -244,6 +263,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -256,6 +277,8 @@
                                                 <asp:ListItem Value="3">Хранение и транспортировка продукции</asp:ListItem>
                                                 <asp:ListItem Value="4">Оптовая торговля</asp:ListItem>
                                                 <asp:ListItem Value="5">Розничная торговля</asp:ListItem> 
+                                                <asp:ListItem Value="98">Другое (не зачитывать)</asp:ListItem>
+                                                <asp:ListItem Value="99">Затрудняюсь ответить (не зачитывать)</asp:ListItem> 
                                             </asp:CheckBoxList> 
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -328,7 +351,7 @@
                               
                                    
                             <asp:Panel ID="Panel26" runat="server"  Visible="false">
-                                 Вопрос 5.  Какова примерно общая численность сотрудников компании, включая все филиалы (подразделения), на текущий момент? 
+                                 Вопрос 4a.  Какова примерно общая численность сотрудников компании, включая все филиалы (подразделения), на текущий момент? 
                                  <div class="comment"></div>
                                  <br/> 
                                  <asp:TextBox ID="TextBoxA5" Width="400" runat="server"></asp:TextBox> 
@@ -336,20 +359,40 @@
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator18_" ValidationGroup="A5"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA5" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
                                 <br/> 
-                                <asp:Button CommandName="Panel42" CommandArgument="99" ToolTip="5" onclick="QAC_Button" Text="Затрудняюсь ответить / нет ответа" CssClass="green unibutton  big2" Width="600"  ID="Button134_"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel30" CommandArgument="99" ToolTip="5" onclick="QAC_Button" Text="Затрудняюсь ответить / нет ответа" CssClass="green unibutton  big2" Width="600"  ID="Button134_"  runat="server" /><br/> 
                                  
                                 <br/> 
                                  <asp:Button ID="Button16_" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button18_" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A5"  CommandName="Panel55" CommandArgument="5"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button18_" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A5"  CommandName="Panel42" CommandArgument="5"  onclick="QAC_TextBox" />
                       
                                
                             </asp:Panel>
 
 
                              
+                              <asp:Panel ID="Panel30" runat="server"  Visible="false" CssClass="1">
+                                 Вопрос 4b.  В какой примерный диапазон попадает общая численность сотрудников компании, включая все филиалы (подразделения)?
+
+
+
+                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ. может быть ОДИН вариант ответа.</div>
+                                 <asp:Button CommandName="Panel42" CommandArgument="1" ToolTip="503" onclick="QAC_Button" Text="0 – 15" CssClass="green unibutton  big2" Width="600"  ID="Button18"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel42" CommandArgument="2" ToolTip="503" onclick="QAC_Button" Text="16 – 100" CssClass="green unibutton  big2" Width="600"  ID="Button62"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel42" CommandArgument="3" ToolTip="503" onclick="QAC_Button" Text="101 – 250" CssClass="green unibutton  big2" Width="600"  ID="Button64"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel42" CommandArgument="4" ToolTip="503" onclick="QAC_Button" Text="251 – 1 000" CssClass="green unibutton  big2" Width="600"  ID="Button69"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel42" CommandArgument="5" ToolTip="503" onclick="QAC_Button" Text="Свыше 1 000" CssClass="green unibutton  big2" Width="600"  ID="Button66"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel42" CommandArgument="99" ToolTip="503" onclick="QAC_Button" Text="Затрудняюсь ответить / нет ответа" CssClass="green unibutton  big2" Width="600"  ID="Button67"  runat="server" /><br/> 
+                                 
+                                <br/>
+                                <asp:Button ID="Button68" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+        
+                            </asp:Panel>
+                              
+
+                             
                                  <asp:Panel ID="Panel42" runat="server" Visible="false">  
-                                   Вопрос 5а.  В какой примерный диапазон попадает общая численность сотрудников компании, включая все филиалы (подразделения)?
-                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ. может быть ОДИН вариант ответа</div>
+                                  Вопрос 5. <b><u>На каком этапе</u></b> внедрения системы маркировки продукции для следующих групп товаров находится Ваша компания? 
+                                 <div class="comment">Респондент отвечает на вопрос по тем видам товарам, по которым на вопрос 1 ответил «да». Респондент может выбрать только один вариант ответа по каждому виду товара.  </div>
                              
                                    <br/>  
                                 <asp:Table ID="TableA5a" BorderWidth="1" GridLines="Both" runat="server" OnPreRender="TableA5a_PreRender">
@@ -681,10 +724,18 @@
                               
                              
                             <asp:Panel ID="Panel4" runat="server"  Visible="false"> 
-                                <div class="comment">ИНТЕРВЬЮЕР, В ВОПРОСАХ 7-8-9 НАС ИНТЕРЕСУЕТ ГОД, В КОТОРОМ ОРГАНИЗАЦИИ ВНЕДРЯЛИ СИСТЕМУ МАРКИРОВКИ. (КАК ПРАВИЛО, ЭТО 2019 ГОД, НО В РЯДЕ СЛУЧАЕВ МОГЛИ НАЧАТЬ ВНЕДРЕНИЕ СИСТЕМЫ И В 2018 ГОДУ).</div>
-                                Вопрос 7. На этапе <b><u>внедрения системы</u></b> цифровой маркировки товаров. Какой ПРИМЕРНО процент от годового оборота Вашей компании составляет…? 
+                                
+                                Вопрос 7. На этапе <b><u>внедрения системы</u></b> цифровой маркировки товаров. Какой ПРИМЕРНО <b><u>процент</u></b> от годового оборота Вашей компании составляет…? 
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ. МОЖНО УКАЗАТЬ ДИАПАЗОН ПРОЦЕНТОВ</div>
                                  <asp:Table ID="TableA7" BorderWidth="1" GridLines="Both" runat="server" >
+                                     <asp:TableHeaderRow>
+                                         <asp:TableHeaderCell>
+                                             Вид расходов
+                                         </asp:TableHeaderCell>
+                                         <asp:TableHeaderCell>
+                                             Оценка доли затрат в годовом обороте компании, %
+                                         </asp:TableHeaderCell>
+                                     </asp:TableHeaderRow>
                                     <asp:TableRow>
                                         <asp:TableCell>1. Покупка оборудования на внедрение системы цифровой маркировкой товаров (например: принтеры, принтеры-аппликаторы, сканеры) </asp:TableCell> 
                                         <asp:TableCell> 
@@ -734,6 +785,7 @@
                                         </asp:TableCell> 
                                     </asp:TableRow> 
                                  </asp:Table>
+                                <div class="comment">ИНТЕРВЬЮЕР, В ВОПРОСЕ НАС ИНТЕРЕСУЕТ ГОД, В КОТОРОМ ОРГАНИЗАЦИИ ВНЕДРЯЛИ СИСТЕМУ МАРКИРОВКИ. (КАК ПРАВИЛО, ЭТО 2019 ГОД, НО В РЯДЕ СЛУЧАЕВ МОГЛИ НАЧАТЬ ВНЕДРЕНИЕ СИСТЕМЫ И В 2018 ГОДУ).</div>
                                 <br />
                                  <asp:Button ID="Button1" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                                 <asp:Button ID="Button8" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A7" CommandName="Panel6" CommandArgument="7" onclick="QAC_A7" />
@@ -749,11 +801,11 @@
                                  Вопрос 8. Оцените <b><u>в рублях</u></b> суммарные финансовые затраты <b><u>на внедрение системы</u></b> обязательной цифровой маркировки товаров. 
                                  <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ СЛОВО В СЛОВО КАК ОТВЕТИТ РЕСПОНДЕНТ</div>
                                  <br/> 
-                                 <asp:TextBox ID="TextBoxA8" Width="400" runat="server"></asp:TextBox>  человек
+                                 <asp:TextBox ID="TextBoxA8" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="A8"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA8" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="A8" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA8" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
-                               
+                               <div class="comment">ИНТЕРВЬЮЕР, В ВОПРОСЕ НАС ИНТЕРЕСУЕТ ГОД, В КОТОРОМ ОРГАНИЗАЦИИ ВНЕДРЯЛИ СИСТЕМУ МАРКИРОВКИ. (КАК ПРАВИЛО, ЭТО 2019 ГОД, НО В РЯДЕ СЛУЧАЕВ МОГЛИ НАЧАТЬ ВНЕДРЕНИЕ СИСТЕМЫ И В 2018 ГОДУ).</div>
                                 <br/> 
                                  <asp:Button ID="Button19" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                                 <asp:Button ID="Button20" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A8"  CommandName="Panel7" CommandArgument="8"  onclick="QAC_TextBox" />
@@ -767,10 +819,10 @@
                                   Вопрос 9. Оцените <b><u>в процентах</u></b> от годового оборота Вашей компании долю затрат на <b><u>внедрение системы</u></b> обязательной цифровой маркировки товаров 
                                  <div class="comment"></div>
                                  <br/> 
-                                   <asp:TextBox ID="TextBoxA9" Width="400" runat="server"></asp:TextBox>  человек
+                                   <asp:TextBox ID="TextBoxA9" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator14" ValidationGroup="A9"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA9" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                              
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator14" ValidationGroup="A9" Enabled="false" runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA9" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                              <div class="comment">ИНТЕРВЬЮЕР, В ВОПРОСЕ НАС ИНТЕРЕСУЕТ ГОД, В КОТОРОМ ОРГАНИЗАЦИИ ВНЕДРЯЛИ СИСТЕМУ МАРКИРОВКИ. (КАК ПРАВИЛО, ЭТО 2019 ГОД, НО В РЯДЕ СЛУЧАЕВ МОГЛИ НАЧАТЬ ВНЕДРЕНИЕ СИСТЕМЫ И В 2018 ГОДУ).</div>
                                
                                 <br/> 
                                  <asp:Button ID="Button9" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -823,9 +875,9 @@
                               Вопрос 11. Оцените <b><u>в рублях</u></b> суммарные финансовые затраты <b><u>на обеспечение работы</u></b> системы обязательной цифровой маркировки товаров (без учета затрат на этапе внедрения системы обязательной цифровой маркировки товаров).  
                                  <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ СЛОВО В СЛОВО КАК ОТВЕТИТ РЕСПОНДЕНТ</div>
                                 <br/> 
-                                 <asp:TextBox ID="TextBoxA11" Width="400" runat="server"></asp:TextBox>   
+                                 <asp:TextBox ID="TextBoxA11" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="A11"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA11" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="A11" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA11" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                                
                                 <br/> 
                                  <asp:Button ID="Button48" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -841,9 +893,9 @@
                                 Вопрос 12. Оцените <b><u>в процентах</u></b> от годового оборота Вашей компании долю затрат <b><u>на обеспечение работы</u></b> системы обязательной цифровой маркировки товаров (без учета затрат на этапе внедрения системы обязательной цифровой маркировки товаров).  
                                 <div class="comment"></div>
                                 <br/> 
-                                 <asp:TextBox ID="TextBoxA12" Width="400" runat="server"></asp:TextBox>   
+                                 <asp:TextBox ID="TextBoxA12" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="A12"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA12" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="A12" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA12" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                                
                                 <br/> 
                                  <asp:Button ID="Button61" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
@@ -857,9 +909,9 @@
                                  Вопрос 13. С какими затруднениями, помимо финансовых затрат, Ваша компания столкнулась при внедрении системы обязательной цифровой маркировки товаров? 
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА</div>
                                 <br/> 
-                                 <asp:TextBox ID="TextBoxA13" Width="400" runat="server"></asp:TextBox>   
+                                 <asp:TextBox ID="TextBoxA13" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="A13"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA13" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" Enabled="false" ValidationGroup="A13"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA13" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                               
                                 <br/> 
                                  <asp:Button CommandName="Panel19" CommandArgument="99" ToolTip="13" onclick="QAC_Button" Text="Помимо финансовых затрат, прочих затруднений не было" CssClass="green unibutton  big2" Width="600"  ID="Button23"  runat="server" /><br/> 
@@ -880,7 +932,7 @@
                                     <asp:Table ID="TableA14" BorderWidth="1" GridLines="Both" runat="server" OnPreRender="TableA14_PreRender">
                                         <asp:TableHeaderRow>
                                             <asp:TableHeaderCell>Товары</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell>Если «Повысилась» или «Понизилась», то «Укажите, на сколько?»(указать примерный % или диапазон процентов)</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell></asp:TableHeaderCell>
                                         </asp:TableHeaderRow>
                                     <asp:TableRow>
                                         <asp:TableCell>1. табак</asp:TableCell> 
@@ -891,7 +943,13 @@
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
-                                             <asp:TextBox ID="TextBoxA14_1" Width="400" Visible="false" runat="server"></asp:TextBox>                                
+                                            <asp:Panel ID="Panel31" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel34" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>
+                                             <asp:TextBox ID="TextBoxA14_1" Width="400" Visible="false" runat="server"></asp:TextBox>   
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
@@ -902,7 +960,13 @@
                                                 <asp:ListItem Value="2">Понизилась</asp:ListItem>
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>         
+                                             </asp:RadioButtonList> 
+                                            <asp:Panel ID="Panel35" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel36" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>        
                                              <asp:TextBox ID="TextBoxA14_2" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -914,7 +978,13 @@
                                                 <asp:ListItem Value="2">Понизилась</asp:ListItem>
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>    
+                                            <asp:Panel ID="Panel37" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel38" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>  
                                              <asp:TextBox ID="TextBoxA14_3" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -927,6 +997,12 @@
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel39" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel43" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>
                                              <asp:TextBox ID="TextBoxA14_4" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -939,6 +1015,12 @@
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel44" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel45" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>
                                              <asp:TextBox ID="TextBoxA14_5" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -951,6 +1033,12 @@
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel46" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel47" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>
                                              <asp:TextBox ID="TextBoxA14_6" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -962,7 +1050,13 @@
                                                 <asp:ListItem Value="2">Понизилась</asp:ListItem>
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>        
+                                             </asp:RadioButtonList>    
+                                            <asp:Panel ID="Panel48" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel49" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>    
                                              <asp:TextBox ID="TextBoxA14_7" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -974,7 +1068,13 @@
                                                 <asp:ListItem Value="2">Понизилась</asp:ListItem>
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>       
+                                             </asp:RadioButtonList>     
+                                            <asp:Panel ID="Panel50" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel51" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>  
                                              <asp:TextBox ID="TextBoxA14_8" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -986,7 +1086,13 @@
                                                 <asp:ListItem Value="2">Понизилась</asp:ListItem>
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>     
+                                            <asp:Panel ID="Panel52" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel53" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel> 
                                              <asp:TextBox ID="TextBoxA14_9" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -998,7 +1104,13 @@
                                                 <asp:ListItem Value="2">Понизилась</asp:ListItem>
                                                 <asp:ListItem Value="3">Не изменилась</asp:ListItem>
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>   
+                                            <asp:Panel ID="Panel56" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel57" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                            </asp:Panel>   
                                              <asp:TextBox ID="TextBoxA14_10" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow> 
@@ -1019,8 +1131,8 @@
                                 <br/>
                                   <asp:Table ID="TableA15" BorderWidth="1" GridLines="Both" runat="server" >
                                         <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell>Положительный эффект</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell>Если «Да», то «Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании?» (указать примерный % или диапазон процентов)</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell Width="400">Положительный эффект</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell></asp:TableHeaderCell>
                                         </asp:TableHeaderRow>
                                     <asp:TableRow>
                                         <asp:TableCell>1. Повышение спроса на продукцию из-за повышения доверия к качеству продукции, снижения доли нелегальной продукции на рынке</asp:TableCell> 
@@ -1030,6 +1142,9 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel58" runat="server"  Visible="false"> 
+                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>    
                                              <asp:TextBox ID="TextBoxA15_1" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1041,6 +1156,9 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel59" runat="server"  Visible="false"> 
+                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>      
                                              <asp:TextBox ID="TextBoxA15_2" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1051,7 +1169,10 @@
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>     
+                                            <asp:Panel ID="Panel60" runat="server"  Visible="false"> 
+                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>       
                                              <asp:TextBox ID="TextBoxA15_3" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1062,18 +1183,24 @@
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>   
+                                            <asp:Panel ID="Panel61" runat="server"  Visible="false"> 
+                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>         
                                              <asp:TextBox ID="TextBoxA15_4" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
-                                        <asp:TableCell>5. Иные положительные эффекты (указать, какие. <asp:TextBox ID="TextBoxA15_5_dr" Width="400" Visible="false" runat="server"></asp:TextBox> </asp:TableCell> 
+                                        <asp:TableCell>5. Иные положительные эффекты (указать, какие. <asp:TextBox ID="TextBoxA15_5_dr" Width="400"   runat="server"></asp:TextBox> </asp:TableCell> 
                                         <asp:TableCell> 
                                             <asp:RadioButtonList ID="RadioButtonListA15_5" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA15_SelectedIndexChanged" runat="server">
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>   
+                                            <asp:Panel ID="Panel62" runat="server"  Visible="false"> 
+                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>         
                                              <asp:TextBox ID="TextBoxA15_5" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1089,8 +1216,8 @@
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ</div>
                                       <asp:Table ID="TableA16" BorderWidth="1" GridLines="Both" runat="server" >
                                         <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell>Отрицательный эффект</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell>Если «Да», то «Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании?» (указать примерный % или диапазон процентов)</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell Width="400">Отрицательный эффект</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell></asp:TableHeaderCell>
                                         </asp:TableHeaderRow>
                                     <asp:TableRow>
                                         <asp:TableCell>1. Необходимость отказаться с 2020 года от патентной системы налогообложения или ЕНВД</asp:TableCell> 
@@ -1099,7 +1226,10 @@
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>
+                                            <asp:Panel ID="Panel63" runat="server"  Visible="false"> 
+                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>               
                                              <asp:TextBox ID="TextBoxA16_1" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1110,7 +1240,10 @@
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>  
+                                            <asp:Panel ID="Panel64" runat="server"  Visible="false"> 
+                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>                  
                                              <asp:TextBox ID="TextBoxA16_2" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1121,7 +1254,10 @@
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>    
+                                            <asp:Panel ID="Panel65" runat="server"  Visible="false"> 
+                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>                
                                              <asp:TextBox ID="TextBoxA16_3" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1133,17 +1269,23 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel66" runat="server"  Visible="false"> 
+                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>              
                                              <asp:TextBox ID="TextBoxA16_4" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
-                                        <asp:TableCell>5. Иные отрицательные эффекты  (указать, какие. <asp:TextBox ID="TextBoxA16_5_dr" Width="400" Visible="false" runat="server"></asp:TextBox> </asp:TableCell> 
+                                        <asp:TableCell>5. Иные отрицательные эффекты  (указать, какие. <asp:TextBox ID="TextBoxA16_5_dr" Width="400"   runat="server"></asp:TextBox> </asp:TableCell> 
                                         <asp:TableCell> 
                                             <asp:RadioButtonList ID="RadioButtonListA16_5" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA16_SelectedIndexChanged" runat="server">
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel67" runat="server"  Visible="false"> 
+                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
+                                            </asp:Panel>              
                                              <asp:TextBox ID="TextBoxA16_5" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1275,9 +1417,9 @@
                             <asp:Panel ID="Panel24" runat="server"  Visible="false"> 
                                 Вопрос 18. В каких отраслях или для каких групп товаров, на Ваш взгляд, также целесообразно внедрение системы обязательной цифровой маркировки товаров?
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА</div>
-                                 <asp:TextBox ID="TextBoxA18" Width="400" runat="server"></asp:TextBox>   
+                                 <asp:TextBox ID="TextBoxA18"  Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ValidationGroup="A18"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA18" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" Enabled="false" ValidationGroup="A18"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA18" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                                   <br/> 
                                  <asp:Button CommandName="Panel25" CommandArgument="99" ToolTip="18" onclick="QAC_Button_A18" Text="Не нужно внедрять маркировку для других групп товаров" CssClass="green unibutton  big2" Width="600"  ID="Button38"  runat="server" /><br/> 
                                   
@@ -1291,6 +1433,8 @@
                               <asp:Panel ID="Panel25" runat="server"  Visible="false">  
                                  Вопрос 19. В рамках введенной системы маркировки Ваша компания передает сведения в Государственную информационную систему «Маркировка». Кроме того, Ваша компания сдает налоговую и иную обязательную отчетность. Возможно, какие-то сведения при этом дублируются. Оцените в процентах эту часть сведений. 
                                 <div class="comment"> 
+                                    (другими словами, в каком проценте случаев сведения дублируются)
+                                    <br/>
                                 ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ
                                 </div>
                                 <asp:Table ID="TableA19" BorderWidth="1" GridLines="Both" runat="server" >
@@ -1344,9 +1488,9 @@
                             <asp:Panel ID="Panel5" runat="server"  Visible="false"> 
                                 Вопрос 20. Оцените в процентах долю затрат, на которую Ваша компания может снизить издержки при отказе от передачи в ГИС «Маркировка» сведений, дублирующих сведения из налоговой и иной обязательной отчетности, предоставляемой Вашей компанией в органы исполнительной власти? 
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА</div>
-                                 <asp:TextBox ID="TextBoxA20" Width="400" runat="server"></asp:TextBox>   %
+                                 <asp:TextBox ID="TextBoxA20" Width="800" TextMode="MultiLine" Height="50"  runat="server"></asp:TextBox>   %
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ValidationGroup="A20"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA20" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Enabled="false" ValidationGroup="A20"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA20" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                                 
                              
                                 <br/> 
@@ -1361,10 +1505,7 @@
                                 <asp:Table ID="TableA21" BorderWidth="1" GridLines="Both" runat="server" >
                                         <asp:TableHeaderRow>
                                             <asp:TableHeaderCell>Орган исполнительной власти, осуществляющий контрольно-надзорные мероприятия</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell>Наличие взаимодействия с ОИВ,  
-                                                Если «Да», то 
-«Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля?»
-(указать примерный % или диапазон процентов)
+                                            <asp:TableHeaderCell>
                                             </asp:TableHeaderCell>
                                         </asp:TableHeaderRow>
                                     <asp:TableRow>
@@ -1374,7 +1515,10 @@
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>  
+                                            <asp:Panel ID="Panel68" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>              
                                              <asp:TextBox ID="TextBoxA21_1" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1386,6 +1530,9 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel69" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>           
                                              <asp:TextBox ID="TextBoxA21_2" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1396,7 +1543,10 @@
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>    
+                                            <asp:Panel ID="Panel70" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>             
                                              <asp:TextBox ID="TextBoxA21_3" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1408,6 +1558,9 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel71" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>           
                                              <asp:TextBox ID="TextBoxA21_4" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1419,6 +1572,9 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel72" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>           
                                              <asp:TextBox ID="TextBoxA21_5" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1430,6 +1586,9 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel73" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>           
                                              <asp:TextBox ID="TextBoxA21_6" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1441,6 +1600,9 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel74" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>           
                                              <asp:TextBox ID="TextBoxA21_7" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1452,6 +1614,9 @@
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel75" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>           
                                              <asp:TextBox ID="TextBoxA21_8" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1462,18 +1627,24 @@
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>      
+                                             </asp:RadioButtonList>    
+                                            <asp:Panel ID="Panel76" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>             
                                              <asp:TextBox ID="TextBoxA21_9" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow> 
                                     <asp:TableRow>
-                                        <asp:TableCell>10. Иное (что именно_) <asp:TextBox ID="TextBoxA21_10_dr" Width="400" Visible="false" runat="server"></asp:TextBox> </asp:TableCell> 
+                                        <asp:TableCell>10. Иное (что именно_) <asp:TextBox ID="TextBoxA21_10_dr" Width="400"  runat="server"></asp:TextBox> </asp:TableCell> 
                                         <asp:TableCell> 
                                             <asp:RadioButtonList ID="RadioButtonListA21_10" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
                                                 <asp:ListItem Value="2">Нет</asp:ListItem> 
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
+                                            <asp:Panel ID="Panel77" runat="server"  Visible="false"> 
+                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
+                                            </asp:Panel>           
                                              <asp:TextBox ID="TextBoxA21_10" Width="400" Visible="false" runat="server"></asp:TextBox>                                
                                         </asp:TableCell> 
                                     </asp:TableRow>
@@ -1488,11 +1659,11 @@
                              
 
                             <asp:Panel ID="Panel11" runat="server"  Visible="false"> 
-                                Вопрос 22. Оцените в процентах долю затрат, которую Ваша компания тратит в рамках <b>подготовки к проведению</b> и самому проведения контрольно-надзорных мероприятий?
+                                Вопрос 22. Оцените в процентах долю трат на <b>подготовку к проведению</b> контрольно-надзорных мероприятий и к самому проведению этих контрольно-надзорных мероприятий?  
                                 <div class="comment"></div>
                                  <asp:TextBox ID="TextBoxA22" Width="400" runat="server"></asp:TextBox>   %
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ValidationGroup="A22"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA22" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" Enabled="false" ValidationGroup="A22"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA22" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                                 
                              
                                 <br/> 
@@ -1507,7 +1678,7 @@
                                 <div class="comment"></div>
                                  <asp:TextBox ID="TextBoxA23" Width="400" runat="server"></asp:TextBox>   %
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="A23"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA23" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="A23" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA23" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                                 
                              
                                 <br/> 
@@ -1518,7 +1689,9 @@
 
                              
                             <asp:Panel ID="Panel15" runat="server"  Visible="false"> 
-                                Вопрос 24. Оцените степень влияния предложенных мер по дерегулированию (снятию различных барьеров) хозяйственной деятельности предприятий, связанного с внедрением системы цифровой маркировки товаров, на снижение издержек бизнеса по шкале от 1 до 5, где 1 – совсем неэффективно, 5 – очень эффективно. 
+                                Вопрос 24. Относительно системы цифровой маркировки товаров, сейчас я зачитаю шесть ПРЕДЛАГАЕМЫХ мер по дерегулированию деятельности предприятий. Меры направленны на снятие различных барьеров и на снижение издержек бизнеса.
+                                <br/>Оцените эти предлагаемые меры по шкале от 1 до 5, где 1 – совсем неэффективно для снижения издержек, 5 – очень эффективно.  
+
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ</div>
                                 <asp:Table ID="TableA24" BorderWidth="1" GridLines="Both" runat="server" >
                                         <asp:TableHeaderRow>
@@ -1619,7 +1792,7 @@
                                 <br/>
                                   <asp:Table ID="TableA25" BorderWidth="1" GridLines="Both" runat="server" >
                                         <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell>Меры поддержки</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell Width="500">Меры поддержки</asp:TableHeaderCell>
                                             <asp:TableHeaderCell></asp:TableHeaderCell>
                                         </asp:TableHeaderRow>
                                     <asp:TableRow>
@@ -1663,7 +1836,7 @@
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
-                                        <asp:TableCell>5. Иное (что именно____________) <asp:TextBox ID="TextBoxA25_5" Width="400" Visible="false" runat="server"></asp:TextBox> </asp:TableCell> 
+                                        <asp:TableCell>5. Иное (что именно) <asp:TextBox ID="TextBoxA25_5" Width="400"  runat="server"></asp:TextBox> </asp:TableCell> 
                                         <asp:TableCell> 
                                             <asp:RadioButtonList ID="RadioButtonListA25_5" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Да</asp:ListItem>
@@ -1682,7 +1855,7 @@
                              
                              
                             <asp:Panel ID="Panel18" runat="server"  Visible="false"> 
-                                Вопрос 26. Оцените степень влияния предложенных мер поддержки предпринимательства, на снижение издержек бизнеса по шкале от 1 до 5, где 1 – совсем неэффективно, 5 – очень эффективно. 
+                                Вопрос 26. Предпоследний вопрос. Я вам зачитаю две меры поддержки предпринимательства. Оцените степень их влияния на снижение издержек бизнеса по шкале от 1 до 5, где 1 – совсем неэффективно, 5 – очень эффективно.  
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ</div>
                                 <asp:Table ID="TableA26" BorderWidth="1" GridLines="Both" runat="server" >
                                         <asp:TableHeaderRow>
@@ -1725,11 +1898,11 @@
                              
 
                             <asp:Panel ID="Panel20" runat="server"  Visible="false"> 
-                                Вопрос 27. Какие еще меры по дерегулированию (снятию различных барьеров) хозяйственной деятельности предприятий, связанного с внедрением системы цифровой маркировки товаров, вы могли бы предложить? 
+                                Вопрос 27. Какие еще меры по дерегулированию (снятию различных барьеров) хозяйственной деятельности предприятий, связанные с внедрением системы цифровой маркировки товаров, вы могли бы предложить?  
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА</div>
-                                 <asp:TextBox ID="TextBoxA27" Width="400" runat="server"></asp:TextBox>   
+                                 <asp:TextBox ID="TextBoxA27" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ValidationGroup="A27"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA27" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ValidationGroup="A27" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA27" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
                                 
                              
                                 <br/> 
