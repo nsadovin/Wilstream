@@ -621,5 +621,15 @@
             Результат оплаты(успешно, ошибка)
             </summary>
         </member>
+        <member name="P:WebAPI.Models.AlfaCapital.FirstCallDT">
+            <summary>
+            Дата/время первого звонка
+            </summary>
+        </member>
+        <member name="P:WebAPI.Models.AlfaCapital.RecallDT">
+            <summary>
+            Дата/время перезвона
+            </summary>
+        </member>
     </members>
 </doc>

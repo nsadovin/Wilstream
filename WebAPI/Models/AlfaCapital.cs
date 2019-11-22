@@ -172,7 +172,17 @@ namespace WebAPI.Models
         /// Результат оплаты(успешно, ошибка)
         /// </summary>
         [Column("sitepaymentstate")]
-        public String sitepaymentstate { get; set; } 
+        public String sitepaymentstate { get; set; }
+        /// <summary>
+        /// Дата/время первого звонка
+        /// </summary>
+        [Column("Дата/время первого звонка")]
+        public DateTime? FirstCallDT { get; set; }
+        /// <summary>
+        /// Дата/время перезвона
+        /// </summary>
+        [Column("Дата/время перезвона")]
+        public DateTime? RecallDT { get; set; }
 
 
         public override string ToString()

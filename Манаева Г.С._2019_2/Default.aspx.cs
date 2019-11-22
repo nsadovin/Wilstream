@@ -901,9 +901,9 @@ public partial class _Default : System.Web.UI.Page
 
     protected void TableA14_PreRender(object sender, EventArgs e)
     {
-        for (var i = 0; i < TableA14.Rows.Count; i++)
+        for (var i = 1; i < TableA14.Rows.Count; i++)
         {
-            var r = CheckBoxListA1.Items[i];
+            var r = CheckBoxListA1.Items[i-1];
             TableA14.Rows[i].Visible = r.Selected;
         }
     }
@@ -988,7 +988,7 @@ public partial class _Default : System.Web.UI.Page
         for (var i = 1; i < TableA17.Rows.Count; i++)
         {
             var r = CheckBoxListA1.Items[i-1];
-            TableA17.Rows[i-1].Visible = r.Selected;
+            TableA17.Rows[i].Visible = r.Selected;
         }
     }
 

@@ -125,7 +125,7 @@
                             
                             
                             <asp:Panel ID="Panel28" runat="server" Visible="false">  
-                                 Вопрос 2. Какими видами деятельности, занимается Ваша компания относительно «продукт из вопроса1»?
+                                 Вопрос 2. Какими видами деятельности, занимается Ваша компания относительно ...?
                                    <br/>  
                                 <asp:Table ID="TableA2" BorderWidth="1" GridLines="Both" runat="server" OnPreRender="TableA2_PreRender">
                                     <asp:TableRow>
@@ -799,7 +799,7 @@
 
                               <asp:Panel ID="Panel6" runat="server"  Visible="false" CssClass="1">
                                  Вопрос 8. Оцените <b><u>в рублях</u></b> суммарные финансовые затраты <b><u>на внедрение системы</u></b> обязательной цифровой маркировки товаров. 
-                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ СЛОВО В СЛОВО КАК ОТВЕТИТ РЕСПОНДЕНТ</div>
+                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ СЛОВО В СЛОВО КАК ОТВЕТИТ РЕСПОНДЕНТ (можно вписать диапазон или текст со слов клиента)</div>
                                  <br/> 
                                  <asp:TextBox ID="TextBoxA8" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
@@ -817,7 +817,7 @@
 
                               <asp:Panel ID="Panel7" runat="server"  Visible="false" CssClass="1">
                                   Вопрос 9. Оцените <b><u>в процентах</u></b> от годового оборота Вашей компании долю затрат на <b><u>внедрение системы</u></b> обязательной цифровой маркировки товаров 
-                                 <div class="comment"></div>
+                                 <div class="comment">можно вписать диапазон или текст со слов клиента</div>
                                  <br/> 
                                    <asp:TextBox ID="TextBoxA9" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
@@ -873,7 +873,7 @@
                              
                             <asp:Panel ID="Panel10" runat="server"     Visible="false"> 
                               Вопрос 11. Оцените <b><u>в рублях</u></b> суммарные финансовые затраты <b><u>на обеспечение работы</u></b> системы обязательной цифровой маркировки товаров (без учета затрат на этапе внедрения системы обязательной цифровой маркировки товаров).  
-                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ СЛОВО В СЛОВО КАК ОТВЕТИТ РЕСПОНДЕНТ</div>
+                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ СЛОВО В СЛОВО КАК ОТВЕТИТ РЕСПОНДЕНТ (можно вписать диапазон или текст со слов клиента)</div>
                                 <br/> 
                                  <asp:TextBox ID="TextBoxA11" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
@@ -891,7 +891,7 @@
                              
                             <asp:Panel ID="Panel14" runat="server"   Visible="false"> 
                                 Вопрос 12. Оцените <b><u>в процентах</u></b> от годового оборота Вашей компании долю затрат <b><u>на обеспечение работы</u></b> системы обязательной цифровой маркировки товаров (без учета затрат на этапе внедрения системы обязательной цифровой маркировки товаров).  
-                                <div class="comment"></div>
+                                <div class="comment">можно вписать диапазон или текст со слов клиента</div>
                                 <br/> 
                                  <asp:TextBox ID="TextBoxA12" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
@@ -944,10 +944,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
                                             <asp:Panel ID="Panel31" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel34" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>
                                              <asp:TextBox ID="TextBoxA14_1" Width="400" Visible="false" runat="server"></asp:TextBox>   
                                         </asp:TableCell> 
@@ -962,10 +962,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList> 
                                             <asp:Panel ID="Panel35" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel36" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>        
                                              <asp:TextBox ID="TextBoxA14_2" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
@@ -980,10 +980,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>    
                                             <asp:Panel ID="Panel37" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel38" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>  
                                              <asp:TextBox ID="TextBoxA14_3" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
@@ -998,10 +998,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
                                             <asp:Panel ID="Panel39" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel43" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>
                                              <asp:TextBox ID="TextBoxA14_4" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
@@ -1016,10 +1016,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
                                             <asp:Panel ID="Panel44" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel45" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>
                                              <asp:TextBox ID="TextBoxA14_5" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
@@ -1034,10 +1034,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>      
                                             <asp:Panel ID="Panel46" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel47" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>
                                              <asp:TextBox ID="TextBoxA14_6" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
@@ -1052,10 +1052,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>    
                                             <asp:Panel ID="Panel48" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel49" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>    
                                              <asp:TextBox ID="TextBoxA14_7" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
@@ -1070,10 +1070,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>     
                                             <asp:Panel ID="Panel50" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel51" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>  
                                              <asp:TextBox ID="TextBoxA14_8" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
@@ -1088,10 +1088,10 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>     
                                             <asp:Panel ID="Panel52" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel53" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel> 
                                              <asp:TextBox ID="TextBoxA14_9" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
@@ -1106,12 +1106,30 @@
                                                 <asp:ListItem Value="99">не знаю</asp:ListItem>
                                              </asp:RadioButtonList>   
                                             <asp:Panel ID="Panel56" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>      
                                             <asp:Panel ID="Panel57" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>?
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
                                             </asp:Panel>   
                                              <asp:TextBox ID="TextBoxA14_10" Width="400" Visible="false" runat="server"></asp:TextBox>
+                                        </asp:TableCell> 
+                                    </asp:TableRow> 
+                                    <asp:TableRow>
+                                        <asp:TableCell>11. духи и туалетная вода</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA14_11" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
+                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
+                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
+                                             </asp:RadioButtonList>   
+                                            <asp:Panel ID="Panel78" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
+                                            </asp:Panel>      
+                                            <asp:Panel ID="Panel79" runat="server"  Visible="false"> 
+                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
+                                            </asp:Panel>   
+                                             <asp:TextBox ID="TextBoxA14_11" Width="400" Visible="false" runat="server"></asp:TextBox>
                                         </asp:TableCell> 
                                     </asp:TableRow> 
                                  </asp:Table>
@@ -1299,7 +1317,8 @@
 
                             <asp:Panel ID="Panel23" runat="server"  Visible="false"> 
                                 Вопрос 17. На Ваш взгляд, какова была доля незаконного оборота по группе ваших товаров ДО внедрения системы цифровой маркировки (либо вначале экспериментов по внедрению), и ПОСЛЕ этого? 
-                                <div class="comment">Респондент отвечает на вопрос по тем видам товарам, по которым на вопрос 1 ответил «да».<br/>Респондент может выбрать только один вариант ответа по каждому виду товара. </div>
+                                <div class="comment">Респондент отвечает на вопрос по тем видам товарам, по которым на вопрос 1 ответил «да».
+                                    <br/>Респондент может выбрать только один вариант ответа по каждому виду товара.  (можно вписать диапазон или текст со слов клиента)</div>
                                 <asp:Table ID="TableA17" BorderWidth="1" GridLines="Both" runat="server" OnPreRender="TableA17_PreRender">
                                     <asp:TableHeaderRow>
                                         <asp:TableHeaderCell>Вид товара</asp:TableHeaderCell>
@@ -1443,7 +1462,7 @@
                                             Орган исполнительной власти, в который передается отчетность
                                         </asp:TableHeaderCell>
                                         <asp:TableHeaderCell>
-                                            Доля дублирующих сведений, %
+                                            Доля дублирующих сведений, %  (можно вписать диапазон или текст со слов клиента)
                                         </asp:TableHeaderCell>
                                     </asp:TableHeaderRow>
                                     <asp:TableRow>
@@ -1487,7 +1506,7 @@
 
                             <asp:Panel ID="Panel5" runat="server"  Visible="false"> 
                                 Вопрос 20. Оцените в процентах долю затрат, на которую Ваша компания может снизить издержки при отказе от передачи в ГИС «Маркировка» сведений, дублирующих сведения из налоговой и иной обязательной отчетности, предоставляемой Вашей компанией в органы исполнительной власти? 
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА</div>
+                                <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА  (можно вписать диапазон или текст со слов клиента)</div>
                                  <asp:TextBox ID="TextBoxA20" Width="800" TextMode="MultiLine" Height="50"  runat="server"></asp:TextBox>   %
                                 <br/>
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Enabled="false" ValidationGroup="A20"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA20" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
@@ -1659,8 +1678,8 @@
                              
 
                             <asp:Panel ID="Panel11" runat="server"  Visible="false"> 
-                                Вопрос 22. Оцените в процентах долю трат на <b>подготовку к проведению</b> контрольно-надзорных мероприятий и к самому проведению этих контрольно-надзорных мероприятий?  
-                                <div class="comment"></div>
+                                Вопрос 22. Оцените в процентах долю трат на подготовку к проведению контрольно-надзорных мероприятий и нам само проведение этих контрольно-надзорных мероприятий?
+                                <div class="comment"> (можно вписать диапазон или текст со слов клиента)</div>
                                  <asp:TextBox ID="TextBoxA22" Width="400" runat="server"></asp:TextBox>   %
                                 <br/>
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator7" Enabled="false" ValidationGroup="A22"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA22" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
@@ -1675,7 +1694,7 @@
 
                             <asp:Panel ID="Panel12" runat="server"  Visible="false"> 
                                 Вопрос 23. Оцените в процентах долю затрат, на которую Ваша компания может снизить издержки при отказе от передачи в ГИС «Маркировка» сведений, дублирующих сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий?
-                                <div class="comment"></div>
+                                <div class="comment"> (можно вписать диапазон или текст со слов клиента)</div>
                                  <asp:TextBox ID="TextBoxA23" Width="400" runat="server"></asp:TextBox>   %
                                 <br/>
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="A23" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA23" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
