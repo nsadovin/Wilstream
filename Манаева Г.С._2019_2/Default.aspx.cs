@@ -894,7 +894,7 @@ public partial class _Default : System.Web.UI.Page
 
             saveData(1000 + i, r2.Text);
         }
-        saveData(799, TextBoxA10_4_dr.Text);
+        saveData(1099, TextBoxA10_4_dr.Text);
 
         standartNext(sender, e);
     }
@@ -926,7 +926,7 @@ public partial class _Default : System.Web.UI.Page
             var r3 = TableA14.FindControl("TextBoxA14_" + (i + 1).ToString()) as TextBox;
 
             saveData(140200 + (i * 10), r.Selected ? r2.SelectedValue : "");
-            saveData(140200 + (i * 10) + 1, r.Selected && r2.SelectedValue == "1" ? r3.Text : "");
+            saveData(140200 + (i * 10) + 1, r.Selected && (r2.SelectedValue == "1"|| r2.SelectedValue == "2") ? r3.Text : "");
         }
 
         standartNext(sender, e);
@@ -1114,7 +1114,9 @@ public partial class _Default : System.Web.UI.Page
             var r2 = TableA25.FindControl("RadioButtonListA25_" + (i + 1).ToString()) as RadioButtonList;
             if (r2 != null)
                 saveData(2500 + (i), r2.SelectedValue);
-        } 
+        }
+
+        saveData(2599, TextBoxA25_5.Text);
 
         standartNext(sender, e);
 
