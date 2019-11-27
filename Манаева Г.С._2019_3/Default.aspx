@@ -93,12 +93,13 @@
                                 Интервьюер поясните при необходимости, что такое обязательная цифровая маркировка:<br/> 
                                 Каждая единица определенных товаров помечается уникальным цифровым кодом на упаковке, по которому можно получить всю информацию о продукте и его движении, от производителя товара до прилавка розничного магазина. Информацию можно получить с помощью мобильного приложения «Честный знак», которое при сканировании цифрового кода выдает всю необходимую информацию. Обязательная маркировка товаров позволяет государству контролировать их оборот и не допускать, чтобы в него попадали подделки, фальсификат. 
                                 </div>
-                                <asp:Button CommandName="Panel28" CommandArgument="1" ToolTip="1" onclick="QAC_Button" Text="Нет, не слышал о таком" CssClass="green unibutton  big2" Width="600"  ID="Button16"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel28" CommandArgument="2" ToolTip="1" onclick="QAC_Button" Text="Что-то слышал, но не знаю группы товаров, для которых вводится маркировка" CssClass="green unibutton  big2" Width="600"  ID="Button60"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel28" CommandArgument="3" ToolTip="1" onclick="QAC_Button" Text="Знаю о системе маркировки, знаю группы товаров, для которых вводится маркировка, но не использую маркировку для проверки подлинности этих товаров" CssClass="green unibutton  big2" Width="600"  ID="Button65"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel28" CommandArgument="4" ToolTip="1" onclick="QAC_Button" Text="У меня есть мобильное приложение «Честный знак» для проверки подлинности маркированных товаров. Т.е. я знаю о системе маркировки, знаю группы товаров, для которых вводится маркировка, и знаю, как проверять подлинность" CssClass="green unibutton  big2" Width="600"  ID="Button70"  runat="server" /><br/> 
-                                <asp:Button CommandName="Panel40" CommandArgument="5" ToolTip="1" onclick="QAC_Button" Text="Другое" CssClass="green unibutton  big2" Width="600"  ID="Button71"  runat="server" /><br/> 
-                              
+                                <asp:Button CommandName="Panel28" CommandArgument="1" ToolTip="1" onclick="QAC_Button" Text="Нет, не слышал о таком" CssClass="green unibutton  big2" Width="1200"  ID="Button16"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel28" CommandArgument="2" ToolTip="1" onclick="QAC_Button" Text="Что-то слышал, но не знаю группы товаров, для которых вводится маркировка" CssClass="green unibutton  big2" Width="1200"  ID="Button60"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel28" CommandArgument="3" ToolTip="1" onclick="QAC_Button" Text="Знаю о системе маркировки, знаю группы товаров, для которых вводится маркировка, но не использую маркировку для проверки подлинности этих товаров" CssClass="green unibutton  big2" Width="1200"  ID="Button65"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel28" CommandArgument="4" ToolTip="1" onclick="QAC_Button"  Text="У меня есть мобильное приложение «Честный знак» для проверки подлинности маркированных товаров.Т.е. я знаю о системе маркировки, знаю группы товаров,
+                                    для которых вводится маркировка, и знаю, как проверять подлинность" style="white-space: pre-line;text-align: left;" CssClass="green unibutton  big2" Width="1200"  ID="Button70"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel40" CommandArgument="5" ToolTip="1" onclick="QAC_Button" Text="Другое" CssClass="green unibutton  big2" Width="1200"  ID="Button71"  runat="server" /><br/> 
+                                <asp:HiddenField ID="HiddenFieldA1" runat="server" />
                                 <br/>
                                 <asp:Button ID="Button72" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
@@ -201,9 +202,9 @@
                             <asp:Panel ID="Panel42" runat="server" Visible="false">  
                                   Вопрос 5. Вы работаете?
                                  <div class="comment">Респондент может выбрать только один вариант ответа.</div>
-                                 <asp:Button CommandName="Panel55" CommandArgument="1" ToolTip="5" onclick="QAC_Button" Text="Да (в том числе считается частичная занятость, самозанятость, работа без оформления и т.д.)" CssClass="green unibutton  big2" Width="600"  ID="Button5"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel55" CommandArgument="2" ToolTip="5" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button13"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel55" CommandArgument="99" ToolTip="5" onclick="QAC_Button" Text="Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button62"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel55" CommandArgument="1" ToolTip="5" onclick="QAC_Button" Text="Да (в том числе считается частичная занятость, самозанятость, работа без оформления и т.д.)" CssClass="green unibutton  big2" Width="900"  ID="Button5"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel55" CommandArgument="2" ToolTip="5" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="900"  ID="Button13"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel55" CommandArgument="99" ToolTip="5" onclick="QAC_Button" Text="Отказ от ответа" CssClass="green unibutton  big2" Width="900"  ID="Button62"  runat="server" /><br/> 
                                  
                                 <br/>
                                 <asp:Button ID="Button64" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  /> 
@@ -243,12 +244,12 @@
                             <asp:Panel ID="Panel55" runat="server"  Visible="false"> 
                                 Вопрос 6. Оцените уровень дохода Вашей семьи.
                                 <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ. Респондент может выбрать только один вариант ответа.</div>
-                                 <asp:Button CommandName="Panel4" CommandArgument="1" ToolTip="6" onclick="QAC_Button" Text="Денег не хватает даже на продукты" CssClass="green unibutton  big2" Width="600"  ID="Button6"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel4" CommandArgument="2" ToolTip="6" onclick="QAC_Button" Text="На продукты денег хватает, но покупка одежды вызывает финансовые затруднения" CssClass="green unibutton  big2" Width="600"  ID="Button66"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel4" CommandArgument="3" ToolTip="6" onclick="QAC_Button" Text="Денег хватает на продукты и на одежду, но вот покупка вещей длительного пользования является проблемой" CssClass="green unibutton  big2" Width="600"  ID="Button67"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel4" CommandArgument="4" ToolTip="6" onclick="QAC_Button" Text="Я могу без труда приобретать вещи длительного пользования. Однако для меня затруднительно приобретать действительно дорогие вещи" CssClass="green unibutton  big2" Width="600"  ID="Button68"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel4" CommandArgument="5" ToolTip="6" onclick="QAC_Button" Text="Я могу позволить себе достаточно дорогостоящие вещи — квартиру, дачу и многое другое" CssClass="green unibutton  big2" Width="600"  ID="Button10"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel4" CommandArgument="99" ToolTip="6" onclick="QAC_Button" Text="Отказ от ответа" CssClass="green unibutton  big2" Width="600"  ID="Button18"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel4" CommandArgument="1" ToolTip="6" onclick="QAC_Button" Text="Денег не хватает даже на продукты" CssClass="green unibutton  big2" Width="1100"  ID="Button6"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel4" CommandArgument="2" ToolTip="6" onclick="QAC_Button" Text="На продукты денег хватает, но покупка одежды вызывает финансовые затруднения" CssClass="green unibutton  big2" Width="1100"  ID="Button66"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel4" CommandArgument="3" ToolTip="6" onclick="QAC_Button" Text="Денег хватает на продукты и на одежду, но вот покупка вещей длительного пользования является проблемой" CssClass="green unibutton  big2" Width="1100"  ID="Button67"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel4" CommandArgument="4" ToolTip="6" onclick="QAC_Button" Text="Я могу без труда приобретать вещи длительного пользования. Однако для меня затруднительно приобретать действительно дорогие вещи" CssClass="green unibutton  big2" Width="1100"  ID="Button68"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel4" CommandArgument="5" ToolTip="6" onclick="QAC_Button" Text="Я могу позволить себе достаточно дорогостоящие вещи — квартиру, дачу и многое другое" CssClass="green unibutton  big2" Width="1100"  ID="Button10"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel4" CommandArgument="99" ToolTip="6" onclick="QAC_Button" Text="Отказ от ответа" CssClass="green unibutton  big2" Width="1100"  ID="Button18"  runat="server" /><br/> 
                                  
                                 <br/>
                                 <asp:Button ID="Button24" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  /> 
@@ -265,7 +266,7 @@
                                 </div>
                                  <asp:Table ID="TableA7" BorderWidth="1" GridLines="Both" runat="server" >
                                      <asp:TableHeaderRow>
-                                         <asp:TableHeaderCell>
+                                         <asp:TableHeaderCell Width="400">
                                              Вид товара
                                          </asp:TableHeaderCell>
                                          <asp:TableHeaderCell> 
@@ -274,7 +275,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>1. табачные изделия (любые)</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_1" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_1" AutoPostBack="true"  runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -286,7 +287,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>2. шубы</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_2" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_2" AutoPostBack="true" runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -298,7 +299,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>3. обувь</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_3" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_3" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -310,7 +311,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>4. мужская и женская верхняя одежда (кроме шуб), женские блузки, постельное, столовое, туалетное и кухонное белье</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_4" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_4" AutoPostBack="true"  runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -322,7 +323,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>5. лекарства</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_5" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_5" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -334,7 +335,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>6. молочная продукция</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_6" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_6" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -346,7 +347,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>7. кресла-коляски</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_7" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_7" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -358,7 +359,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>8. велосипеды</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_8" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_8" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -370,7 +371,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>9. фотоаппараты и лампы-вспышки</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_9" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_9" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -382,7 +383,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>10. шины и автопокрышки</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_10" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_10" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -394,7 +395,7 @@
                                     <asp:TableRow>
                                         <asp:TableCell>11. духи и туалетная вода</asp:TableCell> 
                                         <asp:TableCell>  
-                                            <asp:RadioButtonList ID="RadioButtonListA7_11" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
+                                            <asp:RadioButtonList ID="RadioButtonListA7_11" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
                                                 <asp:ListItem Value="2">Готов покупать контрафакт, если кажется привлекательной цена и (или) качество</asp:ListItem>
                                                 <asp:ListItem Value="3">Преимущественно предпочитаю контрафактную продукцию из-за ее цены</asp:ListItem>
@@ -419,7 +420,9 @@
                                  Вопрос 8. Вы умеете отличать контрафактную продукцию от остальной? 
                                  <div class="comment">Респондент может выбрать только один вариант ответа.</div>
                                  <asp:Button CommandName="Panel7" CommandArgument="1" ToolTip="8" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button19"  runat="server" /><br/> 
-                                 <asp:Button CommandName="Panel7" CommandArgument="2" ToolTip="8" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button20"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel7" CommandArgument="2" ToolTip="8" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button47"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel7" CommandArgument="3" ToolTip="8" onclick="QAC_Button" Text="В ряде случаев смогу отличить (не всегда)" CssClass="green unibutton  big2" Width="600"  ID="Button50"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel7" CommandArgument="99" ToolTip="8" onclick="QAC_Button" Text="(не зачитывать) Нет ответа" CssClass="green unibutton  big2" Width="600"  ID="Button20"  runat="server" /><br/> 
                                   
                                 <br/>
                                 <asp:Button ID="Button82" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  /> 
@@ -436,7 +439,7 @@
                                  <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ. Респондент по каждой категории должен выбрать один вариант ответа.</div>
                                      <asp:Table ID="TableA9" BorderWidth="1" GridLines="Both" runat="server">
                                         <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell>Ответ</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell Width="400">Ответ</asp:TableHeaderCell>
                                             <asp:TableHeaderCell></asp:TableHeaderCell>
                                         </asp:TableHeaderRow>
                                     <asp:TableRow>
@@ -521,15 +524,149 @@
                              
                             <asp:Panel ID="Panel10" runat="server"     Visible="false"> 
                               Вопрос 11. С учетом положительных и отрицательных эффектов, охарактеризуйте, как Вы в целом относитесь к внедрению системы обязательной цифровой маркировки товаров для следующих групп товаров?
-                                 <div class="comment">Респондент по каждой категории должен выбрать один вариант ответа.</div>
-                                <br/> 
-                                 <asp:TextBox ID="TextBoxA11" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
-                                <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="A11" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA11" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                               
-                                <br/> 
+                               <div class="comment">Респондент по каждой категории должен выбрать один вариант ответа.</div>
+                               <asp:Table ID="TableA11" BorderWidth="1" GridLines="Both" runat="server" >
+                                        <asp:TableHeaderRow>
+                                            <asp:TableHeaderCell Width="400">Вид товара</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell></asp:TableHeaderCell>
+                                        </asp:TableHeaderRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>1. табачные изделия</asp:TableCell> 
+                                        <asp:TableCell> 
+                                            <asp:RadioButtonList ID="RadioButtonListA11_1" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>2. шубы</asp:TableCell> 
+                                        <asp:TableCell> 
+                                            <asp:RadioButtonList ID="RadioButtonListA11_2" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>3. обувь</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_3" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>4. мужская и женская верхняя одежда (кроме шуб), женские блузки, постельное, столовое, туалетное и кухонное белье</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_4" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>5. лекарства</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_5" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>6. молочная продукция</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_6" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>7. кресла-коляски</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_7" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>8. велосипеды</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_8" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>9. фотоаппараты и лампы-вспышки</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_9" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>10. шины и автопокрышки</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_10" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow> 
+                                    <asp:TableRow>
+                                        <asp:TableCell>11. духи и туалетная вода</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA11_11" runat="server">
+                                                <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Скорее положительно</asp:ListItem>
+                                                <asp:ListItem Value="3">3. Скорее отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="4">4. Определенно отрицательно</asp:ListItem>
+                                                <asp:ListItem Value="99">99. Нет ответа / затрудняюсь ответить</asp:ListItem>
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow> 
+                                 </asp:Table>
+                                <br />
                                  <asp:Button ID="Button48" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button49" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A11"  CommandName="Panel14" CommandArgument="11"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button49" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A11" CommandName="Panel14" CommandArgument="11" onclick="QAC_A11" />
+                       
                             </asp:Panel>
 
 
@@ -538,251 +675,183 @@
                              
                              
                             <asp:Panel ID="Panel14" runat="server"   Visible="false"> 
-                                Вопрос 12. Оцените <b><u>в процентах</u></b> от годового оборота Вашей компании долю затрат <b><u>на обеспечение работы</u></b> системы обязательной цифровой маркировки товаров (без учета затрат на этапе внедрения системы обязательной цифровой маркировки товаров).  
-                                <div class="comment">можно вписать диапазон или текст со слов клиента</div>
-                                <br/> 
-                                 <asp:TextBox ID="TextBoxA12" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
-                                <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="A12" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA12" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                               
-                                <br/> 
-                                 <asp:Button ID="Button61" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button63" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A12"  CommandName="Panel17" CommandArgument="12"  onclick="QAC_TextBox" />
+                                Вопрос 12. На текущий момент обязательная цифровая маркировка введена для следующих категорий: <b>табачная продукция, шубы, обувь и лекарственные средства</b>. 
+                                <br/> Скажите, что из перечисленного Вы приобретали в 2019 году?
+
+                                <div class="comment">Респондент по каждой категории должен выбрать один вариант ответа.</div>
+                              <asp:Table ID="TableA12" BorderWidth="1" GridLines="Both" runat="server" >
+                                        <asp:TableHeaderRow>
+                                            <asp:TableHeaderCell>Вид товара</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell></asp:TableHeaderCell>
+                                        </asp:TableHeaderRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>1. табачные изделия</asp:TableCell> 
+                                        <asp:TableCell> 
+                                            <asp:RadioButtonList ID="RadioButtonListA12_1" runat="server">
+                                                <asp:ListItem Value="1">1. Да, приобретал в 2019 году</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Нет, не приобретал в 2019 году</asp:ListItem> 
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>2. шубы</asp:TableCell> 
+                                        <asp:TableCell> 
+                                            <asp:RadioButtonList ID="RadioButtonListA12_2" runat="server">
+                                                <asp:ListItem Value="1">1. Да, приобретал в 2019 году</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Нет, не приобретал в 2019 году</asp:ListItem> 
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>3. обувь</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA12_3" runat="server">
+                                                <asp:ListItem Value="1">1. Да, приобретал в 2019 году</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Нет, не приобретал в 2019 году</asp:ListItem> 
+                                             </asp:RadioButtonList>        
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>4. лекарства</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA12_4" runat="server">
+                                                <asp:ListItem Value="1">1. Да, приобретал в 2019 году</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Нет, не приобретал в 2019 году</asp:ListItem> 
+                                             </asp:RadioButtonList>       
+                                        </asp:TableCell> 
+                                    </asp:TableRow> 
+                                 </asp:Table>
+                                <br />
+                                <asp:Button ID="Button61" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button63" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A12" CommandName="Panel17" CommandArgument="12" onclick="QAC_A12" />
+                       
                             </asp:Panel>
 
                       
 
                              
                               <asp:Panel ID="Panel17" runat="server"  Visible="false">  
-                                 Вопрос 13. С какими затруднениями, помимо финансовых затрат, Ваша компания столкнулась при внедрении системы обязательной цифровой маркировки товаров? 
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА</div>
-                                <br/> 
-                                 <asp:TextBox ID="TextBoxA13" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
-                                <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" Enabled="false" ValidationGroup="A13"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA13" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                              
-                                <br/> 
-                                 <asp:Button CommandName="Panel19" CommandArgument="99" ToolTip="13" onclick="QAC_Button" Text="Помимо финансовых затрат, прочих затруднений не было" CssClass="green unibutton  big2" Width="600"  ID="Button23"  runat="server" /><br/> 
-                                  
-                                <br/> 
-                                 <asp:Button ID="Button28" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button30" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A13"  CommandName="Panel19" CommandArgument="13"  onclick="QAC_TextBox" />
-   
-                            </asp:Panel>
-                              
-                        
-                             
-                            <asp:Panel ID="Panel19" runat="server"  Visible="false"> 
-                                Вопрос 14. Оцените, как изменилась стоимость продукции из-за внедрения системы маркировки?
-                                 <div class="comment">Респондент отвечает на вопрос по тем видам товарам, по которым на вопрос 1 ответил «да». 
-                                  <br/>    ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ. ОДИН ОТВЕТ
-                                 </div>
-                                    <asp:Table ID="TableA14" BorderWidth="1" GridLines="Both" runat="server" OnPreRender="TableA14_PreRender">
+                                 Вопрос 13. Оцените, как повлияло внедрение системы маркировки <b><u>на стоимость</u></b> продукции с начала 2019 года? Цена снизилась, повысилась или осталась без изменений на …
+                                <div class="comment">Интервьюер поясните при необходимости смысл вопроса:</div>
+                                Нужно сравнить цену на товар вначале 2019 года и сейчас, в конце 2019 года и дать оценку (изменилась ли цена: выросла, или нет?)
+                                <div class="comment">Респондент отвечает только по тем товарам, на которые в Вопросе 12 ответил «да».
+                                ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ Респондент по каждой категории должен выбрать один вариант ответа.</div>
+                                 <asp:Table ID="TableA13" BorderWidth="1" GridLines="Both" runat="server" OnPreRender="TableA13_PreRender" >
                                         <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell>Товары</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell>Вид товара</asp:TableHeaderCell>
                                             <asp:TableHeaderCell></asp:TableHeaderCell>
                                         </asp:TableHeaderRow>
                                     <asp:TableRow>
-                                        <asp:TableCell>1. табак</asp:TableCell> 
+                                        <asp:TableCell>1. табачные изделия</asp:TableCell> 
                                         <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA14_1" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
+                                            <asp:RadioButtonList ID="RadioButtonListA13_1" runat="server">
+                                                <asp:ListItem Value="1">1. Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Не изменилась</asp:ListItem> 
+                                                <asp:ListItem Value="3">3. Снизилась</asp:ListItem> 
+                                                <asp:ListItem Value="99">99. Затрудняюсь ответить / Не могу сравнить</asp:ListItem> 
                                              </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel31" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel34" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>
-                                             <asp:TextBox ID="TextBoxA14_1" Width="400" Visible="false" runat="server"></asp:TextBox>   
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
                                         <asp:TableCell>2. шубы</asp:TableCell> 
                                         <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA14_2" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList> 
-                                            <asp:Panel ID="Panel35" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel36" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>        
-                                             <asp:TextBox ID="TextBoxA14_2" Width="400" Visible="false" runat="server"></asp:TextBox>
+                                            <asp:RadioButtonList ID="RadioButtonListA13_2" runat="server">
+                                                <asp:ListItem Value="1">1. Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Не изменилась</asp:ListItem> 
+                                                <asp:ListItem Value="3">3. Снизилась</asp:ListItem> 
+                                                <asp:ListItem Value="99">99. Затрудняюсь ответить / Не могу сравнить</asp:ListItem> 
+                                             </asp:RadioButtonList>      
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
                                         <asp:TableCell>3. обувь</asp:TableCell> 
                                         <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_3" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>    
-                                            <asp:Panel ID="Panel37" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel38" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>  
-                                             <asp:TextBox ID="TextBoxA14_3" Width="400" Visible="false" runat="server"></asp:TextBox>
+                                            <asp:RadioButtonList ID="RadioButtonListA13_3" runat="server">
+                                                <asp:ListItem Value="1">1. Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Не изменилась</asp:ListItem> 
+                                                <asp:ListItem Value="3">3. Снизилась</asp:ListItem> 
+                                                <asp:ListItem Value="99">99. Затрудняюсь ответить / Не могу сравнить</asp:ListItem> 
+                                             </asp:RadioButtonList>        
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
-                                        <asp:TableCell>4. верхняя одежда (мужская и женская, кроме шуб), женские блузки, постельное, столовое, туалетное и кухонное белье</asp:TableCell> 
+                                        <asp:TableCell>4. лекарства</asp:TableCell> 
                                         <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_4" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel39" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel43" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>
-                                             <asp:TextBox ID="TextBoxA14_4" Width="400" Visible="false" runat="server"></asp:TextBox>
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>5. лекарства</asp:TableCell> 
-                                        <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_5" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel44" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel45" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>
-                                             <asp:TextBox ID="TextBoxA14_5" Width="400" Visible="false" runat="server"></asp:TextBox>
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>6. молочная продукция</asp:TableCell> 
-                                        <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_6" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel46" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel47" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>
-                                             <asp:TextBox ID="TextBoxA14_6" Width="400" Visible="false" runat="server"></asp:TextBox>
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>7. кресла-коляски</asp:TableCell> 
-                                        <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_7" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>    
-                                            <asp:Panel ID="Panel48" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel49" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>    
-                                             <asp:TextBox ID="TextBoxA14_7" Width="400" Visible="false" runat="server"></asp:TextBox>
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>8. велосипеды</asp:TableCell> 
-                                        <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_8" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>     
-                                            <asp:Panel ID="Panel50" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel51" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>  
-                                             <asp:TextBox ID="TextBoxA14_8" Width="400" Visible="false" runat="server"></asp:TextBox>
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>9. фотоаппараты и лампы-вспышки</asp:TableCell> 
-                                        <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_9" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>     
-                                            <asp:Panel ID="Panel52" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel53" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel> 
-                                             <asp:TextBox ID="TextBoxA14_9" Width="400" Visible="false" runat="server"></asp:TextBox>
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>10. шины и автопокрышки</asp:TableCell> 
-                                        <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_10" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>   
-                                            <asp:Panel ID="Panel56" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel57" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>   
-                                             <asp:TextBox ID="TextBoxA14_10" Width="400" Visible="false" runat="server"></asp:TextBox>
-                                        </asp:TableCell> 
-                                    </asp:TableRow> 
-                                    <asp:TableRow>
-                                        <asp:TableCell>11. духи и туалетная вода</asp:TableCell> 
-                                        <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA14_11" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA14_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Повысилась</asp:ListItem>
-                                                <asp:ListItem Value="2">Понизилась</asp:ListItem>
-                                                <asp:ListItem Value="3">Не изменилась</asp:ListItem>
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>   
-                                            <asp:Panel ID="Panel78" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>повысилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>      
-                                            <asp:Panel ID="Panel79" runat="server"  Visible="false"> 
-                                                Укажите, пожалуйста, насколько примерно процентов <b>понизилось</b>? (можно вписать диапазон или текст со слов клиента)
-                                            </asp:Panel>   
-                                             <asp:TextBox ID="TextBoxA14_11" Width="400" Visible="false" runat="server"></asp:TextBox>
+                                            <asp:RadioButtonList ID="RadioButtonListA13_4" runat="server">
+                                                <asp:ListItem Value="1">1. Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Не изменилась</asp:ListItem> 
+                                                <asp:ListItem Value="3">3. Снизилась</asp:ListItem> 
+                                                <asp:ListItem Value="99">99. Затрудняюсь ответить / Не могу сравнить</asp:ListItem> 
+                                             </asp:RadioButtonList>       
                                         </asp:TableCell> 
                                     </asp:TableRow> 
                                  </asp:Table>
                                 <br />
-                                 <asp:Button ID="Button25" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button23" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button28" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A13" CommandName="Panel19" CommandArgument="13" onclick="QAC_A13" />
+                       
+                            </asp:Panel>
+                              
+                        
+                             
+                            <asp:Panel ID="Panel19" runat="server"  Visible="false"> 
+                                Вопрос 14. Оцените, как повлияло внедрение системы маркировки <b><u>на качество</u></b> продукции с начала 2019 года? Качество снизилось, повысилось или осталось без изменений на …
+                                 <div class="comment">Интервьюер поясните при необходимости смысл вопроса:</div>
+                                Нужно сравнить качество товара вначале 2019 года и сейчас, в конце 2019 года и дать оценку (изменилось ли качество: выросло (улучшилось качество), или нет?)
+                                 <div class="comment">Респондент отвечает только по тем товарам, на которые в Вопросе 12 ответил «да».<br/>
+                                     ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ Респондент по каждой категории должен выбрать один вариант ответа.</div>
+                                   <asp:Table ID="TableA14" BorderWidth="1" GridLines="Both" runat="server" OnPreRender="TableA14_PreRender" >
+                                        <asp:TableHeaderRow>
+                                            <asp:TableHeaderCell>Вид товара</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell></asp:TableHeaderCell>
+                                        </asp:TableHeaderRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>1. табачные изделия</asp:TableCell> 
+                                        <asp:TableCell> 
+                                            <asp:RadioButtonList ID="RadioButtonListA14_1" runat="server">
+                                                <asp:ListItem Value="1">1. Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Не изменилась</asp:ListItem> 
+                                                <asp:ListItem Value="3">3. Снизилась</asp:ListItem> 
+                                                <asp:ListItem Value="99">99. Затрудняюсь ответить / Не могу сравнить</asp:ListItem> 
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>2. шубы</asp:TableCell> 
+                                        <asp:TableCell> 
+                                            <asp:RadioButtonList ID="RadioButtonListA14_2" runat="server">
+                                                <asp:ListItem Value="1">1. Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Не изменилась</asp:ListItem> 
+                                                <asp:ListItem Value="3">3. Снизилась</asp:ListItem> 
+                                                <asp:ListItem Value="99">99. Затрудняюсь ответить / Не могу сравнить</asp:ListItem> 
+                                             </asp:RadioButtonList>      
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>3. обувь</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA14_3" runat="server">
+                                                <asp:ListItem Value="1">1. Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Не изменилась</asp:ListItem> 
+                                                <asp:ListItem Value="3">3. Снизилась</asp:ListItem> 
+                                                <asp:ListItem Value="99">99. Затрудняюсь ответить / Не могу сравнить</asp:ListItem> 
+                                             </asp:RadioButtonList>        
+                                        </asp:TableCell> 
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>4. лекарства</asp:TableCell> 
+                                        <asp:TableCell>
+                                            <asp:RadioButtonList ID="RadioButtonListA14_4" runat="server">
+                                                <asp:ListItem Value="1">1. Повысилась</asp:ListItem>
+                                                <asp:ListItem Value="2">2. Не изменилась</asp:ListItem> 
+                                                <asp:ListItem Value="3">3. Снизилась</asp:ListItem> 
+                                                <asp:ListItem Value="99">99. Затрудняюсь ответить / Не могу сравнить</asp:ListItem> 
+                                             </asp:RadioButtonList>       
+                                        </asp:TableCell> 
+                                    </asp:TableRow> 
+                                 </asp:Table>
+                                <br />
+                                <asp:Button ID="Button25" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                                 <asp:Button ID="Button26" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A14" CommandName="Panel21" CommandArgument="14" onclick="QAC_A14" />
                        
                             </asp:Panel>
@@ -790,371 +859,111 @@
                                    
                                
                               <asp:Panel ID="Panel21" runat="server"  Visible="false">  
-                                Вопрос 15. Какие <b><u>положительные</u></b> эффекты для Вашего предприятия может принести (или уже принесло) внедрение системы маркировки товаров? 
+                                Вопрос 15. Для каких групп товаров, помимо <b>табачной продукции, шуб, обуви и лекарственных средств</b>, на Ваш взгляд, также целесообразно внедрение системы обязательной цифровой маркировки товаров? Пожалуйста, перечислите эти товары?
                                 <div class="comment"> 
-                                   ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ
-                                </div>
+                                    ЕСЛИ РЕСПОНДЕНТ НАЗЫВАЕТ ГРУППЫ ТОВАРОМ, ЗАПИШИТЕ С ЕГО СЛОВ И ЗАДАЙТЕ УТОЧНЯЮЩИЙ ВОПРОС:  
+                                </div>Поясните, почему именно на них надо ввести цифровую маркировку?<br/>
+                                     <asp:TextBox ID="TextBoxA15"  Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
                                 <br/>
-                                  <asp:Table ID="TableA15" BorderWidth="1" GridLines="Both" runat="server" >
-                                        <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell Width="400">Положительный эффект</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell></asp:TableHeaderCell>
-                                        </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>1. Повышение спроса на продукцию из-за повышения доверия к качеству продукции, снижения доли нелегальной продукции на рынке</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA15_1" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA15_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel58" runat="server"  Visible="false"> 
-                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>    
-                                             <asp:TextBox ID="TextBoxA15_1" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>2. Повышение качества планирования и учета запасов продукции за счет повышения доступности данных о продукции</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA15_2" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA15_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel59" runat="server"  Visible="false"> 
-                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>      
-                                             <asp:TextBox ID="TextBoxA15_2" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>3. Снижение затрат, связанных с ошибками персонала при сборке заказов клиента или подготовке сопроводительной документации</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA15_3" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA15_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>     
-                                            <asp:Panel ID="Panel60" runat="server"  Visible="false"> 
-                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>       
-                                             <asp:TextBox ID="TextBoxA15_3" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>4. Экономия на операционных затратах в логистике за счет более эффективной обработки грузов, предполагающей сканирование кодов маркировки</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA15_4" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA15_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>   
-                                            <asp:Panel ID="Panel61" runat="server"  Visible="false"> 
-                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>         
-                                             <asp:TextBox ID="TextBoxA15_4" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>5. Иные положительные эффекты (указать, какие. <asp:TextBox ID="TextBoxA15_5_dr" Width="400"   runat="server"></asp:TextBox> </asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA15_5" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA15_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>   
-                                            <asp:Panel ID="Panel62" runat="server"  Visible="false"> 
-                                                Укажите, какой положительный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>         
-                                             <asp:TextBox ID="TextBoxA15_5" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                 </asp:Table>
-                                <br />
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" Enabled="false" ValidationGroup="A15"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA15" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                                 
+                             
+                                <br/> 
                                  <asp:Button ID="Button31" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button32" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A15" CommandName="Panel22" CommandArgument="15" onclick="QAC_A15" />
-                       
+                                <asp:Button ID="Button32" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A15"  CommandName="Panel22" CommandArgument="15"  onclick="QAC_TextBox_A15" />
+             
                             </asp:Panel>
 
                             <asp:Panel ID="Panel22" runat="server"  Visible="false"> 
-                                Вопрос 16. Какие <b><u>отрицательные</u></b> эффекты для Вашего предприятия может принести (или уже принесло) внедрение системы маркировки товаров? 
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ</div>
-                                      <asp:Table ID="TableA16" BorderWidth="1" GridLines="Both" runat="server" >
-                                        <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell Width="400">Отрицательный эффект</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell></asp:TableHeaderCell>
-                                        </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>1. Необходимость отказаться с 2020 года от патентной системы налогообложения или ЕНВД</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA16_1" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA16_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>
-                                            <asp:Panel ID="Panel63" runat="server"  Visible="false"> 
-                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>               
-                                             <asp:TextBox ID="TextBoxA16_1" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>2. Контрагенты (поставщики, покупатели) в настоящее время не готовы к использованию системы маркировки</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA16_2" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA16_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>  
-                                            <asp:Panel ID="Panel64" runat="server"  Visible="false"> 
-                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>                  
-                                             <asp:TextBox ID="TextBoxA16_2" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>3. Связанная с маркировкой прослеживаемость товаров нарушает коммерческую тайну</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA16_3" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA16_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>    
-                                            <asp:Panel ID="Panel65" runat="server"  Visible="false"> 
-                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>                
-                                             <asp:TextBox ID="TextBoxA16_3" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>4. Маркировка ведет к монополизации рынка, так как выгодна только определенному кругу крупных компаний</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA16_4" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA16_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel66" runat="server"  Visible="false"> 
-                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>              
-                                             <asp:TextBox ID="TextBoxA16_4" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>5. Иные отрицательные эффекты  (указать, какие. <asp:TextBox ID="TextBoxA16_5_dr" Width="400"   runat="server"></asp:TextBox> </asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA16_5" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA16_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel67" runat="server"  Visible="false"> 
-                                                Укажите, какой отрицательный эффект в виде доли в процентах от годового оборота компании? (указать примерный % или диапазон процентов)
-                                            </asp:Panel>              
-                                             <asp:TextBox ID="TextBoxA16_5" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                 </asp:Table>
-                                <br />
-                                 <asp:Button ID="Button33" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button34" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A15" CommandName="Panel23" CommandArgument="16" onclick="QAC_A16" />
-                       
+                                Вопрос 16. Ранее Вы сказали, что знаете про мобильное приложение "Честный знак". Скажите, пожалуйста, какие действия вы совершали с помощью этого приложения «Честный знак»?
+                                <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ. Респондент может выбрать несколько вариантов ответа.</div>
+                                  <asp:CheckBoxList ID="CheckBoxListA16"  runat="server"  AutoPostBack="true" OnSelectedIndexChanged="QAC_CheckBoxList_OnSelectedIndexChanged">
+                                        <asp:ListItem Value="1">Скачали приложение для ознакомления</asp:ListItem> 
+                                        <asp:ListItem Value="2">Проверяли информацию о производителе, составе и сроке годности</asp:ListItem> 
+                                        <asp:ListItem Value="3">Сообщали о выявленном нарушении</asp:ListItem> 
+                                        <asp:ListItem Value="4">Иное (запишите что?) </asp:ListItem> 
+                                 </asp:CheckBoxList> 
+                                  <br/> 
+                                <asp:TextBox ID="TextBoxA16" Visible="false" runat="server"></asp:TextBox>
+
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator18" Enabled="false" runat="server" ValidationGroup="A16" ControlToValidate="TextBoxA16" ErrorMessage="Заполните поле другое"></asp:RequiredFieldValidator>
+                           
+                                 
+                                    <br/> 
+                                <asp:Button ID="Button33" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button34" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A16" CommandName="Panel23" CommandArgument="16" onclick="QAC_CheckBoxList" />
+                      
                             </asp:Panel>
                              
 
                             <asp:Panel ID="Panel23" runat="server"  Visible="false"> 
-                                Вопрос 17. На Ваш взгляд, какова была доля незаконного оборота по группе ваших товаров ДО внедрения системы цифровой маркировки (либо вначале экспериментов по внедрению), и ПОСЛЕ этого? 
-                                <div class="comment">Респондент отвечает на вопрос по тем видам товарам, по которым на вопрос 1 ответил «да».
-                                    <br/>Респондент может выбрать только один вариант ответа по каждому виду товара.  (можно вписать диапазон или текст со слов клиента)</div>
-                                <asp:Table ID="TableA17" BorderWidth="1" GridLines="Both" runat="server" OnPreRender="TableA17_PreRender">
-                                    <asp:TableHeaderRow>
-                                        <asp:TableHeaderCell>Вид товара</asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>Оценка доли незаконного оборота продукции ДО, %</asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>Оценка доли незаконного оборота продукции ПОСЛЕ, %</asp:TableHeaderCell>
-                                    </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>1. табак</asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_1" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_1" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>2. шубы</asp:TableCell> 
-                                        <asp:TableCell> 
-                                             <asp:TextBox ID="TextBoxA17_2" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_2" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>3. обувь</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_3" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_3" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>4. верхняя одежда (мужская и женская, кроме шуб), женские блузки, постельное, столовое, туалетное и кухонное белье</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_4" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_4" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>5. лекарства</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_5" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_5" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>6. молочная продукция</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_6" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_6" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>7. кресла-коляски</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_7" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_7" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>8. велосипеды</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_8" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_8" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>9. фотоаппараты и лампы-вспышки</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_9" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_9" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>10. шины и автопокрышки</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_10" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_10" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>11. духи и туалетная вода</asp:TableCell> 
-                                        <asp:TableCell>
-                                             <asp:TextBox ID="TextBoxA17_11" Width="400"   runat="server"></asp:TextBox>    
-                                        </asp:TableCell> 
-                                        <asp:TableCell>     
-                                             <asp:TextBox ID="TextBoxA17_2_11" Width="400"   runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                 </asp:Table>
-                                <br />
-                                 <asp:Button ID="Button36" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button37" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A17" CommandName="Panel24" CommandArgument="17" onclick="QAC_A17" />
-                     
+                                Вопрос 17. Для проверки каких товаров Вы использовали (или собирались использовать) приложение «Честный знак»?
+                                <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ. Респондент может выбрать несколько вариантов ответа.</div>
+                                    <asp:CheckBoxList ID="CheckBoxListA17"  runat="server"  AutoPostBack="true" OnSelectedIndexChanged="QAC_CheckBoxList_OnSelectedIndexChanged">
+                                        <asp:ListItem Value="1">табачные изделия</asp:ListItem> 
+                                        <asp:ListItem Value="2">шубы</asp:ListItem> 
+                                        <asp:ListItem Value="3">обувь</asp:ListItem> 
+                                        <asp:ListItem Value="4">лекарства</asp:ListItem> 
+                                        <asp:ListItem Value="5">Для других товаров (запишите, для каких?)</asp:ListItem> 
+                                 </asp:CheckBoxList> 
+                                  <br/> 
+                                <asp:TextBox ID="TextBoxA17" Visible="false" runat="server"></asp:TextBox>
+
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" Enabled="false" runat="server" ValidationGroup="A17" ControlToValidate="TextBoxA17" ErrorMessage="Заполните поле другое"></asp:RequiredFieldValidator>
+                           
+                                 
+                                    <br/> 
+                                <asp:Button ID="Button30" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button36" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A17" CommandName="Panel24" CommandArgument="17" onclick="QAC_CheckBoxList" />
+                      
                             </asp:Panel>
                               
                              
 
                             <asp:Panel ID="Panel24" runat="server"  Visible="false"> 
-                                Вопрос 18. В каких отраслях или для каких групп товаров, на Ваш взгляд, также целесообразно внедрение системы обязательной цифровой маркировки товаров?
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА</div>
-                                 <asp:TextBox ID="TextBoxA18"  Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
+                                Вопрос 18. Как часто вы используете приложение «Честный знак» в последнее время?
+                                <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ. Респондент может выбрать только один вариант ответа.</div>
+                                 <asp:Button CommandName="Panel25" CommandArgument="1" ToolTip="18" onclick="QAC_Button" Text="Каждый день" CssClass="green unibutton  big2" Width="600"  ID="Button37"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel25" CommandArgument="2" ToolTip="18" onclick="QAC_Button" Text="Несколько раз в неделю" CssClass="green unibutton  big2" Width="600"  ID="Button38"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel25" CommandArgument="3" ToolTip="18" onclick="QAC_Button" Text="Несколько раз в месяц" CssClass="green unibutton  big2" Width="600"  ID="Button83"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel25" CommandArgument="4" ToolTip="18" onclick="QAC_Button" Text="Единичные случаи" CssClass="green unibutton  big2" Width="600"  ID="Button87"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel25" CommandArgument="5" ToolTip="18" onclick="QAC_Button" Text="Не использую" CssClass="green unibutton  big2" Width="600"  ID="Button84"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel25" CommandArgument="99" ToolTip="18" onclick="QAC_Button" Text="Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button85"  runat="server" /><br/> 
+                                 
                                 <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" Enabled="false" ValidationGroup="A18"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA18" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                                  <br/> 
-                                 <asp:Button CommandName="Panel25" CommandArgument="99" ToolTip="18" onclick="QAC_Button_A18" Text="Не нужно внедрять маркировку для других групп товаров" CssClass="green unibutton  big2" Width="600"  ID="Button38"  runat="server" /><br/> 
-                                  
-                             
-                                <br/> 
-                                 <asp:Button ID="Button115" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button116" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A18"  CommandName="Panel25" CommandArgument="18"  onclick="QAC_TextBox_A18" />
+                                <asp:Button ID="Button86" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
 
                              
                               <asp:Panel ID="Panel25" runat="server"  Visible="false">  
-                                 Вопрос 19. В рамках введенной системы маркировки Ваша компания передает сведения в Государственную информационную систему «Маркировка». Кроме того, Ваша компания сдает налоговую и иную обязательную отчетность. Возможно, какие-то сведения при этом дублируются. Оцените в процентах эту часть сведений. 
+                                 Вопрос 19. Как вы узнали о системе (мобильном приложении) «Честный знак»?
                                 <div class="comment"> 
-                                    (другими словами, в каком проценте случаев сведения дублируются)
-                                    <br/>
-                                ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ
+                                   ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ. Респондент может выбрать несколько вариантов ответа.
                                 </div>
-                                <asp:Table ID="TableA19" BorderWidth="1" GridLines="Both" runat="server" >
-                                    <asp:TableHeaderRow>
-                                        <asp:TableHeaderCell>
-                                            Орган исполнительной власти, в который передается отчетность
-                                        </asp:TableHeaderCell>
-                                        <asp:TableHeaderCell>
-                                            Доля дублирующих сведений, %  (можно вписать диапазон или текст со слов клиента)
-                                        </asp:TableHeaderCell>
-                                    </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>1. Росстат</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:TextBox ID="TextBoxA19_1" Width="100" runat="server"></asp:TextBox>                   
-                                        </asp:TableCell> 
-                                    </asp:TableRow> 
-                                    <asp:TableRow>
-                                        <asp:TableCell>2. ФНС России</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:TextBox ID="TextBoxA19_2" Width="100" runat="server"></asp:TextBox>                   
-                                        </asp:TableCell> 
-                                    </asp:TableRow> 
-                                    <asp:TableRow>
-                                        <asp:TableCell>3. Отраслевые федеральные органы исполнительной власти</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:TextBox ID="TextBoxA19_3" Width="100" runat="server"></asp:TextBox>                   
-                                        </asp:TableCell> 
-                                    </asp:TableRow>  
-                                    <asp:TableRow>
-                                        <asp:TableCell>4. Региональные и муниципальные органы исполнительной власти</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:TextBox ID="TextBoxA19_4" Width="100" runat="server"></asp:TextBox>                   
-                                        </asp:TableCell> 
-                                    </asp:TableRow> 
-                                    <asp:TableRow>
-                                        <asp:TableCell>5. Иное (что именно)  <asp:TextBox ID="TextBoxA19_5_dr" Width="100" runat="server"></asp:TextBox></asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:TextBox ID="TextBoxA19_5" Width="100" runat="server"></asp:TextBox>                   
-                                        </asp:TableCell> 
-                                    </asp:TableRow> 
-                                 </asp:Table>
-                                <br />
-                                 <asp:Button ID="Button39" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button40" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A19" CommandName="Panel5" CommandArgument="19" onclick="QAC_A19" />
-                          
-                           
+                                 <asp:CheckBoxList ID="CheckBoxListA19"  runat="server"  AutoPostBack="true" OnSelectedIndexChanged="QAC_CheckBoxList_OnSelectedIndexChanged">
+                                        <asp:ListItem Value="1">Через Интернет</asp:ListItem> 
+                                        <asp:ListItem Value="2">В магазине приложений</asp:ListItem> 
+                                        <asp:ListItem Value="3">Из СМИ (телевидение, радио, газеты и т.п.)</asp:ListItem> 
+                                        <asp:ListItem Value="4">От знакомых, друзей, родных</asp:ListItem> 
+                                        <asp:ListItem Value="5">Иное (запишите, что?) </asp:ListItem> 
+                                 </asp:CheckBoxList> 
+                                  <br/> 
+                                <asp:TextBox ID="TextBoxA19" Visible="false" runat="server"></asp:TextBox>
+
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" Enabled="false" runat="server" ValidationGroup="A19" ControlToValidate="TextBoxA19" ErrorMessage="Заполните поле другое"></asp:RequiredFieldValidator>
+                               <br/><asp:Button CommandName="Panel5" CommandArgument="99" ToolTip="19" onclick="QAC_Button" Text="Затрудняюсь ответить" CssClass="red unibutton  big2" Width="500"  ID="Button88"  runat="server" /><br/> 
+                  
+                                 
+                                    <br/> 
+                                <asp:Button ID="Button39" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button40" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A19" CommandName="Panel5" CommandArgument="19" onclick="QAC_CheckBoxList" />
+                      
                             </asp:Panel>
                              
 
                             <asp:Panel ID="Panel5" runat="server"  Visible="false"> 
-                                Вопрос 20. Оцените в процентах долю затрат, на которую Ваша компания может снизить издержки при отказе от передачи в ГИС «Маркировка» сведений, дублирующих сведения из налоговой и иной обязательной отчетности, предоставляемой Вашей компанией в органы исполнительной власти? 
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА  (можно вписать диапазон или текст со слов клиента)</div>
+                                Вопрос 20. Какие недостатки системы (мобильного приложения) «Честный знак» Вы можете назвать?
+                                <div class="comment"></div>
                                  <asp:TextBox ID="TextBoxA20" Width="800" TextMode="MultiLine" Height="50"  runat="server"></asp:TextBox>   %
                                 <br/>
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Enabled="false" ValidationGroup="A20"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA20" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
@@ -1162,422 +971,69 @@
                              
                                 <br/> 
                                  <asp:Button ID="Button42" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button43" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A20"  CommandName="Panel9" CommandArgument="20"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button43" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A20"  CommandName="Panel13" CommandArgument="20"  onclick="QAC_TextBox" />
                             </asp:Panel>
 
                              
                             <asp:Panel ID="Panel9" runat="server"  Visible="false"> 
-                                Вопрос 21. С какими органами исполнительной власти из перечисленных вы взаимодействуете в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? 
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ</div>
-                                <asp:Table ID="TableA21" BorderWidth="1" GridLines="Both" runat="server" >
-                                        <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell>Орган исполнительной власти, осуществляющий контрольно-надзорные мероприятия</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell>
-                                            </asp:TableHeaderCell>
-                                        </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>1. Роспотребнадзор</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_1" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>  
-                                            <asp:Panel ID="Panel68" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>              
-                                             <asp:TextBox ID="TextBoxA21_1" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>2. Росздравнадзор</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_2" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel69" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>           
-                                             <asp:TextBox ID="TextBoxA21_2" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>3. Россельхознадзор</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_3" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>    
-                                            <asp:Panel ID="Panel70" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>             
-                                             <asp:TextBox ID="TextBoxA21_3" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>4. ФТС России</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_4" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel71" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>           
-                                             <asp:TextBox ID="TextBoxA21_4" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>5. ФНС России</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_5" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel72" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>           
-                                             <asp:TextBox ID="TextBoxA21_5" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>6. МВД России</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_6" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel73" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>           
-                                             <asp:TextBox ID="TextBoxA21_6" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>7. Росстандарт</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_7" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel74" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>           
-                                             <asp:TextBox ID="TextBoxA21_7" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>8. Ростехнадзор</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_8" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel75" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>           
-                                             <asp:TextBox ID="TextBoxA21_8" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>9. Минпромторг России</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_9" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">Затрудняюсь ответить</asp:ListItem>
-                                             </asp:RadioButtonList>    
-                                            <asp:Panel ID="Panel76" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>             
-                                             <asp:TextBox ID="TextBoxA21_9" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow> 
-                                    <asp:TableRow>
-                                        <asp:TableCell>10. Иное (что именно_) <asp:TextBox ID="TextBoxA21_10_dr" Width="400"  runat="server"></asp:TextBox> </asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA21_10" AutoPostBack="true" OnSelectedIndexChanged="RadioButtonListA21_SelectedIndexChanged" runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>      
-                                            <asp:Panel ID="Panel77" runat="server"  Visible="false"> 
-                                                Оцените в процентах долю сведений, которые Ваша компания передает в Государственную информационную систему «Маркировка» (ГИС «Маркировка»), которые дублируют сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий, в том числе в рамках лицензионного контроля? (указать примерный % или диапазон процентов)?
-                                            </asp:Panel>           
-                                             <asp:TextBox ID="TextBoxA21_10" Width="400" Visible="false" runat="server"></asp:TextBox>                                
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                 </asp:Table>
-                                <br />
-                                 <asp:Button ID="Button41" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button44" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A15" CommandName="Panel11" CommandArgument="21" onclick="QAC_A21" />
-                       
+                                Вопрос 21. Как уже ранее говорилось, обязательная маркировка товаров вводится, чтобы не допускать в продаже подделок и фальсификата. Товар помечается уникальным цифровым кодом на упаковке, а далее, <b>с помощью мобильного приложения «Честный знак»</b>, можно получить всю информацию о продукте и его движении, от производителя товара до прилавка розничного магазина. Кроме этого с помощью данного приложения можно сообщать о выявленном нарушении.
+                                <br/> <br/> 
+                                1.	Заинтересовала ли вас возможность в будущем использовать «Честный знак» для проверки сведений о производителе, составе и сроке годности?
+                                <div class="comment">Респондент может выбрать только один вариант ответа.</div>
+                                 <asp:Button CommandName="Panel30" CommandArgument="1" ToolTip="2101" onclick="QAC_Button" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button41"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel30" CommandArgument="2" ToolTip="2101" onclick="QAC_Button" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button44"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel30" CommandArgument="99" ToolTip="2101" onclick="QAC_Button" Text="Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button92"  runat="server" /><br/> 
+                                <asp:HiddenField ID="HiddenFieldA21_1" runat="server" />
+                                <br/>
+                                <asp:Button ID="Button93" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                            </asp:Panel>
+                             
+                            <asp:Panel ID="Panel30" runat="server"  Visible="false"> 
+                                2.	Заинтересовала ли вас возможность в будущем с помощью приложения «Честный знак» <b><u>сообщать о нарушениях</u></b>?
+                                <div class="comment">Респондент может выбрать только один вариант ответа.</div>
+                                 <asp:Button CommandName="Panel11" CommandArgument="1" ToolTip="2102" onclick="QAC_ButtonA21_2" Text="Да" CssClass="green unibutton  big2" Width="600"  ID="Button89"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel11" CommandArgument="2" ToolTip="2102" onclick="QAC_ButtonA21_2" Text="Нет" CssClass="green unibutton  big2" Width="600"  ID="Button90"  runat="server" /><br/> 
+                                 <asp:Button CommandName="Panel11" CommandArgument="99" ToolTip="2102" onclick="QAC_ButtonA21_2" Text="Затрудняюсь ответить" CssClass="green unibutton  big2" Width="600"  ID="Button91"  runat="server" /><br/> 
+                                 
+                                <br/>
+                                <asp:Button ID="Button94" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
                             </asp:Panel>
 
 
                              
 
                             <asp:Panel ID="Panel11" runat="server"  Visible="false"> 
-                                Вопрос 22. Оцените в процентах долю трат на подготовку к проведению контрольно-надзорных мероприятий и нам само проведение этих контрольно-надзорных мероприятий?
-                                <div class="comment"> (можно вписать диапазон или текст со слов клиента)</div>
-                                 <asp:TextBox ID="TextBoxA22" Width="400" runat="server"></asp:TextBox>   %
-                                <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" Enabled="false" ValidationGroup="A22"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA22" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                                
-                             
-                                <br/> 
-                                 <asp:Button ID="Button45" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button46" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A22"  CommandName="Panel12" CommandArgument="22"  onclick="QAC_TextBox" />
+                                Вопрос 22. Для проверки каких товаров Вы в будущем С НАИБОЛЬШЕЙ ВЕРОЯТНОСТЬЮ использовали бы приложение «Честный знак»?
+                                <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАЙТЕ ВАРИАНТЫ. Респондент может выбрать несколько вариантов ответа.</div>
+                                <asp:CheckBoxList ID="CheckBoxListA22"  runat="server"  AutoPostBack="true" OnSelectedIndexChanged="QAC_CheckBoxList_OnSelectedIndexChanged">
+                                        <asp:ListItem Value="1">табачные изделия</asp:ListItem>
+                                        <asp:ListItem>шубы</asp:ListItem>
+                                        <asp:ListItem>обувь</asp:ListItem>
+                                        <asp:ListItem>мужская и женская верхняя одежда (кроме шуб), женские блузки, постельное, столовое, туалетное и кухонное белье</asp:ListItem>
+                                        <asp:ListItem>лекарства</asp:ListItem>
+                                        <asp:ListItem>молочная продукция</asp:ListItem>
+                                        <asp:ListItem>кресла-коляски</asp:ListItem>
+                                        <asp:ListItem>велосипеды</asp:ListItem>
+                                        <asp:ListItem>фотоаппараты и лампы-вспышки</asp:ListItem>
+                                        <asp:ListItem>шины и автопокрышки</asp:ListItem>
+                                        <asp:ListItem>духи и туалетная вода</asp:ListItem>
+                                        <asp:ListItem>Для других товаров (запишите, для каких?)</asp:ListItem> 
+                                 </asp:CheckBoxList> 
+                                  <br/> 
+                                <asp:TextBox ID="TextBoxA22" Visible="false" runat="server"></asp:TextBox>
+
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" Enabled="false" runat="server" ValidationGroup="A22" ControlToValidate="TextBoxA22" ErrorMessage="Заполните поле другое"></asp:RequiredFieldValidator>
+                                        <br/>
+                                <asp:Button CommandName="Panel13" CommandArgument="98" ToolTip="22" onclick="QAC_Button" Text="Ни для каких не стал бы использовать" CssClass="red unibutton  big2" Width="500"  ID="Button97"  runat="server" /><br/> 
+                                <asp:Button CommandName="Panel13" CommandArgument="99" ToolTip="22" onclick="QAC_Button" Text="Отказ от ответа" CssClass="red unibutton  big2" Width="500"  ID="Button45"  runat="server" /><br/> 
+                  
+                                 
+                                    <br/> 
+                                <asp:Button ID="Button46" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
+                                <asp:Button ID="Button96" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A22" CommandName="Panel13" CommandArgument="22" onclick="QAC_CheckBoxList" />
+                      
                             </asp:Panel>
-
-                             
-
-                            <asp:Panel ID="Panel12" runat="server"  Visible="false"> 
-                                Вопрос 23. Оцените в процентах долю затрат, на которую Ваша компания может снизить издержки при отказе от передачи в ГИС «Маркировка» сведений, дублирующих сведения, которые Ваша компания предоставляет в рамках контрольно-надзорных мероприятий?
-                                <div class="comment"> (можно вписать диапазон или текст со слов клиента)</div>
-                                 <asp:TextBox ID="TextBoxA23" Width="400" runat="server"></asp:TextBox>   %
-                                <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="A23" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA23" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                                
-                             
-                                <br/> 
-                                 <asp:Button ID="Button47" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button50" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A23"  CommandName="Panel15" CommandArgument="23"  onclick="QAC_TextBox" />
-                            </asp:Panel>
-
-
-                             
-                            <asp:Panel ID="Panel15" runat="server"  Visible="false"> 
-                                Вопрос 24. Относительно системы цифровой маркировки товаров, сейчас я зачитаю шесть ПРЕДЛАГАЕМЫХ мер по дерегулированию деятельности предприятий. Меры направленны на снятие различных барьеров и на снижение издержек бизнеса.
-                                <br/>Оцените эти предлагаемые меры по шкале от 1 до 5, где 1 – совсем неэффективно для снижения издержек, 5 – очень эффективно.  
-
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ</div>
-                                <asp:Table ID="TableA24" BorderWidth="1" GridLines="Both" runat="server" >
-                                        <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell>Меры по дерегулированию хозяйственной деятельности предприятий</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell>Оценка (где 1 – совсем неэффективно, 5 – очень эффективно; 99 – нет ответа)</asp:TableHeaderCell>
-                                        </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>1. Снижение частоты проверок контрольно-надзорных органов за счет увеличения эффективности общественного контроля через мобильное приложение «Честный знак»</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA24_1" AutoPostBack="true"  runat="server">
-                                                <asp:ListItem Value="1">1</asp:ListItem>
-                                                <asp:ListItem Value="2">2</asp:ListItem> 
-                                                <asp:ListItem Value="3">3</asp:ListItem> 
-                                                <asp:ListItem Value="4">4</asp:ListItem> 
-                                                <asp:ListItem Value="5">5</asp:ListItem> 
-                                                <asp:ListItem Value="99">нет ответа</asp:ListItem>
-                                             </asp:RadioButtonList>                               
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>2. Отказ от предоставления сведений предприятиями в контрольно-надзорные органы, если эти сведения предоставляются в ГИС «Маркировка»</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA24_2" AutoPostBack="true"  runat="server">
-                                                <asp:ListItem Value="1">1</asp:ListItem>
-                                                <asp:ListItem Value="2">2</asp:ListItem> 
-                                                <asp:ListItem Value="3">3</asp:ListItem> 
-                                                <asp:ListItem Value="4">4</asp:ListItem> 
-                                                <asp:ListItem Value="5">5</asp:ListItem> 
-                                                <asp:ListItem Value="99">нет ответа</asp:ListItem>
-                                             </asp:RadioButtonList>                            
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>3. Отказ от предоставления сведений предприятиями в рамках подачи налоговой и иной обязательной отчетности, если эти сведения предоставляются в ГИС «Маркировка»</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA24_3" AutoPostBack="true"  runat="server">
-                                                <asp:ListItem Value="1">1</asp:ListItem>
-                                                <asp:ListItem Value="2">2</asp:ListItem> 
-                                                <asp:ListItem Value="3">3</asp:ListItem> 
-                                                <asp:ListItem Value="4">4</asp:ListItem> 
-                                                <asp:ListItem Value="5">5</asp:ListItem> 
-                                                <asp:ListItem Value="99">нет ответа</asp:ListItem>
-                                             </asp:RadioButtonList>                                       
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>4. Профилактика нарушений за счет автоматических уведомлений на основании данных, содержащихся в ГИС «Маркировка»</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA24_4" AutoPostBack="true"  runat="server">
-                                                <asp:ListItem Value="1">1</asp:ListItem>
-                                                <asp:ListItem Value="2">2</asp:ListItem> 
-                                                <asp:ListItem Value="3">3</asp:ListItem> 
-                                                <asp:ListItem Value="4">4</asp:ListItem> 
-                                                <asp:ListItem Value="5">5</asp:ListItem> 
-                                                <asp:ListItem Value="99">нет ответа</asp:ListItem>
-                                             </asp:RadioButtonList>                                                  
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>5. Проведение выездных проверок контрольно-надзорных органов в местах продажи товара без отвлечения персонала предприятия (магазина, склада) (с помощью программного обеспечения, интегрированного с системой «Честный знак»)</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA24_5" AutoPostBack="true"  runat="server">
-                                                <asp:ListItem Value="1">1</asp:ListItem>
-                                                <asp:ListItem Value="2">2</asp:ListItem> 
-                                                <asp:ListItem Value="3">3</asp:ListItem> 
-                                                <asp:ListItem Value="4">4</asp:ListItem> 
-                                                <asp:ListItem Value="5">5</asp:ListItem> 
-                                                <asp:ListItem Value="99">нет ответа</asp:ListItem>
-                                             </asp:RadioButtonList>                                 
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>6. Отказ от требования к наличию сопроводительной документации на груз в отношении сведений, содержащихся в Национальном каталоге товаров</asp:TableCell> 
-                                        <asp:TableCell>
-                                            <asp:RadioButtonList ID="RadioButtonListA24_6" AutoPostBack="true"  runat="server">
-                                                <asp:ListItem Value="1">1</asp:ListItem>
-                                                <asp:ListItem Value="2">2</asp:ListItem> 
-                                                <asp:ListItem Value="3">3</asp:ListItem> 
-                                                <asp:ListItem Value="4">4</asp:ListItem> 
-                                                <asp:ListItem Value="5">5</asp:ListItem> 
-                                                <asp:ListItem Value="99">нет ответа</asp:ListItem>
-                                             </asp:RadioButtonList>                                   
-                                        </asp:TableCell> 
-                                    </asp:TableRow> 
-                                 </asp:Table>
-                                <br />
-                                 <asp:Button ID="Button51" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button52" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A24" CommandName="Panel16" CommandArgument="24" onclick="QAC_A24" />
-                       
-                            </asp:Panel>
-
-
-                              <asp:Panel ID="Panel16" runat="server"  Visible="false">  
-                                Вопрос 25. Получает ли Ваша компания какие-либо <b>меры предпринимательской поддержки</b>, которые используются для компенсации затрат на внедрение системы цифровой маркировки продукции? 
-                                <div class="comment"> 
-                                   ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ
-                                </div>
-                                <br/>
-                                  <asp:Table ID="TableA25" BorderWidth="1" GridLines="Both" runat="server" >
-                                        <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell Width="500">Меры поддержки</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell></asp:TableHeaderCell>
-                                        </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>1. Возмещение затрат в рамках региональных / муниципальных программ поддержки предпринимательской деятельности малого бизнеса</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA25_1" AutoPostBack="true"   runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>                              
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>2. Возмещение процентной ставки по кредиту (лизингу) на оборудование от Фонда развития промышленности (в т.ч. займы по льготной ставке)</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA25_2" AutoPostBack="true"   runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>                                  
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>3. Субсидии на приобретение оборудования для маркировки</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA25_3" AutoPostBack="true"   runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>                                  
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>4. Льготные условия предоставления кредита на приобретение оборудования в рамках программ льготного кредитования субъектов малого предпринимательства (например, в рамках программы льготного кредитования по ставке 8,5%)  </asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA25_4" AutoPostBack="true"   runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>                                      
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>5. Иное (что именно) <asp:TextBox ID="TextBoxA25_5" Width="400"  runat="server"></asp:TextBox> </asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA25_5" AutoPostBack="true"   runat="server">
-                                                <asp:ListItem Value="1">Да</asp:ListItem>
-                                                <asp:ListItem Value="2">Нет</asp:ListItem> 
-                                                <asp:ListItem Value="99">не знаю</asp:ListItem>
-                                             </asp:RadioButtonList>                                      
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                 </asp:Table>
-                                <br />
-                                <asp:Button ID="Button53" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button54" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A25" CommandName="Panel18" CommandArgument="25" onclick="QAC_A25" />
-                       
-                            </asp:Panel>
-
-                             
-                             
-                            <asp:Panel ID="Panel18" runat="server"  Visible="false"> 
-                                Вопрос 26. Предпоследний вопрос. Я вам зачитаю две меры поддержки предпринимательства. Оцените степень их влияния на снижение издержек бизнеса по шкале от 1 до 5, где 1 – совсем неэффективно, 5 – очень эффективно.  
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАЧИТАТЕ ВАРИАНТЫ</div>
-                                <asp:Table ID="TableA26" BorderWidth="1" GridLines="Both" runat="server" >
-                                        <asp:TableHeaderRow>
-                                            <asp:TableHeaderCell>Меры по дерегулированию хозяйственной деятельности предприятий</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell>Оценка степени влияния (где 1 – совсем неэффективно, 5 – очень эффективно; 99 – нет ответа)</asp:TableHeaderCell>
-                                        </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>1. Возмещение для малого бизнеса части затрат на закупку оборудования, программного обеспечения, меток, внедрения электронного документооборота и обучение персонала в рамках внедрения системы маркировки – в виде субсидий</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA26_1" AutoPostBack="true"  runat="server">
-                                                <asp:ListItem Value="1">1</asp:ListItem>
-                                                <asp:ListItem Value="2">2</asp:ListItem> 
-                                                <asp:ListItem Value="3">3</asp:ListItem> 
-                                                <asp:ListItem Value="4">4</asp:ListItem> 
-                                                <asp:ListItem Value="5">5</asp:ListItem> 
-                                                <asp:ListItem Value="99">нет ответа</asp:ListItem>
-                                             </asp:RadioButtonList>                               
-                                        </asp:TableCell> 
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>2. Возмещение для малого бизнеса части затрат на закупку оборудования, программного обеспечения, меток, внедрения электронного документооборота и обучение персонала в рамках внедрения системы маркировки – в виде налогового вычета</asp:TableCell> 
-                                        <asp:TableCell> 
-                                            <asp:RadioButtonList ID="RadioButtonListA26_2" AutoPostBack="true"  runat="server">
-                                                <asp:ListItem Value="1">1</asp:ListItem>
-                                                <asp:ListItem Value="2">2</asp:ListItem> 
-                                                <asp:ListItem Value="3">3</asp:ListItem> 
-                                                <asp:ListItem Value="4">4</asp:ListItem> 
-                                                <asp:ListItem Value="5">5</asp:ListItem> 
-                                                <asp:ListItem Value="99">нет ответа</asp:ListItem>
-                                             </asp:RadioButtonList>                            
-                                        </asp:TableCell> 
-                                    </asp:TableRow> 
-                                 </asp:Table>
-                                <br />
-                                 <asp:Button ID="Button55" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button57" runat="server" Text="Далее" CssClass="blue unibutton"  ValidationGroup="A26" CommandName="Panel20" CommandArgument="26" onclick="QAC_A26" />
-                       
-                            </asp:Panel>
-
-                             
-
-                            <asp:Panel ID="Panel20" runat="server"  Visible="false"> 
-                                Вопрос 27. Какие еще меры по дерегулированию (снятию различных барьеров) хозяйственной деятельности предприятий, связанные с внедрением системы цифровой маркировки товаров, вы могли бы предложить?  
-                                <div class="comment">ИНТЕРВЬЮЕР, ЗАПИШИТЕ ПОДРОБНО СО СЛОВ РЕСПОНДЕНТА</div>
-                                 <asp:TextBox ID="TextBoxA27" Width="800" TextMode="MultiLine" Height="50" runat="server"></asp:TextBox>   
-                                <br/>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ValidationGroup="A27" Enabled="false"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxA27" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                                
-                             
-                                <br/> 
-                                 <asp:Button ID="Button58" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button59" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="A27"  CommandName="Panel13" CommandArgument="27"  onclick="QAC_TextBox" />
-                            </asp:Panel>
-
-
+                              
                              
                             <asp:Panel ID="Panel13" runat="server"  Visible="false"> 
                                  <br/> 

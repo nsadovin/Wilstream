@@ -62,11 +62,9 @@
                              
                              
                             <asp:Panel ID="Panel1" runat="server">
-                                Добрый день! Меня зовут <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>, я представляю Информационно-консультационный центр «Бизнес-Тезаурус». Мы проводим социологическое исследование по заказу Минпромторга России по поводу внедрения системы цифровой маркировки товаров. 
+                                Добрый день! Меня зовут <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>. По заказу Минпромторга России, информационный центр «Бизнес-Тезаурус» проводит исследование по внедрению системы цифровой маркировки товаров. Скажите, Вы сможете ответить на вопросы по цифровой маркировке? Это займет примерно 5 минут Вашего времени.
                                 <br/>  
                                 <asp:Button ID="Button2" runat="server" Text="Далее" CssClass="blue unibutton"    CommandName="Panel40"   onclick="standartNext" />
-                     
-                                
                             </asp:Panel>
 
                                <asp:Panel ID="Panel41" runat="server"  Visible="false"> 

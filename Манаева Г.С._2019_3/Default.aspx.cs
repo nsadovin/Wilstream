@@ -415,7 +415,7 @@ public partial class _Default : System.Web.UI.Page
         for (int i = 0; i < CheckBoxListQ.Items.Count; i++)
         {
 
-            if (CheckBoxListQ.Items[i].Selected && (CheckBoxListQ.Items[i].Text.IndexOf("Другой") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("УТОЧНИТЕ НАЗВАНИЕ") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("другие") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("другой") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("Другое") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("другие") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("Другие") > -1))
+            if (CheckBoxListQ.Items[i].Selected && (CheckBoxListQ.Items[i].Text.IndexOf("Другой") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("других") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("УТОЧНИТЕ НАЗВАНИЕ") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("другие") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("другой") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("Другое") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("другие") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("Другие") > -1 || CheckBoxListQ.Items[i].Text.IndexOf("Иное") > -1))
             {
                 TextBoxQ.Visible = true;
                 if (RequiredFieldValidatorQ != null)
@@ -774,91 +774,20 @@ public partial class _Default : System.Web.UI.Page
                 conn.Close();
             }
         }
-    }
-
-
-
-      
-    protected void TableA2_PreRender(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA2.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i];
-            TableA2.Rows[i].Visible = r.Selected;
-        }
-    }
-
-    protected void QAC_A2(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA2.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i]; 
-            var r2 = TableA2.FindControl("CheckBoxListA2_" + (i + 1).ToString()) as CheckBoxList;
-            for (int j = 0; j < r2.Items.Count; j++) {
-                ListItem li = r2.Items[j];
-                saveData(200100 + (i * 100) + j, r.Selected ?(li.Selected?"1":"") : "");
-            }
-        }
-         
-        standartNext(sender, e);
-    }
+    } 
 
     protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
-    }
-    protected void TableA5a_PreRender(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA5a.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i];
-            TableA5a.Rows[i].Visible = r.Selected;
-        }
-    }
+    } 
 
     protected void RadioButtonListA5a_SelectedIndexChanged(object sender, EventArgs e)
     {
         var tb = ((sender as RadioButtonList).Parent.FindControl("TextBoxA5a_"+ (sender as RadioButtonList).ID.Replace("RadioButtonListA5a_",""))) as TextBox;
         tb.Visible = (sender as RadioButtonList).SelectedValue == "5";
     }
-
-    protected void QAC_A5a(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA5a.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i]; 
-            var r2 = TableA5a.FindControl("RadioButtonListA5a_" + (i + 1).ToString()) as RadioButtonList;
-            var r3 = TableA5a.FindControl("TextBoxA5a_" + (i + 1).ToString()) as TextBox;
-
-            saveData(50200 + (i * 10), r.Selected ? r2.SelectedValue : ""); 
-            saveData(50200 + (i * 10)+1, r.Selected && r2.SelectedValue =="5" ? r3.Text : ""); 
-        }
-
-        standartNext(sender, e);
-    }
-
-    protected void TableA6_PreRender(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA6.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i];
-            TableA6.Rows[i].Visible = r.Selected;
-        }
-    }
-
-    protected void QAC_A6(object sender, EventArgs e)
-    {
-
-        for (var i = 0; i < TableA6.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i];
-            var r2 = TableA6.FindControl("RadioButtonListA6_" + (i + 1).ToString()) as RadioButtonList; 
-
-            saveData(600 + i, r.Selected ? r2.SelectedValue : ""); 
-        }
-
-        standartNext(sender, e);
-    }
+     
+     
 
     protected void QAC_A7(object sender, EventArgs e)
     {
@@ -887,16 +816,49 @@ public partial class _Default : System.Web.UI.Page
         standartNext(sender, e);
     }
 
+     
 
-    protected void QAC_A10(object sender, EventArgs e)
+
+    protected void QAC_A11(object sender, EventArgs e)
     {
-        for (var i = 0; i < TableA10.Rows.Count; i++)
+        for (var i = 0; i < TableA11.Rows.Count-1; i++)
         {
-            var r2 = TableA10.FindControl("TextBoxA10_" + (i + 1).ToString()) as TextBox;
+            var r2 = TableA11.FindControl("RadioButtonListA11_" + (i + 1).ToString()) as RadioButtonList;
 
-            saveData(1000 + i, r2.Text);
+            saveData(1100 + i, r2.SelectedValue);
+        } 
+
+        standartNext(sender, e);
+    }
+
+    protected void QAC_A12(object sender, EventArgs e)
+    {
+        for (var i = 0; i < TableA12.Rows.Count - 1; i++)
+        {
+            var r2 = TableA12.FindControl("RadioButtonListA12_" + (i + 1).ToString()) as RadioButtonList;
+
+            saveData(1200 + i, r2.SelectedValue);
         }
-        saveData(1099, TextBoxA10_4_dr.Text);
+
+        standartNext(sender, e);
+    }
+    protected void TableA13_PreRender(object sender, EventArgs e)
+    {
+        for (var i = 1; i < TableA13.Rows.Count; i++)
+        { 
+            TableA13.Rows[i].Visible = (TableA12.FindControl("RadioButtonListA12_" + (i).ToString()) as RadioButtonList).SelectedValue=="1"; 
+        }
+    }
+
+    protected void QAC_A13(object sender, EventArgs e)
+    {
+        for (var i = 0; i < TableA13.Rows.Count - 1; i++)
+        {
+            var r1 = (TableA12.FindControl("RadioButtonListA12_" + (i + 1).ToString()) as RadioButtonList).SelectedValue == "1";
+            var r2 = TableA13.FindControl("RadioButtonListA13_" + (i + 1).ToString()) as RadioButtonList;
+
+            saveData(1300 + i, r1?r2.SelectedValue:"");
+        }
 
         standartNext(sender, e);
     }
@@ -905,59 +867,24 @@ public partial class _Default : System.Web.UI.Page
     {
         for (var i = 1; i < TableA14.Rows.Count; i++)
         {
-            var r = CheckBoxListA1.Items[i-1];
-            TableA14.Rows[i].Visible = r.Selected;
+            TableA14.Rows[i].Visible = (TableA12.FindControl("RadioButtonListA12_" + (i).ToString()) as RadioButtonList).SelectedValue == "1";
         }
     }
-
-    protected void RadioButtonListA14_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-        var tb = ((sender as RadioButtonList).Parent.FindControl("TextBoxA14_" + (sender as RadioButtonList).ID.Replace("RadioButtonListA14_", ""))) as TextBox;
-        tb.Visible = (sender as RadioButtonList).SelectedValue == "1" || (sender as RadioButtonList).SelectedValue == "2";
-        (tb.Parent as TableCell).Controls[1].Visible = (sender as RadioButtonList).SelectedValue == "1";
-        (tb.Parent as TableCell).Controls[2].Visible = (sender as RadioButtonList).SelectedValue == "2";
-    }
+     
 
     protected void QAC_A14(object sender, EventArgs e)
     {
-        for (var i = 0; i < TableA14.Rows.Count-1; i++)
+        for (var i = 0; i < TableA13.Rows.Count - 1; i++)
         {
-            var r = CheckBoxListA1.Items[i];
+            var r1 = (TableA12.FindControl("RadioButtonListA12_" + (i+1).ToString()) as RadioButtonList).SelectedValue == "1";
             var r2 = TableA14.FindControl("RadioButtonListA14_" + (i + 1).ToString()) as RadioButtonList;
-            var r3 = TableA14.FindControl("TextBoxA14_" + (i + 1).ToString()) as TextBox;
 
-            saveData(140200 + (i * 10), r.Selected ? r2.SelectedValue : "");
-            saveData(140200 + (i * 10) + 1, r.Selected && (r2.SelectedValue == "1"|| r2.SelectedValue == "2") ? r3.Text : "");
+            saveData(1400 + i, r1?r2.SelectedValue:"");
         }
 
         standartNext(sender, e);
     }
-
-    protected void RadioButtonListA15_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-        var tb = ((sender as RadioButtonList).Parent.FindControl("TextBoxA15_" + (sender as RadioButtonList).ID.Replace("RadioButtonListA15_", ""))) as TextBox;
-        tb.Visible = (sender as RadioButtonList).SelectedValue == "1";
-        (tb.Parent as TableCell).Controls[1].Visible = (sender as RadioButtonList).SelectedValue == "1";
-    }
-
-    protected void QAC_A15(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA15.Rows.Count; i++)
-        { 
-            var r2 = TableA15.FindControl("RadioButtonListA15_" + (i + 1).ToString()) as RadioButtonList;
-            var r3 = TableA15.FindControl("TextBoxA15_" + (i + 1).ToString()) as TextBox;
-            if(r2!=null)
-            saveData(150200 + (i * 10),   r2.SelectedValue  );
-            if (r3 != null && r2!=null)
-            saveData(150200 + (i * 10) + 1,   r2.SelectedValue == "1" ? r3.Text : "");
-        }
-
-        saveData(1599, TextBoxA15_5_dr.Text );
-        standartNext(sender, e);
-
-    }
+     
 
 
     protected void RadioButtonListA16_SelectedIndexChanged(object sender, EventArgs e)
@@ -967,173 +894,23 @@ public partial class _Default : System.Web.UI.Page
         tb.Visible = (sender as RadioButtonList).SelectedValue == "1";
         (tb.Parent as TableCell).Controls[1].Visible = (sender as RadioButtonList).SelectedValue == "1";
     }
+     
+     
 
-    protected void QAC_A16(object sender, EventArgs e)
+     
+     
+     
+     
+
+    protected void QAC_TextBox_A15(object sender, EventArgs e)
     {
-        for (var i = 0; i < TableA16.Rows.Count; i++)
-        {
-            var r2 = TableA16.FindControl("RadioButtonListA16_" + (i + 1).ToString()) as RadioButtonList;
-            var r3 = TableA16.FindControl("TextBoxA16_" + (i + 1).ToString()) as TextBox;
-            if (r2 != null)
-                saveData(160200 + (i * 10), r2.SelectedValue);
-            if (r3 != null && r2 != null)
-                saveData(160200 + (i * 10) + 1, r2.SelectedValue == "1" ? r3.Text : "");
-        }
-
-        saveData(1699, TextBoxA16_5_dr.Text);
-        standartNext(sender, e);
-
-    }
-
-    protected void TableA17_PreRender(object sender, EventArgs e)
-    {
-        for (var i = 1; i < TableA17.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i-1];
-            TableA17.Rows[i].Visible = r.Selected;
-        }
-    }
-
-
-
-    protected void QAC_A17(object sender, EventArgs e)
-    {
-
-        for (var i = 0; i < TableA17.Rows.Count-1; i++)
-        {
-            var r = CheckBoxListA1.Items[i];
-            var r2 = TableA17.FindControl("TextBoxA17_" + (i + 1).ToString()) as TextBox;
-            var r3 = TableA17.FindControl("TextBoxA17_2_" + (i + 1).ToString()) as TextBox;
-            if (r2 != null)
-                saveData(1700 + i, r.Selected ? r2.Text : "");
-            if (r3 != null && r2 != null)
-                saveData(1750 + i, r.Selected ? r3.Text : "");
-        }
-
-        standartNext(sender, e);
-    }
-
-
-    protected void QAC_TextBox_A18(object sender, EventArgs e)
-    {
-        var Any = false;
-        for (var i = 0; i < TableA5a.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i];
-            var r2 = TableA2.FindControl("RadioButtonListA5a_" + (i + 1).ToString()) as RadioButtonList;
-            if (r2.SelectedValue == "1" && r.Selected) Any = true;
-        }
-        Button116.CommandName = Any ? "Panel25" : "Panel15";
+        Button32.CommandName = HiddenFieldA1.Value == "4" ? "Panel22" : "Panel9";
         QAC_TextBox(sender, e);
     }
 
-
-
-    protected void QAC_Button_A18(object sender, EventArgs e)
-    {
-        var Any = false;
-        for (var i = 0; i < TableA5a.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i];
-            var r2 = TableA2.FindControl("RadioButtonListA5a_" + (i + 1).ToString()) as RadioButtonList;
-            if (r2 != null)
-                if (r2.SelectedValue == "1" && r.Selected) Any = true;
-        }
-        Button38.CommandName = Any ? "Panel25" : "Panel15";
+    protected void QAC_ButtonA21_2(object sender, EventArgs e)
+    { 
+        (sender as Button).CommandName = HiddenFieldA21_1.Value == "1" ? "Panel11" : "Panel13";
         QAC_Button(sender, e);
-    }
-
-    protected void QAC_A19(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA19.Rows.Count-1; i++)
-        {
-            var r2 = TableA19.FindControl("TextBoxA19_" + (i + 1).ToString()) as TextBox;
-            if (r2 != null)
-                saveData(1900 + i, r2.Text);
-        }
-        saveData(1999, TextBoxA19_5_dr.Text);
-
-        standartNext(sender, e);
-    }
-
-
-    protected void RadioButtonListA21_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-        var tb = ((sender as RadioButtonList).Parent.FindControl("TextBoxA21_" + (sender as RadioButtonList).ID.Replace("RadioButtonListA21_", ""))) as TextBox;
-        tb.Visible = (sender as RadioButtonList).SelectedValue == "1";
-        (tb.Parent as TableCell).Controls[1].Visible = (sender as RadioButtonList).SelectedValue == "1";
-    }
-
-
-
-    protected void QAC_A21(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA21.Rows.Count-1; i++)
-        {
-            var r2 = TableA21.FindControl("RadioButtonListA21_" + (i + 1).ToString()) as RadioButtonList;
-            var r3 = TableA21.FindControl("TextBoxA21_" + (i + 1).ToString()) as TextBox;
-            if (r2 != null)
-                saveData(210200 + (i * 10), r2.SelectedValue);
-            if (r2 != null)
-                saveData(210200 + (i * 10) + 1, r2.SelectedValue == "1" ? r3.Text : "");
-        }
-
-        saveData(2199, TextBoxA21_10_dr.Text);
-        standartNext(sender, e);
-
-    }
-
-
-    protected void QAC_A24(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA24.Rows.Count-1; i++)
-        {
-            var r2 = TableA24.FindControl("RadioButtonListA24_" + (i + 1).ToString()) as RadioButtonList;
-            if (r2 != null)
-                saveData(2400 + (i), r2.SelectedValue); 
-        }
-
-
-        var Any = false;
-        for (var i = 0; i < TableA5a.Rows.Count; i++)
-        {
-            var r = CheckBoxListA1.Items[i];
-            var r2 = TableA2.FindControl("RadioButtonListA5a_" + (i + 1).ToString()) as RadioButtonList;
-            if (r2.SelectedValue == "1" && r.Selected) Any = true;
-        }
-        Button52.CommandName = Any ? "Panel16" : "Panel18";
-
-        standartNext(sender, e);
-
-    }
-
-
-    protected void QAC_A25(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA25.Rows.Count-1; i++)
-        {
-            var r2 = TableA25.FindControl("RadioButtonListA25_" + (i + 1).ToString()) as RadioButtonList;
-            if (r2 != null)
-                saveData(2500 + (i), r2.SelectedValue);
-        }
-
-        saveData(2599, TextBoxA25_5.Text);
-
-        standartNext(sender, e);
-
-    }
-
-    protected void QAC_A26(object sender, EventArgs e)
-    {
-        for (var i = 0; i < TableA26.Rows.Count-1; i++)
-        {
-            var r2 = TableA26.FindControl("RadioButtonListA26_" + (i + 1).ToString()) as RadioButtonList;
-            if (r2 != null)
-                saveData(2600 + (i), r2.SelectedValue);
-        }
-
-        standartNext(sender, e);
-
     }
 }
