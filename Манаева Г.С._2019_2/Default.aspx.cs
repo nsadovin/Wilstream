@@ -848,15 +848,23 @@ public partial class _Default : System.Web.UI.Page
 
     protected void QAC_A6(object sender, EventArgs e)
     {
-
+        int cnt1 = 0;
+        int cnt2 = 0;
         for (var i = 0; i < TableA6.Rows.Count; i++)
         {
             var r = CheckBoxListA1.Items[i];
             var r2 = TableA6.FindControl("RadioButtonListA6_" + (i + 1).ToString()) as RadioButtonList; 
 
-            saveData(600 + i, r.Selected ? r2.SelectedValue : ""); 
+            saveData(600 + i, r.Selected ? r2.SelectedValue : "");
+            if (r.Selected)
+            {
+                cnt1++;
+                if (r2.SelectedValue == "4") {
+                    cnt2++;
+                }
+            }
         }
-
+        Button10.CommandName = cnt1 == cnt2 ? "Panel21" : "Panel4";
         standartNext(sender, e);
     }
 
