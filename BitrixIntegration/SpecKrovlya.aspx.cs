@@ -7,18 +7,24 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Borond : System.Web.UI.Page
+public partial class SpecKrovlya : System.Web.UI.Page
 {
     Bitrix24 BX24;
     Int32 IdLead = 0;
-    
+    string Phone = "";
+
 
     protected void Page_Init(object sender, EventArgs e)
     {
         if (Request.QueryString["IdLead"] != null)
             IdLead = Convert.ToInt32(Request.QueryString["IdLead"]);
-     
-        BX24 = new Bitrix24(HttpContext.Current, "local.5d9dbbaf8a3075.94895012", "nu67ZnsK1SxXlrD9C5xChsq2LZJzPafKJy60Q6AkbvwHqrGP1U", "https://borond.bitrix24.ru", "https://oauth.bitrix.info", "bdarya@wilstream.ru", "Vika15986");
+
+        if (Request.QueryString["Phone"] != null)
+        {
+            Phone = Request.QueryString["Phone"].ToString();
+        }
+
+        BX24 = new Bitrix24(HttpContext.Current, "local.5df71697ba4c32.83741482", "OgtWQyF0ETIsXQtJGb4zll1zcaeBnkHNTg0x3XlZY0V8XEL3TU", "https://spec-krovlya.bitrix24.ru", "https://oauth.bitrix.info", "wilstream.krov1@mail.ru", "1qazxsw2");
 
 
 
@@ -95,10 +101,37 @@ public partial class Borond : System.Web.UI.Page
         }
         
 
-        if (IdLead > 0 && !IsPostBack)
+        if ((IdLead > 0 || Phone!="") && !IsPostBack)
         {
-            string Lead = BX24.SendCommand("crm.lead.get", "ID=" + IdLead, "", "GET");
-            var LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
+            string Lead = "";
+            dynamic LeadByJSON = new {  };
+            if (IdLead > 0)
+            {
+                Lead = BX24.SendCommand("crm.lead.get", "ID=" + IdLead, "", "GET");
+                LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
+            }
+            else
+            {
+                var dataListLids = new
+                {
+                    sort = new { ID = "desc" }
+                };
+                
+                string Leads = BX24.SendCommand("crm.lead.list", "FILTER[PHONE]=" + Phone, JsonConvert.SerializeObject(dataListLids), "POST");
+                var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
+                if (LeadsJSON.total > 0)
+                { 
+                   Lead = BX24.SendCommand("crm.lead.get", "ID=" + LeadsJSON.result[0].ID, "", "GET");
+                   LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
+                }
+                else
+                    return;
+            }
+
+             
+
+            
+
             LabelNameLead.Text = LeadByJSON.result.TITLE;
             TextBoxLeadTITLE.Text = LeadByJSON.result.TITLE;
             TextBoxLeadNAME.Text = LeadByJSON.result.NAME;
@@ -128,14 +161,14 @@ public partial class Borond : System.Web.UI.Page
             }
 
 
-            var Result = new List<Bitrix24.PRODUCT>();
-            string LeadProductList = BX24.SendCommand("crm.lead.productrows.get", "ID=" + IdLead, "", "GET");
-            var LeadProductListByJSON = JsonConvert.DeserializeObject<dynamic>(LeadProductList);
-            foreach (var item in LeadProductListByJSON.result)
-            {
-                Result.Add(new Bitrix24.PRODUCT() { ID = item.ID, NAME = BX24.GetNameProduct(item.PRODUCT_ID.ToString()), PRODUCT_PRICE = item.PRICE, PRODUCT_QUANTITY = item.QUANTITY });
-            }
-            Session.Contents["productrows"] = Result;
+            //var Result = new List<Bitrix24.PRODUCT>();
+            //string LeadProductList = BX24.SendCommand("crm.lead.productrows.get", "ID=" + IdLead, "", "GET");
+            //var LeadProductListByJSON = JsonConvert.DeserializeObject<dynamic>(LeadProductList);
+            //foreach (var item in LeadProductListByJSON.result)
+            //{
+            //    Result.Add(new Bitrix24.PRODUCT() { ID = item.ID, NAME = BX24.GetNameProduct(item.PRODUCT_ID.ToString()), PRODUCT_PRICE = item.PRICE, PRODUCT_QUANTITY = item.QUANTITY });
+            //}
+            //Session.Contents["productrows"] = Result;
             //   LeadByJSON.result.ID
             HiddenFieldIdLead.Value = IdLead.ToString();
             ButtonSaveLead.Text = "Обновить лид";
@@ -370,7 +403,7 @@ public partial class Borond : System.Web.UI.Page
 
             if (IdLeadOld == 0)
             {
-                Response.Redirect("~/Borond.aspx?IdLead=" + IdLead);
+                Response.Redirect("~/SpecKrovlya.aspx?IdLead=" + IdLead);
                 Response.End();
             }
         }
