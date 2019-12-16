@@ -18,7 +18,7 @@ public partial class Borond : System.Web.UI.Page
         if (Request.QueryString["IdLead"] != null)
             IdLead = Convert.ToInt32(Request.QueryString["IdLead"]);
      
-        BX24 = new Bitrix24(HttpContext.Current, "local.5d9dbbaf8a3075.94895012", "nu67ZnsK1SxXlrD9C5xChsq2LZJzPafKJy60Q6AkbvwHqrGP1U", "https://borond.bitrix24.ru", "https://oauth.bitrix.info", "bdarya@wilstream.ru", "dasha15986");
+        BX24 = new Bitrix24(HttpContext.Current, "local.5d9dbbaf8a3075.94895012", "nu67ZnsK1SxXlrD9C5xChsq2LZJzPafKJy60Q6AkbvwHqrGP1U", "https://borond.bitrix24.ru", "https://oauth.bitrix.info", "bdarya@wilstream.ru", "Vika15986");
 
 
 

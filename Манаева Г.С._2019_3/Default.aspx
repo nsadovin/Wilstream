@@ -345,7 +345,7 @@
                                         </asp:TableCell> 
                                     </asp:TableRow>  
                                     <asp:TableRow>
-                                        <asp:TableCell>7. кресла-коляски</asp:TableCell> 
+                                        <asp:TableCell>7. инвалидные кресла-коляски</asp:TableCell> 
                                         <asp:TableCell>  
                                             <asp:RadioButtonList ID="RadioButtonListA7_7" AutoPostBack="true"   runat="server">
                                                 <asp:ListItem Value="1">Не готов ни в коем случае покупать контрафакт</asp:ListItem>
@@ -603,7 +603,7 @@
                                         </asp:TableCell> 
                                     </asp:TableRow>
                                     <asp:TableRow>
-                                        <asp:TableCell>7. кресла-коляски</asp:TableCell> 
+                                        <asp:TableCell>7. инвалидные кресла-коляски</asp:TableCell> 
                                         <asp:TableCell>
                                             <asp:RadioButtonList ID="RadioButtonListA11_7" runat="server">
                                                 <asp:ListItem Value="1">1. Определенно положительно</asp:ListItem>
@@ -1012,7 +1012,7 @@
                                         <asp:ListItem>мужская и женская верхняя одежда (кроме шуб), женские блузки, постельное, столовое, туалетное и кухонное белье</asp:ListItem>
                                         <asp:ListItem>лекарства</asp:ListItem>
                                         <asp:ListItem>молочная продукция</asp:ListItem>
-                                        <asp:ListItem>кресла-коляски</asp:ListItem>
+                                        <asp:ListItem>инвалидные кресла-коляски</asp:ListItem>
                                         <asp:ListItem>велосипеды</asp:ListItem>
                                         <asp:ListItem>фотоаппараты и лампы-вспышки</asp:ListItem>
                                         <asp:ListItem>шины и автопокрышки</asp:ListItem>

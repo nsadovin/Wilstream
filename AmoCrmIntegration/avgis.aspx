@@ -44,7 +44,7 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>Ответственный:</asp:TableCell>
-                    <asp:TableCell><asp:DropDownList ID="DropDownListResponsibleUsers" Enabled="false" CssClass="form-control" runat="server"></asp:DropDownList></asp:TableCell>
+                    <asp:TableCell><asp:DropDownList ID="DropDownListResponsibleUsers"  CssClass="form-control" runat="server"></asp:DropDownList></asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>Воронка:</asp:TableCell>

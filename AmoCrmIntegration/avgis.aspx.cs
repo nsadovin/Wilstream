@@ -107,7 +107,19 @@ public partial class avgis : System.Web.UI.Page
           _service.GetLeads(phone).OrderByDescending(r => r.DateCreate).FirstOrDefault() :
           _service.GetLead(Convert.ToInt64(IdLead))
           ;
-        
+
+
+        if (phone != "" && lead ==null)
+        {
+            var contact_search =
+           _service.GetContacts(phone).OrderByDescending(r => r.DateCreate).FirstOrDefault();
+            if (contact_search != null)
+            {
+                IdLead = contact_search.LinkedLeadsId.FirstOrDefault().ToString();
+                lead = _service.GetLead(Convert.ToInt64(IdLead));
+            }
+        }
+
         if (lead == null)
         {
             PanelPipeLine.Visible = true;
@@ -533,7 +545,7 @@ public partial class avgis : System.Web.UI.Page
                     _service.AddOrUpdateNote(requestNote);
                 }
                 var IdContact = CreateContacts(newLead.FirstOrDefault().Id);
-                Response.Redirect("~/gank.aspx?IdLead=" + newLead.FirstOrDefault().Id);
+                Response.Redirect("~/avgis.aspx?IdLead=" + newLead.FirstOrDefault().Id);
             }
         }
         PanelNotes.Visible = true;
@@ -807,7 +819,7 @@ public partial class avgis : System.Web.UI.Page
         _service.AddOrUpdateNote(request);
 
 
-        Response.Redirect("~/gank.aspx?IdLead=" + crmLead.Id);
+        Response.Redirect("~/avgis.aspx?IdLead=" + crmLead.Id);
 
         TextBoxTextNote.Text = ""; 
 
