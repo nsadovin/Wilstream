@@ -631,5 +631,10 @@
             Дата/время перезвона
             </summary>
         </member>
+        <member name="P:WebAPI.Models.AlfaCapital.CancelReason">
+            <summary>
+            Причина отказа
+            </summary>
+        </member>
     </members>
 </doc>

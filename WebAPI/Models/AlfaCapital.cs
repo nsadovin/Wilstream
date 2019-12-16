@@ -184,6 +184,12 @@ namespace WebAPI.Models
         [Column("Дата/время перезвона")]
         public DateTime? RecallDT { get; set; }
 
+        /// <summary>
+        /// Причина отказа
+        /// </summary>
+        [Column("Причина отказа")]
+        public String CancelReason { get; set; }
+
 
         public override string ToString()
         {
