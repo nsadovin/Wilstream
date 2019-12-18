@@ -15,7 +15,7 @@
     <div class="container-fluid">
     <form id="form1" runat="server"> 
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm"> 
             <asp:Panel ID="PanelLead" runat="server">
                 <h2>Лид: <asp:Label ID="LabelNameLead" runat="server" Text="Новый"></asp:Label></h2>
                 <asp:HiddenField ID="HiddenFieldIdLead" runat="server" />
