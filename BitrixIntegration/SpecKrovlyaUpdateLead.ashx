@@ -41,6 +41,7 @@ public class SpecKrovlyaUpdateLead : IHttpHandler {
 
     Int32 IdLead = 0;
     string UpdateName = "";
+    string UpdateStatus = "";
 
     public void ProcessRequest (HttpContext context) {
         _context = context;
@@ -52,6 +53,8 @@ public class SpecKrovlyaUpdateLead : IHttpHandler {
 
         if (context.Request.QueryString["Name"] != null)
             UpdateName = context.Request.QueryString["Name"].ToString();
+        else if (context.Request.QueryString["Status"] != null)
+            UpdateStatus = context.Request.QueryString["Status"].ToString();
         else
             return;
 
@@ -59,9 +62,12 @@ public class SpecKrovlyaUpdateLead : IHttpHandler {
         var LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
 
         if (LeadByJSON.result.ID == null) return;
+        if (context.Request.QueryString["Name"] != null)
+            LeadByJSON.result.TITLE = UpdateName;        
+        else if (context.Request.QueryString["Name"] != null)
+            LeadByJSON.result.STATUS_ID = UpdateStatus;
 
-        LeadByJSON.result.TITLE = UpdateName;
-        var data =
+        var data =context.Request.QueryString["Name"] != null?
         new
         {
             id = (Object)LeadByJSON.result.ID,
@@ -69,6 +75,16 @@ public class SpecKrovlyaUpdateLead : IHttpHandler {
               {
 
                   { "TITLE" , UpdateName }
+
+            },
+            @params = new { REGISTER_SONET_EVENT = "Y" }
+        }: new
+        {
+            id = (Object)LeadByJSON.result.ID,
+            fields = new Dictionary<string, object>()
+              {
+
+                  { "STATUS_ID" , UpdateStatus }
 
             },
             @params = new { REGISTER_SONET_EVENT = "Y" }

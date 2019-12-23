@@ -58,16 +58,17 @@ public class SpecKrovlyaGetLeads : IHttpHandler {
         foreach (var lead in LeadsJSON.result)
         {
             if (FilterSOURCE_IDs.Contains(lead.SOURCE_D) || lead.PHONE == null) continue;
-            AddToDataBase(lead.PHONE[0].VALUE, lead.ID);
+            AddToDataBase(Convert.ToString(lead.PHONE[0].VALUE), (int)lead.ID);
         }
 
         context.Response.ContentType = "text/plain";
         context.Response.Write("Good");
     }
 
-    private void AddToDataBase(string Phone, long IdLead) {
+    private void AddToDataBase(string Phone, int IdLead) {
         try
         {
+                
             System.Data.SqlClient.SqlConnection conn = null;
 
             System.Configuration.ConnectionStringSettings settings =
@@ -75,7 +76,7 @@ public class SpecKrovlyaGetLeads : IHttpHandler {
 
             SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
 
-            var SqlStr = "IF not exists(select * from [dbo].[WS_SpecKrovlya] with(nolock) where IdLead = "+IdLead.ToString()+") INSERT INTO  [dbo].[WS_SpecKrovlya]   (Phone, IdLead) Values ( '8'+right('" + Phone + "',10), "+IdLead.ToString()+")  ";
+            var SqlStr = "IF not exists(select * from [dbo].[WS_SpecKrovlya] with(nolock) where IdLead = "+IdLead.ToString()+") INSERT INTO  [dbo].[WS_SpecKrovlya]   (Phone, IdLead) Values ( oktell_ccws.[dbo].[clearPhoneAndAddEight]('" + Phone + "'), "+IdLead.ToString()+")  ";
 
 
             SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);

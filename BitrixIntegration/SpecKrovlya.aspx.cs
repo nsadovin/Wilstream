@@ -23,7 +23,11 @@ public partial class SpecKrovlya : System.Web.UI.Page
         {
             Phone = Request.QueryString["Phone"].ToString();
         }
-
+        if (Request.QueryString["AbonentNumber"] != null)
+        {
+            Phone = Request.QueryString["AbonentNumber"].ToString();
+        }
+        
         BX24 = new Bitrix24(HttpContext.Current, "local.5df71697ba4c32.83741482", "OgtWQyF0ETIsXQtJGb4zll1zcaeBnkHNTg0x3XlZY0V8XEL3TU", "https://spec-krovlya.bitrix24.ru", "https://oauth.bitrix.info", "wilstream.krov1@mail.ru", "1qazxsw2");
 
 
@@ -31,11 +35,7 @@ public partial class SpecKrovlya : System.Web.UI.Page
         if (!IsPostBack)
         {
             Session.Contents["productrows"] = null;
-            Session.Contents["productsearch"] = null;
-            if (Request.QueryString["Phone"] != null)
-            {
-                TextBoxLeadPHONE_1.Text = Request.QueryString["Phone"].ToString();
-            }
+            Session.Contents["productsearch"] = null;            
         }
 
 
@@ -44,9 +44,9 @@ public partial class SpecKrovlya : System.Web.UI.Page
         foreach (var status in StatusList.result)
             DropDownListLeadSTATUS_ID.Items.Add(new ListItem(status.NAME.ToString(), status.STATUS_ID.ToString()));
 
+        DropDownListLeadSTATUS_ID.SelectedValue = "5";
 
-        DropDownListLeadPHONE_1.Items.AddRange(
-            BX24.PhoneTypes.Select(r => new ListItem(r.Value, r.Key)).ToArray());
+        
 
         string LeadSourceListByJSON = BX24.SendCommand("crm.status.list", "FILTER[ENTITY_ID]=SOURCE", "", "GET");
         var SourceList = JsonConvert.DeserializeObject<dynamic>(LeadSourceListByJSON);
@@ -101,7 +101,7 @@ public partial class SpecKrovlya : System.Web.UI.Page
         }
         
 
-        if ((IdLead > 0 || Phone!="") && !IsPostBack)
+        if ((IdLead > 0 || Phone!=""))
         {
             string Lead = "";
             dynamic LeadByJSON = new {  };
@@ -117,12 +117,13 @@ public partial class SpecKrovlya : System.Web.UI.Page
                     sort = new { ID = "desc" }
                 };
                 
-                string Leads = BX24.SendCommand("crm.lead.list", "FILTER[PHONE]=" + Phone, JsonConvert.SerializeObject(dataListLids), "POST");
+                string Leads = BX24.SendCommand("crm.lead.list", "FILTER[PHONE]=" + Phone + "&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
                 var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
                 if (LeadsJSON.total > 0)
                 { 
                    Lead = BX24.SendCommand("crm.lead.get", "ID=" + LeadsJSON.result[0].ID, "", "GET");
                    LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
+                    IdLead = (int)LeadsJSON.result[0].ID;
                 }
                 else
                     return;
@@ -138,9 +139,56 @@ public partial class SpecKrovlya : System.Web.UI.Page
             TextBoxLeadSECOND_NAME.Text = LeadByJSON.result.SECOND_NAME;
             TextBoxLeadADDRESS_CITY.Text = LeadByJSON.result.ADDRESS_CITY;
             TextBoxLeadLAST_NAME.Text = LeadByJSON.result.LAST_NAME;
-            DropDownListLeadSTATUS_ID.SelectedValue = LeadByJSON.result.STATUS_ID;
-            TextBoxLeadPHONE_1.Text = LeadByJSON.result.PHONE[0].VALUE;
-            DropDownListLeadPHONE_1.SelectedValue = LeadByJSON.result.PHONE[0].VALUE_TYPE;
+            //DropDownListLeadSTATUS_ID.SelectedValue = LeadByJSON.result.STATUS_ID; 
+            if (LeadByJSON.result.PHONE != null)
+            {
+                foreach (var phone in LeadByJSON.result.PHONE)
+                {
+                    var row = new TableRow() { };
+                    var cell = new TableCell() { };
+                    var cell2 = new TableCell() { };
+                    var TextBox = new TextBox() { CssClass = "form-control" , ID = "TextBoxLeadPHONE"+ phone.ID, Text = phone.VALUE };
+                    var HiddenField = new HiddenField() {   ID = "HiddenFieldLeadPHONE" + phone.ID, Value = phone.ID };
+                    var DropDownListLeadPHONE = new DropDownList() { ID = "DropDownListLeadPHONE" + phone.ID, CssClass = "form-control"  };
+                    DropDownListLeadPHONE.Items.AddRange(
+                    BX24.PhoneTypes.Select(r => new ListItem(r.Value, r.Key)).ToArray());
+                    DropDownListLeadPHONE.SelectedValue = phone.VALUE_TYPE;
+                    var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadPHONE" + phone.ID, ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadPHONE" + phone.ID, ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic };
+                    cell.Controls.Add(TextBox);
+                    cell.Controls.Add(RequiredFieldValidator);
+                    cell2.Controls.Add(DropDownListLeadPHONE);
+                    cell2.Controls.Add(HiddenField);
+                    row.Cells.Add(cell);
+                    row.Cells.Add(cell2);
+                    TablePhones.Rows.Add(row);
+                }
+            }
+            else
+            {
+                var row =  new TableRow() { };
+                var cell =  new TableCell() { };
+                var cell2 = new TableCell() { };
+                var TextBox = new TextBox() { CssClass = "form-control" , ID = "TextBoxLeadPHONE"};
+                var DropDownListLeadPHONE = new DropDownList() { ID = "DropDownListLeadPHONE", CssClass = "form-control" };
+                DropDownListLeadPHONE.Items.AddRange(
+                    BX24.PhoneTypes.Select(r => new ListItem(r.Value, r.Key)).ToArray());
+                var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadPHONE", ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadPHONE" , ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic };
+                cell.Controls.Add(TextBox);
+                cell.Controls.Add(RequiredFieldValidator);
+                cell2.Controls.Add(DropDownListLeadPHONE);
+                row.Cells.Add(cell);
+                row.Cells.Add(cell2);
+                TablePhones.Rows.Add(row);
+
+                if (Request.QueryString["Phone"] != null)
+                {
+                    TextBox.Text = Request.QueryString["Phone"].ToString();
+                }
+                if (Request.QueryString["AbonentNumber"] != null)
+                {
+                    TextBox.Text = Request.QueryString["AbonentNumber"].ToString();
+                }
+            } 
             DropDownListLeadSOURCE_ID.SelectedValue = LeadByJSON.result.SOURCE_ID;
             CheckBoxLeadOPENED.Checked = LeadByJSON.result.OPENED == "1";
             TextBoxLeadCOMMENTS.Text = LeadByJSON.result.COMMENTS;
@@ -172,6 +220,32 @@ public partial class SpecKrovlya : System.Web.UI.Page
             //   LeadByJSON.result.ID
             HiddenFieldIdLead.Value = IdLead.ToString();
             ButtonSaveLead.Text = "Обновить лид";
+        }
+        else
+        {
+            var row = new TableRow() { };
+            var cell = new TableCell() { };
+            var cell2 = new TableCell() { };
+            var TextBox = new TextBox() { CssClass = "form-control", ID = "TextBoxLeadPHONE" };
+            var DropDownListLeadPHONE = new DropDownList() { ID = "DropDownListLeadPHONE", CssClass = "form-control" };
+            DropDownListLeadPHONE.Items.AddRange(
+                BX24.PhoneTypes.Select(r => new ListItem(r.Value, r.Key)).ToArray());
+            var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadPHONE", ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadPHONE", ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic };
+            cell.Controls.Add(TextBox);
+            cell.Controls.Add(RequiredFieldValidator);
+            cell2.Controls.Add(DropDownListLeadPHONE);
+            row.Cells.Add(cell);
+            row.Cells.Add(cell2);
+            TablePhones.Rows.Add(row);
+
+            if (Request.QueryString["Phone"] != null)
+            {
+                TextBox.Text = Request.QueryString["Phone"].ToString();
+            }
+            if (Request.QueryString["AbonentNumber"] != null)
+            {
+                TextBox.Text = Request.QueryString["AbonentNumber"].ToString();
+            }
         }
 
         //string LeadListByJSON = BX24.SendCommand("crm.lead.list", "", "", "GET");
@@ -313,7 +387,7 @@ public partial class SpecKrovlya : System.Web.UI.Page
                {"ADDRESS_CITY", TextBoxLeadADDRESS_CITY.Text },
                 {  "LAST_NAME" , TextBoxLeadLAST_NAME.Text },
                 {  "STATUS_ID" , DropDownListLeadSTATUS_ID.SelectedValue },
-                {  "PHONE" , new object[] { new { VALUE = TextBoxLeadPHONE_1.Text,  VALUE_TYPE = DropDownListLeadPHONE_1.SelectedValue } } },
+                {  "PHONE" , new object[] {  } },
                 {  "SOURCE_ID" ,  DropDownListLeadSOURCE_ID.SelectedValue },
                 {  "OPENED" , CheckBoxLeadOPENED.Checked?"1":"0" },
                 {  "ASSIGNED_BY_ID" , DropDownListLeadASSIGNED_BY_ID.SelectedValue },
@@ -333,13 +407,30 @@ public partial class SpecKrovlya : System.Web.UI.Page
                     { "ADDRESS_CITY", TextBoxLeadADDRESS_CITY.Text },
                 {  "LAST_NAME" , TextBoxLeadLAST_NAME.Text },
                 {  "STATUS_ID" , DropDownListLeadSTATUS_ID.SelectedValue },
-                {  "PHONE" , new object[] { new { VALUE = TextBoxLeadPHONE_1.Text,  VALUE_TYPE = DropDownListLeadPHONE_1.SelectedValue } } },
+                {  "PHONE" , new object[] { } },
                 {  "SOURCE_ID" ,  DropDownListLeadSOURCE_ID.SelectedValue },
                 {  "OPENED" , CheckBoxLeadOPENED.Checked?"1":"0" },
                 {  "ASSIGNED_BY_ID" , DropDownListLeadASSIGNED_BY_ID.SelectedValue },
                 },
                 @params = new { REGISTER_SONET_EVENT = "Y" }
             };
+
+
+            var phones = new List<object>();
+            foreach (TableRow row in TablePhones.Rows) {
+                var TextBoxLeadPHONE = row.Cells[0].Controls[0] as TextBox;
+                var RequiredFieldValidatorLeadPHONE = row.Cells[0].Controls[1] as RequiredFieldValidator;
+                var DropDownListLeadPHONE = row.Cells[1].Controls[0] as DropDownList;
+                HiddenField HiddenFieldLeadPHONE = null;
+                if (row.Cells[1].Controls.Count>1)
+                    HiddenFieldLeadPHONE = row.Cells[1].Controls[1] as HiddenField;
+                if(HiddenFieldLeadPHONE!=null)
+                phones.Add(new { ID = HiddenFieldLeadPHONE.Value, VALUE = TextBoxLeadPHONE.Text, VALUE_TYPE = DropDownListLeadPHONE.SelectedValue });
+                else
+                phones.Add(new { VALUE = TextBoxLeadPHONE.Text, VALUE_TYPE = DropDownListLeadPHONE.SelectedValue });
+                    
+            }
+            data.fields["PHONE"] = phones;
             Type t = data.fields.GetType();
             foreach (var uf in BX24.Userfields)
             {

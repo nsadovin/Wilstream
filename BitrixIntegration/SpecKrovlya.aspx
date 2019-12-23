@@ -65,16 +65,15 @@
                     <asp:TableRow>
                         <asp:TableCell>Статус</asp:TableCell>
                         <asp:TableCell> 
-                            <asp:DropDownList ID="DropDownListLeadSTATUS_ID" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="DropDownListLeadSTATUS_ID" Enabled="false" CssClass="form-control" runat="server"></asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow> 
                     <asp:TableRow>
                         <asp:TableCell>Телефон</asp:TableCell>
                         <asp:TableCell>
-                            <asp:TextBox ID="TextBoxLeadPHONE_1" CssClass="form-control" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="Lead" ControlToValidate="TextBoxLeadPHONE_1" runat="server" ForeColor="Red" ErrorMessage="Заполните поле" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:Table ID="TablePhones" runat="server">
 
-                            <asp:DropDownList ID="DropDownListLeadPHONE_1" CssClass="form-control" runat="server"></asp:DropDownList>
+                            </asp:Table> 
                         </asp:TableCell>
                     </asp:TableRow> 
                     <asp:TableRow>
