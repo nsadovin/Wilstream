@@ -459,6 +459,8 @@ public class Bitrix24
         //Отправляем данные в Битрикс24
         HttpWebResponse responseBitrixREST = (HttpWebResponse)requestBitrixREST.GetResponse();
 
+        
+
         //Читаем тело ответа от Битрикс24
         Stream dataStreamBitrixREST = responseBitrixREST.GetResponseStream();
         var readerBitrixREST = new StreamReader(dataStreamBitrixREST);

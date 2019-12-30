@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.UI;
@@ -99,36 +100,50 @@ public partial class SpecKrovlya : System.Web.UI.Page
                 TableLead.Rows.Add(tr);
             }
         }
-        
 
-        if ((IdLead > 0 || Phone!=""))
+        if (IdLead == 0 && Phone != "")
+            {
+            var dataListLids = new
+            {
+                sort = new { ID = "desc" }
+            };
+
+            string Lead = "";
+            dynamic LeadByJSON = new { };
+
+            string Leads = BX24.SendCommand("crm.lead.list", "FILTER[PHONE]=" + Phone + "&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
+            var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
+            if (LeadsJSON.total > 0)
+            {
+                Lead = BX24.SendCommand("crm.lead.get", "ID=" + LeadsJSON.result[0].ID, "", "GET");
+                LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
+                IdLead = (int)LeadsJSON.result[0].ID;
+            } 
+        }
+
+
+
+        if (IdLead > 0)
         {
             string Lead = "";
             dynamic LeadByJSON = new {  };
             if (IdLead > 0)
             {
-                Lead = BX24.SendCommand("crm.lead.get", "ID=" + IdLead, "", "GET");
-                LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
-            }
-            else
-            {
-                var dataListLids = new
+                try
                 {
-                    sort = new { ID = "desc" }
-                };
-                
-                string Leads = BX24.SendCommand("crm.lead.list", "FILTER[PHONE]=" + Phone + "&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
-                var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
-                if (LeadsJSON.total > 0)
-                { 
-                   Lead = BX24.SendCommand("crm.lead.get", "ID=" + LeadsJSON.result[0].ID, "", "GET");
-                   LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
-                    IdLead = (int)LeadsJSON.result[0].ID;
+                    Lead = BX24.SendCommand("crm.lead.get", "ID=" + IdLead, "", "GET");
+                    LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
                 }
-                else
-                    return;
+                catch (WebException wex)
+                { 
+                    if (((HttpWebResponse)wex.Response).StatusCode == HttpStatusCode.BadRequest)
+                    {
+                        Response.Write("Ошибка в запросе. Возможно лид "+ IdLead + " был удален из CRM системы");
+                        Response.End();
+                    }
+                }
             }
-
+            
              
 
             

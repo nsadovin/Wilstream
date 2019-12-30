@@ -41,12 +41,18 @@ public class SpecKrovlyaAddCommentToLead : IHttpHandler {
 
     Int32 IdLead = 0;
     string Comment = "";
+    string Phone = "";
 
     public void ProcessRequest (HttpContext context) {
         _context = context;
 
         if (context.Request.QueryString["IdLead"] != null)
             IdLead = Convert.ToInt32(context.Request.QueryString["IdLead"]);
+        else
+        if (context.Request.QueryString["Phone"] != null)
+        {
+            Phone = context.Request.QueryString["Phone"].ToString();
+        }
         else
             return;
 
@@ -55,9 +61,26 @@ public class SpecKrovlyaAddCommentToLead : IHttpHandler {
         else
             return;
 
+        if (IdLead == 0)
+        {
+            var dataListLids = new
+            {
+                sort = new { ID = "desc" }
+            };
+
+            string Leads = BX24.SendCommand("crm.lead.list", "FILTER[PHONE]=" + Phone + "&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
+            var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
+            if (LeadsJSON.total > 0)
+            {
+                IdLead = (int)LeadsJSON.result[0].ID;
+            }
+            else
+                return;
+        }
+
         var data =
         new
-        { 
+        {
             fields = new Dictionary<string, object>()
               {
 
@@ -65,13 +88,13 @@ public class SpecKrovlyaAddCommentToLead : IHttpHandler {
                   { "ENTITY_TYPE" , "lead" },
                   { "COMMENT" , Comment }
 
-            } 
+            }
         };
         var contentText = JsonConvert.SerializeObject(data);
 
         var Lead = BX24.SendCommand("crm.timeline.comment.add", "", contentText, "POST");
         var LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
- 
+
         context.Response.ContentType = "text/plain";
         context.Response.Write("Good");
     }
