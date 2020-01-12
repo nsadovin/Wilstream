@@ -44,8 +44,56 @@ public partial class avgis : System.Web.UI.Page
           {142, "Успешно реализовано"},
           {143, "Закрыто и не реализовано"}, */
     };
+
+
+    protected void ButtonSearch_Click(object sender, EventArgs e)
+    {
+        Search();
+
+    }
+
+    private void Search(bool isinit = false) {
+        List<CrmContact> contacts = new List<CrmContact>();
+        if (TextBoxWordSearch.Text != "")
+        {
+            contacts =
+             _service.GetContacts(TextBoxWordSearch.Text).OrderByDescending(r => r.DateCreate).Take(10).ToList();
+
+        }
+        else if (Session.Contents["SearchResult"] != null)
+        {
+            contacts = Session.Contents["SearchResult"] as List<CrmContact>;
+        }
+            foreach (var contact in contacts)
+            {
+                if (contact.leads == null) continue;
+                if (contact.leads.Ids == null) continue;
+                if (contact.leads.Ids.Count == 0) continue;
+                TableRow tr = new TableRow();
+                TableCell tc1 = new TableCell();
+                tc1.Text = contact.Name;
+                TableCell tc2 = new TableCell() { Width = 100 };
+                Button btn = new Button() { ID = "BtnContact" + contact.Id, ViewStateMode = ViewStateMode.Enabled, EnableViewState = true, ToolTip = contact.leads.Ids.FirstOrDefault().ToString(), Text = "Перейти к лиду" };
+                btn.Click += ButtonGoToLead_Click;
+                tc2.Controls.Add(btn);
+                tr.Cells.Add(tc1);
+                tr.Cells.Add(tc2);
+                TableSearch.Rows.Add(tr);
+
+            }
+            if(!isinit)
+            Session.Contents["SearchResult"] = contacts;
+         
+    }
+
+    protected void ButtonGoToLead_Click(object sender, EventArgs e)
+    { 
+        Response.Redirect("~/avgis.aspx?IdLead=" + (sender as Button).ToolTip); 
+    }
+
     protected void Page_Init(object sender, EventArgs e)
     {
+
         var account_info = _service.GetAccountInfo();
         var lead_fields = _service.GetAccountInfo().CustomFields.Leads;
         var contact_fields = _service.GetAccountInfo().CustomFields.Contacts;
@@ -60,12 +108,17 @@ public partial class avgis : System.Web.UI.Page
         if (phone.Length > 10)
             phone = phone.Substring(phone.Length - 10, 10);
 
+        Search(true);
+
+
+
         if (phone == "" && IdLead == "")
         {
 
             Response.Write("Не определен номер телефона");
             Response.End();
         }
+        
 
         foreach (var option in users.OrderBy(r => r.Name))
         {
@@ -115,7 +168,7 @@ public partial class avgis : System.Web.UI.Page
            _service.GetContacts(phone).OrderByDescending(r => r.DateCreate).FirstOrDefault();
             if (contact_search != null)
             {
-                IdLead = contact_search.LinkedLeadsId.FirstOrDefault().ToString();
+                IdLead = contact_search.leads.Ids.FirstOrDefault().ToString();
                 lead = _service.GetLead(Convert.ToInt64(IdLead));
             }
         }
@@ -838,4 +891,5 @@ public partial class avgis : System.Web.UI.Page
             DropDownListStatuses.Items.Add(new ListItem() { Value = option.Value.Id.ToString(), Text = option.Value.Name.ToString() });
         };
     }
+
 }

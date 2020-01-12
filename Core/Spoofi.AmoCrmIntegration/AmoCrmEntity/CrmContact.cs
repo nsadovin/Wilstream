@@ -44,8 +44,8 @@ namespace Spoofi.AmoCrmIntegration.AmoCrmEntity
         [JsonProperty("created_user_id")]
         public long CreatedUserId { get; set; }
 
-        [JsonProperty("linked_leads_id")]
-        public List<long> LinkedLeadsId { get; set; }
+        [JsonProperty("leads")]
+        public CrmLeadInfo leads { get; set; }
 
         [JsonProperty("tags")]
         public List<CrmTag> Tags { get; set; }
@@ -55,5 +55,13 @@ namespace Spoofi.AmoCrmIntegration.AmoCrmEntity
 
         [JsonProperty("custom_fields")]
         public List<CrmCustomField> CustomFields { get; set; }
+    }
+
+    public class CrmLeadInfo
+    {
+        [JsonProperty("id")]
+        public List<long> Ids { get; set; }
+        [JsonProperty("_links")]
+        public CrmCompanyLinks Links { get; set; }
     }
 }

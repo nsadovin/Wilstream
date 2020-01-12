@@ -174,7 +174,9 @@ namespace Spoofi.AmoCrmIntegration.Service
             {
                 _crmConfig.LimitOffset = offset;
                 var parameterQuery = new Parameter {Name = "query", Value = query, Type = ParameterType.QueryString};
-                var contactsList = AmoMethod.Get<CrmGetContactResponse>(_crmConfig, parameterQuery);
+                var parameterEntity = new Parameter {Name = "entity", Value = "contacts", Type = ParameterType.QueryString};
+                Parameter[] params_ = new Parameter[]{ parameterQuery , parameterEntity };
+                var contactsList = AmoMethod.Get<CrmGetContactResponse>(_crmConfig, params_);
                 if (contactsList == null)
                     break;
                 contacts.AddRange(contactsList.Response.Contacts);

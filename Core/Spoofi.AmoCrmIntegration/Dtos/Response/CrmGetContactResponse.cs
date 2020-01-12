@@ -7,12 +7,13 @@ namespace Spoofi.AmoCrmIntegration.Dtos.Response
 {
     public class CrmGetContactResponse : AmoCrmResponseBase<CrmContactResponseChild>
     {
+        [JsonProperty("_embedded")]
         public override CrmContactResponseChild Response { get; set; }
     }
 
     public class CrmContactResponseChild : IAmoCrmResponseChild
     {
-        [JsonProperty("contacts")]
+        [JsonProperty("items")]
         public List<CrmContact> Contacts { get; set; }
 
         [JsonProperty("error")]

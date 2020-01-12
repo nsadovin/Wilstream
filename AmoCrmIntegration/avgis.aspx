@@ -19,7 +19,11 @@
             <asp:HiddenField ID="HiddenFieldIdChain" runat="server" />
     <div class="container-fluid">
         <div class="row" style="padding: 10px;"> 
-                <asp:Label ID="LabelMsg" Visible="false" style="width: 100%;" runat="server" Text=""></asp:Label>
+            <asp:TextBox ID="TextBoxWordSearch" Width="400" runat="server"></asp:TextBox> <asp:Button ID="ButtonSearch" OnClick="ButtonSearch_Click" runat="server" Text="ПОИСК" />
+            
+           
+            
+            <asp:Label ID="LabelMsg" Visible="false" style="width: 100%;" runat="server" Text=""></asp:Label>
              
         </div>
         <div class="row">
@@ -27,10 +31,18 @@
 
         </asp:Panel>
             </div>
-
+        
+        <div class="row">
+        <div class="col">
+            <asp:Table ID="TableSearch" style="width: 100%;" CssClass="table-borderless" runat="server"> 
+            </asp:Table> 
+        </div>
+        </div>
         <div class="row">
         <div class="col">
         <asp:Panel ID="PanelInfoLead"  Visible="false" runat="server">
+
+            
             <asp:HiddenField ID="HiddenFieldLeadJson" runat="server" />
             <h1>Лид (<asp:Label ID="LabelLeadId" runat="server" Text=""></asp:Label>)</h1> 
             <asp:Table ID="TableLead" CssClass="table-borderless" runat="server">
