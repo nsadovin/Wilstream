@@ -45,6 +45,11 @@ public partial class avgis : System.Web.UI.Page
           {143, "Закрыто и не реализовано"}, */
     };
 
+    protected void ButtonClear_Click(object sender, EventArgs e)
+    {
+        TableSearch.Rows.Clear();
+        Session.Contents["SearchResult"] = null;
+    }
 
     protected void ButtonSearch_Click(object sender, EventArgs e)
     {
@@ -891,5 +896,6 @@ public partial class avgis : System.Web.UI.Page
             DropDownListStatuses.Items.Add(new ListItem() { Value = option.Value.Id.ToString(), Text = option.Value.Name.ToString() });
         };
     }
+
 
 }

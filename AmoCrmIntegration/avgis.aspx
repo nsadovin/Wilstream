@@ -20,6 +20,7 @@
     <div class="container-fluid">
         <div class="row" style="padding: 10px;"> 
             <asp:TextBox ID="TextBoxWordSearch" Width="400" runat="server"></asp:TextBox> <asp:Button ID="ButtonSearch" OnClick="ButtonSearch_Click" runat="server" Text="ПОИСК" />
+            <asp:Button ID="ButtonClear" OnClick="ButtonClear_Click" runat="server" Text="ОЧИСТИТЬ ПОИСК" />
             
            
             

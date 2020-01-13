@@ -110,7 +110,7 @@ public partial class MassageSchool : System.Web.UI.Page
            _service.GetContacts(phone).OrderByDescending(r => r.DateCreate).FirstOrDefault();
             if (contact_search != null)
             {
-                IdLead = contact_search.LinkedLeadsId.FirstOrDefault().ToString();
+                IdLead = contact_search.leads.Ids.FirstOrDefault().ToString();
               
             }
         }
