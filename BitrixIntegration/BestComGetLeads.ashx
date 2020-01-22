@@ -51,7 +51,7 @@ public class BestComGetLeads : IHttpHandler {
         };
 
         //string Leads = BX24.SendCommand("crm.lead.list", "FILTER[STATUS_ID]=NEW&"+String.Join("&",FilterSOURCE_IDs.Select(r=>"FILTER[SOURCE_ID]<>"+r)), JsonConvert.SerializeObject(dataListLids), "POST");
-        string Leads = BX24.SendCommand("crm.lead.list", "SELECT[]=PHONE&SELECT[]=ID&FILTER[NAME]=Wantresult&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
+        string Leads = BX24.SendCommand("crm.lead.list", "SELECT[]=PHONE&SELECT[]=ID&FILTER[%TITLE]=Wantresult&FILTER[>DATE_CREATE]="+DateTime.Now.AddHours(-10).ToString("yyyy-MM-ddTHH:mm:ss")+"&ORDER[ID]=ASC", JsonConvert.SerializeObject(dataListLids), "POST");
 
         var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
         if (LeadsJSON.total == 0) return;
@@ -76,7 +76,7 @@ public class BestComGetLeads : IHttpHandler {
 
             SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
 
-            var SqlStr = "IF not exists(select * from [dbo].[WS_SpecKrovlya] with(nolock) where IdLead = "+IdLead.ToString()+") INSERT INTO  [dbo].[WS_SpecKrovlya]   (Phone, IdLead) Values ( oktell_ccws.[dbo].[clearPhoneAndAddEight]('" + Phone + "'), "+IdLead.ToString()+")  ";
+            var SqlStr = "IF not exists(select * from [dbo].[WS_BestCom] with(nolock) where IdLead = "+IdLead.ToString()+") INSERT INTO  [dbo].[WS_BestCom]   (Phone, IdLead) Values ( oktell_ccws.[dbo].[clearPhoneAndAddEight]('" + Phone + "'), "+IdLead.ToString()+")  ";
 
 
             SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);
