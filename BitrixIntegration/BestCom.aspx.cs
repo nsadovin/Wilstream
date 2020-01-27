@@ -15,6 +15,11 @@ public partial class BestCom : System.Web.UI.Page
     string Phone = "";
 
 
+
+
+    public List<int> FilterUserFields =  new List<int>();
+
+
     protected void Page_Init(object sender, EventArgs e)
     {
         if (Request.QueryString["IdLead"] != null)
@@ -45,7 +50,7 @@ public partial class BestCom : System.Web.UI.Page
         foreach (var status in StatusList.result)
             DropDownListLeadSTATUS_ID.Items.Add(new ListItem(status.NAME.ToString(), status.STATUS_ID.ToString()));
 
-        DropDownListLeadSTATUS_ID.SelectedValue = "5";
+        //DropDownListLeadSTATUS_ID.SelectedValue = "5";
 
         
 
@@ -63,16 +68,29 @@ public partial class BestCom : System.Web.UI.Page
             sort = "LAST_NAME"
         };
         //&FILTER[ID][0]=15938&FILTER[ID][1]=174&FILTER[ID][2]=8170&FILTER[ID][3]=22&FILTER[ID][4]=15934&FILTER[ID][5]=15908
-        var userSearchListJson = BX24.SendCommand("user.search", "FILTER[ACTIVE]=TRUE", JsonConvert.SerializeObject(dataListUsers), "POST");
+        var userSearchListJson = BX24.SendCommand("user.search", "FILTER[ACTIVE]=TRUE", JsonConvert.SerializeObject(dataListUsers), "POST"); 
         var UserSearchList = JsonConvert.DeserializeObject<dynamic>(userSearchListJson);
-        var users = new List<KeyValuePair<string, string>>();
-        foreach (var user in UserSearchList.result)
-            users.Add(new KeyValuePair<string, string>(user.LAST_NAME.ToString() + " " + user.NAME.ToString(), user.ID.ToString()));
+        var it  = 0;
         DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem("-----", ""));
-        foreach (var user in users.OrderBy(r => r.Key))
-            DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem(user.Key, user.Value));
-        
-        
+        var users = new List<KeyValuePair<string, string>>();
+        while (it < 5)
+        {
+            it++;
+            foreach (var user in UserSearchList.result)
+                users.Add(new KeyValuePair<string, string>(user.LAST_NAME.ToString() + " " + user.NAME.ToString(), user.ID.ToString()));
+            if (UserSearchList.next != null)
+            {
+                userSearchListJson = BX24.SendCommand("user.search", "FILTER[ACTIVE]=TRUE&start=" + UserSearchList.next.ToString(), JsonConvert.SerializeObject(dataListUsers), "POST");
+                UserSearchList = JsonConvert.DeserializeObject<dynamic>(userSearchListJson);
+            }
+            else break;
+
+        }
+            
+            foreach (var user in users.OrderBy(r => r.Key))
+                DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem(user.Key, user.Value));
+
+        BX24.FilterUserFields = FilterUserFields;
         foreach (var uf in BX24.Userfields)
         {
             var tr = new TableRow() { ID = "TableRow" + uf.ID };
@@ -209,6 +227,9 @@ public partial class BestCom : System.Web.UI.Page
             TextBoxLeadCOMMENTS.Text = LeadByJSON.result.COMMENTS;
             DropDownListLeadASSIGNED_BY_ID.SelectedValue = LeadByJSON.result.ASSIGNED_BY_ID;
             Type t = LeadByJSON.result.GetType();
+
+            BX24.FilterUserFields = FilterUserFields;
+
             foreach (var uf in BX24.Userfields)
             {
                 if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.enumeration)
@@ -447,6 +468,7 @@ public partial class BestCom : System.Web.UI.Page
             }
             data.fields["PHONE"] = phones;
             Type t = data.fields.GetType();
+            BX24.FilterUserFields = FilterUserFields;
             foreach (var uf in BX24.Userfields)
             {
                 if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.enumeration)
@@ -509,8 +531,12 @@ public partial class BestCom : System.Web.UI.Page
 
             if (IdLeadOld == 0)
             {
-                Response.Redirect("~/SpecKrovlya.aspx?IdLead=" + IdLead);
+                Response.Redirect("~/BestComm.aspx?IdLead=" + IdLead);
                 Response.End();
+            }
+            else {
+                LabelMSG.Visible = true;
+                LabelMSG.Text = "Данные по лиду обновлены";
             }
         }
         catch (Exception ex)

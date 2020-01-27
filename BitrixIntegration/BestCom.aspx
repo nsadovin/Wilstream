@@ -18,6 +18,7 @@
             <div class="col-sm"> 
             <asp:Panel ID="PanelLead" runat="server">
                 <h2>Лид: <asp:Label ID="LabelNameLead" runat="server" Text="Новый"></asp:Label></h2>
+                <asp:Label ID="LabelMSG" Visible="false" ForeColor="Green" runat="server" Text=""></asp:Label>
                 <asp:HiddenField ID="HiddenFieldIdLead" runat="server" />
                 <asp:Table ID="TableLead" runat="server">
                     <asp:TableHeaderRow>
@@ -65,7 +66,7 @@
                     <asp:TableRow>
                         <asp:TableCell>Статус</asp:TableCell>
                         <asp:TableCell> 
-                            <asp:DropDownList ID="DropDownListLeadSTATUS_ID" Enabled="false" CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="DropDownListLeadSTATUS_ID"   CssClass="form-control" runat="server"></asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow> 
                     <asp:TableRow>

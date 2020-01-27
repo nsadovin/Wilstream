@@ -244,6 +244,11 @@ public class Bitrix24
 
     }
 
+
+    public List<int> FilterUserFields = null;
+
+
+
     public List<Userfield> Userfields
     {
         get
@@ -308,8 +313,15 @@ public class Bitrix24
 
                 var userfieldsJson = SendCommand("crm.lead.userfield.list", "", "", "GET");
                 var userfields = JsonConvert.DeserializeObject<dynamic>(userfieldsJson).result;
+
+
+
                 foreach (dynamic _userfield in userfields)
                 {
+                    if (FilterUserFields!=null)
+                    {
+                        if (!FilterUserFields.Contains(Convert.ToInt32(_userfield.ID))) continue;
+                    }
                     var userfieldJson = SendCommand("crm.lead.userfield.get", "ID="+ _userfield.ID, "", "GET");
                     var userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
                     Userfields.Add(new Bitrix24.Userfield()

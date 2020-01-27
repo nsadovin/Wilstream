@@ -157,6 +157,7 @@ public partial class SpecKrovlya : System.Web.UI.Page
             //DropDownListLeadSTATUS_ID.SelectedValue = LeadByJSON.result.STATUS_ID; 
             if (LeadByJSON.result.PHONE != null)
             {
+                var countContact = 0;
                 foreach (var phone in LeadByJSON.result.PHONE)
                 {
                     var row = new TableRow() { };
@@ -176,6 +177,15 @@ public partial class SpecKrovlya : System.Web.UI.Page
                     row.Cells.Add(cell);
                     row.Cells.Add(cell2);
                     TablePhones.Rows.Add(row);
+
+                    if (Session.Contents["TableContact"] != null)
+                    {
+                        var tables = (Session.Contents["TableContact"] as Dictionary<string, TableRow>);
+                        if (tables.ContainsKey("TableRow" + countContact))
+                            tables.Remove("TableRow" + countContact);
+                        Session.Contents["TableContact"] = tables;
+                    }
+                    countContact++;
                 }
             }
             else
@@ -262,6 +272,12 @@ public partial class SpecKrovlya : System.Web.UI.Page
                 TextBox.Text = Request.QueryString["AbonentNumber"].ToString();
             }
         }
+
+        if (Session.Contents["TableContact"] != null)
+            foreach (var item in (Session.Contents["TableContact"] as Dictionary<string, TableRow>))
+            {
+                TablePhones.Controls.Add(item.Value);
+            }
 
         //string LeadListByJSON = BX24.SendCommand("crm.lead.list", "", "", "GET");
         //string LeadListByJSON = BX24.SendCommand("crm.lead.add", "", contentText, "POST");
@@ -553,5 +569,42 @@ public partial class SpecKrovlya : System.Web.UI.Page
         }
 
         Session.Contents["productrows"] = Result;
+    }
+
+
+    protected void ButtonAddPhone_Click(object sender, EventArgs e)
+    {
+         
+
+        var count = 0;
+        foreach (Control c in TablePhones.Rows)
+        {
+            if (c is TableRow) count++;
+        }
+        var tableRow = CreateContectRow(count);
+        if (Session.Contents["TableContact"] == null)
+            Session.Contents["TableContact"] = new Dictionary<String, TableRow>();
+
+        (Session.Contents["TableContact"] as Dictionary<String, TableRow>).Add(tableRow.ID, tableRow);
+    }
+
+    private TableRow CreateContectRow(int count)
+    {
+        var row = new TableRow() { ID = "TableRow" + count };
+        var cell = new TableCell() { };
+        var cell2 = new TableCell() { };
+        var uniq = count.ToString();
+        var TextBox = new TextBox() { CssClass = "form-control", ID = "TextBoxLeadPHONE" + uniq };
+        var DropDownListLeadPHONE = new DropDownList() { ID = "DropDownListLeadPHONE" + uniq, CssClass = "form-control" };
+        DropDownListLeadPHONE.Items.AddRange(
+            BX24.PhoneTypes.Select(r => new ListItem(r.Value, r.Key)).ToArray());
+        var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadPHONE" + uniq, ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadPHONE" + uniq, ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic };
+        cell.Controls.Add(TextBox);
+        cell.Controls.Add(RequiredFieldValidator);
+        cell2.Controls.Add(DropDownListLeadPHONE);
+        row.Cells.Add(cell);
+        row.Cells.Add(cell2);
+        TablePhones.Rows.Add(row);
+        return row;
     }
 }

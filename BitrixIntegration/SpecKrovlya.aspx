@@ -74,6 +74,7 @@
                             <asp:Table ID="TablePhones" runat="server">
 
                             </asp:Table> 
+                            <asp:Button runat="server" OnClick="ButtonAddPhone_Click" ID="ButtonAddPhone" Text="Добавить" />
                         </asp:TableCell>
                     </asp:TableRow> 
                     <asp:TableRow>
