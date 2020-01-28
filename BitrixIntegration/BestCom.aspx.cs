@@ -172,7 +172,7 @@ public partial class BestCom : System.Web.UI.Page
             TextBoxLeadSECOND_NAME.Text = LeadByJSON.result.SECOND_NAME;
             TextBoxLeadADDRESS_CITY.Text = LeadByJSON.result.ADDRESS_CITY;
             TextBoxLeadLAST_NAME.Text = LeadByJSON.result.LAST_NAME;
-            //DropDownListLeadSTATUS_ID.SelectedValue = LeadByJSON.result.STATUS_ID; 
+            DropDownListLeadSTATUS_ID.SelectedValue = LeadByJSON.result.STATUS_ID; 
             if (LeadByJSON.result.PHONE != null)
             {
                 foreach (var phone in LeadByJSON.result.PHONE)
@@ -531,7 +531,7 @@ public partial class BestCom : System.Web.UI.Page
 
             if (IdLeadOld == 0)
             {
-                Response.Redirect("~/BestComm.aspx?IdLead=" + IdLead);
+                Response.Redirect("~/BestCom.aspx?IdLead=" + IdLead);
                 Response.End();
             }
             else {

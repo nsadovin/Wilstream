@@ -50,25 +50,46 @@ public class SpecKrovlyaGetLeads : IHttpHandler {
         };
 
         //string Leads = BX24.SendCommand("crm.lead.list", "FILTER[STATUS_ID]=NEW&"+String.Join("&",FilterSOURCE_IDs.Select(r=>"FILTER[SOURCE_ID]<>"+r)), JsonConvert.SerializeObject(dataListLids), "POST");
-        string Leads = BX24.SendCommand("crm.lead.list", "SELECT[]=PHONE&SELECT[]=ID&FILTER[STATUS_ID]=NEW&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
+        string Leads = BX24.SendCommand("crm.lead.list", "SELECT[]=PHONE&SELECT[]=ID&SELECT[]=SOURCE_ID&SELECT[]=DATE_CREATE&FILTER[STATUS_ID]=NEW&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
 
         var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
         if (LeadsJSON.total == 0) return;
 
         foreach (var lead in LeadsJSON.result)
         {
-            if (FilterSOURCE_IDs.Contains(lead.SOURCE_D) || lead.PHONE == null) continue;
-            AddToDataBase(Convert.ToString(lead.PHONE[0].VALUE), (int)lead.ID);
+            if (FilterSOURCE_IDs.Contains(Convert.ToString(lead.SOURCE_ID)) || lead.PHONE == null) continue;
+            if (IsExistsInDataBase(Convert.ToString(lead.PHONE[0].VALUE), (int)lead.ID, Convert.ToDateTime(lead.DATE_CREATE)))
+            {
+                var data =  new
+                {
+                    id = (Object)lead.ID,
+                    fields = new Dictionary<string, object>()
+                      {
+
+                          { "STATUS_ID" , 3 }
+
+                    },
+                    @params = new { REGISTER_SONET_EVENT = "Y" }
+                };
+                var contentText = JsonConvert.SerializeObject(data);
+                var rslt = BX24.SendCommand("crm.lead.update", "", contentText, "POST");
+            }
+            else
+            {
+                AddToDataBase(Convert.ToString(lead.PHONE[0].VALUE), (int)lead.ID, Convert.ToDateTime(lead.DATE_CREATE));
+            }
         }
 
         context.Response.ContentType = "text/plain";
         context.Response.Write("Good");
     }
 
-    private void AddToDataBase(string Phone, int IdLead) {
+
+    private bool IsExistsInDataBase(string Phone, int IdLead, DateTime Created) {
+        var result = false;
         try
         {
-                
+
             System.Data.SqlClient.SqlConnection conn = null;
 
             System.Configuration.ConnectionStringSettings settings =
@@ -76,11 +97,47 @@ public class SpecKrovlyaGetLeads : IHttpHandler {
 
             SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
 
-            var SqlStr = "IF not exists(select * from [dbo].[WS_SpecKrovlya] with(nolock) where IdLead = "+IdLead.ToString()+") INSERT INTO  [dbo].[WS_SpecKrovlya]   (Phone, IdLead) Values ( oktell_ccws.[dbo].[clearPhoneAndAddEight]('" + Phone + "'), "+IdLead.ToString()+")  ";
+            var SqlStr = "select * from [dbo].[WS_SpecKrovlya] with(nolock) " +
+                "where IdLead <> "+IdLead.ToString()+" and Phone = oktell_ccws.[dbo].[clearPhoneAndAddEight]('" + Phone + "') and dateadd(mi,30,Created) > @CreatedLead; ";
 
 
             SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);
             myOdbcCommand.CommandType = CommandType.Text;
+            myOdbcCommand.Parameters.AddWithValue("@CreatedLead", Created);
+            myOdbcCommand.Connection.Open();
+            SqlDataReader myOdbcReader = myOdbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
+            if (myOdbcReader.HasRows) {
+                result = true;
+            }
+            myOdbcReader.Close();
+            myOdbcConnection.Close();
+
+        }
+        catch (Exception ex)
+        {
+            _context.Response.Write(ex.Message);
+        }
+
+        return result;
+    }
+
+    private void AddToDataBase(string Phone, int IdLead, DateTime Created) {
+        try
+        {
+
+            System.Data.SqlClient.SqlConnection conn = null;
+
+            System.Configuration.ConnectionStringSettings settings =
+            System.Configuration.ConfigurationManager.ConnectionStrings["oktellConnectionString"];
+
+            SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
+
+            var SqlStr = "IF not exists(select * from [dbo].[WS_SpecKrovlya] with(nolock) where IdLead = "+IdLead.ToString()+") INSERT INTO  [dbo].[WS_SpecKrovlya]   (Phone, IdLead, [Created]) Values ( oktell_ccws.[dbo].[clearPhoneAndAddEight]('" + Phone + "'), "+IdLead.ToString()+", @CreatedLead)  ";
+
+
+            SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);
+            myOdbcCommand.CommandType = CommandType.Text;
+            myOdbcCommand.Parameters.AddWithValue("@CreatedLead", Created);
             myOdbcCommand.Connection.Open();
             SqlDataReader myOdbcReader = myOdbcCommand.ExecuteReader(CommandBehavior.CloseConnection);
 
