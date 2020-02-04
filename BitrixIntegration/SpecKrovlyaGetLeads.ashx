@@ -77,11 +77,30 @@ public class SpecKrovlyaGetLeads : IHttpHandler {
             else
             {
                 AddToDataBase(Convert.ToString(lead.PHONE[0].VALUE), (int)lead.ID, Convert.ToDateTime(lead.DATE_CREATE));
+                UpdateStatusLead((int)lead.ID, "5");
             }
         }
 
         context.Response.ContentType = "text/plain";
         context.Response.Write("Good");
+    }
+
+
+    private void UpdateStatusLead(int IdLead, string UpdateStatus)
+    {
+        var data =  new
+        {
+            id = (Object)IdLead,
+            fields = new Dictionary<string, object>()
+              {
+
+                  { "STATUS_ID" , UpdateStatus }
+
+            },
+            @params = new { REGISTER_SONET_EVENT = "Y" }
+        };
+        var contentText = JsonConvert.SerializeObject(data);
+        var rslt = BX24.SendCommand("crm.lead.update", "", contentText, "POST");
     }
 
 

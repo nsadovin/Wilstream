@@ -438,7 +438,8 @@ public class Bitrix24
         enumeration
         ,file
         ,@string
-        , boolean
+        ,boolean
+        ,datetime
     }
 
     //Открытый метод для отправки REST-запросов в Битрикс24
