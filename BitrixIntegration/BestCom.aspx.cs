@@ -17,7 +17,7 @@ public partial class BestCom : System.Web.UI.Page
 
 
 
-    public List<int> FilterUserFields =  new List<int>();
+    public List<int> FilterUserFields =  new List<int>() { 1622, 1618};
 
 
     protected void Page_Init(object sender, EventArgs e)
@@ -111,6 +111,15 @@ public partial class BestCom : System.Web.UI.Page
             else  if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.@string)
             {
                 var ddl = new TextBox() { ID = "TextBoxUserfield" + uf.ID, CssClass = "form-control" };                 
+                tc2.Controls.Add(ddl);
+
+                tr.Cells.Add(tc1);
+                tr.Cells.Add(tc2);
+                TableLead.Rows.Add(tr);
+            }
+            else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.datetime)
+            {
+                var ddl = new TextBox() { ID = "TextBoxUserfield" + uf.ID, TextMode= TextBoxMode.Date, CssClass = "form-control" };
                 tc2.Controls.Add(ddl);
 
                 tr.Cells.Add(tc1);
@@ -241,7 +250,21 @@ public partial class BestCom : System.Web.UI.Page
                             DropDownListUF.SelectedValue = item.Value.ToString();
                     }
 
-                } 
+                }
+                else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.datetime)
+                {
+                    var TextBoxUserfield = FindControl("TextBoxUserfield" + uf.ID) as TextBox;
+                    foreach (Newtonsoft.Json.Linq.JProperty item in LeadByJSON.result)
+                    {
+                        if (item.Name == uf.FIELD_NAME)//property name
+                        {
+                            DateTime dt;
+                            if(DateTime.TryParse(item.Value.ToString(), out dt))
+                            TextBoxUserfield.Text = Convert.ToDateTime(dt).ToString("yyyy-MM-dd");
+                        }
+                    }
+
+                }
             }
 
 
@@ -486,6 +509,14 @@ public partial class BestCom : System.Web.UI.Page
                     if (ddl != null)
                     {
                         data.fields.Add(uf.FIELD_NAME, ddl.Text); 
+                    }
+                }
+                else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.datetime)
+                {
+                    var ddl = Page.FindControl("TextBoxUserfield" + uf.ID) as TextBox;
+                    if (ddl != null)
+                    {
+                        data.fields.Add(uf.FIELD_NAME, ddl.Text);
                     }
                 }
             }

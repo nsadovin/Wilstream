@@ -101,7 +101,7 @@
                     <asp:TableRow>
                         <asp:TableCell>Комментарий</asp:TableCell>
                         <asp:TableCell> 
-                              <asp:TextBox ID="TextBoxLeadCOMMENTS" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
+                              <asp:TextBox ID="TextBoxLeadCOMMENTS" Rows="6" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
                         </asp:TableCell>
                     </asp:TableRow>
                     
