@@ -1024,7 +1024,7 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             (sender as Button).CommandName = HiddenFieldS4.Value == "2"|| HiddenFieldS4.Value=="3" ? "Panel59" : "Panel66";
-            Button60.CommandName = HiddenFieldS4.Value == "3" ? "Panel66" : "Panel5";
+            //Button60.CommandName = HiddenFieldS4.Value == "3" ? "Panel66" : "Panel5";
             Button28.CommandName = HiddenFieldS4.Value == "3" ? "Panel66" : "Panel5";
         }
         QAC_Button(sender, e);
@@ -1255,8 +1255,36 @@ public partial class _Default : System.Web.UI.Page
         saveData(636, CheckBoxQ6_3_16.Checked ? "1" : "");
         saveData(637, CheckBoxQ6_3_17.Checked ? "1" : "");
 
+
+      
+
+
         standartNext(sender, e);
     }
+
+
+    protected void TableQ7_PreRender(object sender, EventArgs e)
+    {
+        for (int i = 1; i < TableQ6.Rows.Count; i++)
+        {
+            TableRow tr = TableQ6.Rows[i];
+            TableQ7.Rows[i-1].Visible =
+                (tr.Cells[3].Controls[0] as CheckBox).Checked;
+        }
+    }
+
+
+
+    protected void TableQ13_PreRender(object sender, EventArgs e)
+    {
+        for (int i = 1; i < TableQ12.Rows.Count; i++)
+        {
+            TableRow tr = TableQ12.Rows[i];
+            TableQ13.Rows[i - 1].Visible =
+                (tr.Cells[3].Controls[0] as CheckBox).Checked;
+        }
+    }
+
     protected void QAC_Q7(object sender, EventArgs e)
     {
 
@@ -1280,23 +1308,23 @@ public partial class _Default : System.Web.UI.Page
 
 
         if (
-            DropDownListQ7_1.SelectedIndex < 1
-            || DropDownListQ7_2.SelectedIndex < 1
-            || DropDownListQ7_3.SelectedIndex < 1
-            || DropDownListQ7_4.SelectedIndex < 1
-            || DropDownListQ7_5.SelectedIndex < 1
-            || DropDownListQ7_6.SelectedIndex < 1
-            || DropDownListQ7_7.SelectedIndex < 1
-            || DropDownListQ7_8.SelectedIndex < 1
-            || DropDownListQ7_9.SelectedIndex < 1
-            || DropDownListQ7_10.SelectedIndex < 1
-            || DropDownListQ7_11.SelectedIndex < 1
-            || DropDownListQ7_12.SelectedIndex < 1
-            || DropDownListQ7_13.SelectedIndex < 1
-            || DropDownListQ7_14.SelectedIndex < 1
-            || DropDownListQ7_15.SelectedIndex < 1
-            || DropDownListQ7_16.SelectedIndex < 1
-            || DropDownListQ7_17.SelectedIndex < 1
+            (DropDownListQ7_1.SelectedIndex < 1 && TableQ7.Rows[0].Visible)
+            || (DropDownListQ7_2.SelectedIndex < 1 && TableQ7.Rows[1].Visible)
+            || (DropDownListQ7_3.SelectedIndex < 1 && TableQ7.Rows[2].Visible)
+            || (DropDownListQ7_4.SelectedIndex < 1 && TableQ7.Rows[3].Visible)
+            || (DropDownListQ7_5.SelectedIndex < 1 && TableQ7.Rows[4].Visible)
+            || (DropDownListQ7_6.SelectedIndex < 1 && TableQ7.Rows[5].Visible)
+            || (DropDownListQ7_7.SelectedIndex < 1 && TableQ7.Rows[6].Visible)
+            || (DropDownListQ7_8.SelectedIndex < 1 && TableQ7.Rows[7].Visible)
+            || (DropDownListQ7_9.SelectedIndex < 1 && TableQ7.Rows[8].Visible)
+            || (DropDownListQ7_10.SelectedIndex < 1 && TableQ7.Rows[9].Visible)
+            || (DropDownListQ7_11.SelectedIndex < 1 && TableQ7.Rows[10].Visible)
+            || (DropDownListQ7_12.SelectedIndex < 1 && TableQ7.Rows[11].Visible)
+            || (DropDownListQ7_13.SelectedIndex < 1 && TableQ7.Rows[12].Visible)
+            || (DropDownListQ7_14.SelectedIndex < 1 && TableQ7.Rows[13].Visible)
+            || (DropDownListQ7_15.SelectedIndex < 1 && TableQ7.Rows[14].Visible)
+            || (DropDownListQ7_16.SelectedIndex < 1 && TableQ7.Rows[15].Visible)
+            || (DropDownListQ7_17.SelectedIndex < 1 && TableQ7.Rows[16].Visible)
             )
         {
             LBMSG.Visible = true;
@@ -1315,7 +1343,7 @@ public partial class _Default : System.Web.UI.Page
 
 
             (CheckBoxQ6_2_1.Checked || CheckBoxQ6_2_10.Checked) ? "Panel65" : "Panel30";
-
+        /*
         Button60.CommandName = (CheckBoxQ6_2_2.Checked 
             || CheckBoxQ6_2_3.Checked
             || CheckBoxQ6_2_4.Checked
@@ -1325,6 +1353,7 @@ public partial class _Default : System.Web.UI.Page
             || CheckBoxQ6_2_8.Checked
             || CheckBoxQ6_2_9.Checked
             ) ? "Panel30" : (HiddenFieldS4.Value == "3" ? "Panel66" : "Panel5");
+            */
 
         standartNext(sender, e);
     }
@@ -1390,18 +1419,19 @@ public partial class _Default : System.Web.UI.Page
 
 
         if (
-            DropDownListQ13_1.SelectedIndex < 1
-            || DropDownListQ13_2.SelectedIndex < 1
-            || DropDownListQ13_3.SelectedIndex < 1
-            || DropDownListQ13_4.SelectedIndex < 1
-            || DropDownListQ13_5.SelectedIndex < 1
-            || DropDownListQ13_6.SelectedIndex < 1
-            || DropDownListQ13_7.SelectedIndex < 1
-            || DropDownListQ13_8.SelectedIndex < 1
-            || DropDownListQ13_9.SelectedIndex < 1
-            || DropDownListQ13_10.SelectedIndex < 1
-            || DropDownListQ13_11.SelectedIndex < 1
-            || DropDownListQ13_12.SelectedIndex < 1
+            (DropDownListQ13_1.SelectedIndex < 1 && TableQ13.Rows[0].Visible)
+            || (DropDownListQ13_2.SelectedIndex < 1 && TableQ13.Rows[1].Visible)
+            || (DropDownListQ13_3.SelectedIndex < 1 && TableQ13.Rows[2].Visible)
+            || (DropDownListQ13_4.SelectedIndex < 1 && TableQ13.Rows[3].Visible)
+            || (DropDownListQ13_5.SelectedIndex < 1 && TableQ13.Rows[4].Visible)
+            || (DropDownListQ13_6.SelectedIndex < 1 && TableQ13.Rows[5].Visible)
+            || (DropDownListQ13_7.SelectedIndex < 1 && TableQ13.Rows[6].Visible)
+            || (DropDownListQ13_8.SelectedIndex < 1 && TableQ13.Rows[7].Visible)
+            || (DropDownListQ13_9.SelectedIndex < 1 && TableQ13.Rows[8].Visible)
+            || (DropDownListQ13_10.SelectedIndex < 1 && TableQ13.Rows[9].Visible)
+            || (DropDownListQ13_11.SelectedIndex < 1 && TableQ13.Rows[10].Visible)
+            || (DropDownListQ13_12.SelectedIndex < 1 && TableQ13.Rows[11].Visible)
+             
             )
         {
             LBMSG.Visible = true;
@@ -1494,27 +1524,27 @@ public partial class _Default : System.Web.UI.Page
         saveData(1917, TextBoxQ19_7.Text);
         saveData(1918, TextBoxQ19_8.Text); 
 
-        if  
-            (
-            TextBoxQ19_1.Text=="" 
-            || TextBoxQ19_2.Text == ""
-            || TextBoxQ19_3.Text == ""
-            || TextBoxQ19_4.Text == ""
-            || TextBoxQ19_5.Text == ""
-            || TextBoxQ19_6.Text == ""
-            || TextBoxQ19_7.Text == ""
-            || TextBoxQ19_8.Text == ""  
-            )
-        {
-            LBMSG.Visible = true;
-            LBMSG.Text = "Укажите ответ по каждой марке";
-            return;
-        }
-        else
-        {
-            LBMSG.Visible = false;
-            LBMSG.Text = "";
-        }
+        //if  
+        //    (
+        //    TextBoxQ19_1.Text=="" 
+        //    || TextBoxQ19_2.Text == ""
+        //    || TextBoxQ19_3.Text == ""
+        //    || TextBoxQ19_4.Text == ""
+        //    || TextBoxQ19_5.Text == ""
+        //    || TextBoxQ19_6.Text == ""
+        //    || TextBoxQ19_7.Text == ""
+        //    || TextBoxQ19_8.Text == ""  
+        //    )
+        //{
+        //    LBMSG.Visible = true;
+        //    LBMSG.Text = "Укажите ответ по каждой марке";
+        //    return;
+        //}
+        //else
+        //{
+        //    LBMSG.Visible = false;
+        //    LBMSG.Text = "";
+        //}
          
 
         standartNext(sender, e);
@@ -1580,4 +1610,6 @@ public partial class _Default : System.Web.UI.Page
     {
         QAC_CheckBoxList(sender, e, "Уажите ТРИ варианта ответа");
     }
+
+
 }
