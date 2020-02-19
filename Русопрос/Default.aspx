@@ -710,16 +710,20 @@
                                 <asp:Panel ID="Panel76" runat="server"  Visible="false"> 
                                     Q14. Какие основные преимущества и/или недостатки гипсокартона КНАУФ в сравнении с гипсокартоном других марок Вы можете назвать?
                                     <div class="comment"></div>
-                                    <div class="comment">/открытый ввод/</div>
+                                 <div class="comment">Преимущества /открытый ввод/</div>
                                       
                                           <asp:TextBox ID="TextBoxQ15_1" Width="400" runat="server"></asp:TextBox> 
                                 <br/>
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ValidationGroup="Q15"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxQ15_1" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
-                                
-                                
+                               
+                                <div class="comment">Недостатки /открытый ввод/ </div>  
+                                          <asp:TextBox ID="TextBoxQ15_2" Width="400" runat="server"></asp:TextBox> 
+                                <br/>
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ValidationGroup="Q15"  runat="server" ErrorMessage="Заполните поле" ControlToValidate="TextBoxQ15_2" Display="Dynamic" CssClass="error"></asp:RequiredFieldValidator>
+                               
                                 <br/> 
                                 <asp:Button ID="Button32" runat="server" Text="Назад" CssClass="blue unibutton"   onclick="standartPrev"  />
-                                <asp:Button ID="Button46" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="Q15"  CommandName="Panel4" CommandArgument="1501"  onclick="QAC_TextBox" />
+                                <asp:Button ID="Button46" runat="server" Text="Далее" CssClass="blue unibutton" ValidationGroup="Q15"  CommandName="Panel4" CommandArgument="1501"  onclick="QAC_Q15" />
             
                                  </asp:Panel>  
                            

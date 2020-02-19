@@ -15,6 +15,9 @@ public partial class SpecKrovlya : System.Web.UI.Page
     string Phone = "";
 
 
+    public List<int> FilterUserFields = new List<int>();
+
+
     protected void Page_Init(object sender, EventArgs e)
     {
         if (Request.QueryString["IdLead"] != null)
@@ -71,8 +74,9 @@ public partial class SpecKrovlya : System.Web.UI.Page
         DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem("-----", ""));
         foreach (var user in users.OrderBy(r => r.Key))
             DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem(user.Key, user.Value));
-        
-        
+
+
+        BX24.FilterUserFields = FilterUserFields;
         foreach (var uf in BX24.Userfields)
         {
             var tr = new TableRow() { ID = "TableRow" + uf.ID };
@@ -219,6 +223,8 @@ public partial class SpecKrovlya : System.Web.UI.Page
             TextBoxLeadCOMMENTS.Text = LeadByJSON.result.COMMENTS;
             DropDownListLeadASSIGNED_BY_ID.SelectedValue = LeadByJSON.result.ASSIGNED_BY_ID;
             Type t = LeadByJSON.result.GetType();
+
+            BX24.FilterUserFields = FilterUserFields;
             foreach (var uf in BX24.Userfields)
             {
                 if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.enumeration)
@@ -463,6 +469,8 @@ public partial class SpecKrovlya : System.Web.UI.Page
             }
             data.fields["PHONE"] = phones;
             Type t = data.fields.GetType();
+
+            BX24.FilterUserFields = FilterUserFields;
             foreach (var uf in BX24.Userfields)
             {
                 if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.enumeration)

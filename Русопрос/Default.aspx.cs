@@ -1447,6 +1447,16 @@ public partial class _Default : System.Web.UI.Page
         standartNext(sender, e);
     }
 
+
+    protected void QAC_Q15(object sender, EventArgs e)
+    {
+
+        saveData(1501, TextBoxQ15_1.Text);
+        saveData(1502, TextBoxQ15_2.Text);
+
+        standartNext(sender, e);
+    }
+
     protected void QAC_Button_Q14(object sender, EventArgs e)
     {
 
