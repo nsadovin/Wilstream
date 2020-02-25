@@ -1337,13 +1337,13 @@ public partial class _Default : System.Web.UI.Page
         };
 
         Button66.CommandName
-            = (CheckBoxQ6_1_1.Checked || CheckBoxQ6_1_10.Checked) ? "Panel29" : "Panel30"; 
+            = (CheckBoxQ6_2_1.Checked || CheckBoxQ6_2_10.Checked) ? "Panel29" : "Panel30"; 
 
         Button3.CommandName =Button24.CommandName =Button27.CommandName =
             Button42.CommandName =
 
 
-            (CheckBoxQ6_2_1.Checked && CheckBoxQ6_2_10.Checked) ? "Panel65" : "Panel30";
+            (CheckBoxQ6_2_1.Checked || CheckBoxQ6_2_10.Checked) ? "Panel65" : "Panel30";
         /*
         Button60.CommandName = (CheckBoxQ6_2_2.Checked 
             || CheckBoxQ6_2_3.Checked
@@ -1374,31 +1374,31 @@ public partial class _Default : System.Web.UI.Page
         saveData(1211, CheckBoxQ12_1_11.Checked ? "1" : "");
         saveData(1212, CheckBoxQ12_1_12.Checked ? "1" : "");
 
-        saveData(1211, CheckBoxQ12_2_1.Checked ? "1" : "");
-        saveData(1212, CheckBoxQ12_2_2.Checked ? "1" : "");
-        saveData(1213, CheckBoxQ12_2_3.Checked ? "1" : "");
-        saveData(1214, CheckBoxQ12_2_4.Checked ? "1" : "");
-        saveData(1215, CheckBoxQ12_2_5.Checked ? "1" : "");
-        saveData(1216, CheckBoxQ12_2_6.Checked ? "1" : "");
-        saveData(1217, CheckBoxQ12_2_7.Checked ? "1" : "");
-        saveData(1218, CheckBoxQ12_2_8.Checked ? "1" : "");
-        saveData(1219, CheckBoxQ12_2_9.Checked ? "1" : "");
-        saveData(1220, CheckBoxQ12_2_10.Checked ? "1" : "");
-        saveData(1221, CheckBoxQ12_2_11.Checked ? "1" : "");
-        saveData(1223, CheckBoxQ12_2_12.Checked ? "1" : "");
+        saveData(1221, CheckBoxQ12_2_1.Checked ? "1" : "");
+        saveData(1222, CheckBoxQ12_2_2.Checked ? "1" : "");
+        saveData(1223, CheckBoxQ12_2_3.Checked ? "1" : "");
+        saveData(1224, CheckBoxQ12_2_4.Checked ? "1" : "");
+        saveData(1225, CheckBoxQ12_2_5.Checked ? "1" : "");
+        saveData(1226, CheckBoxQ12_2_6.Checked ? "1" : "");
+        saveData(1227, CheckBoxQ12_2_7.Checked ? "1" : "");
+        saveData(1228, CheckBoxQ12_2_8.Checked ? "1" : "");
+        saveData(1229, CheckBoxQ12_2_9.Checked ? "1" : "");
+        saveData(1230, CheckBoxQ12_2_10.Checked ? "1" : "");
+        saveData(1231, CheckBoxQ12_2_11.Checked ? "1" : "");
+        saveData(1232, CheckBoxQ12_2_12.Checked ? "1" : "");
 
-        saveData(1221, CheckBoxQ12_3_1.Checked ? "1" : "");
-        saveData(1222, CheckBoxQ12_3_2.Checked ? "1" : "");
-        saveData(1223, CheckBoxQ12_3_3.Checked ? "1" : "");
-        saveData(1224, CheckBoxQ12_3_4.Checked ? "1" : "");
-        saveData(1225, CheckBoxQ12_3_5.Checked ? "1" : "");
-        saveData(1226, CheckBoxQ12_3_6.Checked ? "1" : "");
-        saveData(1227, CheckBoxQ12_3_7.Checked ? "1" : "");
-        saveData(1228, CheckBoxQ12_3_8.Checked ? "1" : "");
-        saveData(1229, CheckBoxQ12_3_9.Checked ? "1" : "");
-        saveData(1230, CheckBoxQ12_3_10.Checked ? "1" : "");
-        saveData(1231, CheckBoxQ12_3_11.Checked ? "1" : "");
-        saveData(1232, CheckBoxQ12_3_12.Checked ? "1" : "");
+        saveData(1241, CheckBoxQ12_3_1.Checked ? "1" : "");
+        saveData(1242, CheckBoxQ12_3_2.Checked ? "1" : "");
+        saveData(1243, CheckBoxQ12_3_3.Checked ? "1" : "");
+        saveData(1244, CheckBoxQ12_3_4.Checked ? "1" : "");
+        saveData(1245, CheckBoxQ12_3_5.Checked ? "1" : "");
+        saveData(1246, CheckBoxQ12_3_6.Checked ? "1" : "");
+        saveData(1247, CheckBoxQ12_3_7.Checked ? "1" : "");
+        saveData(1248, CheckBoxQ12_3_8.Checked ? "1" : "");
+        saveData(1249, CheckBoxQ12_3_9.Checked ? "1" : "");
+        saveData(1250, CheckBoxQ12_3_10.Checked ? "1" : "");
+        saveData(1251, CheckBoxQ12_3_11.Checked ? "1" : "");
+        saveData(1252, CheckBoxQ12_3_12.Checked ? "1" : "");
 
         standartNext(sender, e);
     }
@@ -1418,6 +1418,10 @@ public partial class _Default : System.Web.UI.Page
         saveData(1311, DropDownListQ13_11.SelectedValue);
         saveData(1312, DropDownListQ13_12.SelectedValue);
 
+        Button25.CommandName
+            = (CheckBoxQ12_2_1.Checked) ? "Panel14" : "Panel4";
+
+      //  Button3.CommandName = Button24.CommandName = Button27.CommandName =            Button42.CommandName =    (CheckBoxQ12_2_1.Checked || CheckBoxQ12_2_10.Checked) ? "Panel14" : "Panel4";
 
         if (
             (DropDownListQ13_1.SelectedIndex < 0 && TableQ13.Rows[0].Visible)
