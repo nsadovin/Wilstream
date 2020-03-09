@@ -50,7 +50,7 @@ public class SpecKrovlyaGetLeads : IHttpHandler {
         };
 
         //string Leads = BX24.SendCommand("crm.lead.list", "FILTER[STATUS_ID]=NEW&"+String.Join("&",FilterSOURCE_IDs.Select(r=>"FILTER[SOURCE_ID]<>"+r)), JsonConvert.SerializeObject(dataListLids), "POST");
-        string Leads = BX24.SendCommand("crm.lead.list", "SELECT[]=PHONE&SELECT[]=ID&SELECT[]=SOURCE_ID&SELECT[]=DATE_CREATE&FILTER[STATUS_ID]=NEW&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
+        string Leads = BX24.SendCommand("crm.lead.list", "SELECT[]=PHONE&SELECT[]=ID&SELECT[]=SOURCE_ID&SELECT[]=DATE_CREATE&FILTER[STATUS_ID]=NEW&ORDER[ID]=ASC", JsonConvert.SerializeObject(dataListLids), "POST");
 
         var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
         if (LeadsJSON.total == 0) return;
@@ -117,7 +117,7 @@ public class SpecKrovlyaGetLeads : IHttpHandler {
             SqlConnection myOdbcConnection = new SqlConnection(settings.ConnectionString);
 
             var SqlStr = "select * from [dbo].[WS_SpecKrovlya] with(nolock) " +
-                "where IdLead <> "+IdLead.ToString()+" and Phone = oktell_ccws.[dbo].[clearPhoneAndAddEight]('" + Phone + "') and dateadd(mi,30,Created) > @CreatedLead; ";
+                "where isnull(IdLead,0) <> "+IdLead.ToString()+" and Phone = oktell_ccws.[dbo].[clearPhoneAndAddEight]('" + Phone + "') and dateadd(mi,30,Created) > @CreatedLead; ";
 
 
             SqlCommand myOdbcCommand = new SqlCommand(SqlStr, myOdbcConnection);
