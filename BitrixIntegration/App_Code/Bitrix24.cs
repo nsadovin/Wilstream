@@ -235,6 +235,21 @@ public class Bitrix24
         }
     }
 
+    
+    public Dictionary<string, string> EmailTypes
+    {
+        get {
+            return new Dictionary<string, string>()
+            {
+                { "WORK","Рабочий" },
+                { "HOME","Частный" },
+                { "MAILING","Для рассылок" },
+                { "OTHER","Другой" } 
+            };
+        }
+    }
+
+
     public class PRODUCT
     {
         public string NAME;
@@ -331,6 +346,7 @@ public class Bitrix24
                         NAME = userfield.EDIT_FORM_LABEL.ru,
                         FIELD_NAME = userfield.FIELD_NAME,
                         USER_TYPE_ID = userfield.USER_TYPE_ID ,
+                        MULTIPLE = userfield.MULTIPLE,
                         LIST = new List<Bitrix24.UF_LIST>()
                     });
                     if(userfield.LIST!=null)
@@ -428,9 +444,17 @@ public class Bitrix24
             public string NAME;
             public string ENTITY_ID;
             public string FIELD_NAME;
-            public USER_TYPE_ID USER_TYPE_ID; 
+            public USER_TYPE_ID USER_TYPE_ID;
+            public MULTIPLE MULTIPLE;
             public List<UF_LIST> LIST;
      
+    }
+
+
+    public enum MULTIPLE
+    {
+        Y
+        , N
     }
 
     public enum USER_TYPE_ID
@@ -439,7 +463,8 @@ public class Bitrix24
         ,file
         ,@string
         ,boolean
-        ,datetime
+        , datetime
+        , date
     }
 
     //Открытый метод для отправки REST-запросов в Битрикс24
