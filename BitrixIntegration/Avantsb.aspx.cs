@@ -47,8 +47,8 @@ public partial class Avantsb : System.Web.UI.Page
         var StatusList = JsonConvert.DeserializeObject<dynamic>(LeadStatusListByJSON);
         foreach (var status in StatusList.result)
             DropDownListLeadSTATUS_ID.Items.Add(new ListItem(status.NAME.ToString(), status.STATUS_ID.ToString()));
-
-       // DropDownListLeadSTATUS_ID.SelectedValue = "5";
+        if(DropDownListLeadSTATUS_ID.SelectedIndex<1)
+        DropDownListLeadSTATUS_ID.SelectedValue = "115";
 
         
 
@@ -68,10 +68,22 @@ public partial class Avantsb : System.Web.UI.Page
         //&FILTER[ID][0]=15938&FILTER[ID][1]=174&FILTER[ID][2]=8170&FILTER[ID][3]=22&FILTER[ID][4]=15934&FILTER[ID][5]=15908
         var userSearchListJson = BX24.SendCommand("user.search", "FILTER[ACTIVE]=TRUE", JsonConvert.SerializeObject(dataListUsers), "POST");
         var UserSearchList = JsonConvert.DeserializeObject<dynamic>(userSearchListJson);
-        var users = new List<KeyValuePair<string, string>>();
-        foreach (var user in UserSearchList.result)
-            users.Add(new KeyValuePair<string, string>(user.LAST_NAME.ToString() + " " + user.NAME.ToString(), user.ID.ToString()));
+        var it = 0;
         DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem("-----", ""));
+        var users = new List<KeyValuePair<string, string>>();
+        while (it < 5)
+        {
+            it++;
+            foreach (var user in UserSearchList.result)
+                users.Add(new KeyValuePair<string, string>(user.LAST_NAME.ToString() + " " + user.NAME.ToString(), user.ID.ToString()));
+            if (UserSearchList.next != null)
+            {
+                userSearchListJson = BX24.SendCommand("user.search", "FILTER[ACTIVE]=TRUE&start=" + UserSearchList.next.ToString(), JsonConvert.SerializeObject(dataListUsers), "POST");
+                UserSearchList = JsonConvert.DeserializeObject<dynamic>(userSearchListJson);
+            }
+            else break;
+
+        }
         foreach (var user in users.OrderBy(r => r.Key))
             DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem(user.Key, user.Value));
 
@@ -86,7 +98,7 @@ public partial class Avantsb : System.Web.UI.Page
             {
                 if (uf.MULTIPLE == Bitrix24.MULTIPLE.Y)
                 {
-                    var cbl = new CheckBoxList() { ID = "CheckBoxListUserfield" + uf.ID, CssClass = "form-control" }; 
+                    var cbl = new CheckBoxList() { ID = "CheckBoxListUserfield" + uf.ID, RepeatColumns=3}; 
                     foreach (var item in uf.LIST)
                         cbl.Items.Add(new ListItem() { Text = item.VALUE, Value = item.ID.ToString() });
                     tc2.Controls.Add(cbl);
@@ -114,7 +126,7 @@ public partial class Avantsb : System.Web.UI.Page
             }
         }
 
-        if (IdLead == 0 && Phone != "" && false)
+        if (IdLead == 0 && Phone != "")
             {
             var dataListLids = new
             {
@@ -124,14 +136,23 @@ public partial class Avantsb : System.Web.UI.Page
             string Lead = "";
             dynamic LeadByJSON = new { };
 
-            string Leads = BX24.SendCommand("crm.lead.list", "FILTER[PHONE]=" + Phone + "&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
+            //string Leads = BX24.SendCommand("crm.lead.list", "FILTER[PHONE]=" + Phone + "&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
+            var strPhone = "&values[]=" + Phone.PadRight(10)+"&values[]=7" + Phone.PadRight(10)+"&values[]=8" + Phone.PadRight(10);
+            string Leads = BX24.SendCommand("crm.duplicate.findbycomm", "entity_type=LEAD&type=PHONE&values[]=" + strPhone + "&ORDER[ID]=DESC", JsonConvert.SerializeObject(dataListLids), "POST");
+
             var LeadsJSON = JsonConvert.DeserializeObject<dynamic>(Leads);
-            if (LeadsJSON.total > 0)
+            try
             {
-                Lead = BX24.SendCommand("crm.lead.get", "ID=" + LeadsJSON.result[0].ID, "", "GET");
-                LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
-                IdLead = (int)LeadsJSON.result[0].ID;
-            } 
+                if (LeadsJSON.result.LEAD.Count > 0)
+                {
+                    Lead = BX24.SendCommand("crm.lead.get", "ID=" + LeadsJSON.result.LEAD[0], "", "GET");
+                    LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
+                    IdLead = (int)LeadsJSON.result.LEAD[0];
+                }
+            }
+            catch (Exception ex) {
+                var r = ex;
+            }
         }
 
 
@@ -167,7 +188,7 @@ public partial class Avantsb : System.Web.UI.Page
             TextBoxLeadSECOND_NAME.Text = LeadByJSON.result.SECOND_NAME;
             TextBoxLeadADDRESS_CITY.Text = LeadByJSON.result.ADDRESS_CITY;
             TextBoxLeadLAST_NAME.Text = LeadByJSON.result.LAST_NAME;
-            //DropDownListLeadSTATUS_ID.SelectedValue = LeadByJSON.result.STATUS_ID; 
+            DropDownListLeadSTATUS_ID.SelectedValue = LeadByJSON.result.STATUS_ID; 
             if (LeadByJSON.result.PHONE != null)
             {
                 var countContact = 0;
@@ -244,7 +265,7 @@ public partial class Avantsb : System.Web.UI.Page
                     DropDownListLeadEMAIL.Items.AddRange(
                     BX24.EmailTypes.Select(r => new ListItem(r.Value, r.Key)).ToArray());
                     DropDownListLeadEMAIL.SelectedValue = email.VALUE_TYPE;
-                    var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadEMAIL" + email.ID, ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadEMAIL" + email.ID, ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic };
+                    var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadEMAIL" + email.ID, ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadEMAIL" + email.ID, ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic, Enabled = false };
                     cell.Controls.Add(TextBox);
                     cell.Controls.Add(RequiredFieldValidator);
                     cell2.Controls.Add(DropDownListLeadEMAIL);
@@ -272,7 +293,7 @@ public partial class Avantsb : System.Web.UI.Page
                 var DropDownListLeadEMAIL = new DropDownList() { ID = "DropDownListLeadEMAIL", CssClass = "form-control" };
                 DropDownListLeadEMAIL.Items.AddRange(
                     BX24.EmailTypes.Select(r => new ListItem(r.Value, r.Key)).ToArray());
-                var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadEMAIL", ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadEMAIL", ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic };
+                var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadEMAIL", ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadEMAIL", ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic , Enabled = false};
                 cell.Controls.Add(TextBox);
                 cell.Controls.Add(RequiredFieldValidator);
                 cell2.Controls.Add(DropDownListLeadEMAIL);
@@ -369,7 +390,7 @@ public partial class Avantsb : System.Web.UI.Page
                 var DropDownListLeadEMAIL = new DropDownList() { ID = "DropDownListLeadEMAIL", CssClass = "form-control" };
                 DropDownListLeadEMAIL.Items.AddRange(
                     BX24.EmailTypes.Select(r => new ListItem(r.Value, r.Key)).ToArray());
-                var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadEMAIL", ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadEMAIL", ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic };
+                var RequiredFieldValidator = new RequiredFieldValidator() { ID = "RequiredFieldValidatorTextBoxLeadEMAIL", ValidationGroup = "Lead", ControlToValidate = "TextBoxLeadEMAIL", ForeColor = System.Drawing.Color.Red, ErrorMessage = "Заполните поле", Display = ValidatorDisplay.Dynamic , Enabled = false};
                 cell.Controls.Add(TextBox);
                 cell.Controls.Add(RequiredFieldValidator);
                 cell2.Controls.Add(DropDownListLeadEMAIL);
@@ -536,7 +557,8 @@ public partial class Avantsb : System.Web.UI.Page
                 {  "STATUS_ID" , DropDownListLeadSTATUS_ID.SelectedValue },
                 {  "PHONE" , new object[] {  } },
                 {  "SOURCE_ID" ,  DropDownListLeadSOURCE_ID.SelectedValue },
-                {  "OPENED" , CheckBoxLeadOPENED.Checked?"1":"0" },
+                {  "OPENED" , "0" },
+                //{  "OPENED" , CheckBoxLeadOPENED.Checked?"1":"0" },
                 {  "ASSIGNED_BY_ID" , DropDownListLeadASSIGNED_BY_ID.SelectedValue },
                 },
                 @params = new { REGISTER_SONET_EVENT = "Y" }
@@ -556,7 +578,8 @@ public partial class Avantsb : System.Web.UI.Page
                 {  "STATUS_ID" , DropDownListLeadSTATUS_ID.SelectedValue },
                 {  "PHONE" , new object[] { } },
                 {  "SOURCE_ID" ,  DropDownListLeadSOURCE_ID.SelectedValue },
-                {  "OPENED" , CheckBoxLeadOPENED.Checked?"1":"0" },
+                {  "OPENED" , "0" },
+              //  {  "OPENED" , CheckBoxLeadOPENED.Checked?"1":"0" },
                 {  "ASSIGNED_BY_ID" , DropDownListLeadASSIGNED_BY_ID.SelectedValue },
                 },
                 @params = new { REGISTER_SONET_EVENT = "Y" }

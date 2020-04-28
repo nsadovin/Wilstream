@@ -65,7 +65,7 @@
                     <asp:TableRow>
                         <asp:TableCell>Статус</asp:TableCell>
                         <asp:TableCell> 
-                            <asp:DropDownList ID="DropDownListLeadSTATUS_ID"   CssClass="form-control" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="DropDownListLeadSTATUS_ID"  Enabled="false"  CssClass="form-control" runat="server"></asp:DropDownList>
                         </asp:TableCell>
                     </asp:TableRow> 
                     <asp:TableRow>
@@ -97,7 +97,7 @@
                     <asp:TableRow>
                         <asp:TableCell>Доступен для всех</asp:TableCell>
                         <asp:TableCell> 
-                            <asp:CheckBox ID="CheckBoxLeadOPENED" CssClass="form-control" runat="server" />
+                            <asp:CheckBox ID="CheckBoxLeadOPENED" Enabled="false" CssClass="form-control" runat="server" />
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>

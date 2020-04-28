@@ -89,7 +89,7 @@ namespace Spoofi.AmoCrmIntegration.Dtos.Request
         /// <summary>
         ///     Уникальные идентификаторы сделок через запятую
         /// </summary>
-        [JsonProperty("leads_id", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty("leads_id_", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string LeadsId { get; set; }
 
         
@@ -97,7 +97,7 @@ namespace Spoofi.AmoCrmIntegration.Dtos.Request
         /// <summary>
         ///     Список уникальных идентификаторов связанных сделок
         /// </summary>
-        [JsonProperty("linked_leads_id", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty("leads_id", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public List<long> LinkedLeadsIds { get; set; }
 
         /// <summary>

@@ -99,6 +99,7 @@ namespace Spoofi.AmoCrmIntegration.Service
         {
             var parameterId = new Parameter { Name = "id", Value = leadId, Type = ParameterType.QueryString };
             var contact = AmoMethod.Get<CrmGetLeadResponse>(_crmConfig, parameterId);
+            if (contact == null) return null;
             return contact.Response.Leads.FirstOrDefault();
         }
 

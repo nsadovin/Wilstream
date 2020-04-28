@@ -220,7 +220,7 @@ public partial class SpecKrovlya : System.Web.UI.Page
             } 
             DropDownListLeadSOURCE_ID.SelectedValue = LeadByJSON.result.SOURCE_ID;
             CheckBoxLeadOPENED.Checked = LeadByJSON.result.OPENED == "1";
-            TextBoxLeadCOMMENTS.Text = LeadByJSON.result.COMMENTS;
+            TextBoxLeadCOMMENTS.Text = ReplaceBRwithNewline(LeadByJSON.result.COMMENTS.ToString());
             DropDownListLeadASSIGNED_BY_ID.SelectedValue = LeadByJSON.result.ASSIGNED_BY_ID;
             Type t = LeadByJSON.result.GetType();
 
@@ -293,6 +293,21 @@ public partial class SpecKrovlya : System.Web.UI.Page
 
 
     }
+
+
+    public string ReplaceBRwithNewline(string txtVal)
+    {
+        string newText = "";
+        // Create regular expressions    
+        System.Text.RegularExpressions.Regex regex =
+            new System.Text.RegularExpressions.Regex(@"(<br />|<br/>|</ br>|</br>|<br>)");
+        // Replace new line with <br/> tag    
+        newText = regex.Replace(txtVal, "\r\n");
+        // Result    
+        return newText;
+    }
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -419,7 +434,7 @@ public partial class SpecKrovlya : System.Web.UI.Page
 
                   { "TITLE" , TextBoxLeadTITLE.Text },
                   { "NAME" , TextBoxLeadNAME.Text },
-                  { "COMMENTS" , TextBoxLeadCOMMENTS.Text },
+                  { "COMMENTS" , TextBoxLeadCOMMENTS.Text.Replace(Environment.NewLine, "<br>") },
                 {  "SECOND_NAME" , TextBoxLeadSECOND_NAME.Text },
                {"ADDRESS_CITY", TextBoxLeadADDRESS_CITY.Text },
                 {  "LAST_NAME" , TextBoxLeadLAST_NAME.Text },
@@ -439,7 +454,7 @@ public partial class SpecKrovlya : System.Web.UI.Page
 
                   { "TITLE" , TextBoxLeadTITLE.Text },
                   { "NAME" , TextBoxLeadNAME.Text },
-                  { "COMMENTS" , TextBoxLeadCOMMENTS.Text },
+                  { "COMMENTS" , TextBoxLeadCOMMENTS.Text.Replace(Environment.NewLine, "<br>")},
                 {  "SECOND_NAME" , TextBoxLeadSECOND_NAME.Text },
                     { "ADDRESS_CITY", TextBoxLeadADDRESS_CITY.Text },
                 {  "LAST_NAME" , TextBoxLeadLAST_NAME.Text },
