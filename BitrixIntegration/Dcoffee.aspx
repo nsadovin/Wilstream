@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Avantsb.aspx.cs" Inherits="Avantsb" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Dcoffee.aspx.cs" Inherits="Dcoffee" %>
 
 <!DOCTYPE html>
 
@@ -48,7 +48,7 @@ function checkSpecialKeys(e)
     <form id="form1" runat="server"> 
         <div class="row">
             <div class="col-sm"> 
-            <asp:Panel ID="PanelLead" runat="server">
+            <asp:Panel ID="PanelLead" Visible="false" runat="server">
                 <h2>Лид: <asp:Label ID="LabelNameLead" runat="server" Text="Новый"></asp:Label></h2>
                 <asp:HiddenField ID="HiddenFieldIdLead" runat="server" />
                 <asp:Table ID="TableLead" runat="server">

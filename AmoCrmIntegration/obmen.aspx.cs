@@ -586,6 +586,7 @@ public partial class obmen : System.Web.UI.Page
             lead.CustomFields = GetCustomFieldsValues<AddLeadCustomField>(TypeField.Lead, "Lead");
             request.Update = new List<AddOrUpdateCrmLead>();
             request.Update.Add(lead);
+            var IdContact = CreateContacts(crmLead.Id);
             _service.AddOrUpdateLead(request);
         }
         else
@@ -745,7 +746,7 @@ public partial class obmen : System.Web.UI.Page
             {
                 var contact_search = _service.GetContact(Convert.ToInt64(HiddenFieldMainContactId.Value));
                 _contact.Id = Convert.ToInt64(HiddenFieldMainContactId.Value);
-                if(contact_search.leads.Ids!=null)
+                if(contact_search!=null&&contact_search.leads.Ids!=null)
                 _contact.LeadsId = String.Join(",", contact_search.leads.Ids);
             }
             _contact.Name = TextBoxMainContactName.Text;

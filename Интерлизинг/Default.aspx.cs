@@ -59,6 +59,7 @@ public partial class _Default : System.Web.UI.Page
             HiddenFieldColumn_17.Value = Column_17.ToString();
             HiddenFieldColumn_9.Value = Column_9.ToString();
 
+            LabelColumn_8.Text = Request.QueryString["Column_8"] != null ? Request.QueryString["Column_8"].ToString() : "";
 
             IterateControls(Page, Column_11, "Column_11");
             IterateControls(Page, Column_9, "Column_9");
@@ -780,9 +781,30 @@ public partial class _Default : System.Web.UI.Page
 
     protected void CheckBoxA1_CheckedChanged(object sender, EventArgs e)
     {
+        var num = ((sender as CheckBox).Parent.Parent as TableRow).Cells[0].Text;
         var IsChecked = (sender as CheckBox).Checked;
         (((sender as CheckBox).Parent.Parent as TableRow).Cells[2].Controls[0] as TextBox).Visible = IsChecked;
-        (((sender as CheckBox).Parent.Parent as TableRow).Cells[3].Controls[0] as CheckBox).Visible = IsChecked;
+        
+        (((sender as CheckBox).Parent.Parent as TableRow).Cells[3].Controls[0] as CheckBox).Visible = num!="1" && IsChecked;
+
+        if (num == "1")
+        {
+            bool isFirst = true;
+            int i = 1;
+            foreach (TableRow tr in TableA1.Rows)
+            {
+                if (isFirst)
+                {
+                    isFirst = false;
+                    continue;
+                }
+                var num_cur = tr.Cells[0].Text;
+                if (num_cur != "1")
+                    tr.Visible = !IsChecked;
+            }
+
+        }
+
     }
 
     protected void QAC_A5(object sender, EventArgs e)
@@ -800,6 +822,7 @@ public partial class _Default : System.Web.UI.Page
             saveData(500+i,(tr.Cells[1].Controls[0] as CheckBox).Checked? num : "");
             saveData(600+i,(tr.Cells[2].Controls[0] as TextBox).Text);
             saveData(700 + i, (tr.Cells[1].Controls[0] as CheckBox).Checked?((tr.Cells[3].Controls[0] as CheckBox).Checked?"Да":"Нет") : "");
+            i++;
         }
         standartNext(sender, e);
     }

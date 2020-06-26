@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Avantsb : System.Web.UI.Page
+public partial class Dcoffee : System.Web.UI.Page
 {
     Bitrix24 BX24;
     Int32 IdLead = 0;
@@ -20,7 +20,7 @@ public partial class Avantsb : System.Web.UI.Page
     private static ILog log = LogManager.GetLogger("LOGGER");
 
 
-    public List<int> FilterUserFields =  new List<int>() { 282, 286, 1098, 1170};
+    public List<int> FilterUserFields = null;// new List<int>() { 282, 286, 1098, 1170};
 
 
     protected void Page_Init(object sender, EventArgs e)
@@ -45,8 +45,7 @@ public partial class Avantsb : System.Web.UI.Page
             log.Info(String.Format("AbonentNumber = {0}", Phone));
         }
         
-        //BX24 = new Bitrix24(HttpContext.Current, "local.5e791c42937726.41297969", "m7zFQ3F8IN87wq0FrNv4mz4MznX3dJyB5jBjIr60lhlkohHqsi", "https://b2b.veles24.com", "https://oauth.bitrix.info", "Bitrix@avantsb.ru", "Bitrix@avantsb.ru2019");
-        BX24 = new Bitrix24(HttpContext.Current, "local.5e791c42937726.41297969", "m7zFQ3F8IN87wq0FrNv4mz4MznX3dJyB5jBjIr60lhlkohHqsi", "https://b2b.veles24.com", "https://oauth.bitrix.info", "klc", "avantsb.ru");
+        BX24 = new Bitrix24(HttpContext.Current, "local.5ee9dd530f9bd8.03060840", "hRGx8K8r6Kg0SGedn3ziyrnw5rJSdrdwbOgB0tKitLsM1mt7Do", "https://Dcoffee.bitrix24.ru", "https://oauth.bitrix.info", "bdarya@wilstream.ru", "Vika15986");
 
 
 
@@ -795,14 +794,14 @@ public partial class Avantsb : System.Web.UI.Page
             {
                 AddCommentToLead(IdLead, "Лид создан в КЦ Wilstream");
                 log.Info(String.Format("New IdLead = {0}", IdLead));
-                Response.Redirect("~/Avantsb.aspx?IdLead=" + IdLead);
+                Response.Redirect("~/Dcoffee.aspx?IdLead=" + IdLead);
                 Response.End();
             }
             else
             {
                 AddCommentToLead(IdLead, "Лид обновлен в КЦ Wilstream");
                 log.Info(String.Format("Redirect after update IdLead = {0}", IdLead));
-                Response.Redirect("~/Avantsb.aspx?IdLead=" + IdLead);
+                Response.Redirect("~/Dcoffee.aspx?IdLead=" + IdLead);
                 Response.End();
             }
         }

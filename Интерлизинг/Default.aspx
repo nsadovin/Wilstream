@@ -96,7 +96,7 @@
                               <asp:Panel ID="Panel2_4" runat="server"  Visible="false" CssClass="1">
                                  Очень приятно! Моё имя  «<asp:Label ID="Label2_2_n"     runat="server" Text=""></asp:Label> », 
                                  <b>Группа Компаний «Интерлизинг».</b>
-                                 «<asp:Label ID="Label23" CssClass="fio" runat="server" Text=""></asp:Label>», Вы приобрели у нас (наименование имущества) <div class="comment">- пауза –</div> и в целях улучшения качества услуг, мы хотим задать Вам несколько вопросов, это займет всего пару минут.  Удобно ли будет ответить на вопросы сейчас? 
+                                 «<asp:Label ID="Label23" CssClass="fio" runat="server" Text=""></asp:Label>», Вы приобрели у нас "<asp:Label ID="LabelColumn_8" CssClass="Column_8" runat="server" Text=""></asp:Label>" <div class="comment">- пауза –</div> и в целях улучшения качества услуг, мы хотим задать Вам несколько вопросов, это займет всего пару минут.  Удобно ли будет ответить на вопросы сейчас? 
                                  <div class="comment"></div>
                                   <br/> 
                                  <asp:Button CommandName="Panel26" CommandArgument="да" ToolTip="4" onclick="QAC_Button" Text="да" OnClientClick="top.document.getElementById('id_full_anketa').value = 1;" CssClass="green unibutton  big2" Width="400"  ID="Button138_2_5_n"  runat="server" /><br/> 
@@ -125,7 +125,7 @@
                               
                                    
                             <asp:Panel ID="Panel26" runat="server"  Visible="false">
-                                 Вопрос 1: «<asp:Label ID="Label24" CssClass="fio" runat="server" Text=""></asp:Label>», какие возникали проблемы по скорости и качеству работы нашей компании?
+                                 Вопрос 1: «<asp:Label ID="Label24" CssClass="fio" runat="server" Text=""></asp:Label>», возникали ли какие-то проблемы по скорости и качеству работы нашей компании?
                                 
                                  <div class="comment">(множественный выбор)<br/>
                                      Примечание для оператора: Не нужно озвучивать клиенту все варианты ответов. Из предложенного списка выберите тот, который наиболее точно отражает ответ клиента. Если ответ клиента, не походит к предложенным, ниже вариантам, впишите его в последнюю графу: «Свой вариант ответа». Можете указать несколько вариантов, если они подходят по смыслу к ответу клиента.

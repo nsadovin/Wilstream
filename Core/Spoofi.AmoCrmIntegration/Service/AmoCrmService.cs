@@ -236,7 +236,7 @@ namespace Spoofi.AmoCrmIntegration.Service
         {
             var parameterId = new Parameter {Name = "id", Value = contactId, Type = ParameterType.QueryString};
             var contact = AmoMethod.Get<CrmGetContactResponse>(_crmConfig, parameterId);
-            return contact.Response.Contacts.FirstOrDefault();
+            return contact?.Response?.Contacts?.FirstOrDefault();
         }
 
 

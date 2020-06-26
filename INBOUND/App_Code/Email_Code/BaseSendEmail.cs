@@ -23,8 +23,11 @@ public class BaseSendEmail
         System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(from, emails);
         m.IsBodyHtml = IsBodyHtml;
         m.BodyEncoding = System.Text.Encoding.GetEncoding("utf-8");
- 
-		m.Subject = subject;
+        string NAME_FROM = setting("NAME_FROM");
+        if (NAME_FROM != "")
+            m.From = new System.Net.Mail.MailAddress(from, NAME_FROM);
+
+        m.Subject = subject;
 
          
         m.Bcc.Add("vesdehod@yandex.ru"); 

@@ -464,7 +464,9 @@ public class Bitrix24
         ,@string
         ,boolean
         , datetime
-        , date
+        , date 
+        , @double
+        , crm_status
     }
 
     //Открытый метод для отправки REST-запросов в Битрикс24
