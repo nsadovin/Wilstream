@@ -15,6 +15,7 @@ public partial class Dcoffee : System.Web.UI.Page
 {
     Bitrix24 BX24;
     Int32 IdLead = 0;
+    Int32 IdTask = 0;
     string Phone = "";
 
     private static ILog log = LogManager.GetLogger("LOGGER");
@@ -26,6 +27,7 @@ public partial class Dcoffee : System.Web.UI.Page
     protected void Page_Init(object sender, EventArgs e)
     {
         XmlConfigurator.Configure();
+
         PanelSMS.Visible = false;
         if (Request.QueryString["IdLead"] != null)
         {
@@ -52,9 +54,12 @@ public partial class Dcoffee : System.Web.UI.Page
         if (!IsPostBack)
         {
             Session.Contents["productrows"] = null;
-            Session.Contents["productsearch"] = null;            
+            Session.Contents["productsearch"] = null;
+            Session.Contents["companysearch"] = null;
+            Session.Contents["company"] = null;
         }
 
+        doTaskCreate();
 
         string LeadStatusListByJSON = BX24.SendCommand("crm.status.list", "FILTER[ENTITY_ID]=STATUS", "", "GET");
         var StatusList = JsonConvert.DeserializeObject<dynamic>(LeadStatusListByJSON);
@@ -86,6 +91,12 @@ public partial class Dcoffee : System.Web.UI.Page
         var UserSearchList = JsonConvert.DeserializeObject<dynamic>(userSearchListJson);
         var it = 0;
         DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem("-----", ""));
+        DropDownListTASK_ASSIGNED_BY_ID.Items.Add(new ListItem("-----", ""));
+        DropDownListTASK_AUDITOR_1.Items.Add(new ListItem("-----", ""));
+        DropDownListTASK_AUDITOR_2.Items.Add(new ListItem("-----", ""));
+        DropDownListTASK_AUDITOR_3.Items.Add(new ListItem("-----", ""));
+        DropDownListTASK_AUDITOR_4.Items.Add(new ListItem("-----", ""));
+        DropDownListTASK_AUDITOR_5.Items.Add(new ListItem("-----", ""));
         var users = new List<KeyValuePair<string, string>>();
         while (it < 5)
         {
@@ -101,7 +112,15 @@ public partial class Dcoffee : System.Web.UI.Page
 
         }
         foreach (var user in users.OrderBy(r => r.Key))
+        {
             DropDownListLeadASSIGNED_BY_ID.Items.Add(new ListItem(user.Key, user.Value));
+            DropDownListTASK_ASSIGNED_BY_ID.Items.Add(new ListItem(user.Key, user.Value));
+            DropDownListTASK_AUDITOR_1.Items.Add(new ListItem(user.Key, user.Value));
+            DropDownListTASK_AUDITOR_2.Items.Add(new ListItem(user.Key, user.Value));
+            DropDownListTASK_AUDITOR_3.Items.Add(new ListItem(user.Key, user.Value));
+            DropDownListTASK_AUDITOR_4.Items.Add(new ListItem(user.Key, user.Value));
+            DropDownListTASK_AUDITOR_5.Items.Add(new ListItem(user.Key, user.Value));
+        }
 
 
         BX24.FilterUserFields = FilterUserFields;
@@ -325,7 +344,7 @@ public partial class Dcoffee : System.Web.UI.Page
             DropDownListLeadSOURCE_ID.SelectedValue = LeadByJSON.result.SOURCE_ID;
             CheckBoxLeadOPENED.Checked = LeadByJSON.result.OPENED == "1";
             TextBoxLeadCOMMENTS.Text = LeadByJSON.result.COMMENTS;
-            DropDownListLeadASSIGNED_BY_ID.SelectedValue = LeadByJSON.result.ASSIGNED_BY_ID;
+            DropDownListLeadASSIGNED_BY_ID.SelectedValue = LeadByJSON.result.ASSIGNED_BY_ID; 
             Type t = LeadByJSON.result.GetType();
             foreach (var uf in BX24.Userfields)
             {
@@ -462,6 +481,8 @@ public partial class Dcoffee : System.Web.UI.Page
 
 
     }
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -1017,4 +1038,132 @@ public partial class Dcoffee : System.Web.UI.Page
         var LeadByJSON = JsonConvert.DeserializeObject<dynamic>(Lead);
          
     }
+
+    protected void ButtonSaveOrUpdateTask_Click(object sender, EventArgs e)
+    {
+        addTask();
+    }
+
+
+    public void addTask()
+    {
+        List<int> auditors = new List<int>();
+        if (DropDownListTASK_AUDITOR_1.SelectedValue != "") auditors.Add(Convert.ToInt32(DropDownListTASK_AUDITOR_1.SelectedValue));
+        if (DropDownListTASK_AUDITOR_2.SelectedValue != "") auditors.Add(Convert.ToInt32(DropDownListTASK_AUDITOR_2.SelectedValue));
+        if (DropDownListTASK_AUDITOR_3.SelectedValue != "") auditors.Add(Convert.ToInt32(DropDownListTASK_AUDITOR_3.SelectedValue));
+        if (DropDownListTASK_AUDITOR_4.SelectedValue != "") auditors.Add(Convert.ToInt32(DropDownListTASK_AUDITOR_4.SelectedValue));
+        if (DropDownListTASK_AUDITOR_5.SelectedValue != "") auditors.Add(Convert.ToInt32(DropDownListTASK_AUDITOR_5.SelectedValue));
+        var data =
+        new
+        {
+            fields = new Dictionary<string, object>()
+              {
+
+                  { "TITLE" , TextBoxTASK_TITLE.Text },
+                  { "DESCRIPTION" , TextBoxTASK_DESCRIPTION.Text },
+                  { "RESPONSIBLE_ID" , DropDownListTASK_ASSIGNED_BY_ID.SelectedValue },
+                  { "AUDITORS" , auditors.ToArray()},
+                  { "DEADLINE" , TextBoxTASK_DEADLINE.Text },
+                  { "UF_CRM_TASK" , new string[] {"CO_"+HiddenFieldTASK_UF_CRM_TASK.Value } }
+
+            }
+        };
+        var contentText = JsonConvert.SerializeObject(data);
+
+        var Task = BX24.SendCommand("tasks.task.add", "", contentText, "POST");
+        var TaskByJSON = JsonConvert.DeserializeObject<dynamic>(Task); 
+        Int32 IdTask =   Convert.ToInt32(TaskByJSON.result.task.id);
+
+        Response.Redirect("~/Dcoffee.aspx?IdTask=" + IdTask);
+        Response.End();
+    }
+
+    protected void ButtonSearchCompany_Click(object sender, EventArgs e)
+    {
+        var dataCompany = new
+        {
+
+            filter = new
+            {
+                TITLE = TextBoxNameCompany.Text 
+            },
+            @params = new { REGISTER_SONET_EVENT = "Y" }
+        }; 
+
+        var contentTextCompany = JsonConvert.SerializeObject(dataCompany);
+        contentTextCompany = contentTextCompany.Replace("TITLE", "%TITLE");
+        string CompanyListByJSON = BX24.SendCommand("crm.company.list", "", contentTextCompany, "POST");
+        var CompanyList = JsonConvert.DeserializeObject<dynamic>(CompanyListByJSON);
+        foreach (var company in CompanyList.result)
+        { 
+            if(company.TITLE.ToString().Contains(TextBoxNameCompany.Text))
+            BX24.CompanySeacrh.Add(new Bitrix24.COMPANY()
+            {
+                TITLE = company.TITLE.ToString(),
+                ID = Convert.ToInt32(company.ID.ToString())
+            });
+        }
+        GridViewCompanySearch.DataBind();
+        Session.Contents["companysearch"] = BX24.CompanySeacrh;
+    }
+
+
+    protected void GridViewCompanySearch_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "Select")
+        {
+        }
+    }
+
+
+    protected void GridViewCompanySearch_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Bitrix24.COMPANY Result = null; 
+
+        var ResultSeacrh = new List<Bitrix24.COMPANY>();
+        if (Session.Contents["companysearch"] != null)
+            ResultSeacrh = (List<Bitrix24.COMPANY>)Session.Contents["companysearch"];
+
+        if (Result == null)
+        {
+            Result = ResultSeacrh[GridViewCompanySearch.SelectedIndex]; 
+        }
+        LabelTASK_UF_CRM_TASK.Text = String.Format("({0}) {1}", Result.ID, Result.TITLE);
+        HiddenFieldTASK_UF_CRM_TASK.Value =   Result.ID.ToString();
+        Session.Contents["company"] = Result;
+        GridViewLeadProducts.DataBind();
+
+    }
+
+
+    protected void LinqDataSourceCompamies_Selecting(object sender, LinqDataSourceSelectEventArgs e)
+    {
+        var Result = new List<Bitrix24.COMPANY>();
+        if (Session.Contents["companysearch"] != null)
+            Result = (List<Bitrix24.COMPANY>)Session.Contents["companysearch"];
+        if (BX24.CompanySeacrh.Count > 0)
+            Result = BX24.CompanySeacrh;
+        Session.Contents["companysearch"] = Result;
+        e.Result = Result;
+
+    }
+
+
+
+    private void doTaskCreate()
+    {
+
+        if (Request.QueryString["IdTask"] != null)
+        {
+            IdTask = Convert.ToInt32(Request.QueryString["IdTask"]); 
+            log.Info(String.Format("IdTask = {0}", IdTask));
+
+            Response.Write(String.Format("Задача {0}", IdTask));
+            Response.End();
+            var Task = BX24.SendCommand("tasks.task.get", "TASK_ID=" + IdTask, "", "GET");
+            var TaskByJSON = JsonConvert.DeserializeObject<dynamic>(Task);
+            
+        }
+    }
+
 }

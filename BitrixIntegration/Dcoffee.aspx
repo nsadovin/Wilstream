@@ -10,7 +10,32 @@
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="Content/jquery.datetimepicker.css" /> 
+    <script src="Scripts/jquery.datetimepicker.js"></script>
+
     <script type = "text/javascript">
+        $(document).ready(function () {
+            jQuery('.datetimepicker').datetimepicker({
+                i18n: {
+                    en: {
+                        months: [
+                            'Январь', 'Февраль', 'Март', 'Апрель',
+                            'Май', 'Июнь', 'Июль', 'Август',
+                            'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь',
+                        ],
+                        dayOfWeek: [
+                           "Вс", "Пн", "Вт", "Ср", "Чт",
+                            "Пт", "Сб", 
+                        ]
+                    }
+                },
+                dayOfWeekStart: 1
+               // timepicker: false,
+               // format: 'd.m.Y'
+            }); 
+            jQuery.datetimepicker.setLocale('ru');
+        });
 function DisableButton() {
     document.getElementById("<%=ButtonSaveLead.ClientID %>").disabled = true;
     document.getElementById("<%=ButtonSaveLead.ClientID %>").value = 'Сохранение...'
@@ -41,13 +66,13 @@ function checkSpecialKeys(e)
     else
         return true;
 }
-</script>
+    </script>
 </head>
 <body>
     <div class="container-fluid">
     <form id="form1" runat="server"> 
         <div class="row">
-            <div class="col-sm"> 
+            <div class="col-sm" style="display: none;"> 
             <asp:Panel ID="PanelLead" Visible="false" runat="server">
                 <h2>Лид: <asp:Label ID="LabelNameLead" runat="server" Text="Новый"></asp:Label></h2>
                 <asp:HiddenField ID="HiddenFieldIdLead" runat="server" />
@@ -152,7 +177,108 @@ function checkSpecialKeys(e)
             </asp:Panel>
             </div>
             
-            <div class="col-sm"> 
+            <div class="col-sm">
+                <asp:Panel ID="PanelTask" runat="server">
+                    <h3><asp:Label ID="LabelNameTask" runat="server" Text="Новая задача"></asp:Label></h3> 
+                    <asp:Table ID="TableTask" runat="server">
+                        <asp:TableHeaderRow>
+                            <asp:TableCell>
+                                Параметр
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                Значение
+                            </asp:TableCell>
+                        </asp:TableHeaderRow>
+                        <asp:TableRow CssClass="form-group">
+                            <asp:TableCell>Название задачи</asp:TableCell>
+                            <asp:TableCell>
+                                <asp:TextBox ID="TextBoxTASK_TITLE" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="Task" ControlToValidate="TextBoxTASK_TITLE" runat="server" ForeColor="Red" ErrorMessage="Заполните поле" Display="Dynamic"></asp:RequiredFieldValidator>
+                            </asp:TableCell> 
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Описание</asp:TableCell>
+                            <asp:TableCell> 
+                                  <asp:TextBox ID="TextBoxTASK_DESCRIPTION" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Ответственный</asp:TableCell>
+                            <asp:TableCell> 
+                                 <asp:DropDownList ID="DropDownListTASK_ASSIGNED_BY_ID" CssClass="form-control" runat="server"></asp:DropDownList> 
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell VerticalAlign="Top">Наблюдатели</asp:TableCell>
+                            <asp:TableCell> 
+                                <asp:Table ID="Table2" runat="server">
+                                    <asp:TableRow>
+                                        <asp:TableCell>1. </asp:TableCell>
+                                        <asp:TableCell><asp:DropDownList ID="DropDownListTASK_AUDITOR_1" CssClass="form-control" runat="server"></asp:DropDownList></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>2. </asp:TableCell>
+                                        <asp:TableCell><asp:DropDownList ID="DropDownListTASK_AUDITOR_2" CssClass="form-control" runat="server"></asp:DropDownList></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>3. </asp:TableCell>
+                                        <asp:TableCell><asp:DropDownList ID="DropDownListTASK_AUDITOR_3" CssClass="form-control" runat="server"></asp:DropDownList></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>4. </asp:TableCell>
+                                        <asp:TableCell><asp:DropDownList ID="DropDownListTASK_AUDITOR_4" CssClass="form-control" runat="server"></asp:DropDownList></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>5. </asp:TableCell>
+                                        <asp:TableCell><asp:DropDownList ID="DropDownListTASK_AUDITOR_5" CssClass="form-control" runat="server"></asp:DropDownList></asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+                                
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Крайний срок</asp:TableCell>
+                            <asp:TableCell> 
+                                 <asp:TextBox ID="TextBoxTASK_DEADLINE" TextMode="DateTime"  CssClass="form-control datetimepicker" runat="server"></asp:TextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell  VerticalAlign="Top">CRM</asp:TableCell>
+                            <asp:TableCell> 
+                                <asp:Label ID="LabelTASK_UF_CRM_TASK" runat="server" Text=""></asp:Label>
+                                <asp:HiddenField ID="HiddenFieldTASK_UF_CRM_TASK" runat="server" />
+                <asp:GridView ID="GridViewCompanySearch"  CssClass="table" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="LinqDataSourceCompanies" OnRowCommand="GridViewCompanySearch_RowCommand"
+                    OnSelectedIndexChanged="GridViewCompanySearch_SelectedIndexChanged" DataKeyNames="ID">
+                    <Columns>
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:Button ID="ButtonAddToTask" runat="server" class="btn btn-primary btn-sm" CausesValidation="False" CommandName="Select" Text="Прикрепить" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="TITLE" HeaderText="Кампания" ReadOnly="True" SortExpression="TITLE" />
+                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" Visible="False" />
+                    </Columns>
+                </asp:GridView>
+                <asp:LinqDataSource ID="LinqDataSourceCompanies" runat="server" ContextTypeName="Bitrix24" EntityTypeName="" OnSelecting="LinqDataSourceCompamies_Selecting" OrderBy="TITLE" Select="new (TITLE, ID)" TableName="CompanySeacrh">
+                </asp:LinqDataSource>
+
+                                <div class="input-group mb-3">
+                                     <asp:TextBox ID="TextBoxNameCompany" CssClass="form-control" placeholder="Наименование компании" aria-label="Наименование компании" aria-describedby="basic-addon2" runat="server"></asp:TextBox>
+                 
+                                  <div class="input-group-append">
+                    
+                                        <asp:Button ID="ButtonSearchCompany"  CssClass="input-group-text"   runat="server" Text="ПОИСК" OnClick="ButtonSearchCompany_Click" />
+                    
+                                  </div>
+                                </div>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table> 
+                    <asp:Button ID="ButtonSaveOrUpdateTask" CssClass="btn btn-primary" ValidationGroup="TASK"  runat="server" OnClick="ButtonSaveOrUpdateTask_Click" Text="Отправить" />
+                </asp:Panel>
+            </div>
+
+            <div class="col-sm" style="display: none;"> 
                 <asp:Panel ID="PanelSMS" runat="server">
                     <h3>Отправить СМС</h3> 
                     <asp:Table ID="Table1" runat="server">

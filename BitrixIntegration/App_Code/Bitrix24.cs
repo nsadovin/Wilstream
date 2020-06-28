@@ -220,7 +220,13 @@ public class Bitrix24
     public List<PRODUCT> ProductSeacrh {
         get { return productSeacrh; }
         set {  productSeacrh = value; }
-    } 
+    }
+    public List<COMPANY> companySeacrh = new List<COMPANY>();
+    public List<COMPANY> CompanySeacrh
+    {
+        get { return companySeacrh; }
+        set { companySeacrh = value; }
+    }
 
     public Dictionary<string, string> PhoneTypes
     {
@@ -256,6 +262,12 @@ public class Bitrix24
         public Int32 ID;
         public string PRODUCT_QUANTITY;
         public string PRODUCT_PRICE;
+
+    }
+    public class COMPANY
+    {
+        public string TITLE;
+        public Int32 ID; 
 
     }
 
