@@ -20,7 +20,7 @@ public partial class Avantsb : System.Web.UI.Page
     private static ILog log = LogManager.GetLogger("LOGGER");
 
 
-    public List<int> FilterUserFields =  new List<int>() { 282, 286, 1098, 1170};
+    public List<int> FilterUserFields =  new List<int>() { 282, 286, 1098, 1170,1800,1801};
 
 
     protected void Page_Init(object sender, EventArgs e)
@@ -326,6 +326,7 @@ public partial class Avantsb : System.Web.UI.Page
             DropDownListLeadSOURCE_ID.SelectedValue = LeadByJSON.result.SOURCE_ID;
             CheckBoxLeadOPENED.Checked = LeadByJSON.result.OPENED == "1";
             TextBoxLeadCOMMENTS.Text = LeadByJSON.result.COMMENTS;
+            TextBoxLeadSTATUS_DESCRIPTION.Text = LeadByJSON.result.STATUS_DESCRIPTION;
             DropDownListLeadASSIGNED_BY_ID.SelectedValue = LeadByJSON.result.ASSIGNED_BY_ID;
             Type t = LeadByJSON.result.GetType();
             foreach (var uf in BX24.Userfields)
@@ -636,6 +637,7 @@ public partial class Avantsb : System.Web.UI.Page
                   { "TITLE" , TextBoxLeadTITLE.Text },
                   { "NAME" , TextBoxLeadNAME.Text },
                   { "COMMENTS" , TextBoxLeadCOMMENTS.Text },
+                  { "STATUS_DESCRIPTION" , TextBoxLeadSTATUS_DESCRIPTION.Text }, 
                 {  "SECOND_NAME" , TextBoxLeadSECOND_NAME.Text },
                {"ADDRESS_CITY", TextBoxLeadADDRESS_CITY.Text },
                 {  "LAST_NAME" , TextBoxLeadLAST_NAME.Text },
@@ -657,6 +659,7 @@ public partial class Avantsb : System.Web.UI.Page
                   { "TITLE" , TextBoxLeadTITLE.Text },
                   { "NAME" , TextBoxLeadNAME.Text },
                   { "COMMENTS" , TextBoxLeadCOMMENTS.Text },
+                  { "STATUS_DESCRIPTION" , TextBoxLeadSTATUS_DESCRIPTION.Text }, 
                 {  "SECOND_NAME" , TextBoxLeadSECOND_NAME.Text },
                     { "ADDRESS_CITY", TextBoxLeadADDRESS_CITY.Text },
                 {  "LAST_NAME" , TextBoxLeadLAST_NAME.Text },

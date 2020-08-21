@@ -37,8 +37,8 @@
             jQuery.datetimepicker.setLocale('ru');
         });
 function DisableButton() {
-    document.getElementById("<%=ButtonSaveLead.ClientID %>").disabled = true;
-    document.getElementById("<%=ButtonSaveLead.ClientID %>").value = 'Сохранение...'
+    document.getElementById("<%=ButtonSaveOrUpdateTask.ClientID %>").disabled = true;
+    document.getElementById("<%=ButtonSaveOrUpdateTask.ClientID %>").value = 'Сохранение...'
 }
         window.onbeforeunload = DisableButton;
         function checkTextAreaMaxLength(textBox,e, length)
@@ -192,7 +192,7 @@ function checkSpecialKeys(e)
                         <asp:TableRow CssClass="form-group">
                             <asp:TableCell>Название задачи</asp:TableCell>
                             <asp:TableCell>
-                                <asp:TextBox ID="TextBoxTASK_TITLE" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxTASK_TITLE"  CssClass="form-control" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="Task" ControlToValidate="TextBoxTASK_TITLE" runat="server" ForeColor="Red" ErrorMessage="Заполните поле" Display="Dynamic"></asp:RequiredFieldValidator>
                             </asp:TableCell> 
                         </asp:TableRow>
@@ -247,7 +247,7 @@ function checkSpecialKeys(e)
                             <asp:TableCell> 
                                 <asp:Label ID="LabelTASK_UF_CRM_TASK" runat="server" Text=""></asp:Label>
                                 <asp:HiddenField ID="HiddenFieldTASK_UF_CRM_TASK" runat="server" />
-                <asp:GridView ID="GridViewCompanySearch"  CssClass="table" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="LinqDataSourceCompanies" OnRowCommand="GridViewCompanySearch_RowCommand"
+                <asp:GridView ID="GridViewCompanySearch"  CssClass="table" runat="server" AllowPaging="False" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="LinqDataSourceCompanies" OnRowCommand="GridViewCompanySearch_RowCommand"
                     OnSelectedIndexChanged="GridViewCompanySearch_SelectedIndexChanged" DataKeyNames="ID">
                     <Columns>
                         <asp:TemplateField ShowHeader="False">

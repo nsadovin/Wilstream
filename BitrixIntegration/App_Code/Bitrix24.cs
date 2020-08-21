@@ -272,9 +272,73 @@ public class Bitrix24
     }
 
 
+    public List<int> FilterDealFields = null;
+
+    public List<Userfield> DealFields
+    {
+        get
+        {
+             
+            
+                var dataListUsers = new
+                {
+
+                    sort = "ID"
+                };
+
+                var Userfields = new List<Bitrix24.Userfield>();
+
+                var userfieldsJson = SendCommand("crm.deal.userfield.list", "", "", "GET");
+                var userfields = JsonConvert.DeserializeObject<dynamic>(userfieldsJson).result;
+
+
+
+                foreach (dynamic _userfield in userfields)
+                {
+                    if (FilterDealFields != null)
+                    {
+                        if (!FilterDealFields.Contains(Convert.ToInt32(_userfield.ID))) continue;
+                    }
+
+                    try
+                    {
+                        var userfieldJson = SendCommand("crm.deal.userfield.get", "ID=" + _userfield.ID, "", "GET");
+                        var userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+                        Userfields.Add(new Bitrix24.Userfield()
+                        {
+                            ID = userfield.ID,
+                            ENTITY_ID = userfield.ENTITY_ID,
+                            NAME = userfield.EDIT_FORM_LABEL.ru,
+                            FIELD_NAME = userfield.FIELD_NAME,
+                            USER_TYPE_ID = userfield.USER_TYPE_ID,
+                            MULTIPLE = userfield.MULTIPLE,
+                            LIST = new List<Bitrix24.UF_LIST>()
+                        });
+                        if (userfield.LIST != null)
+                            foreach (var keyvalue in userfield.LIST)
+                            {
+                                var listic = keyvalue.ToString();
+                                var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+                                Userfields[Userfields.Count - 1].LIST.Add(li);
+                            }
+
+                        ;
+
+                    }
+                    catch (Exception ex)
+                    {
+
+
+                    }
+                }
+
+                return Userfields;  
+        }
+    }
+
+
+
     public List<int> FilterUserFields = null;
-
-
 
     public List<Userfield> Userfields
     {
@@ -479,6 +543,12 @@ public class Bitrix24
         , date 
         , @double
         , crm_status
+            , url
+            , money
+            , resourcebooking
+            , crm
+            , employee
+            , address
     }
 
     //Открытый метод для отправки REST-запросов в Битрикс24

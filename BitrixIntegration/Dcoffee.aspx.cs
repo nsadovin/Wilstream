@@ -59,7 +59,7 @@ public partial class Dcoffee : System.Web.UI.Page
             Session.Contents["company"] = null;
         }
 
-        doTaskCreate();
+        
 
         string LeadStatusListByJSON = BX24.SendCommand("crm.status.list", "FILTER[ENTITY_ID]=STATUS", "", "GET");
         var StatusList = JsonConvert.DeserializeObject<dynamic>(LeadStatusListByJSON);
@@ -121,6 +121,8 @@ public partial class Dcoffee : System.Web.UI.Page
             DropDownListTASK_AUDITOR_4.Items.Add(new ListItem(user.Key, user.Value));
             DropDownListTASK_AUDITOR_5.Items.Add(new ListItem(user.Key, user.Value));
         }
+
+        doTaskCreate();
 
 
         BX24.FilterUserFields = FilterUserFields;
@@ -192,7 +194,7 @@ public partial class Dcoffee : System.Web.UI.Page
 
 
 
-        if (IdLead > 0)
+        if (false && IdLead > 0)
         {
             string Lead = "";
             dynamic LeadByJSON = new {  };
@@ -1064,13 +1066,13 @@ public partial class Dcoffee : System.Web.UI.Page
                   { "RESPONSIBLE_ID" , DropDownListTASK_ASSIGNED_BY_ID.SelectedValue },
                   { "AUDITORS" , auditors.ToArray()},
                   { "DEADLINE" , TextBoxTASK_DEADLINE.Text },
-                  { "UF_CRM_TASK" , new string[] {"CO_"+HiddenFieldTASK_UF_CRM_TASK.Value } }
+                  { "UF_CRM_TASK" , new string[] {"CO_"+HiddenFieldTASK_UF_CRM_TASK.Value.Replace("CO_","") } }
 
             }
-        };
+        }; 
         var contentText = JsonConvert.SerializeObject(data);
 
-        var Task = BX24.SendCommand("tasks.task.add", "", contentText, "POST");
+        var Task = Request.QueryString["IdTask"] != null ? BX24.SendCommand("tasks.task.update", "taskId=" + Request.QueryString["IdTask"].ToString(), contentText, "POST"): BX24.SendCommand("tasks.task.add", "", contentText, "POST");
         var TaskByJSON = JsonConvert.DeserializeObject<dynamic>(Task); 
         Int32 IdTask =   Convert.ToInt32(TaskByJSON.result.task.id);
 
@@ -1103,6 +1105,30 @@ public partial class Dcoffee : System.Web.UI.Page
                 ID = Convert.ToInt32(company.ID.ToString())
             });
         }
+
+        var dataCompanyByAddress = new
+        {
+
+            filter = new
+            {
+                ADDRESS = TextBoxNameCompany.Text
+            },
+            @params = new { REGISTER_SONET_EVENT = "Y" }
+        };
+
+        contentTextCompany = JsonConvert.SerializeObject(dataCompanyByAddress);
+        contentTextCompany = contentTextCompany.Replace("ADDRESS", "%ADDRESS");
+        CompanyListByJSON = BX24.SendCommand("crm.company.list", "", contentTextCompany, "POST");
+        var CompanyByAddressList = JsonConvert.DeserializeObject<dynamic>(CompanyListByJSON);
+        foreach (var company in CompanyByAddressList.result)
+        {
+            if (company.TITLE.ToString().Contains(TextBoxNameCompany.Text))
+                BX24.CompanySeacrh.Add(new Bitrix24.COMPANY()
+                {
+                    TITLE = company.TITLE.ToString(),
+                    ID = Convert.ToInt32(company.ID.ToString())
+                });
+        }
         GridViewCompanySearch.DataBind();
         Session.Contents["companysearch"] = BX24.CompanySeacrh;
     }
@@ -1122,7 +1148,7 @@ public partial class Dcoffee : System.Web.UI.Page
 
         var ResultSeacrh = new List<Bitrix24.COMPANY>();
         if (Session.Contents["companysearch"] != null)
-            ResultSeacrh = (List<Bitrix24.COMPANY>)Session.Contents["companysearch"];
+            ResultSeacrh = ((List<Bitrix24.COMPANY>)Session.Contents["companysearch"]).OrderBy(r=>r.TITLE).ToList();
 
         if (Result == null)
         {
@@ -1155,14 +1181,51 @@ public partial class Dcoffee : System.Web.UI.Page
 
         if (Request.QueryString["IdTask"] != null)
         {
-            IdTask = Convert.ToInt32(Request.QueryString["IdTask"]); 
+            IdTask = Convert.ToInt32(Request.QueryString["IdTask"]);
             log.Info(String.Format("IdTask = {0}", IdTask));
 
-            Response.Write(String.Format("Задача {0}", IdTask));
-            Response.End();
-            var Task = BX24.SendCommand("tasks.task.get", "TASK_ID=" + IdTask, "", "GET");
+
+
+            var Task = BX24.SendCommand("tasks.task.get", "taskId=" + IdTask, "", "POST");
             var TaskByJSON = JsonConvert.DeserializeObject<dynamic>(Task);
-            
+            TextBoxTASK_TITLE.Text = TaskByJSON.result.task.title;
+            TextBoxTASK_DESCRIPTION.Text = TaskByJSON.result.task.description;
+            DropDownListTASK_ASSIGNED_BY_ID.SelectedValue = TaskByJSON.result.task.responsibleId;
+            int i = 1;
+            if (TaskByJSON.result.task.auditors != null)
+                foreach (int auditor in TaskByJSON.result.task.auditors)
+                {
+                    switch (i)
+                    {
+                        case 1: DropDownListTASK_AUDITOR_1.SelectedValue = auditor.ToString(); break;
+                        case 2: DropDownListTASK_AUDITOR_2.SelectedValue = auditor.ToString(); break;
+                        case 3: DropDownListTASK_AUDITOR_3.SelectedValue = auditor.ToString(); break;
+                        case 4: DropDownListTASK_AUDITOR_4.SelectedValue = auditor.ToString(); break;
+                        case 5: DropDownListTASK_AUDITOR_5.SelectedValue = auditor.ToString(); break;
+                    }
+                    i++;
+                };
+            TextBoxTASK_DEADLINE.Text = TaskByJSON.result.task.deadline;
+            if (TaskByJSON.result.task.ufCrmTask.Count > 0)
+            {
+                LabelTASK_UF_CRM_TASK.Text = String.Format("({0}) {1}", TaskByJSON.result.task.ufCrmTask[0], "");
+                HiddenFieldTASK_UF_CRM_TASK.Value = TaskByJSON.result.task.ufCrmTask[0];
+            }
+            LabelNameTask.Text = String.Format("Задача №{0}", TaskByJSON.result.task.id);
+        }
+        else
+        { 
+            TextBoxTASK_TITLE.Text = String.Format("{0}, ", DateTime.Now);
+            if (Request.QueryString["Phone"] != null)
+            {
+                Phone = Request.QueryString["Phone"].ToString();
+                log.Info(String.Format("Phone = {0}", Phone));
+                TextBoxTASK_DESCRIPTION.Text = String.Format("Телефон: {0}{1}",  Phone, Environment.NewLine);
+            }
+            else
+            {
+               
+            }
         }
     }
 

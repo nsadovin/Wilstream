@@ -1,0 +1,8 @@
+2020-07-15 23:13:52,832  INFO  Phone = 89197651287
+2020-07-15 23:13:53,841  INFO  Phone = 89197651287
+2020-07-15 23:13:54,910  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-07-15 23:13:55,077  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1594844035.5548589,"finish":1594844035.613889,"duration":0.059030055999755859,"processing":0.02384495735168457,"date_start":"2020-07-15T23:13:55+03:00","date_finish":"2020-07-15T23:13:55+03:00"}}
+2020-07-15 23:13:55,235  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определени€ дл€ "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Dcoffee.getIdLeadByPhone(String Phone) в C:\Users\Ќиколай\source\repos\nsadovin\Wilstream\BitrixIntegration\Dcoffee.aspx.cs:строка 507

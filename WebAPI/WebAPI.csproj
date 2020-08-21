@@ -185,12 +185,20 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Cofactor2Controller.cs" />
+    <Compile Include="Models\Cofactor2Record.cs" />
     <Compile Include="Controllers\AlfaCapitalController.cs" />
     <Compile Include="Controllers\Chat2deskController.cs" />
     <Compile Include="Controllers\CofactorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandproOrderController.cs" />
+    <Compile Include="Controllers\LandproSupplyController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Models\AlfaCapital.cs" />
+    <Compile Include="Models\ApplicationContext.cs" />
+    <Compile Include="Models\LandproOrder.cs" />
+    <Compile Include="Models\LandproProduct.cs" />
+    <Compile Include="Models\LandproSupply.cs" />
     <Compile Include="WsDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

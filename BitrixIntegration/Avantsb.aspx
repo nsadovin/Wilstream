@@ -101,6 +101,12 @@ function checkSpecialKeys(e)
                         </asp:TableCell>
                     </asp:TableRow> 
                     <asp:TableRow>
+                        <asp:TableCell>Дополнительно о статусе</asp:TableCell>
+                        <asp:TableCell> 
+                              <asp:TextBox ID="TextBoxLeadSTATUS_DESCRIPTION" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
                         <asp:TableCell>Телефон</asp:TableCell>
                         <asp:TableCell>
                             <asp:Table ID="TablePhones" runat="server">

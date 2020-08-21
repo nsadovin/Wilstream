@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28016.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BitrixIntegration(1)", "BitrixIntegration\", "{B054F54C-29E6-4CF5-86D1-606B7A090725}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BitrixIntegration", "BitrixIntegration\", "{B054F54C-29E6-4CF5-86D1-606B7A090725}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51315"
@@ -169,7 +169,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{9E8449B3
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Forms", "Forms\", "{95F93A34-860A-4EE9-A1BA-978DE926F497}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_58995"
 		Debug.AspNetCompiler.PhysicalPath = "Forms\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58995\"
@@ -469,6 +469,31 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Русопрос", "Рус�
 		SlnRelativePath = "Русопрос\"
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWebAPI", "CoreWebAPI\CoreWebAPI.csproj", "{49D48E15-C1C6-4747-83B5-71A830BB57D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppTest", "ConsoleAppTest\ConsoleAppTest.csproj", "{766A907F-DBBE-4FEB-BBA8-94940B3A2429}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "andrus", "..\..\BitrixIntegration\andrus\", "{77B922A5-64A3-4D8E-AB42-DB46708967B7}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64041"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\BitrixIntegration\andrus\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64041\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64041"
+		Release.AspNetCompiler.PhysicalPath = "..\..\BitrixIntegration\andrus\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64041\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "64041"
+		SlnRelativePath = "..\..\BitrixIntegration\andrus\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -571,6 +596,18 @@ Global
 		{6F7D547C-48EA-4AC3-9119-193D6959D834}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F7D547C-48EA-4AC3-9119-193D6959D834}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F7D547C-48EA-4AC3-9119-193D6959D834}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{49D48E15-C1C6-4747-83B5-71A830BB57D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49D48E15-C1C6-4747-83B5-71A830BB57D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49D48E15-C1C6-4747-83B5-71A830BB57D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49D48E15-C1C6-4747-83B5-71A830BB57D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{766A907F-DBBE-4FEB-BBA8-94940B3A2429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{766A907F-DBBE-4FEB-BBA8-94940B3A2429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{766A907F-DBBE-4FEB-BBA8-94940B3A2429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{766A907F-DBBE-4FEB-BBA8-94940B3A2429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B922A5-64A3-4D8E-AB42-DB46708967B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B922A5-64A3-4D8E-AB42-DB46708967B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B922A5-64A3-4D8E-AB42-DB46708967B7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B922A5-64A3-4D8E-AB42-DB46708967B7}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -591,6 +628,7 @@ Global
 		{27884355-4D21-4D56-A55D-878629127C32} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
 		{8227B737-8553-4E9F-B27A-90AB06B56C19} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
 		{6F7D547C-48EA-4AC3-9119-193D6959D834} = {3E18079B-000B-49E5-A60E-BF8B95BB10A7}
+		{49D48E15-C1C6-4747-83B5-71A830BB57D8} = {67B6417B-0612-4A0F-BA20-6921F1592971}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F45207D-0A1D-491E-A11B-0B9DE2C48632}

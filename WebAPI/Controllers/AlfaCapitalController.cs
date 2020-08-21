@@ -7,9 +7,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using WebAPI.Models;
+using AuthorizeAttribute = System.Web.Http.AuthorizeAttribute;
 
 namespace WebAPI.Controllers
 {
+    [Authorize]
     public class AlfaCapitalController : ApiController
     {
 
