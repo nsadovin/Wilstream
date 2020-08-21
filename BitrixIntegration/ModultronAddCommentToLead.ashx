@@ -15,7 +15,6 @@ public class ModultronAddCommentToLead : IHttpHandler {
 
     private static HttpContext _context  ;
 
-        // 1111
 
    
     private readonly Bitrix24 BX24 = new Bitrix24(HttpContext.Current, "local.5f3d8221baf308.35921081", "iPSI4mQS8HftaCZDUMvNFkJ4E4wXxdFkMVSTeaS7rgfEUIerQ5", "https://modultron.bitrix24.ru", "https://oauth.bitrix.info", "callcenter@banya.one", "ZauAEt7a");
