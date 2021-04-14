@@ -14,6 +14,11 @@ namespace Spoofi.AmoCrmIntegration.AmoCrmEntity
         [JsonProperty("name")]
         public string Name { get; set; }
 
+
+
+        [JsonProperty("price")]
+        public int? Price { get; set; }
+
         [JsonProperty("responsible_user_id")]
         public long ResponsibleUserId { get; set; }
 
@@ -60,21 +65,19 @@ namespace Spoofi.AmoCrmIntegration.AmoCrmEntity
         [JsonProperty("status_id")]
         public Int32 StatusId { get; set; }
 
-
-        [JsonProperty("pipeline_id")]
-        public Int32 PipelineId { get; set; }
+         
 
         [JsonProperty("sale")]
         public Int32 Sale { get; set; }
 
         [JsonProperty("main_contact")]
-        public CrmMainContact MainContact { get; set; }
+        public CrmMainContact MainContact {
+            get { return  new CrmMainContact(){ id = MainContactId };}  }
 
-        public long MainContactId
-        {
-            get { return MainContact.id; }
-            set { MainContact.id = value; }
-        } 
+
+        [JsonProperty("main_contact_id")]
+        public long MainContactId { get; set; }
+         
 
         [JsonProperty("contacts")]
         public CrmContacts Contacts { get; set; }   
@@ -82,11 +85,15 @@ namespace Spoofi.AmoCrmIntegration.AmoCrmEntity
 
         [JsonProperty("custom_fields", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public List<CrmCustomField> CustomFields { get; set; }
+         
+         
+        public CrmPipeline Pipeline {
+            get { return  new CrmPipeline(){ id = PipelineId };} }
 
+        [JsonProperty("pipeline_id")]
+        public long PipelineId { get; set; }
 
-
-        [JsonProperty("pipeline")]
-        public CrmPipeline Pipeline { get; set; }
+        
 
     }
 

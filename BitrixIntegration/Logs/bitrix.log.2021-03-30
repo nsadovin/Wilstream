@@ -1,0 +1,13 @@
+2021-03-30 12:10:28,337  INFO  Phone = 9197651287
+2021-03-30 12:11:26,116  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-03-30 12:11:26,378  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617095486.505913,"finish":1617095486.53369,"duration":0.02777695655822754,"processing":0.0067141056060791016,"date_start":"2021-03-30T12:11:26+03:00","date_finish":"2021-03-30T12:11:26+03:00"}}
+2021-03-30 12:11:26,452  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определени€ дл€ "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Ќиколай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 485
+2021-03-30 12:11:29,020  INFO  Phone = 9197651287
+2021-03-30 12:12:00,724  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-03-30 12:12:00,969  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617095521.107068,"finish":1617095521.12572,"duration":0.018651962280273438,"processing":0.001522064208984375,"date_start":"2021-03-30T12:12:01+03:00","date_finish":"2021-03-30T12:12:01+03:00"}}
+2021-03-30 12:12:01,073  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определени€ дл€ "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Ќиколай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 485

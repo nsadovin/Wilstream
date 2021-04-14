@@ -41,6 +41,9 @@
             deliveryTypes = _deliveryTypes.Split(';').ToArray(); 
         }
 
-      //  public LandproOrder landproOrder { get; set; }
+
+        public string comment { get; set; }
+
+        //  public LandproOrder landproOrder { get; set; }
     }
 }

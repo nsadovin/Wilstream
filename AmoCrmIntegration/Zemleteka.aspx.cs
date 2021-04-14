@@ -71,8 +71,8 @@ public partial class Zemleteka : System.Web.UI.Page
 
         if (phone != "" && IdContact == "")
         {
-            var contact_search =
-           _service.GetContacts(phone).OrderByDescending(r => r.DateCreate).FirstOrDefault();
+      var contacts = _service.GetContacts(phone).OrderByDescending(r => r.DateCreate);
+      var contact_search = contacts.FirstOrDefault();
             if (contact_search != null)
             {
                 IdContact = contact_search.Id.ToString();
@@ -88,6 +88,7 @@ public partial class Zemleteka : System.Web.UI.Page
         {
             DropDownListResponsibleUserId.Items.Add(new ListItem() { Value = option.Id.ToString(), Text = option.Name });
             DropDownListResponsibleUsers.Items.Add(new ListItem() { Value = option.Id.ToString(), Text = option.Name });
+            DropDownListContactResponsibleUsers.Items.Add(new ListItem() { Value = option.Id.ToString(), Text = option.Name });
         };
 
         var pipelines = _service.GetPipelines();
@@ -139,21 +140,20 @@ public partial class Zemleteka : System.Web.UI.Page
 
             //lead = _service.GetLead(lead.Id);
 
-
-            if (contact != null)
-            {
+       
                   
                 if (contact != null)
                 {
+                    HiddenFieldMainContactId.Value = IdContact;
                     PanelMainContact.Visible = true;
                     TextBoxMainContactName.Text = contact.Name;
                     TextBoxMainCampaignName.Text = contact.CompanyName;
+                    DropDownListContactResponsibleUsers.SelectedValue = contact.ResponsibleUserId.ToString(); 
                     foreach (var ContactField in contact_fields.Where(r => ContactFields.Count == 0 || ContactFields.Contains(r.Id)).ToList())
                     {
                         TableMainContact.Rows.Add(CreateRowForCustomField(TypeField.Lead, "MainContact", contact.CustomFields, ContactField));
                     }
-                }  
-            }
+                }   
         }
     }
 
@@ -163,7 +163,7 @@ public partial class Zemleteka : System.Web.UI.Page
         var request = new AddOrUpdateLeadRequest();
         CrmLead crmLead = JsonConvert.DeserializeObject<CrmLead>(HiddenFieldLeadJson.Value);
         var lead = new AddOrUpdateCrmLead();
-        lead.Id = crmLead.Id.ToString();
+        lead.Id = crmLead.Id;
         lead.Name = TextBoxLeadName.Text;
         lead.ResponsibleUserId = Convert.ToInt64(DropDownListResponsibleUsers.SelectedValue);
         lead.DateCreateTimestamp = crmLead.DateCreateTimestamp;
@@ -403,7 +403,7 @@ public partial class Zemleteka : System.Web.UI.Page
             var request = new AddOrUpdateLeadRequest();
             CrmLead crmLead = JsonConvert.DeserializeObject<CrmLead>(HiddenFieldLeadJson.Value);
             var lead = new AddOrUpdateCrmLead();
-            lead.Id = crmLead.Id.ToString();
+            lead.Id = crmLead.Id;
             lead.Name = TextBoxLeadName.Text;
             lead.StatusId = DropDownListStatuses.SelectedValue;
             lead.PipelineId = DropDownListPipeline.SelectedValue;
@@ -542,10 +542,12 @@ public partial class Zemleteka : System.Web.UI.Page
 
     private Int64 CreateContacts(long LeadId = 0)
     {
-
+         
         var request = new AddOrUpdateContactRequest();
         CrmLead crmLead = JsonConvert.DeserializeObject<CrmLead>(HiddenFieldLeadJson.Value);
+      
         request.Update = new List<AddOrUpdateCrmContact>();
+
         request.Add = new List<AddOrUpdateCrmContact>();
         {
             var _contact = new AddOrUpdateCrmContact();

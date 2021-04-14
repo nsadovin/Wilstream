@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var httpResponseMessage = new HttpClient().PostAsync("https://sw.landpro.site/update-supply", content);
 
-            log.Debug("LandproSupply update: " + httpResponseMessage.Result.StatusCode.ToString());
+            log.Debug("LandproSupply update: " + httpResponseMessage.Result.Content.ReadAsStringAsync());
             return "good";
         }
 

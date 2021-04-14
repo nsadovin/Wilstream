@@ -270,11 +270,76 @@ public class Bitrix24
         public Int32 ID; 
 
     }
+  public List<int> FilterContactFields = null;
+
+  public List<Userfield> ContactFields
+  {
+    get
+    {
 
 
-    public List<int> FilterDealFields = null;
+      var dataListUsers = new
+      {
 
-    public List<Userfield> DealFields
+        sort = "ID"
+      };
+
+      var Userfields = new List<Bitrix24.Userfield>();
+
+      var userfieldsJson = SendCommand("crm.contact.userfield.list", "", "", "GET");
+      var userfields = JsonConvert.DeserializeObject<dynamic>(userfieldsJson).result;
+
+
+
+      foreach (dynamic _userfield in userfields)
+      {
+        if (FilterContactFields != null)
+        {
+          if (!FilterContactFields.Contains(Convert.ToInt32(_userfield.ID))) continue;
+        }
+
+        try
+        {
+          var userfieldJson = SendCommand("crm.contact.userfield.get", "ID=" + _userfield.ID, "", "GET");
+          var userfield = JsonConvert.DeserializeObject<dynamic>(userfieldJson).result;
+          Userfields.Add(new Bitrix24.Userfield()
+          {
+            ID = userfield.ID,
+            ENTITY_ID = userfield.ENTITY_ID,
+            NAME = userfield.EDIT_FORM_LABEL.ru,
+            FIELD_NAME = userfield.FIELD_NAME,
+            USER_TYPE_ID = userfield.USER_TYPE_ID,
+            MULTIPLE = userfield.MULTIPLE,
+            LIST = new List<Bitrix24.UF_LIST>()
+          });
+          if (userfield.LIST != null)
+            foreach (var keyvalue in userfield.LIST)
+            {
+              var listic = keyvalue.ToString();
+              var li = JsonConvert.DeserializeObject<Bitrix24.UF_LIST>(listic);
+              Userfields[Userfields.Count - 1].LIST.Add(li);
+            }
+
+            ;
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+      }
+
+      return Userfields;
+    }
+  }
+
+
+  public List<int> FilterDealFields = null;
+
+
+
+  public List<Userfield> DealFields
     {
         get
         {
@@ -549,7 +614,10 @@ public class Bitrix24
             , crm
             , employee
             , address
-    }
+            , olchat_wa_stats
+            , olchat_wa_send
+            , iblock_element
+  }
 
     //Открытый метод для отправки REST-запросов в Битрикс24
     public string SendCommand(string Command, string Params = "", string Body = "", string Method = "POST")

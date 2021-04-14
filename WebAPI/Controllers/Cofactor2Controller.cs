@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
              
             return Cofactor2UserResponse.Creater(query.FirstOrDefault());
         }
-        // GET api/Cofactor?email=vesdehod@mail.ru
+        // GET api/Cofactor?phone=vesdehod@mail.ru
         [HttpGet]
         public Cofactor2UserResponse phone(String phone)
         {

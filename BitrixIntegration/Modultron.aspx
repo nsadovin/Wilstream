@@ -224,8 +224,11 @@ function checkSpecialKeys(e)
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>Контакт</asp:TableCell>
-                        <asp:TableCell> 
-                            <asp:Label ID="LabelDEAL_ContactInfo" runat="server" Text="Label"></asp:Label>
+                        <asp:TableCell>
+                            
+                            <asp:HiddenField ID="HiddenFieldDEAL_CONTACT_ID" runat="server" />
+                            <asp:TextBox ID="TextBoxDEAL_ContactInfoName"  CssClass="form-control" runat="server"></asp:TextBox> 
+                            <asp:Label ID="LabelDEAL_ContactInfoPhone" runat="server" Text="Label"></asp:Label>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>

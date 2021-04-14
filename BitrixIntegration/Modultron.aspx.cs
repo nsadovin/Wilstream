@@ -25,7 +25,7 @@ public partial class Modultron : System.Web.UI.Page
     public List<int> FilterUserFields =  new List<int>() { 282, 286, 1098, 1170};
 
 
-    public List<int> FilterDealFields = new List<int>() {1593, 1587,1585, 1859 , 1591,  1869};
+    public List<int> FilterDealFields = new List<int>() {1593, 1587,1913, 1859 , 1591,  1869};
 
 
     protected void Page_Init(object sender, EventArgs e)
@@ -1206,8 +1206,8 @@ public partial class Modultron : System.Web.UI.Page
 
             if (DealByJSON.result.CONTACT_ID != null)
             {
-                  
-                var Contact = BX24.SendCommand("crm.contact.get", "id=" + DealByJSON.result.CONTACT_ID, "", "POST");
+                HiddenFieldDEAL_CONTACT_ID.Value = DealByJSON.result.CONTACT_ID.ToString();
+              var Contact = BX24.SendCommand("crm.contact.get", "id=" + DealByJSON.result.CONTACT_ID, "", "POST");
                 var ContactByJSON = JsonConvert.DeserializeObject<dynamic>(Contact);
                     var phones = "";
                 if (ContactByJSON.result.PHONE != null)
@@ -1218,7 +1218,8 @@ public partial class Modultron : System.Web.UI.Page
                     }
                 }
 
-                LabelDEAL_ContactInfo.Text = ContactByJSON.result.NAME + " " + phones;
+                TextBoxDEAL_ContactInfoName.Text = ContactByJSON.result.NAME;
+                LabelDEAL_ContactInfoPhone.Text =  phones;
             }
 
             TextBoxDEAL_BEGINDATE.Text = DealByJSON.result.BEGINDATE;
@@ -1508,6 +1509,26 @@ public partial class Modultron : System.Web.UI.Page
                     }
                 } 
             }
+
+            if (!String.IsNullOrEmpty(HiddenFieldDEAL_CONTACT_ID.Value) != null)
+            {
+                var dataContact =
+                    new
+                    {
+                        id = (Object)HiddenFieldDEAL_CONTACT_ID.Value,
+                        fields = new Dictionary<string, object>()
+                        {
+                            { "NAME" , TextBoxDEAL_ContactInfoName.Text }, 
+                        }
+                    };
+
+                var contentContactText = JsonConvert.SerializeObject(dataContact);
+                var contact = BX24.SendCommand("crm.contact.update", "", contentContactText, "POST");
+                var contactByJSON = JsonConvert.DeserializeObject<dynamic>(contact);
+                  
+            }
+             
+
 
 
         var contentText = JsonConvert.SerializeObject(data);

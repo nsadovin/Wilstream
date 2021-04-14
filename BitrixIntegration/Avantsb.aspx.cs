@@ -20,7 +20,7 @@ public partial class Avantsb : System.Web.UI.Page
     private static ILog log = LogManager.GetLogger("LOGGER");
 
 
-    public List<int> FilterUserFields =  new List<int>() { 282, 286, 1098, 1170,1800,1801};
+  public List<int> FilterUserFields =  new List<int>() { 282, 286, 1098, 1170, 1800, 1801, 2130};
 
 
     protected void Page_Init(object sender, EventArgs e)
@@ -793,6 +793,8 @@ public partial class Avantsb : System.Web.UI.Page
             if (productrowsData.rows.Count == 0)
                 contentText = contentText.Replace("[]", "null");
             BX24.SendCommand("crm.lead.productrows.set", "", contentText, "POST");
+
+            log.Info(String.Format("contentText = {0}", contentText));
 
             if (IdLeadOld == 0)
             {

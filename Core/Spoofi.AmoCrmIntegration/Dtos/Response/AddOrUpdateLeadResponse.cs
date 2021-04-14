@@ -4,21 +4,36 @@ using Spoofi.AmoCrmIntegration.Interface;
 
 namespace Spoofi.AmoCrmIntegration.Dtos.Response
 {
+    public class AddOrUpdateLeadV2Response : AmoCrmResponseBase<CrmAddOrUpdateLeadV2ResponseChild>
+    {
+        [JsonProperty("_embedded")]
+        public override CrmAddOrUpdateLeadV2ResponseChild Response { get; set; }
+    }
+
+    public class CrmAddOrUpdateLeadV2ResponseChild : IAmoCrmResponseChild
+    {
+        [JsonProperty("items")]
+        public List<AddedOrUpdatedLead> Leads { get; set; }
+
+        [JsonProperty("errors")]
+        public dynamic Error { get; set; }
+    }
+
 
     //{"_links":{"self":{"href":"/api/v2/leads","method":"post"}},"_embedded":{"items":[],"errors":{"update":{"21388995":"Last modified date is older than in database"}}}}
     public class AddOrUpdateLeadResponse : AmoCrmResponseBase<CrmAddOrUpdateLeadResponseChild>
     {
-        //[JsonProperty("response")]
-       // public override CrmAddOrUpdateLeadResponseChild Response { get; set; }
-
-        [JsonProperty("_embedded")]
+        [JsonProperty("response")]
         public override CrmAddOrUpdateLeadResponseChild Response { get; set; }
+
+       // [JsonProperty("_embedded")]
+     //   public override CrmAddOrUpdateLeadResponseChild Response { get; set; }
     }
 
     public class CrmAddOrUpdateLeadResponseChild : IAmoCrmResponseChild
     {
-        [JsonProperty("items")]
-        public List<AddedOrUpdatedLead> Leads { get; set; }
+        [JsonProperty("leads")]
+        public AddedOrUpdatedLeads Leads { get; set; }
 
         [JsonProperty("errors")]
         public dynamic Error { get; set; }
@@ -40,7 +55,7 @@ public class AddedOrUpdatedLead
         public List<AddedLead> Add { get; set; }
 
         [JsonProperty("update")]
-        public UpdatedLead Update { get; set; }
+        public List<AddedLead> Update { get; set; }
     }
 
 

@@ -9,13 +9,13 @@ namespace Spoofi.AmoCrmIntegration.Dtos.Response
 
     public class CrmGetLeadResponse : AmoCrmResponseBase<CrmLeadResponseChild>
     { 
-        [JsonProperty("_embedded")]
+        [JsonProperty("response")]
         public override CrmLeadResponseChild Response { get; set; }
     }
 
     public class CrmLeadResponseChild : IAmoCrmResponseChild
     {
-        [JsonProperty("items")]
+        [JsonProperty("leads")]
         public List<CrmLead> Leads { get; set; }
 
         [JsonProperty("errors")]

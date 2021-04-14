@@ -84,7 +84,12 @@
                     <asp:TableRow>
                         <asp:TableCell>ФИО:</asp:TableCell>
                         <asp:TableCell><asp:TextBox ID="TextBoxMainContactName" Width="400" CssClass="form-control" runat="server"></asp:TextBox></asp:TableCell>
-                    </asp:TableRow>
+                      </asp:TableRow>
+                  
+                  <asp:TableRow>
+                      <asp:TableCell>Ответственный:</asp:TableCell>
+                      <asp:TableCell><asp:DropDownList ID="DropDownListContactResponsibleUsers" CssClass="form-control" runat="server"></asp:DropDownList></asp:TableCell>
+                  </asp:TableRow>
                     <asp:TableRow Visible="false">
                         <asp:TableCell>Кампания:</asp:TableCell>
                         <asp:TableCell><asp:TextBox ID="TextBoxMainCampaignName" Width="400" CssClass="form-control" runat="server"></asp:TextBox></asp:TableCell>

@@ -31,8 +31,8 @@ namespace Spoofi.AmoCrmIntegration.AmoCrmEntity
 
         [JsonProperty("responsible_user_id")]
         public long ResponsibleUserId { get; set; }
-
-        [JsonProperty("date_create")]
+     
+        [JsonProperty("created_at")]
         public long DateCreateTimestamp { get; set; }
 
         public DateTime DateCreate

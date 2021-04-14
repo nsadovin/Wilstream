@@ -18,9 +18,9 @@ public partial class Naumen : System.Web.UI.Page
         {
             Path = "~/Scripts/jquery-3.0.0.min.js",
         });
-        n = new NaumenSD("4a1090ac-c13f-42cd-9295-a8f0e992eeab");
+        n = new NaumenSD("4141c17e-2cb9-4ecd-8362-48d79630061c");
 
-        if (Request.QueryString["UUID"] != null && !IsPostBack)
+    if (Request.QueryString["UUID"] != null && !IsPostBack)
         {
             string error = "";
             var call = n.GetServiceCall(Request.QueryString["UUID"].ToString(), ref error);

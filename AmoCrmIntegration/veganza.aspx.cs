@@ -196,7 +196,7 @@ public partial class veganza : System.Web.UI.Page
         var request = new AddOrUpdateLeadRequest();
         CrmLead crmLead = JsonConvert.DeserializeObject<CrmLead>(HiddenFieldLeadJson.Value);
         var lead = new AddOrUpdateCrmLead();
-        lead.Id = crmLead.Id.ToString();
+        lead.Id = crmLead.Id;
         lead.Name = TextBoxLeadName.Text;
         lead.ResponsibleUserId = Convert.ToInt64(DropDownListResponsibleUsers.SelectedValue);
         lead.DateCreateTimestamp = crmLead.DateCreateTimestamp;
@@ -436,7 +436,7 @@ public partial class veganza : System.Web.UI.Page
             var request = new AddOrUpdateLeadRequest();
             CrmLead crmLead = JsonConvert.DeserializeObject<CrmLead>(HiddenFieldLeadJson.Value);
             var lead = new AddOrUpdateCrmLead();
-            lead.Id = crmLead.Id.ToString();
+            lead.Id = crmLead.Id;
             lead.Name = TextBoxLeadName.Text;
             lead.StatusId = DropDownListStatuses.SelectedValue;
             lead.PipelineId = DropDownListPipeline.SelectedValue;

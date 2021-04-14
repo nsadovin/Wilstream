@@ -158,7 +158,7 @@ function checkSpecialKeys(e)
             </asp:Panel>
             </div>
             
-            <div class="col-sm"> 
+            <div class="col-sm" style="display: none;"> 
                 <asp:Panel ID="PanelSMS" runat="server">
                     <h3>Отправить СМС</h3> 
                     <asp:Table ID="Table1" runat="server">

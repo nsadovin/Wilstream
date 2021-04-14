@@ -1,0 +1,24 @@
+2020-10-23 00:54:46,389  INFO  Phone = 79197651287
+2020-10-23 00:55:05,549  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-23 00:55:15,165  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1603403707.4726579,"finish":1603403707.5268171,"duration":0.054159164428710938,"processing":0.015495061874389648,"date_start":"2020-10-23T00:55:07+03:00","date_finish":"2020-10-23T00:55:07+03:00"}}
+2020-10-23 00:55:37,490  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определени€ дл€ "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Ekomebel.getIdContactByPhone(String Phone) в C:\Users\Ќиколай\source\repos\nsadovin\Wilstream\BitrixIntegration\Ekomebel.aspx.cs:строка 559
+2020-10-23 00:55:47,812  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-23 00:55:47,944  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1603403748.6109049,"finish":1603403748.661448,"duration":0.050543069839477539,"processing":0.010686159133911133,"date_start":"2020-10-23T00:55:48+03:00","date_finish":"2020-10-23T00:55:48+03:00"}}
+2020-10-23 00:55:48,146  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определени€ дл€ "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Ekomebel.getIdLeadByPhone(String Phone) в C:\Users\Ќиколай\source\repos\nsadovin\Wilstream\BitrixIntegration\Ekomebel.aspx.cs:строка 527
+2020-10-23 10:07:44,357  INFO  Phone = 79197651287
+2020-10-23 10:08:03,838  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-23 10:08:04,013  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1603436885.4607849,"finish":1603436885.540961,"duration":0.080176115036010742,"processing":0.017538070678710938,"date_start":"2020-10-23T10:08:05+03:00","date_finish":"2020-10-23T10:08:05+03:00"}}
+2020-10-23 10:08:04,079  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определени€ дл€ "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Ekomebel.getIdContactByPhone(String Phone) в C:\Users\Ќиколай\source\repos\nsadovin\Wilstream\BitrixIntegration\Ekomebel.aspx.cs:строка 559
+2020-10-23 10:08:04,095  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-23 10:08:04,260  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1603436885.715095,"finish":1603436885.7874861,"duration":0.072391033172607422,"processing":0.015748977661132812,"date_start":"2020-10-23T10:08:05+03:00","date_finish":"2020-10-23T10:08:05+03:00"}}
+2020-10-23 10:08:04,280  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определени€ дл€ "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Ekomebel.getIdLeadByPhone(String Phone) в C:\Users\Ќиколай\source\repos\nsadovin\Wilstream\BitrixIntegration\Ekomebel.aspx.cs:строка 527

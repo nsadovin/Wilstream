@@ -1,0 +1,79 @@
+2020-10-27 01:56:29,282  INFO  Phone = 79197651287
+2020-10-27 01:56:29,856  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 01:56:29,966  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603752991.440551,"finish":1603752991.480653,"duration":0.040102005004882812,"processing":0.013514041900634766,"date_start":"2020-10-27T01:56:31+03:00","date_finish":"2020-10-27T01:56:31+03:00"}}
+2020-10-27 01:56:30,014  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 01:56:30,028  INFO  Select IdContact = 10015
+2020-10-27 01:56:30,449  INFO  IdContact = 10015
+2020-10-27 01:56:31,097  INFO  Phone = 79197651287
+2020-10-27 01:57:24,340  INFO  JustLead = True
+2020-10-27 01:57:24,342  INFO  Phone = 79197651287
+2020-10-27 01:57:25,704  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 01:57:25,810  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1603753047.288604,"finish":1603753047.3258491,"duration":0.037245035171508789,"processing":0.0097599029541015625,"date_start":"2020-10-27T01:57:27+03:00","date_finish":"2020-10-27T01:57:27+03:00"}}
+2020-10-27 01:57:26,143  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определени€ дл€ "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Ekomebel.getIdLeadByPhone(String Phone) в C:\Users\Ќиколай\source\repos\nsadovin\Wilstream\BitrixIntegration\Ekomebel.aspx.cs:строка 577
+2020-10-27 01:57:58,085  INFO  Phone = 79197651287
+2020-10-27 01:57:58,673  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 01:57:58,773  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603753080.255585,"finish":1603753080.289475,"duration":0.033890008926391602,"processing":0.0044498443603515625,"date_start":"2020-10-27T01:58:00+03:00","date_finish":"2020-10-27T01:58:00+03:00"}}
+2020-10-27 01:57:58,775  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 01:57:58,777  INFO  Select IdContact = 10015
+2020-10-27 01:57:59,157  INFO  IdContact = 10015
+2020-10-27 01:57:59,544  INFO  Phone = 79197651287
+2020-10-27 02:01:25,362  INFO  Phone = 79197651287
+2020-10-27 02:01:26,953  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 02:01:27,066  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603753288.549737,"finish":1603753288.582099,"duration":0.032361984252929688,"processing":0.0035719871520996094,"date_start":"2020-10-27T02:01:28+03:00","date_finish":"2020-10-27T02:01:28+03:00"}}
+2020-10-27 02:01:27,113  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 02:01:27,133  INFO  Select IdContact = 10015
+2020-10-27 02:01:27,568  INFO  IdContact = 10015
+2020-10-27 02:01:28,355  INFO  Phone = 79197651287
+2020-10-27 02:01:59,647  INFO  Phone = 79197651287
+2020-10-27 02:02:00,315  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 02:02:00,452  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603753321.9228909,"finish":1603753321.9661829,"duration":0.043292045593261719,"processing":0.0048129558563232422,"date_start":"2020-10-27T02:02:01+03:00","date_finish":"2020-10-27T02:02:01+03:00"}}
+2020-10-27 02:02:00,453  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 02:02:00,454  INFO  Select IdContact = 10015
+2020-10-27 02:02:00,908  INFO  IdContact = 10015
+2020-10-27 02:02:20,469  INFO  Phone = 79197651287
+2020-10-27 02:03:25,822  INFO  Phone = 79197651287
+2020-10-27 02:03:26,902  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 02:03:27,026  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603753408.509788,"finish":1603753408.5429871,"duration":0.033199071884155273,"processing":0.0039479732513427734,"date_start":"2020-10-27T02:03:28+03:00","date_finish":"2020-10-27T02:03:28+03:00"}}
+2020-10-27 02:03:27,092  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 02:03:27,117  INFO  Select IdContact = 10015
+2020-10-27 02:03:27,670  INFO  IdContact = 10015
+2020-10-27 02:03:34,215  INFO  Phone = 79197651287
+2020-10-27 02:04:12,543  INFO  Phone = 79197651287
+2020-10-27 02:04:13,419  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 02:04:13,524  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603753455.007431,"finish":1603753455.0425849,"duration":0.035153865814208984,"processing":0.0046761035919189453,"date_start":"2020-10-27T02:04:15+03:00","date_finish":"2020-10-27T02:04:15+03:00"}}
+2020-10-27 02:04:13,619  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 02:04:13,877  INFO  Select IdContact = 10015
+2020-10-27 02:04:14,382  INFO  IdContact = 10015
+2020-10-27 02:13:17,748  INFO  Phone = 79197651287
+2020-10-27 02:13:20,053  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 02:13:20,207  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603754001.6493959,"finish":1603754001.727411,"duration":0.07801508903503418,"processing":0.050657987594604492,"date_start":"2020-10-27T02:13:21+03:00","date_finish":"2020-10-27T02:13:21+03:00"}}
+2020-10-27 02:13:20,315  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 02:13:20,415  INFO  Select IdContact = 10015
+2020-10-27 02:13:20,860  INFO  IdContact = 10015
+2020-10-27 02:13:46,627  INFO  Phone = 79197651287
+2020-10-27 02:13:47,284  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 02:13:47,382  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603754028.873384,"finish":1603754028.9050009,"duration":0.031616926193237305,"processing":0.0046761035919189453,"date_start":"2020-10-27T02:13:48+03:00","date_finish":"2020-10-27T02:13:48+03:00"}}
+2020-10-27 02:13:47,383  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 02:13:47,384  INFO  Select IdContact = 10015
+2020-10-27 02:13:47,765  INFO  IdContact = 10015
+2020-10-27 02:19:08,956  INFO  Phone = 79197651287
+2020-10-27 02:19:11,939  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 02:19:12,042  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603754353.5335059,"finish":1603754353.5658131,"duration":0.032307147979736328,"processing":0.0050189495086669922,"date_start":"2020-10-27T02:19:13+03:00","date_finish":"2020-10-27T02:19:13+03:00"}}
+2020-10-27 02:19:12,122  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 02:19:12,195  INFO  Select IdContact = 10015
+2020-10-27 02:19:12,765  INFO  IdContact = 10015
+2020-10-27 02:19:23,845  INFO  Phone = 79197651287
+2020-10-27 02:19:24,460  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2020-10-27 02:19:24,561  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[10015]},"time":{"start":1603754366.05147,"finish":1603754366.0833549,"duration":0.031884908676147461,"processing":0.004116058349609375,"date_start":"2020-10-27T02:19:26+03:00","date_finish":"2020-10-27T02:19:26+03:00"}}
+2020-10-27 02:19:24,572  INFO  ContactsJSON.result.CONTACT.Count = 1
+2020-10-27 02:19:24,574  INFO  Select IdContact = 10015
+2020-10-27 02:19:24,945  INFO  IdContact = 10015
+2020-10-27 02:19:26,141  INFO  IdContact = 10015
+2020-10-27 02:19:27,155  INFO  IdContact = 10015
+2020-10-27 02:19:27,542  INFO  IdTask = 13131
+2020-10-27 08:11:40,671  INFO  IdContact = 10015
+2020-10-27 08:11:42,221  INFO  IdContact = 10015
+2020-10-27 08:11:42,649  INFO  IdTask = 13131

@@ -21,6 +21,10 @@ namespace WebAPI.Models
         [Required]
         public List<LandproSupply> supplies { get; set; }
 
-        
+
+        public float totalSum { get; set; }
+
+
+
     }
 }

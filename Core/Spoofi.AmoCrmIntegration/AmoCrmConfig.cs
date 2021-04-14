@@ -65,14 +65,15 @@ namespace Spoofi.AmoCrmIntegration
 
         private string LeadsListUrl
         {
-          //  get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/leads/list?", Subdomain); }
-            get { return string.Format("https://{0}.amocrm.ru/api/v2/leads", Subdomain); }
+            get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/leads/list?", Subdomain); }
+         //   get { return string.Format("https://{0}.amocrm.ru/api/v2/leads", Subdomain); }
+          //  get { return string.Format("https://{0}.amocrm.ru/api/v3/leads/", Subdomain); }
         }
 
 
         private string NotesListUrl
         {
-                get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/notes/list?type=company&note_type=4", Subdomain); }
+                get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/notes/list?type=lead&note_type=4", Subdomain); }
            //     get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/notes/list?type=lead&note_type=4", Subdomain); }
           //  get { return string.Format("https://{0}.amocrm.ru/api/v2/notes?type=lead", Subdomain); }
         }
@@ -101,14 +102,20 @@ namespace Spoofi.AmoCrmIntegration
 
         public string SetLeadUrl
         {
-            //get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/leads/set", Subdomain); }
-            get { return string.Format("https://{0}.amocrm.ru/api/v2/leads/", Subdomain); }
+            get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/leads/set", Subdomain); } 
         }
-         
+
+
+        public string SetLeadUrlv2
+        { 
+            get { return string.Format("https://{0}.amocrm.ru/api/v2/leads/", Subdomain); } 
+        }
+
+
         public string SetTaskUrl
         {
            // get { return string.Format("https://{0}.amocrm.ru/private/api/v2/json/tasks/set", Subdomain); }
-            get { return string.Format("https://{0}.amocrm.ru/api/v2/tasks/", Subdomain); }
+            get { return string.Format("https://{0}.amocrm.ru/api/v2/tasks/", Subdomain); } 
         }
         public string SetNoteUrl
         {
@@ -144,6 +151,7 @@ namespace Spoofi.AmoCrmIntegration
                 {typeof (CrmGetLeadResponse), LeadsListUrl},
                 {typeof (CrmGetPipeLineResponse), PipeLinesUrl}, 
                 {typeof (AddOrUpdateLeadResponse), SetLeadUrl},
+                {typeof (AddOrUpdateLeadV2Response), SetLeadUrlv2},
                 {typeof (AddOrUpdateContactResponse), SetContactUrl},
                 {typeof (AddOrUpdateCompanyResponse), SetCompanyUrl},
                 {typeof (AddOrUpdateTaskResponse), SetTaskUrl},

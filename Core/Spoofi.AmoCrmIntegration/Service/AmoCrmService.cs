@@ -98,11 +98,11 @@ namespace Spoofi.AmoCrmIntegration.Service
         public CrmLead GetLead(long leadId)
         {
             var parameterId = new Parameter { Name = "id", Value = leadId, Type = ParameterType.QueryString };
-            var contact = AmoMethod.Get<CrmGetLeadResponse>(_crmConfig, parameterId);
-            if (contact == null) return null;
-            return contact.Response.Leads.FirstOrDefault();
+            var leadsList = AmoMethod.Get<CrmGetLeadResponse>(_crmConfig, parameterId);
+            if (leadsList == null) return null;
+            return leadsList.Response.Leads.FirstOrDefault();
         }
-
+         
 
 
         public CrmCompany GetCompany(long companyId)
@@ -259,7 +259,31 @@ namespace Spoofi.AmoCrmIntegration.Service
         {
             var request = addOrUpdateLeadRequest;
             var response = AmoMethod.Post<AddOrUpdateLeadResponse>(request, _crmConfig);
-            return response.Response.Leads;
+
+            long id = 0;
+            if (addOrUpdateLeadRequest.Request.Leads.Add != null)
+                id = response.Response.Leads.Add.First().Id;
+            else 
+                id = response.Response.Leads.Update.First().Id;
+            return new List<AddedOrUpdatedLead>()
+                {new AddedOrUpdatedLead() {Id = id}};
+
+            //return response.Response.Leads;
+        }
+
+
+        public List<AddedOrUpdatedLead> AddOrUpdateLeadV2(AddOrUpdateLeadRequest addOrUpdateLeadRequest)
+        {
+            var request = addOrUpdateLeadRequest;
+            var response = AmoMethod.Post<AddOrUpdateLeadV2Response>(request, _crmConfig);
+
+            long id = 0;
+            if (addOrUpdateLeadRequest.Add != null)
+                id = response.Response.Leads.First().Id;
+            else
+                id = response.Response.Leads.First().Id;
+            return new List<AddedOrUpdatedLead>()
+                {new AddedOrUpdatedLead() {Id = id}};
         }
 
         public List<AddedOrUpdatedTask> AddOrUpdateTask(AddOrUpdateTaskRequest addOrUpdateTaskRequest)

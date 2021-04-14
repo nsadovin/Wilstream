@@ -1,0 +1,707 @@
+2021-04-06 00:38:37,774  INFO  IdContact = 70
+2021-04-06 00:38:40,210  INFO  IdContact = 70
+2021-04-06 00:39:44,718  INFO  IdContact = 70
+2021-04-06 00:39:46,477  INFO  IdContact = 70
+2021-04-06 00:40:57,487  INFO  IdContact = 70
+2021-04-06 00:40:59,984  INFO  IdContact = 70
+2021-04-06 00:42:17,941  INFO  IdContact = 70
+2021-04-06 00:42:19,714  INFO  IdContact = 70
+2021-04-06 00:42:38,240  INFO  IdContact = 70
+2021-04-06 00:42:39,847  INFO  IdContact = 70
+2021-04-06 00:43:19,205  INFO  IdContact = 70
+2021-04-06 00:43:20,961  INFO  IdContact = 70
+2021-04-06 00:46:55,736  INFO  IdContact = 70
+2021-04-06 00:46:57,894  INFO  IdContact = 70
+2021-04-06 00:47:20,494  INFO  IdContact = 70
+2021-04-06 00:47:22,108  INFO  IdContact = 70
+2021-04-06 00:47:22,604  INFO  IdDeal = 187
+2021-04-06 00:49:58,242  INFO  IdContact = 70
+2021-04-06 00:50:00,108  INFO  IdContact = 70
+2021-04-06 00:50:13,636  INFO  IdContact = 70
+2021-04-06 00:50:15,234  INFO  IdContact = 70
+2021-04-06 00:51:08,740  INFO  IdContact = 70
+2021-04-06 00:51:10,412  INFO  IdContact = 70
+2021-04-06 08:25:13,856  INFO  IdContact = 70
+2021-04-06 08:25:16,089  INFO  IdContact = 70
+2021-04-06 08:45:12,785  INFO  IdContact = 70
+2021-04-06 08:45:15,015  INFO  IdContact = 70
+2021-04-06 08:45:28,012  INFO  IdContact = 70
+2021-04-06 08:45:29,573  INFO  IdContact = 70
+2021-04-06 08:48:19,679  INFO  IdContact = 70
+2021-04-06 08:48:21,823  INFO  IdContact = 70
+2021-04-06 08:57:52,567  INFO  IdContact = 70
+2021-04-06 08:57:54,188  INFO  IdContact = 70
+2021-04-06 08:58:08,448  INFO  IdContact = 70
+2021-04-06 08:58:10,006  INFO  IdContact = 70
+2021-04-06 08:58:23,789  INFO  IdContact = 70
+2021-04-06 08:58:25,481  INFO  IdContact = 70
+2021-04-06 08:58:32,982  INFO  IdContact = 70
+2021-04-06 08:58:34,522  INFO  IdContact = 70
+2021-04-06 08:58:35,435  INFO  IdDeal = 187
+2021-04-06 09:16:51,781  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 09:16:51,964  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617689811.93102,"finish":1617689811.950087,"duration":0.019067049026489258,"processing":0.002034902572631836,"date_start":"2021-04-06T09:16:51+03:00","date_finish":"2021-04-06T09:16:51+03:00"}}
+2021-04-06 09:16:53,134  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JValue" не содержит определения для "ID"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByIdPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1008
+2021-04-06 09:17:10,745  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 09:17:24,210  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617689833.938822,"finish":1617689833.958714,"duration":0.019891977310180664,"processing":0.002006053924560547,"date_start":"2021-04-06T09:17:13+03:00","date_finish":"2021-04-06T09:17:13+03:00"}}
+2021-04-06 09:17:38,450  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JValue" не содержит определения для "ID"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.GetContactsByIdPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1008
+2021-04-06 09:46:15,472  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 09:46:15,621  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617691575.597777,"finish":1617691575.616889,"duration":0.019112110137939453,"processing":0.0016949176788330078,"date_start":"2021-04-06T09:46:15+03:00","date_finish":"2021-04-06T09:46:15+03:00"}}
+2021-04-06 09:46:15,707  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JValue" не содержит определения для "ID"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByIdPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1007
+2021-04-06 09:46:35,736  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 09:47:20,050  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617691597.571404,"finish":1617691597.595389,"duration":0.023984909057617188,"processing":0.003384828567504883,"date_start":"2021-04-06T09:46:37+03:00","date_finish":"2021-04-06T09:46:37+03:00"}}
+2021-04-06 09:47:40,876  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JValue" не содержит определения для "ID"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.GetContactsByIdPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1007
+2021-04-06 09:48:00,002  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 09:48:00,245  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617691680.219388,"finish":1617691680.2387,"duration":0.019311904907226562,"processing":0.001734018325805664,"date_start":"2021-04-06T09:48:00+03:00","date_finish":"2021-04-06T09:48:00+03:00"}}
+2021-04-06 10:05:48,154  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 10:05:48,349  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617692748.329832,"finish":1617692748.35063,"duration":0.0207979679107666,"processing":0.0018210411071777344,"date_start":"2021-04-06T10:05:48+03:00","date_finish":"2021-04-06T10:05:48+03:00"}}
+2021-04-06 10:06:25,946  INFO  crm.company.list = {"result":[],"total":0,"time":{"start":1617692784.095501,"finish":1617692784.120226,"duration":0.024724960327148438,"processing":0.006736040115356445,"date_start":"2021-04-06T10:06:24+03:00","date_finish":"2021-04-06T10:06:24+03:00"}}
+2021-04-06 10:07:29,954  INFO  crm.company.list = {"result":[],"total":0,"time":{"start":1617692841.772992,"finish":1617692841.795209,"duration":0.0222170352935791,"processing":0.004601955413818359,"date_start":"2021-04-06T10:07:21+03:00","date_finish":"2021-04-06T10:07:21+03:00"}}
+2021-04-06 10:07:41,883  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 10:07:42,070  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617692862.049988,"finish":1617692862.069969,"duration":0.019980907440185547,"processing":0.0016369819641113281,"date_start":"2021-04-06T10:07:42+03:00","date_finish":"2021-04-06T10:07:42+03:00"}}
+2021-04-06 10:08:15,862  INFO  crm.company.list = {"result":[],"total":0,"time":{"start":1617692888.779812,"finish":1617692888.799856,"duration":0.02004384994506836,"processing":0.0025742053985595703,"date_start":"2021-04-06T10:08:08+03:00","date_finish":"2021-04-06T10:08:08+03:00"}}
+2021-04-06 10:08:27,486  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 10:08:27,630  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617692907.611177,"finish":1617692907.63031,"duration":0.01913309097290039,"processing":0.0016510486602783203,"date_start":"2021-04-06T10:08:27+03:00","date_finish":"2021-04-06T10:08:27+03:00"}}
+2021-04-06 10:09:21,608  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617692910.690523,"finish":1617692910.715089,"duration":0.024566173553466797,"processing":0.0068988800048828125,"date_start":"2021-04-06T10:08:30+03:00","date_finish":"2021-04-06T10:08:30+03:00"}}
+2021-04-06 10:09:21,709  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1017
+2021-04-06 10:12:19,983  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 10:12:20,144  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617693140.12945,"finish":1617693140.148127,"duration":0.0186769962310791,"processing":0.0016620159149169922,"date_start":"2021-04-06T10:12:20+03:00","date_finish":"2021-04-06T10:12:20+03:00"}}
+2021-04-06 10:12:20,302  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617693140.278674,"finish":1617693140.305764,"duration":0.027090072631835938,"processing":0.008669137954711914,"date_start":"2021-04-06T10:12:20+03:00","date_finish":"2021-04-06T10:12:20+03:00"}}
+2021-04-06 10:27:12,009  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 10:27:12,287  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617694032.255745,"finish":1617694032.276024,"duration":0.0202791690826416,"processing":0.0021848678588867188,"date_start":"2021-04-06T10:27:12+03:00","date_finish":"2021-04-06T10:27:12+03:00"}}
+2021-04-06 10:27:12,596  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617694032.568409,"finish":1617694032.593434,"duration":0.025025129318237305,"processing":0.007416963577270508,"date_start":"2021-04-06T10:27:12+03:00","date_finish":"2021-04-06T10:27:12+03:00"}}
+2021-04-06 10:27:29,251  INFO  IdContact = 70
+2021-04-06 10:27:31,085  INFO  IdContact = 70
+2021-04-06 10:27:45,581  INFO  IdContact = 70
+2021-04-06 10:27:47,203  INFO  IdContact = 70
+2021-04-06 10:28:00,800  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 10:28:00,950  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617694080.92844,"finish":1617694080.947298,"duration":0.018857955932617188,"processing":0.0017619132995605469,"date_start":"2021-04-06T10:28:00+03:00","date_finish":"2021-04-06T10:28:00+03:00"}}
+2021-04-06 10:28:01,061  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617694081.032724,"finish":1617694081.056687,"duration":0.023963212966918945,"processing":0.006810903549194336,"date_start":"2021-04-06T10:28:01+03:00","date_finish":"2021-04-06T10:28:01+03:00"}}
+2021-04-06 10:30:01,953  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 10:30:02,112  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617694202.100038,"finish":1617694202.119176,"duration":0.019137859344482422,"processing":0.0017960071563720703,"date_start":"2021-04-06T10:30:02+03:00","date_finish":"2021-04-06T10:30:02+03:00"}}
+2021-04-06 10:30:02,259  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617694202.22422,"finish":1617694202.25104,"duration":0.026819944381713867,"processing":0.00896906852722168,"date_start":"2021-04-06T10:30:02+03:00","date_finish":"2021-04-06T10:30:02+03:00"}}
+2021-04-06 10:31:14,515  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 10:31:14,649  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617694274.642838,"finish":1617694274.661055,"duration":0.018217086791992188,"processing":0.0015938282012939453,"date_start":"2021-04-06T10:31:14+03:00","date_finish":"2021-04-06T10:31:14+03:00"}}
+2021-04-06 10:31:14,777  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617694274.765316,"finish":1617694274.788693,"duration":0.023376941680908203,"processing":0.006273031234741211,"date_start":"2021-04-06T10:31:14+03:00","date_finish":"2021-04-06T10:31:14+03:00"}}
+2021-04-06 10:33:03,052  INFO  strPhone = &values[]=919765128&values[]=7919765128&values[]=8919765128
+2021-04-06 10:33:03,218  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617694383.202711,"finish":1617694383.223047,"duration":0.020335912704467773,"processing":0.0019528865814208984,"date_start":"2021-04-06T10:33:03+03:00","date_finish":"2021-04-06T10:33:03+03:00"}}
+2021-04-06 10:33:03,351  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1031
+2021-04-06 10:33:25,609  INFO  strPhone = &values[]=65347765&values[]=765347765&values[]=865347765
+2021-04-06 10:33:25,740  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[69]},"time":{"start":1617694405.732995,"finish":1617694405.751958,"duration":0.018962860107421875,"processing":0.0020699501037597656,"date_start":"2021-04-06T10:33:25+03:00","date_finish":"2021-04-06T10:33:25+03:00"}}
+2021-04-06 10:33:25,900  INFO  crm.company.list = {"result":[{"ID":"69","POST":"","COMMENTS":"","HONORIFIC":"","NAME":"\u043f\u0430\u0438\u0430","SECOND_NAME":"","LAST_NAME":"","PHOTO":null,"LEAD_ID":null,"TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-02T15:48:58+03:00","DATE_MODIFY":"2021-04-02T15:49:42+03:00","ASSIGNED_BY_ID":"624","CREATED_BY_ID":"624","MODIFY_BY_ID":"624","OPENED":"N","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":null,"ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":null,"UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617694405.888506,"finish":1617694405.910887,"duration":0.022381067276000977,"processing":0.005629062652587891,"date_start":"2021-04-06T10:33:25+03:00","date_finish":"2021-04-06T10:33:25+03:00"}}
+2021-04-06 10:33:29,467  INFO  IdContact = 69
+2021-04-06 10:33:31,091  INFO  IdContact = 69
+2021-04-06 14:25:52,949  INFO  Phone = 9197651288
+2021-04-06 14:25:54,397  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:25:54,580  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708354.638621,"finish":1617708354.659727,"duration":0.02110600471496582,"processing":0.002479076385498047,"date_start":"2021-04-06T14:25:54+03:00","date_finish":"2021-04-06T14:25:54+03:00"}}
+2021-04-06 14:25:54,701  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:25:54,739  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:25:54,879  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708354.947842,"finish":1617708354.968546,"duration":0.020704030990600586,"processing":0.002547025680541992,"date_start":"2021-04-06T14:25:54+03:00","date_finish":"2021-04-06T14:25:54+03:00"}}
+2021-04-06 14:25:54,922  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:28:22,662  INFO  Phone = 9197651288
+2021-04-06 14:28:24,179  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:28:24,320  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708504.391743,"finish":1617708504.411412,"duration":0.019669055938720703,"processing":0.0016679763793945312,"date_start":"2021-04-06T14:28:24+03:00","date_finish":"2021-04-06T14:28:24+03:00"}}
+2021-04-06 14:28:24,596  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:28:24,606  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:28:24,735  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708504.805781,"finish":1617708504.826114,"duration":0.020333051681518555,"processing":0.0016620159149169922,"date_start":"2021-04-06T14:28:24+03:00","date_finish":"2021-04-06T14:28:24+03:00"}}
+2021-04-06 14:28:24,807  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:31:40,678  INFO  Phone = 9197651288
+2021-04-06 14:31:42,492  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:31:42,650  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708702.710132,"finish":1617708702.73054,"duration":0.020408153533935547,"processing":0.0017528533935546875,"date_start":"2021-04-06T14:31:42+03:00","date_finish":"2021-04-06T14:31:42+03:00"}}
+2021-04-06 14:31:42,734  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:31:42,744  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:31:42,918  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708702.981342,"finish":1617708703.00186,"duration":0.020517826080322266,"processing":0.0016219615936279297,"date_start":"2021-04-06T14:31:42+03:00","date_finish":"2021-04-06T14:31:43+03:00"}}
+2021-04-06 14:31:43,084  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:32:55,143  INFO  Phone = 9197651288
+2021-04-06 14:32:56,489  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:32:56,643  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708776.708794,"finish":1617708776.729224,"duration":0.02042984962463379,"processing":0.0020270347595214844,"date_start":"2021-04-06T14:32:56+03:00","date_finish":"2021-04-06T14:32:56+03:00"}}
+2021-04-06 14:32:56,690  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:32:56,700  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:32:56,851  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708776.913443,"finish":1617708776.93274,"duration":0.019296884536743164,"processing":0.0017180442810058594,"date_start":"2021-04-06T14:32:56+03:00","date_finish":"2021-04-06T14:32:56+03:00"}}
+2021-04-06 14:32:56,905  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:33:40,919  INFO  Phone = 9197651288
+2021-04-06 14:33:42,409  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:33:42,563  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708822.629203,"finish":1617708822.648011,"duration":0.01880788803100586,"processing":0.0014700889587402344,"date_start":"2021-04-06T14:33:42+03:00","date_finish":"2021-04-06T14:33:42+03:00"}}
+2021-04-06 14:33:42,663  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:33:42,674  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:33:42,811  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708822.882757,"finish":1617708822.901316,"duration":0.018558979034423828,"processing":0.0014729499816894531,"date_start":"2021-04-06T14:33:42+03:00","date_finish":"2021-04-06T14:33:42+03:00"}}
+2021-04-06 14:33:42,891  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:33:55,031  INFO  Phone = 9197651288
+2021-04-06 14:33:56,339  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:33:56,502  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708836.564024,"finish":1617708836.58264,"duration":0.0186159610748291,"processing":0.0015671253204345703,"date_start":"2021-04-06T14:33:56+03:00","date_finish":"2021-04-06T14:33:56+03:00"}}
+2021-04-06 14:33:56,600  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:33:56,609  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:33:56,736  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708836.81009,"finish":1617708836.828792,"duration":0.018702030181884766,"processing":0.0015668869018554688,"date_start":"2021-04-06T14:33:56+03:00","date_finish":"2021-04-06T14:33:56+03:00"}}
+2021-04-06 14:33:56,857  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:34:08,845  INFO  Phone = 9197651288
+2021-04-06 14:34:10,112  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:34:10,244  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708850.317431,"finish":1617708850.33679,"duration":0.019359111785888672,"processing":0.0015499591827392578,"date_start":"2021-04-06T14:34:10+03:00","date_finish":"2021-04-06T14:34:10+03:00"}}
+2021-04-06 14:34:10,356  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:34:10,367  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:34:10,522  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708850.594796,"finish":1617708850.614396,"duration":0.01960015296936035,"processing":0.001786947250366211,"date_start":"2021-04-06T14:34:10+03:00","date_finish":"2021-04-06T14:34:10+03:00"}}
+2021-04-06 14:34:10,630  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:34:35,057  INFO  Phone = 9197651288
+2021-04-06 14:34:36,540  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:34:36,718  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708876.77325,"finish":1617708876.793939,"duration":0.020689010620117188,"processing":0.0020110607147216797,"date_start":"2021-04-06T14:34:36+03:00","date_finish":"2021-04-06T14:34:36+03:00"}}
+2021-04-06 14:34:36,789  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:34:36,791  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:34:36,928  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708877.002006,"finish":1617708877.020958,"duration":0.018951892852783203,"processing":0.001669168472290039,"date_start":"2021-04-06T14:34:37+03:00","date_finish":"2021-04-06T14:34:37+03:00"}}
+2021-04-06 14:34:37,017  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:36:03,279  INFO  Phone = 9197651288
+2021-04-06 14:36:04,795  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:36:04,936  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708965.008238,"finish":1617708965.027089,"duration":0.018851041793823242,"processing":0.0015339851379394531,"date_start":"2021-04-06T14:36:05+03:00","date_finish":"2021-04-06T14:36:05+03:00"}}
+2021-04-06 14:36:05,001  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:36:05,010  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:36:05,143  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708965.213329,"finish":1617708965.23276,"duration":0.019430875778198242,"processing":0.0015590190887451172,"date_start":"2021-04-06T14:36:05+03:00","date_finish":"2021-04-06T14:36:05+03:00"}}
+2021-04-06 14:36:05,189  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:36:12,435  INFO  Phone = 9197651288
+2021-04-06 14:36:13,617  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:36:13,748  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708973.81944,"finish":1617708973.839606,"duration":0.02016615867614746,"processing":0.0017859935760498047,"date_start":"2021-04-06T14:36:13+03:00","date_finish":"2021-04-06T14:36:13+03:00"}}
+2021-04-06 14:36:13,774  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:36:13,775  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:36:13,903  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708973.976895,"finish":1617708973.99558,"duration":0.018684864044189453,"processing":0.0014841556549072266,"date_start":"2021-04-06T14:36:13+03:00","date_finish":"2021-04-06T14:36:13+03:00"}}
+2021-04-06 14:36:13,956  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:36:30,420  INFO  Phone = 9197651288
+2021-04-06 14:36:31,630  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:36:31,778  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708991.843821,"finish":1617708991.862837,"duration":0.019016027450561523,"processing":0.0016679763793945312,"date_start":"2021-04-06T14:36:31+03:00","date_finish":"2021-04-06T14:36:31+03:00"}}
+2021-04-06 14:36:31,881  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:36:31,891  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:36:32,041  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708992.103143,"finish":1617708992.122196,"duration":0.019052982330322266,"processing":0.0015659332275390625,"date_start":"2021-04-06T14:36:32+03:00","date_finish":"2021-04-06T14:36:32+03:00"}}
+2021-04-06 14:36:32,095  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:36:36,046  INFO  Phone = 9197651288
+2021-04-06 14:36:37,183  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:36:37,322  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708997.385481,"finish":1617708997.404424,"duration":0.018942832946777344,"processing":0.0015969276428222656,"date_start":"2021-04-06T14:36:37+03:00","date_finish":"2021-04-06T14:36:37+03:00"}}
+2021-04-06 14:36:37,347  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:36:37,349  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:36:37,476  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617708997.551704,"finish":1617708997.569846,"duration":0.018141984939575195,"processing":0.0014660358428955078,"date_start":"2021-04-06T14:36:37+03:00","date_finish":"2021-04-06T14:36:37+03:00"}}
+2021-04-06 14:36:37,546  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:48:19,106  INFO  Phone = 9197651288
+2021-04-06 14:48:20,851  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:48:20,987  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709701.063045,"finish":1617709701.083324,"duration":0.0202789306640625,"processing":0.001775979995727539,"date_start":"2021-04-06T14:48:21+03:00","date_finish":"2021-04-06T14:48:21+03:00"}}
+2021-04-06 14:48:21,110  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:48:21,131  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:48:21,283  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709701.350933,"finish":1617709701.370178,"duration":0.019244909286499023,"processing":0.0016040802001953125,"date_start":"2021-04-06T14:48:21+03:00","date_finish":"2021-04-06T14:48:21+03:00"}}
+2021-04-06 14:48:21,357  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:48:48,562  INFO  Phone = 9197651288
+2021-04-06 14:48:50,074  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:48:50,226  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709730.294503,"finish":1617709730.313226,"duration":0.018723011016845703,"processing":0.0015060901641845703,"date_start":"2021-04-06T14:48:50+03:00","date_finish":"2021-04-06T14:48:50+03:00"}}
+2021-04-06 14:48:50,398  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:48:50,409  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:48:50,558  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709730.630076,"finish":1617709730.649055,"duration":0.01897907257080078,"processing":0.0014758110046386719,"date_start":"2021-04-06T14:48:50+03:00","date_finish":"2021-04-06T14:48:50+03:00"}}
+2021-04-06 14:48:50,754  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:50:31,086  INFO  Phone = 9197651288
+2021-04-06 14:50:32,474  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:50:32,605  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709832.684408,"finish":1617709832.70297,"duration":0.01856207847595215,"processing":0.0014510154724121094,"date_start":"2021-04-06T14:50:32+03:00","date_finish":"2021-04-06T14:50:32+03:00"}}
+2021-04-06 14:50:32,700  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:50:32,712  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:50:32,839  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709832.917839,"finish":1617709832.936572,"duration":0.01873302459716797,"processing":0.0014870166778564453,"date_start":"2021-04-06T14:50:32+03:00","date_finish":"2021-04-06T14:50:32+03:00"}}
+2021-04-06 14:50:33,012  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:51:01,193  INFO  Phone = 9197651288
+2021-04-06 14:51:03,510  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:51:03,651  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709863.729089,"finish":1617709863.7492,"duration":0.020111083984375,"processing":0.0017399787902832031,"date_start":"2021-04-06T14:51:03+03:00","date_finish":"2021-04-06T14:51:03+03:00"}}
+2021-04-06 14:51:03,738  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:51:03,747  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:51:03,876  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709863.95429,"finish":1617709863.974155,"duration":0.019865036010742188,"processing":0.0019481182098388672,"date_start":"2021-04-06T14:51:03+03:00","date_finish":"2021-04-06T14:51:03+03:00"}}
+2021-04-06 14:51:03,956  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:51:30,483  INFO  Phone = 9197651288
+2021-04-06 14:51:31,841  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:51:31,972  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709892.050894,"finish":1617709892.069057,"duration":0.018162965774536133,"processing":0.0014581680297851562,"date_start":"2021-04-06T14:51:32+03:00","date_finish":"2021-04-06T14:51:32+03:00"}}
+2021-04-06 14:51:32,711  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:51:32,724  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:51:32,859  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709892.937072,"finish":1617709892.956704,"duration":0.01963186264038086,"processing":0.001917123794555664,"date_start":"2021-04-06T14:51:32+03:00","date_finish":"2021-04-06T14:51:32+03:00"}}
+2021-04-06 14:51:33,018  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:52:47,937  INFO  Phone = 9197651288
+2021-04-06 14:52:49,472  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:52:49,610  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709969.689005,"finish":1617709969.708672,"duration":0.01966714859008789,"processing":0.002187967300415039,"date_start":"2021-04-06T14:52:49+03:00","date_finish":"2021-04-06T14:52:49+03:00"}}
+2021-04-06 14:52:49,685  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:52:49,693  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:52:49,836  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617709969.907687,"finish":1617709969.927422,"duration":0.019735097885131836,"processing":0.0018508434295654297,"date_start":"2021-04-06T14:52:49+03:00","date_finish":"2021-04-06T14:52:49+03:00"}}
+2021-04-06 14:52:49,940  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 14:53:26,996  INFO  Phone = 9197651288
+2021-04-06 14:53:28,992  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:53:29,130  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710009.210272,"finish":1617710009.229388,"duration":0.019115924835205078,"processing":0.0016160011291503906,"date_start":"2021-04-06T14:53:29+03:00","date_finish":"2021-04-06T14:53:29+03:00"}}
+2021-04-06 14:53:29,574  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 14:53:29,601  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 14:53:29,734  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710009.812698,"finish":1617710009.831817,"duration":0.0191190242767334,"processing":0.0015611648559570312,"date_start":"2021-04-06T14:53:29+03:00","date_finish":"2021-04-06T14:53:29+03:00"}}
+2021-04-06 14:53:29,774  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:04:14,155  INFO  Phone = 9197651288
+2021-04-06 15:04:15,639  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:04:15,772  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710655.855847,"finish":1617710655.874866,"duration":0.019019126892089844,"processing":0.0015099048614501953,"date_start":"2021-04-06T15:04:15+03:00","date_finish":"2021-04-06T15:04:15+03:00"}}
+2021-04-06 15:04:15,859  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:04:15,876  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:04:16,002  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710656.087024,"finish":1617710656.105779,"duration":0.018754959106445312,"processing":0.0014641284942626953,"date_start":"2021-04-06T15:04:16+03:00","date_finish":"2021-04-06T15:04:16+03:00"}}
+2021-04-06 15:04:16,054  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:04:39,757  INFO  Phone = 9197651288
+2021-04-06 15:04:40,958  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:04:41,091  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710681.17536,"finish":1617710681.194615,"duration":0.01925492286682129,"processing":0.0014719963073730469,"date_start":"2021-04-06T15:04:41+03:00","date_finish":"2021-04-06T15:04:41+03:00"}}
+2021-04-06 15:04:41,142  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:04:41,150  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:04:41,286  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710681.369179,"finish":1617710681.389546,"duration":0.020366907119750977,"processing":0.002065896987915039,"date_start":"2021-04-06T15:04:41+03:00","date_finish":"2021-04-06T15:04:41+03:00"}}
+2021-04-06 15:04:41,336  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:05:15,446  INFO  Phone = 9197651288
+2021-04-06 15:05:16,797  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:05:16,971  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710717.055517,"finish":1617710717.074758,"duration":0.0192410945892334,"processing":0.001708984375,"date_start":"2021-04-06T15:05:17+03:00","date_finish":"2021-04-06T15:05:17+03:00"}}
+2021-04-06 15:05:17,021  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:05:17,031  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:05:17,167  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710717.249292,"finish":1617710717.26992,"duration":0.02062821388244629,"processing":0.001789093017578125,"date_start":"2021-04-06T15:05:17+03:00","date_finish":"2021-04-06T15:05:17+03:00"}}
+2021-04-06 15:05:17,214  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:05:29,221  INFO  Phone = 9197651288
+2021-04-06 15:05:30,412  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:05:30,541  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710730.625486,"finish":1617710730.64489,"duration":0.019404172897338867,"processing":0.0015308856964111328,"date_start":"2021-04-06T15:05:30+03:00","date_finish":"2021-04-06T15:05:30+03:00"}}
+2021-04-06 15:05:30,583  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:05:30,596  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:05:30,721  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710730.807062,"finish":1617710730.825574,"duration":0.01851201057434082,"processing":0.0014340877532958984,"date_start":"2021-04-06T15:05:30+03:00","date_finish":"2021-04-06T15:05:30+03:00"}}
+2021-04-06 15:05:30,772  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:05:50,699  INFO  Phone = 9197651288
+2021-04-06 15:05:51,928  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:05:52,060  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710752.14349,"finish":1617710752.162128,"duration":0.018637895584106445,"processing":0.0014920234680175781,"date_start":"2021-04-06T15:05:52+03:00","date_finish":"2021-04-06T15:05:52+03:00"}}
+2021-04-06 15:05:52,127  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:05:52,135  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:05:52,261  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710752.345573,"finish":1617710752.364325,"duration":0.018752098083496094,"processing":0.0015058517456054688,"date_start":"2021-04-06T15:05:52+03:00","date_finish":"2021-04-06T15:05:52+03:00"}}
+2021-04-06 15:05:52,334  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:06:02,393  INFO  Phone = 9197651288
+2021-04-06 15:06:03,588  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:06:03,730  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710763.815383,"finish":1617710763.834434,"duration":0.019051074981689453,"processing":0.0016849040985107422,"date_start":"2021-04-06T15:06:03+03:00","date_finish":"2021-04-06T15:06:03+03:00"}}
+2021-04-06 15:06:03,776  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:06:03,783  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:06:03,912  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710763.99697,"finish":1617710764.015958,"duration":0.01898813247680664,"processing":0.0015790462493896484,"date_start":"2021-04-06T15:06:03+03:00","date_finish":"2021-04-06T15:06:04+03:00"}}
+2021-04-06 15:06:03,950  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:06:33,000  INFO  Phone = 9197651288
+2021-04-06 15:06:34,179  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:06:34,311  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710794.39608,"finish":1617710794.414979,"duration":0.018898963928222656,"processing":0.0014789104461669922,"date_start":"2021-04-06T15:06:34+03:00","date_finish":"2021-04-06T15:06:34+03:00"}}
+2021-04-06 15:06:34,346  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:06:34,352  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:06:34,480  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617710794.565017,"finish":1617710794.583365,"duration":0.018347978591918945,"processing":0.0014281272888183594,"date_start":"2021-04-06T15:06:34+03:00","date_finish":"2021-04-06T15:06:34+03:00"}}
+2021-04-06 15:06:34,510  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:13:19,860  INFO  Phone = 9197651288
+2021-04-06 15:13:21,291  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:13:21,431  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617711201.519493,"finish":1617711201.538043,"duration":0.01854991912841797,"processing":0.0015168190002441406,"date_start":"2021-04-06T15:13:21+03:00","date_finish":"2021-04-06T15:13:21+03:00"}}
+2021-04-06 15:13:21,519  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:13:21,528  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:13:21,658  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617711201.746404,"finish":1617711201.764738,"duration":0.018334150314331055,"processing":0.001455068588256836,"date_start":"2021-04-06T15:13:21+03:00","date_finish":"2021-04-06T15:13:21+03:00"}}
+2021-04-06 15:13:21,711  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:14:25,378  INFO  Phone = 9197651288
+2021-04-06 15:14:26,680  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:14:26,810  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617711266.897744,"finish":1617711266.916953,"duration":0.01920914649963379,"processing":0.0016999244689941406,"date_start":"2021-04-06T15:14:26+03:00","date_finish":"2021-04-06T15:14:26+03:00"}}
+2021-04-06 15:14:26,875  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:14:26,883  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:14:27,021  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617711267.109463,"finish":1617711267.127751,"duration":0.018288135528564453,"processing":0.0014209747314453125,"date_start":"2021-04-06T15:14:27+03:00","date_finish":"2021-04-06T15:14:27+03:00"}}
+2021-04-06 15:14:27,058  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:14:34,665  INFO  Phone = 9197651288
+2021-04-06 15:14:35,817  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:14:35,944  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617711276.032803,"finish":1617711276.051212,"duration":0.018409013748168945,"processing":0.0014820098876953125,"date_start":"2021-04-06T15:14:36+03:00","date_finish":"2021-04-06T15:14:36+03:00"}}
+2021-04-06 15:14:35,971  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:14:35,972  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:14:36,099  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617711276.185859,"finish":1617711276.205373,"duration":0.019514083862304688,"processing":0.0017249584197998047,"date_start":"2021-04-06T15:14:36+03:00","date_finish":"2021-04-06T15:14:36+03:00"}}
+2021-04-06 15:14:36,149  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:14:58,653  INFO  Phone = 9197651288
+2021-04-06 15:14:59,772  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:14:59,900  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617711299.987245,"finish":1617711300.006758,"duration":0.01951289176940918,"processing":0.001499176025390625,"date_start":"2021-04-06T15:14:59+03:00","date_finish":"2021-04-06T15:15:00+03:00"}}
+2021-04-06 15:14:59,930  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1472
+2021-04-06 15:14:59,930  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 15:15:00,055  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617711300.143364,"finish":1617711300.162086,"duration":0.018722057342529297,"processing":0.0014808177947998047,"date_start":"2021-04-06T15:15:00+03:00","date_finish":"2021-04-06T15:15:00+03:00"}}
+2021-04-06 15:15:00,077  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1440
+2021-04-06 15:15:00,692  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 15:15:00,820  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617711300.907943,"finish":1617711300.92759,"duration":0.019646883010864258,"processing":0.0015289783477783203,"date_start":"2021-04-06T15:15:00+03:00","date_finish":"2021-04-06T15:15:00+03:00"}}
+2021-04-06 15:15:00,971  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617711301.052666,"finish":1617711301.07852,"duration":0.025854110717773438,"processing":0.007907867431640625,"date_start":"2021-04-06T15:15:01+03:00","date_finish":"2021-04-06T15:15:01+03:00"}}
+2021-04-06 16:58:06,695  INFO  Phone = 9197651288
+2021-04-06 16:58:09,255  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 16:58:09,386  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617717489.508329,"finish":1617717489.527149,"duration":0.01882004737854004,"processing":0.00150299072265625,"date_start":"2021-04-06T16:58:09+03:00","date_finish":"2021-04-06T16:58:09+03:00"}}
+2021-04-06 16:58:09,710  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1484
+2021-04-06 16:58:09,739  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 16:58:09,869  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617717489.991274,"finish":1617717490.009707,"duration":0.0184328556060791,"processing":0.0014951229095458984,"date_start":"2021-04-06T16:58:09+03:00","date_finish":"2021-04-06T16:58:10+03:00"}}
+2021-04-06 16:58:09,980  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1452
+2021-04-06 16:58:16,353  INFO  Phone = 9197651288
+2021-04-06 16:58:17,532  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 16:58:17,671  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617717497.786233,"finish":1617717497.805827,"duration":0.01959395408630371,"processing":0.0017261505126953125,"date_start":"2021-04-06T16:58:17+03:00","date_finish":"2021-04-06T16:58:17+03:00"}}
+2021-04-06 16:58:17,703  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1484
+2021-04-06 16:58:17,704  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 16:58:17,836  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617717497.959195,"finish":1617717497.977452,"duration":0.01825714111328125,"processing":0.0014429092407226562,"date_start":"2021-04-06T16:58:17+03:00","date_finish":"2021-04-06T16:58:17+03:00"}}
+2021-04-06 16:58:17,885  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1452
+2021-04-06 16:58:18,545  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 16:58:18,676  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617717498.798318,"finish":1617717498.817258,"duration":0.018939971923828125,"processing":0.0016210079193115234,"date_start":"2021-04-06T16:58:18+03:00","date_finish":"2021-04-06T16:58:18+03:00"}}
+2021-04-06 16:58:18,794  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617717498.90883,"finish":1617717498.934245,"duration":0.02541518211364746,"processing":0.007875919342041016,"date_start":"2021-04-06T16:58:18+03:00","date_finish":"2021-04-06T16:58:18+03:00"}}
+2021-04-06 16:58:18,864  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1046
+2021-04-06 16:58:29,903  INFO  Phone = 9197651288
+2021-04-06 16:58:31,132  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 16:58:31,261  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617717511.38392,"finish":1617717511.402488,"duration":0.018568038940429688,"processing":0.001538991928100586,"date_start":"2021-04-06T16:58:31+03:00","date_finish":"2021-04-06T16:58:31+03:00"}}
+2021-04-06 16:58:31,316  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1484
+2021-04-06 16:58:31,320  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 16:58:31,463  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617717511.577231,"finish":1617717511.604055,"duration":0.026823997497558594,"processing":0.001547098159790039,"date_start":"2021-04-06T16:58:31+03:00","date_finish":"2021-04-06T16:58:31+03:00"}}
+2021-04-06 16:58:31,496  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1452
+2021-04-06 16:58:32,100  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 16:58:32,227  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617717512.349191,"finish":1617717512.36827,"duration":0.019078969955444336,"processing":0.0016810894012451172,"date_start":"2021-04-06T16:58:32+03:00","date_finish":"2021-04-06T16:58:32+03:00"}}
+2021-04-06 16:58:32,313  INFO  crm.company.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617717512.430236,"finish":1617717512.453857,"duration":0.0236208438873291,"processing":0.006175994873046875,"date_start":"2021-04-06T16:58:32+03:00","date_finish":"2021-04-06T16:58:32+03:00"}}
+2021-04-06 16:59:55,255  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1046
+2021-04-06 17:11:30,028  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:11:30,175  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617718290.300524,"finish":1617718290.320193,"duration":0.019669055938720703,"processing":0.0018467903137207031,"date_start":"2021-04-06T17:11:30+03:00","date_finish":"2021-04-06T17:11:30+03:00"}}
+2021-04-06 17:11:30,300  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617718290.420443,"finish":1617718290.443603,"duration":0.02315998077392578,"processing":0.0061550140380859375,"date_start":"2021-04-06T17:11:30+03:00","date_finish":"2021-04-06T17:11:30+03:00"}}
+2021-04-06 17:13:28,280  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1046
+2021-04-06 17:14:53,352  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:14:53,502  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617718493.629453,"finish":1617718493.648352,"duration":0.018898963928222656,"processing":0.0015530586242675781,"date_start":"2021-04-06T17:14:53+03:00","date_finish":"2021-04-06T17:14:53+03:00"}}
+2021-04-06 17:14:53,647  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617718493.770066,"finish":1617718493.793314,"duration":0.023247957229614258,"processing":0.006150007247924805,"date_start":"2021-04-06T17:14:53+03:00","date_finish":"2021-04-06T17:14:53+03:00"}}
+2021-04-06 17:16:01,955  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1047
+2021-04-06 17:16:19,044  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:16:19,194  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617718579.32132,"finish":1617718579.341266,"duration":0.019945859909057617,"processing":0.0019459724426269531,"date_start":"2021-04-06T17:16:19+03:00","date_finish":"2021-04-06T17:16:19+03:00"}}
+2021-04-06 17:16:19,325  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617718579.448163,"finish":1617718579.471488,"duration":0.023324966430664062,"processing":0.006067037582397461,"date_start":"2021-04-06T17:16:19+03:00","date_finish":"2021-04-06T17:16:19+03:00"}}
+2021-04-06 17:20:20,569  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1047
+2021-04-06 17:20:22,198  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:20:22,337  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617718822.465914,"finish":1617718822.485325,"duration":0.019411087036132812,"processing":0.0015628337860107422,"date_start":"2021-04-06T17:20:22+03:00","date_finish":"2021-04-06T17:20:22+03:00"}}
+2021-04-06 17:20:22,435  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null}],"total":1,"time":{"start":1617718822.548022,"finish":1617718822.573707,"duration":0.02568507194519043,"processing":0.007401943206787109,"date_start":"2021-04-06T17:20:22+03:00","date_finish":"2021-04-06T17:20:22+03:00"}}
+2021-04-06 17:20:22,570  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1047
+2021-04-06 17:20:58,442  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:20:58,575  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617718858.704198,"finish":1617718858.722577,"duration":0.01837921142578125,"processing":0.0014801025390625,"date_start":"2021-04-06T17:20:58+03:00","date_finish":"2021-04-06T17:20:58+03:00"}}
+2021-04-06 17:20:58,690  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617718858.813764,"finish":1617718858.837487,"duration":0.02372288703918457,"processing":0.006582975387573242,"date_start":"2021-04-06T17:20:58+03:00","date_finish":"2021-04-06T17:20:58+03:00"}}
+2021-04-06 17:24:25,254  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1049
+2021-04-06 17:24:32,148  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:24:32,278  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617719072.4073,"finish":1617719072.426162,"duration":0.018862009048461914,"processing":0.0016341209411621094,"date_start":"2021-04-06T17:24:32+03:00","date_finish":"2021-04-06T17:24:32+03:00"}}
+2021-04-06 17:24:32,429  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617719072.553367,"finish":1617719072.577488,"duration":0.02412104606628418,"processing":0.00648808479309082,"date_start":"2021-04-06T17:24:32+03:00","date_finish":"2021-04-06T17:24:32+03:00"}}
+2021-04-06 17:25:25,365  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Не удается выполнить привязки исполняющей среды по нулевой ссылке
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.GetContactsByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1049
+2021-04-06 17:25:33,180  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:25:33,349  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617719133.479087,"finish":1617719133.498445,"duration":0.019357919692993164,"processing":0.0014739036560058594,"date_start":"2021-04-06T17:25:33+03:00","date_finish":"2021-04-06T17:25:33+03:00"}}
+2021-04-06 17:25:33,540  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617719133.647843,"finish":1617719133.672221,"duration":0.024378061294555664,"processing":0.006265878677368164,"date_start":"2021-04-06T17:25:33+03:00","date_finish":"2021-04-06T17:25:33+03:00"}}
+2021-04-06 17:26:19,594  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:26:19,743  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617719179.874922,"finish":1617719179.893523,"duration":0.018600940704345703,"processing":0.0015170574188232422,"date_start":"2021-04-06T17:26:19+03:00","date_finish":"2021-04-06T17:26:19+03:00"}}
+2021-04-06 17:26:19,902  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617719180.025819,"finish":1617719180.051632,"duration":0.025812864303588867,"processing":0.007735013961791992,"date_start":"2021-04-06T17:26:20+03:00","date_finish":"2021-04-06T17:26:20+03:00"}}
+2021-04-06 17:26:42,017  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:26:42,157  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617719202.285934,"finish":1617719202.305659,"duration":0.01972508430480957,"processing":0.0018010139465332031,"date_start":"2021-04-06T17:26:42+03:00","date_finish":"2021-04-06T17:26:42+03:00"}}
+2021-04-06 17:26:42,271  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617719202.396067,"finish":1617719202.420262,"duration":0.024195194244384766,"processing":0.007040977478027344,"date_start":"2021-04-06T17:26:42+03:00","date_finish":"2021-04-06T17:26:42+03:00"}}
+2021-04-06 17:27:45,464  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:27:46,153  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617719265.724798,"finish":1617719265.743404,"duration":0.018605947494506836,"processing":0.0015380382537841797,"date_start":"2021-04-06T17:27:45+03:00","date_finish":"2021-04-06T17:27:45+03:00"}}
+2021-04-06 17:27:46,257  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617719266.384025,"finish":1617719266.407053,"duration":0.023027896881103516,"processing":0.0059947967529296875,"date_start":"2021-04-06T17:27:46+03:00","date_finish":"2021-04-06T17:27:46+03:00"}}
+2021-04-06 17:27:59,008  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:27:59,139  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617719279.269586,"finish":1617719279.289144,"duration":0.019557952880859375,"processing":0.0018048286437988281,"date_start":"2021-04-06T17:27:59+03:00","date_finish":"2021-04-06T17:27:59+03:00"}}
+2021-04-06 17:27:59,301  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617719279.409834,"finish":1617719279.437304,"duration":0.027470111846923828,"processing":0.009510040283203125,"date_start":"2021-04-06T17:27:59+03:00","date_finish":"2021-04-06T17:27:59+03:00"}}
+2021-04-06 17:28:14,446  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 17:28:14,586  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617719294.716189,"finish":1617719294.736007,"duration":0.01981806755065918,"processing":0.001589059829711914,"date_start":"2021-04-06T17:28:14+03:00","date_finish":"2021-04-06T17:28:14+03:00"}}
+2021-04-06 17:28:14,815  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617719294.938936,"finish":1617719294.96294,"duration":0.024003982543945312,"processing":0.006704092025756836,"date_start":"2021-04-06T17:28:14+03:00","date_finish":"2021-04-06T17:28:14+03:00"}}
+2021-04-06 17:28:21,161  INFO  IdContact = 70
+2021-04-06 17:28:22,892  INFO  IdContact = 70
+2021-04-06 17:31:01,860  INFO  IdContact = 70
+2021-04-06 17:31:03,836  INFO  IdContact = 70
+2021-04-06 17:33:36,755  INFO  IdContact = 70
+2021-04-06 17:33:38,568  INFO  IdContact = 70
+2021-04-06 17:34:36,060  INFO  IdContact = 70
+2021-04-06 17:34:37,523  INFO  IdContact = 70
+2021-04-06 17:37:18,811  INFO  IdContact = 70
+2021-04-06 17:37:20,455  INFO  IdContact = 70
+2021-04-06 17:37:56,121  INFO  IdContact = 70
+2021-04-06 17:37:57,553  INFO  IdContact = 70
+2021-04-06 17:38:18,131  INFO  IdContact = 70
+2021-04-06 17:38:19,721  INFO  IdContact = 70
+2021-04-06 17:38:36,762  INFO  IdContact = 70
+2021-04-06 17:38:38,132  INFO  IdContact = 70
+2021-04-06 17:43:53,683  INFO  IdContact = 70
+2021-04-06 17:43:55,226  INFO  IdContact = 70
+2021-04-06 17:48:32,195  INFO  IdContact = 70
+2021-04-06 17:48:34,057  INFO  IdContact = 70
+2021-04-06 17:53:36,424  INFO  IdContact = 70
+2021-04-06 17:53:38,127  INFO  IdContact = 70
+2021-04-06 17:56:06,726  INFO  IdContact = 70
+2021-04-06 17:56:08,299  INFO  IdContact = 70
+2021-04-06 17:56:40,019  INFO  IdContact = 70
+2021-04-06 17:56:41,392  INFO  IdContact = 70
+2021-04-06 17:57:10,885  INFO  IdContact = 70
+2021-04-06 17:57:13,075  INFO  IdContact = 70
+2021-04-06 17:57:32,068  INFO  IdContact = 70
+2021-04-06 17:57:33,682  INFO  IdContact = 70
+2021-04-06 17:58:26,091  INFO  IdContact = 70
+2021-04-06 17:58:27,620  INFO  IdContact = 70
+2021-04-06 18:00:28,490  INFO  IdContact = 70
+2021-04-06 18:00:30,184  INFO  IdContact = 70
+2021-04-06 18:18:50,663  INFO  Phone = 9197651288
+2021-04-06 18:18:52,357  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 18:18:52,490  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617722332.709926,"finish":1617722332.729102,"duration":0.019176006317138672,"processing":0.0015439987182617188,"date_start":"2021-04-06T18:18:52+03:00","date_finish":"2021-04-06T18:18:52+03:00"}}
+2021-04-06 18:18:53,353  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1525
+2021-04-06 18:18:53,398  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 18:18:53,525  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617722333.746811,"finish":1617722333.766009,"duration":0.019198179244995117,"processing":0.0015289783477783203,"date_start":"2021-04-06T18:18:53+03:00","date_finish":"2021-04-06T18:18:53+03:00"}}
+2021-04-06 18:18:53,577  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1493
+2021-04-06 18:19:19,729  INFO  Phone = 9197651288
+2021-04-06 18:19:21,556  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 18:19:21,693  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617722361.915687,"finish":1617722361.934708,"duration":0.019021034240722656,"processing":0.001653909683227539,"date_start":"2021-04-06T18:19:21+03:00","date_finish":"2021-04-06T18:19:21+03:00"}}
+2021-04-06 18:19:21,771  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1525
+2021-04-06 18:19:21,789  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 18:19:21,928  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617722362.147585,"finish":1617722362.167014,"duration":0.01942896842956543,"processing":0.001508951187133789,"date_start":"2021-04-06T18:19:22+03:00","date_finish":"2021-04-06T18:19:22+03:00"}}
+2021-04-06 18:19:22,351  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1493
+2021-04-06 18:20:59,610  INFO  Phone = 9197651288
+2021-04-06 18:21:01,428  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 18:21:01,563  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617722461.783581,"finish":1617722461.803696,"duration":0.020114898681640625,"processing":0.0017290115356445312,"date_start":"2021-04-06T18:21:01+03:00","date_finish":"2021-04-06T18:21:01+03:00"}}
+2021-04-06 18:21:01,820  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1530
+2021-04-06 18:21:01,843  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 18:21:01,988  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617722462.209938,"finish":1617722462.229237,"duration":0.019299030303955078,"processing":0.0015408992767333984,"date_start":"2021-04-06T18:21:02+03:00","date_finish":"2021-04-06T18:21:02+03:00"}}
+2021-04-06 18:21:02,185  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1498
+2021-04-06 18:21:03,013  INFO  strPhone = &values[]=9197651287&values[]=79197651287&values[]=89197651287
+2021-04-06 18:21:03,160  INFO  crm.duplicate.findbycomm = {"result":{"CONTACT":[70]},"time":{"start":1617722463.380874,"finish":1617722463.399819,"duration":0.018944978713989258,"processing":0.0017309188842773438,"date_start":"2021-04-06T18:21:03+03:00","date_finish":"2021-04-06T18:21:03+03:00"}}
+2021-04-06 18:21:03,717  INFO  crm.contact.list = {"result":[{"ID":"70","POST":null,"COMMENTS":"","HONORIFIC":"HNR_RU_1","NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442","SECOND_NAME":"Test \u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e","LAST_NAME":"Test \u041a\u043e\u043d\u0442\u0430\u043a\u0442!!","PHOTO":null,"LEAD_ID":"8","TYPE_ID":"CLIENT","SOURCE_ID":"CALL","SOURCE_DESCRIPTION":"","COMPANY_ID":null,"BIRTHDATE":"","EXPORT":"Y","HAS_PHONE":"Y","HAS_EMAIL":"N","HAS_IMOL":"N","DATE_CREATE":"2021-04-05T16:00:39+03:00","DATE_MODIFY":"2021-04-05T16:24:50+03:00","ASSIGNED_BY_ID":"4989","CREATED_BY_ID":"4989","MODIFY_BY_ID":"4989","OPENED":"Y","ORIGINATOR_ID":null,"ORIGIN_ID":null,"ORIGIN_VERSION":null,"FACE_ID":null,"ADDRESS":null,"ADDRESS_2":null,"ADDRESS_CITY":"Test ","ADDRESS_POSTAL_CODE":null,"ADDRESS_REGION":null,"ADDRESS_PROVINCE":null,"ADDRESS_COUNTRY":null,"ADDRESS_LOC_ADDR_ID":"34","UTM_SOURCE":null,"UTM_MEDIUM":null,"UTM_CAMPAIGN":null,"UTM_CONTENT":null,"UTM_TERM":null,"PHONE":[{"ID":"114","VALUE_TYPE":"WORK","VALUE":"9197651287","TYPE_ID":"PHONE"}]}],"total":1,"time":{"start":1617722463.931315,"finish":1617722463.957591,"duration":0.026276111602783203,"processing":0.008044004440307617,"date_start":"2021-04-06T18:21:03+03:00","date_finish":"2021-04-06T18:21:03+03:00"}}
+2021-04-06 18:22:11,133  INFO  Phone = 9197651288
+2021-04-06 18:22:12,548  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 18:22:12,680  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617722532.902027,"finish":1617722532.920958,"duration":0.018931150436401367,"processing":0.0014538764953613281,"date_start":"2021-04-06T18:22:12+03:00","date_finish":"2021-04-06T18:22:12+03:00"}}
+2021-04-06 18:22:12,714  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "CONTACT"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdContactByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1530
+2021-04-06 18:22:12,715  INFO  strPhone = &values[]=9197651288&values[]=79197651288&values[]=89197651288
+2021-04-06 18:22:12,842  INFO  crm.duplicate.findbycomm = {"result":[],"time":{"start":1617722533.065743,"finish":1617722533.084633,"duration":0.0188901424407959,"processing":0.0014710426330566406,"date_start":"2021-04-06T18:22:13+03:00","date_finish":"2021-04-06T18:22:13+03:00"}}
+2021-04-06 18:22:12,865  ERROR Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: "Newtonsoft.Json.Linq.JArray" не содержит определения для "LEAD"
+   в CallSite.Target(Closure , CallSite , Object )
+   в Avantsb2.getIdLeadByPhone(String Phone) в C:\Users\Николай\source\repos\nsadovin\Wilstream\BitrixIntegration\Avantsb2.aspx.cs:строка 1498
+2021-04-06 18:22:13,485  INFO  IdContact = 70
+2021-04-06 18:22:15,039  INFO  IdContact = 70
+2021-04-06 18:24:00,747  INFO  IdContact = 70
+2021-04-06 18:24:03,522  INFO  IdContact = 70
+2021-04-06 18:24:04,930  INFO  IdContact = 70
+2021-04-06 18:24:06,439  INFO  IdContact = 70
+2021-04-06 18:24:06,831  INFO  IdDeal = 188
+2021-04-06 18:24:24,333  INFO  IdContact = 70
+2021-04-06 18:24:25,814  INFO  IdContact = 70
+2021-04-06 18:24:26,070  INFO  IdDeal = 188
+2021-04-06 18:25:10,442  INFO  IdContact = 70
+2021-04-06 18:25:12,106  INFO  IdContact = 70
+2021-04-06 18:25:12,514  INFO  IdDeal = 188
+2021-04-06 18:25:17,268  INFO  IdContact = 70
+2021-04-06 18:25:18,771  INFO  IdContact = 70
+2021-04-06 18:25:19,030  INFO  IdDeal = 188
+2021-04-06 18:25:19,940  INFO  IdContact = 70
+2021-04-06 18:25:21,426  INFO  IdContact = 70
+2021-04-06 18:25:21,681  INFO  IdDeal = 187
+2021-04-06 18:31:42,444  INFO  IdContact = 70
+2021-04-06 18:31:44,561  INFO  IdContact = 70
+2021-04-06 18:31:44,990  INFO  IdDeal = 187
