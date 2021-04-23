@@ -70,7 +70,11 @@
                     };
                     block.find(".settlement").val(settlement);
                     block.find(".street").val(ui.item.data.street_with_type);
-                    block.find(".house").val(ui.item.data.house); 
+                  block.find(".house").val(ui.item.data.house);
+                  if (ui.item.data.block_type) {
+                    block.find(".house").val(block.find(".house").val() + ' ' + ui.item.data.block_type + ' ' + ui.item.data.block);
+                  }
+                  //console.log(ui.item.data);
                     return true;
                 }
                 }
@@ -161,7 +165,7 @@
             </asp:DetailsView>
             <asp:SqlDataSource ID="SqlDataSourceOktell_ccws" runat="server" ConnectionString="<%$ ConnectionStrings:oktellConnectionString %>" 
                 SelectCommand="SELECT * FROM [WS_LandproOrder] WHERE ([order_id] = @order_id)"
-                UpdateCommand="UPDATE [WS_LandproOrder] Set [status] = @status, [postalCode] = @postalCode, [administrativeArea] = @administrativeArea, [settlement] = @settlement, [street] = @street, [house] = @house,[deliveryType] = @deliveryType, comment = @comment WHERE ([order_id] = @order_id)"
+                UpdateCommand="UPDATE [WS_LandproOrder] Set [price] = (select sum([quantity]*[price]) from [WS_LandproProduct] where [DbLandproOrderV2_order_id] = [order_id]),  [status] = @status, [postalCode] = @postalCode, [administrativeArea] = @administrativeArea, [settlement] = @settlement, [street] = @street, [house] = @house,[deliveryType] = @deliveryType, comment = @comment WHERE ([order_id] = @order_id)"
                 >
                 <SelectParameters>
                     <asp:QueryStringParameter Name="order_id" QueryStringField="order_id" Type="Int32" />

@@ -82,6 +82,8 @@ public partial class LandProV2 : System.Web.UI.Page
     protected void DetailsView1_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
     {
         var gv = (sender as DetailsView);
+
+        var total = 0;
           
         foreach (TableRow row in gv.Rows)
         foreach (TableCell rowCell in row.Cells)
@@ -93,12 +95,21 @@ public partial class LandProV2 : System.Web.UI.Page
                     var subGv = (rowCellControl as GridView);
                     foreach (GridViewRow subGvRow in subGv.Rows)
                     {
-                        if (subGvRow.RowType == DataControlRowType.DataRow)
-                            subGv.UpdateRow(subGvRow.RowIndex, false);
+                      if (subGvRow.RowType == DataControlRowType.DataRow)
+                      {
+                        subGv.UpdateRow(subGvRow.RowIndex, false);
+                        var tb = subGvRow.FindControl("TextBox1") as TextBox;
+                 
+                        var price = Int32.Parse(subGvRow.Cells[2].Text);
+                        var quantity = Int32.Parse(tb.Text);
+                        total += price * quantity;
+                      }
                     }
                 }
             }
         }
+
+        gv.Rows[4].Cells[1].Text = total.ToString();
 
     }
 

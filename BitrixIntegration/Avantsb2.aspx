@@ -161,7 +161,62 @@
           <asp:Button ID="ButtonSaveLead" CssClass="btn btn-primary" ValidationGroup="Lead" runat="server" OnClick="ButtonSaveLead_Click" Text="Создать лид" />
         </asp:Panel>
 
+
+
         <asp:Panel ID="PanelContact" CssClass="col-auto" Visible="False" runat="server">
+          
+        <asp:Panel ID="PanelCompany" Visible="false" runat="server">
+            <h2>Компания</h2>
+            <asp:HiddenField ID="HiddenFieldIdCompany" runat="server" />
+            <asp:Table ID="TableCompany" runat="server">
+              <asp:TableHeaderRow Visible="false">
+                <asp:TableCell>
+                  Параметр
+                </asp:TableCell>
+                <asp:TableCell>
+                  Значение
+                </asp:TableCell>
+              </asp:TableHeaderRow>
+              <asp:TableRow CssClass="form-group">
+                <asp:TableCell>Название компании</asp:TableCell>
+                <asp:TableCell>
+                  <asp:TextBox ID="TextBoxCompanyTITLE" CssClass="form-control" runat="server"></asp:TextBox>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ValidationGroup="Company" ControlToValidate="TextBoxCompanyTITLE" runat="server" ForeColor="Red" ErrorMessage="Заполните поле" Display="Dynamic"></asp:RequiredFieldValidator>
+                </asp:TableCell>
+              </asp:TableRow>
+              <asp:TableRow>
+                <asp:TableCell>Телефон</asp:TableCell>
+                <asp:TableCell>                
+                  <div class="row ml-0 mr-0">
+                    <asp:Table ID="TableCompanyPhones" CssClass="col-9" runat="server">
+                    </asp:Table>                  
+                    <div class="col-3 text-right pr-0 pl-0">
+                      <asp:Button runat="server" CssClass="btn" OnClick="ButtonCompanyAddPhone_OnClick" ID="ButtonCompanyAddPhone" Text="Добавить" />
+                    </div>
+                  </div>
+                </asp:TableCell>
+              </asp:TableRow>
+              <asp:TableRow>
+                <asp:TableCell>Email</asp:TableCell>
+                <asp:TableCell>  
+                  <div class="row ml-0 mr-0">
+                    <asp:Table ID="TableCompanyEmails" CssClass="col-9" runat="server">
+                    </asp:Table>
+                    <div class="col-3 text-right pr-0 pl-0">
+                      <asp:Button runat="server" CssClass="btn" OnClick="ButtonCompanyAddEmail_OnClick" ID="ButtonCompanyAddEmail" Text="Добавить" />
+                    </div>
+                  </div>
+                </asp:TableCell>
+              </asp:TableRow>
+            </asp:Table>
+
+          <br/>
+          <asp:Button ID="ButtonSaveCompany" CssClass="btn btn-primary" ValidationGroup="Company" runat="server" OnClick="ButtonSaveCompany_OnClick" Text="Создать компанию" />
+          <br/>
+          <br/>
+
+          </asp:Panel>
+
           <asp:HiddenField ID="HiddenFieldIdContact" runat="server" />
 
           <h3>Контакт:
@@ -196,8 +251,6 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ValidationGroup="Contact" ControlToValidate="TextBoxCONTACT_SECOND_NAME" runat="server" ForeColor="Red" ErrorMessage="Заполните поле" Display="Dynamic"></asp:RequiredFieldValidator>
               </asp:TableCell>
             </asp:TableRow>
-
-
             <asp:TableRow>
               <asp:TableCell>Телефон</asp:TableCell>
               <asp:TableCell>                
@@ -368,6 +421,7 @@
         </asp:Panel>
 
       </div>
+      
 
       <div class="row">
 
@@ -407,6 +461,14 @@
               <asp:TableCell>
                 <asp:DropDownList ID="DropDownListDEAL_SOURCE_ID" CssClass="form-control" runat="server"></asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="Deal" ControlToValidate="DropDownListDEAL_SOURCE_ID" runat="server" ForeColor="Red" ErrorMessage="Заполните поле" Display="Dynamic"></asp:RequiredFieldValidator>
+
+              </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+              <asp:TableCell>Тип сделки</asp:TableCell>
+              <asp:TableCell>
+                <asp:DropDownList ID="DropDownListDEAL_TYPE_ID" CssClass="form-control" runat="server"></asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ValidationGroup="Deal" ControlToValidate="DropDownListDEAL_SOURCE_ID" runat="server" ForeColor="Red" ErrorMessage="Заполните поле" Display="Dynamic"></asp:RequiredFieldValidator>
 
               </asp:TableCell>
             </asp:TableRow>
