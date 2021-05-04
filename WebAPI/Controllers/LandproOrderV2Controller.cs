@@ -27,9 +27,19 @@ namespace WebAPI.Controllers
                 id = x.id,
                 user = x.user,
                 products = x.products.Select(p => new DbLandproProductV2()
-                    {id = p.id, price = p.price, name = p.name, quantity = p.quantity}).ToList(),
+                {
+                  id = p.id, 
+                  price = p.price, 
+                  name = p.name, 
+                  quantity = p.quantity,
+                  deliveryName = p.deliveryName,
+                  category = p.category,
+                  vendor = p.vendor,
+                  description = p.description
+                }).ToList(),
                 price = x.price,
                 deliveryPrice = x.deliveryPrice,
+                paymentType = x.paymentType,
                 deliveryTypes = string.Join(",", x.deliveryType)
 
             }).ToList();

@@ -1,0 +1,1 @@
+2021-04-26 09:47:25,761  DEBUG LandproOrderV2 new: [{"id":525,"user":{"name":"Test","phone":"+7999"},"products":[{"id":1,"price":0,"name":"","quantity":0,"vendor":null,"description":"","delivery":[{"isSafe":false,"name":""}]}],"price":0,"deliveryPrice":0,"paymentType":0,"deliveryType":["—беркурьер"]}]

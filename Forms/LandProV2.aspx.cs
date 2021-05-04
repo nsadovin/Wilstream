@@ -124,9 +124,9 @@ public partial class LandProV2 : System.Web.UI.Page
         try
         {
           //if (!Context.Request.Url.Host.Contains("localhost") && Context.Request.QueryString["Debug"] == null)
-                GET("http://vg.wilstream.ru:82/API/landpro/v2/landproorder/", "id=" + supple_id);
-            if (Context.Request.Url.Host.Contains("localhost") && Context.Request.QueryString["Debug"] == null)
-                GET("http://localhost:49538/landpro/v2/landproorder/", "id=" + supple_id);
+      //          GET("http://vg.wilstream.ru:82/API/landpro/v2/landproorder/", "id=" + supple_id);
+     //       if (Context.Request.Url.Host.Contains("localhost") && Context.Request.QueryString["Debug"] == null)
+         //       GET("http://localhost:49538/landpro/v2/landproorder/", "id=" + supple_id);
         }
         catch
         {

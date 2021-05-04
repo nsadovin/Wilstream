@@ -8,18 +8,18 @@ namespace WebAPI.Models
     { 
         [Required] public int id { get; set; }
 
-
         [Required] public UserLanpro user { get; set; }
 
         [Required] public List<LandproProductV2> products { get; set; }
 
-
         [Required] public int price { get; set; }
 
-        [Required] public int deliveryPrice { get; set; }
+        [Required] public int deliveryPrice { get; set; } 
+
+        [Required] public string paymentType { get; set; }
 
         [Required] public List<string> deliveryType { get; set; }
-    }
+  }
 
     [ComplexType]
     public class UserLanpro
@@ -55,6 +55,7 @@ namespace WebAPI.Models
         [Required] public int price { get; set; }
 
         [Required] public int deliveryPrice { get; set; }
+        [Required] public string paymentType { get; set; }
 
         [Required] public string deliveryTypes { get; set; }
         public string deliveryType { get; set; }

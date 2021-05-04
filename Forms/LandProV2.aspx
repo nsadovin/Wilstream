@@ -92,6 +92,7 @@
                     <asp:BoundField DataField="user_name" HeaderText="Имя пользователя" SortExpression="user_name" ReadOnly="True" />
                     <asp:BoundField DataField="user_phone" HeaderText="Телефон" SortExpression="user_phone" ReadOnly="True" />
                     <asp:BoundField DataField="price" HeaderText="Сумма заказа" SortExpression="price" ReadOnly="True" />
+                    <asp:BoundField DataField="paymentType" HeaderText="Оплата" SortExpression="paymentType" ReadOnly="True" />
                     <asp:TemplateField HeaderText="Детали заказа"> 
                         <EditItemTemplate>
                             Адрес:
@@ -110,19 +111,23 @@
                                                     <asp:BoundField DataField="product_id" HeaderText="product_id" InsertVisible="False" ReadOnly="True" SortExpression="product_id" Visible="False" />
                                                     <asp:BoundField DataField="name" HeaderText="Имя товара" SortExpression="name" />
                                                     <asp:BoundField DataField="price" HeaderText="Цена товара за ед." SortExpression="price" />
-                                                    <asp:TemplateField HeaderText="Колличество в поставке" SortExpression="quantity">
+                                                    <asp:TemplateField HeaderText="Количество" SortExpression="quantity">
                                                         <EditItemTemplate>
-                                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("quantity") %>'></asp:TextBox>
+                                                            <asp:TextBox ID="TextBox1" runat="server" Width="50" Text='<%# Bind("quantity") %>'></asp:TextBox>
                                                         </EditItemTemplate>
                                                         <ItemTemplate>
-                                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("quantity") %>'></asp:TextBox>
+                                                            <asp:TextBox ID="TextBox1" runat="server" Width="50" Text='<%# Bind("quantity") %>'></asp:TextBox>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
+                                                  <asp:BoundField DataField="deliveryName" HeaderText="Кто будет осуществлять доставку" SortExpression="deliveryName" />
+                                                  <asp:BoundField DataField="vendor" HeaderText="Поставщик" SortExpression="vendor" />
+                                                  <asp:BoundField DataField="category" HeaderText="Категория" SortExpression="category" />
+                                                  <asp:BoundField DataField="description" HeaderText="Описание" SortExpression="description" />
                                                 </Columns>
                                             </asp:GridView>
                                             <asp:SqlDataSource ID="SqlDataSourceProducts" runat="server" 
                                                 ConnectionString="<%$ ConnectionStrings:oktellConnectionString %>" 
-                                                               SelectCommand="SELECT [name],[price], [quantity],[product_id] FROM [WS_LandproProduct] WHERE ([DbLandproOrderV2_order_id] = @DbLandproOrderV2_order_id)"
+                                                               SelectCommand="SELECT [name],[price], [quantity],[product_id], [deliveryName],[vendor],[category],[description] FROM [WS_LandproProduct] WHERE ([DbLandproOrderV2_order_id] = @DbLandproOrderV2_order_id)"
                                                                UpdateCommand="UPDATE [WS_LandproProduct] SET [quantity] = @quantity WHERE [product_id] = @product_id">
                                                 <SelectParameters>
                                                     <asp:ControlParameter ControlID="HiddenField1" Name="DbLandproOrderV2_order_id" PropertyName="Value" Type="Int32" />
@@ -143,9 +148,9 @@
                                                 <asp:ListItem Value="success">success</asp:ListItem>
                                                 <asp:ListItem Value="decline">decline</asp:ListItem>
                                             </asp:DropDownList>
-                          <br/>Выбранный тип доставки
+                           
                           <asp:HiddenField ID="HiddenFieldTypes" runat="server" Value='<%# Eval("deliveryTypes") %>' />
-                          <asp:DropDownList ID="DropDownList1" runat="server" OnDataBinding="DropDownList1_DataBinding" OnPreRender="DropDownList1_PreRender" SelectedValue='<%# Bind("deliveryType") %>'>
+                          <asp:DropDownList ID="DropDownList1" Visible="False"  runat="server" OnDataBinding="DropDownList1_DataBinding" OnPreRender="DropDownList1_PreRender" SelectedValue='<%# Bind("deliveryType") %>'>
                             <asp:ListItem></asp:ListItem>
                           </asp:DropDownList>
                             <br/>
