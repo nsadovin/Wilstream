@@ -518,7 +518,7 @@
             </asp:TableRow>
           </asp:Table>
 
-          <asp:Button ID="ButtonSaveOrUpdateDeal" CssClass="btn btn-primary" ValidationGroup="TASK" runat="server" OnClick="ButtonSaveOrUpdateDeal_OnClick" Text="Создать сделку" />
+          <asp:Button ID="ButtonSaveOrUpdateDeal" CssClass="btn btn-primary" ValidationGroup="Deal" runat="server" OnClick="ButtonSaveOrUpdateDeal_OnClick" Text="Создать сделку" />
           <br/>
           <br/>
         </asp:Panel>

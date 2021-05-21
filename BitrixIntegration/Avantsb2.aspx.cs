@@ -22,14 +22,32 @@ public partial class Avantsb2 : Page
   public Dictionary<int, FieldSettings> DealFieldSettings = new Dictionary<int, FieldSettings>
   {
     {777, new FieldSettings {Position = 1}},
-    {778, new FieldSettings {Position = 5, Alias = "Направление"}},
+    {778, new FieldSettings {Position = 5, Alias = "Направление", Readonly = true}},
     {269, new FieldSettings {PreTitle = "АДРЕС ДОСТАВКИ"}},
     {270, new FieldSettings {Readonly = true}},
     {271, new FieldSettings {Readonly = true}},
     {272, new FieldSettings {Readonly = true}},
     {166, new FieldSettings {Readonly = true, PreTitle = "ПТС И ДКП - ДОСТАВКА"}},
+    {273, new FieldSettings {Readonly = true}},
     {274, new FieldSettings {Readonly = true}},
-    {275, new FieldSettings {Readonly = true}}
+    {275, new FieldSettings {Readonly = true}},
+    {277, new FieldSettings {Readonly = true}}
+  };
+
+
+  public Dictionary<int, FieldSettings> NewDealFieldSettings = new Dictionary<int, FieldSettings>
+  {
+    {777, new FieldSettings {Position = 1}},
+    {778, new FieldSettings {Position = 5, Alias = "Направление", IsRequired = true}},
+    {269, new FieldSettings {PreTitle = "АДРЕС ДОСТАВКИ"}},
+    {270, new FieldSettings {Readonly = true}},
+    {271, new FieldSettings {Readonly = true}},
+    {272, new FieldSettings {Readonly = true}},
+    {166, new FieldSettings {Readonly = true, PreTitle = "ПТС И ДКП - ДОСТАВКА"}},
+    {273, new FieldSettings {Readonly = true}},
+    {274, new FieldSettings {Readonly = true}},
+    {275, new FieldSettings {Readonly = true}},
+    {277, new FieldSettings {Readonly = true}}
   };
 
   public List<int> FilterContactFields = new List<int>();
@@ -48,7 +66,7 @@ public partial class Avantsb2 : Page
   public Dictionary<int, FieldSettings> UserFieldSettings = new Dictionary<int, FieldSettings>
   {
     {776, new FieldSettings {Position = 1}},
-    {654, new FieldSettings {Position = 11, Alias = "Направление ЛИД"}}
+    {654, new FieldSettings {Position = 11, Alias = "Направление ЛИД", IsRequired = true}}
   };
 
   protected void Page_Init(object sender, EventArgs e)
@@ -80,7 +98,7 @@ public partial class Avantsb2 : Page
     }
 
     _bx24 = new Bitrix24(HttpContext.Current, "local.6062e98e18b1c1.59172320",
-      "aXYiuqGbyT029ll19EN4tVv8KwTW3Ate5cD8qDbqQqtyrYnSUl", "https://dev01.veles24.com", "https://oauth.bitrix.info",
+      "aXYiuqGbyT029ll19EN4tVv8KwTW3Ate5cD8qDbqQqtyrYnSUl", "https://crm.veles24.com", "https://oauth.bitrix.info",
       "CCW", "cc@avantsb.ruZ10");
 
     _responsiblies = GetResponsiblies();
@@ -927,6 +945,7 @@ public partial class Avantsb2 : Page
       DropDownListDEAL_ASSIGNED_BY_ID.SelectedValue = dealByJson.result.ASSIGNED_BY_ID;
       DropDownListDEAL_CURRENCY_ID.SelectedValue = dealByJson.result.CURRENCY_ID;
       DropDownListDEAL_TYPE_ID.SelectedValue = dealByJson.result.TYPE_ID;
+      DropDownListDEAL_TYPE_ID.Enabled = false;
 
       bool isClosed = dealByJson.result.CLOSED.ToString() == "Y";
 
@@ -936,7 +955,7 @@ public partial class Avantsb2 : Page
       if (isClosed)
         DisabledSystemFields();
 
-      CreateUserFields(filterDealFields, isClosed);
+      CreateUserFields(filterDealFields, isClosed, false);
 
       if (dealByJson.result.CONTACT_ID != null)
       {
@@ -970,7 +989,7 @@ public partial class Avantsb2 : Page
     }
     else
     {
-      CreateUserFields(filterDealFields, false);
+      CreateUserFields(filterDealFields, false, true);
     }
   }
 
@@ -1034,7 +1053,7 @@ public partial class Avantsb2 : Page
     return listDeals;
   }
 
-  private void CreateUserFields(List<int> filterDealFields, bool isClosed)
+  private void CreateUserFields(List<int> filterDealFields, bool isClosed, bool isNew)
   {
     var i = 10;
     _bx24.FilterDealFields = filterDealFields;
@@ -1046,7 +1065,7 @@ public partial class Avantsb2 : Page
 
     var tableFileds = TableDeal;
 
-    CreaterFields(fields, tableFileds, DealFieldSettings, i, isClosed);
+    CreaterFields(fields, tableFileds, isNew ? NewDealFieldSettings : DealFieldSettings, i, isClosed);
   }
 
   private void FillUserFields(dynamic dealByJson, List<int> filterDealFields)
@@ -1309,7 +1328,7 @@ public partial class Avantsb2 : Page
               dropDownListUf.SelectedValue = item.Value.ToString();
         }
       }
-      else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.@string)
+      else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.@string || uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.date)
       {
         var ddl = FindControl("TextBoxUserfield" + uf.ID) as TextBox;
         if (ddl != null)
@@ -1431,6 +1450,7 @@ public partial class Avantsb2 : Page
     foreach (var uf in fields)
     {
       var enabled = true;
+      var controlId = "";
 
       if (fieldSettings != null && fieldSettings.ContainsKey(uf.ID))
       {
@@ -1452,7 +1472,8 @@ public partial class Avantsb2 : Page
       {
         if (uf.MULTIPLE == Bitrix24.MULTIPLE.Y)
         {
-          var cbl = new CheckBoxList {ID = "CheckBoxListUserfield" + uf.ID, RepeatColumns = 3};
+          controlId = "CheckBoxListUserfield" + uf.ID;
+           var cbl = new CheckBoxList {ID = controlId, RepeatColumns = 3};
           foreach (var item in uf.LIST)
             cbl.Items.Add(new ListItem {Text = item.VALUE, Value = item.ID.ToString()});
           cbl.Enabled = enabled;
@@ -1460,7 +1481,8 @@ public partial class Avantsb2 : Page
         }
         else
         {
-          var ddl = new DropDownList {ID = "DropDownListUserfield" + uf.ID, CssClass = "form-control"};
+          controlId = "DropDownListUserfield" + uf.ID;
+           var ddl = new DropDownList {ID = controlId, CssClass = "form-control"};
           ddl.Items.Add(new ListItem("-----", ""));
           foreach (var item in uf.LIST)
             ddl.Items.Add(new ListItem {Text = item.VALUE, Value = item.ID.ToString()});
@@ -1472,7 +1494,8 @@ public partial class Avantsb2 : Page
       }
       else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.@string || uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.date)
       {
-        var ddl = new TextBox {ID = "TextBoxUserfield" + uf.ID, CssClass = "form-control"};
+        controlId = "TextBoxUserfield" + uf.ID;
+         var ddl = new TextBox {ID = controlId, CssClass = "form-control"};
         ddl.Enabled = enabled;
         tc2.Controls.Add(ddl);
 
@@ -1480,7 +1503,8 @@ public partial class Avantsb2 : Page
       }
       else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.money)
       {
-        var ddl = new TextBox {ID = "TextBoxUserfield" + uf.ID, CssClass = "form-control"};
+        controlId = "TextBoxUserfield" + uf.ID;
+        var ddl = new TextBox {ID = controlId, CssClass = "form-control"};
         ddl.Enabled = enabled;
         tc2.Controls.Add(ddl);
         var ddl2 = new DropDownList {ID = "DropDownListUserfield" + uf.ID, CssClass = "form-control"};
@@ -1493,7 +1517,8 @@ public partial class Avantsb2 : Page
       }
       else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.boolean)
       {
-        var ddl = new CheckBox {ID = "CheckBoxUserfield" + uf.ID, CssClass = "form-control"};
+        controlId = "CheckBoxUserfield" + uf.ID;
+        var ddl = new CheckBox {ID = controlId, CssClass = "form-control"};
         ddl.Enabled = enabled;
         tc2.Controls.Add(ddl);
 
@@ -1503,7 +1528,23 @@ public partial class Avantsb2 : Page
       if (fieldSettings != null && fieldSettings.ContainsKey(uf.ID))
       {
         var setting = fieldSettings[uf.ID];
-        if (setting.Alias != null) tr.Cells[0].Text = setting.Alias;
+
+        if (setting.Alias != null) 
+          tr.Cells[0].Text = setting.Alias;
+
+        if (setting.IsRequired)
+        {
+          var rfv = new RequiredFieldValidator
+          {
+            ID = "RequiredFieldValidatorLead" + uf.ID,
+            ValidationGroup = "Deal",
+            ControlToValidate = controlId,
+            ForeColor = Color.Red,
+            ErrorMessage = "Заполните поле",
+            Display = ValidatorDisplay.Dynamic
+          };
+          tc2.Controls.Add(rfv);
+        }
 
         var position = i++;
         if (setting.Position != null)
@@ -2217,18 +2258,21 @@ public partial class Avantsb2 : Page
       var tr = new TableRow {ID = "TableRow" + uf.ID};
       var tc1 = new TableCell {ID = "TableCellLabel" + uf.ID, Text = uf.NAME};
       var tc2 = new TableCell {ID = "TableCellUserfield" + uf.ID};
+      var controlId = "";
       if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.enumeration)
       {
         if (uf.MULTIPLE == Bitrix24.MULTIPLE.Y)
         {
-          var cbl = new CheckBoxList {ID = "CheckBoxListUserfield" + uf.ID, RepeatColumns = 3};
+          controlId = "CheckBoxListUserfield" + uf.ID;
+           var cbl = new CheckBoxList {ID = controlId, RepeatColumns = 3};
           foreach (var item in uf.LIST)
             cbl.Items.Add(new ListItem {Text = item.VALUE, Value = item.ID.ToString()});
           tc2.Controls.Add(cbl);
         }
         else
         {
-          var ddl = new DropDownList {ID = "DropDownListUserfield" + uf.ID, CssClass = "form-control"};
+          controlId = "DropDownListUserfield" + uf.ID;
+           var ddl = new DropDownList {ID = controlId, CssClass = "form-control"};
           ddl.Items.Add(new ListItem("-----", ""));
           foreach (var item in uf.LIST)
             ddl.Items.Add(new ListItem {Text = item.VALUE, Value = item.ID.ToString()});
@@ -2240,7 +2284,8 @@ public partial class Avantsb2 : Page
       }
       else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.@string)
       {
-        var ddl = new TextBox {ID = "TextBoxUserfield" + uf.ID, CssClass = "form-control"};
+        controlId = "TextBoxUserfield" + uf.ID;
+         var ddl = new TextBox {ID = controlId, CssClass = "form-control"};
         tc2.Controls.Add(ddl);
 
         tr.Cells.Add(tc1);
@@ -2248,7 +2293,8 @@ public partial class Avantsb2 : Page
       }
       else if (uf.USER_TYPE_ID == Bitrix24.USER_TYPE_ID.boolean)
       {
-        var ddl = new CheckBox {ID = "CheckBoxUserfield" + uf.ID, CssClass = "form-control"};
+        controlId = "CheckBoxUserfield" + uf.ID;
+        var ddl = new CheckBox {ID = controlId, CssClass = "form-control"};
         tc2.Controls.Add(ddl);
 
         tr.Cells.Add(tc1);
@@ -2262,10 +2308,24 @@ public partial class Avantsb2 : Page
         if (setting.Alias != null)
           tr.Cells[0].Text = setting.Alias;
 
+        if (setting.IsRequired)
+        {
+          var rfv = new RequiredFieldValidator { 
+            ID = "RequiredFieldValidatorLead" + uf.ID ,
+            ValidationGroup = "Lead",
+            ControlToValidate = controlId,
+            ForeColor = Color.Red,
+            ErrorMessage = "Заполните поле",
+            Display = ValidatorDisplay.Dynamic
+          };
+          tc2.Controls.Add(rfv);
+        }
+
         if (setting.Position != null)
           TableLead.Rows.AddAt((int) setting.Position, tr);
         else
           TableLead.Rows.Add(tr);
+
       }
       else
       {
@@ -2476,4 +2536,5 @@ public class FieldSettings
   public string Alias { get; internal set; }
   public string PreTitle { get; internal set; }
   public bool Readonly { get; internal set; }
+  public bool IsRequired { get; internal set; }
 }
