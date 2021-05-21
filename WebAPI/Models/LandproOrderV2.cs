@@ -18,7 +18,7 @@ namespace WebAPI.Models
 
         [Required] public string paymentType { get; set; }
 
-        [Required] public List<string> deliveryType { get; set; }
+        public List<string> deliveryType { get; set; }
   }
 
     [ComplexType]
