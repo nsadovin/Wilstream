@@ -57,7 +57,7 @@ namespace WebAPI.Models
         [Required] public int deliveryPrice { get; set; }
         [Required] public string paymentType { get; set; }
 
-        [Required] public string deliveryTypes { get; set; }
+        public string deliveryTypes { get; set; }
         public string deliveryType { get; set; }
     }
 

@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
                 price = x.price,
                 deliveryPrice = x.deliveryPrice,
                 paymentType = x.paymentType,
-                deliveryTypes = string.Join(",", x.deliveryType)
+                deliveryTypes = x.deliveryType!=null ? string.Join(",", x.deliveryType): ""
 
             }).ToList();
              
