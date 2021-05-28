@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -67,7 +68,7 @@ namespace WebAPI.Controllers
         {
             var order = db.DbLandproOrders.Include("products").Where(r => r.order_id == id).Select(x => new LandproOrderDto()
             {
-                id = x.id,
+                externalId = x.id,
                 status = x.status,
                 postalCode = x.postalCode,
                 street = x.street,
@@ -95,9 +96,12 @@ namespace WebAPI.Controllers
             log.Debug("LandproOrder v2 update: " + json);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var httpResponseMessage = new HttpClient().PostAsync("https://sw.landpro.site/update-order", content);
 
-            log.Debug("LandproOrder update result: " + httpResponseMessage.Result.StatusCode.ToString());
+            var endPointUpdateOrder = ConfigurationManager.AppSettings["EndPointUpdateOrder"];
+
+            var httpResponseMessage = new HttpClient().PostAsync(endPointUpdateOrder, content);
+
+            log.Debug($"LandproOrder update by {endPointUpdateOrder} result: " + httpResponseMessage.Result.StatusCode);
             return "good";
         }
     }

@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /BitrixIntegration/Logs/bitrix.log.2021-04-20
 /WebAPI/Logs/api.log.2021-04-28
+/BitrixIntegration/Logs/bitrix.log.2021-05-05

@@ -68,7 +68,7 @@ namespace WebAPI.Models
     
     public class LandproOrderDto
     {    
-        [Required] public int id { get; set; }
+        [Required] public int externalId { get; set; }
 
         [Required]
         public string status { get; set; }
